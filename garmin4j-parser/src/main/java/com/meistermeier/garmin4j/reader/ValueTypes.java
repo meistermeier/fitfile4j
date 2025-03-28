@@ -1,97 +1,92 @@
 package com.meistermeier.garmin4j.reader;
 
-import java.util.Arrays;
 import java.util.List;
 
 public enum ValueTypes {
-    ENUM(1, 0, 0xFF, (value) -> (endianness) -> {
+    ENUM(0, (value) -> (endianness) -> {
         if (value.length > 1) {
-            List<Integer> converted = ValueReader.readList(endianness, value, Integer.class, 1);
+            List<Integer> converted = ValueReader.readList(endianness, value, 1);
             if (converted.stream().allMatch(c -> c == 0xFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumber(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0xFF) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-    BYTE(1, 13, 0xFF, (value) -> (endianness) -> {
+    BYTE(13, (value) -> (endianness) -> {
         if (value.length > 1) {
-            List<Integer> converted = ValueReader.readList(endianness, value, Integer.class, 1);
+            List<Integer> converted = ValueReader.readList(endianness, value, 1);
             if (converted.stream().allMatch(c -> c == 0xFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumber(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0xFF) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-    /*
-    SINT8, 1, 1, 0x7F, i8, NumberValueS8, N
-    */
-    SINT8(1, 1, 0x7F, (value) -> (endianness) -> {
+    SINT8(1, (value) -> (endianness) -> {
         if (value.length > 1) {
-            List<Integer> converted = ValueReader.readListSigned(endianness, value, Integer.class, 1);
+            List<Integer> converted = ValueReader.readList(endianness, value, 1);
             if (converted.stream().allMatch(c -> c == 0x7F)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumberSigned(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0x7F) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-    SINT16(2, 131, 0x7FFF, (value) -> (endianness) -> {
+    SINT16(131, (value) -> (endianness) -> {
         if (value.length > 2) {
-            List<Integer> converted = ValueReader.readListSigned(endianness, value, Integer.class, 2);
+            List<Integer> converted = ValueReader.readList(endianness, value, 2);
             if (converted.stream().allMatch(c -> c == 0x7FFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumberSigned(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0x7FFF) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    SINT32(4, 133, 0x7FFFFFFL, (value) -> (endianness) -> {
+    SINT32(133, (value) -> (endianness) -> {
         if (value.length > 4) {
-            List<Long> converted = ValueReader.readListSigned(endianness, value, Long.class, 4);
+            List<Long> converted = ValueReader.readList(endianness, value, 4);
             if (converted.stream().allMatch(c -> c == 0x7FFF_FFFFL)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Long converted = ValueReader.readNumberSigned(endianness, value, Long.class);
+            Long converted = ValueReader.readNumber(endianness, value);
             if (converted == 0x7FFFFFFFL) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-    SINT64(8, 142, Long.MAX_VALUE, (value) -> (endianness) -> {
+    SINT64(142, (value) -> (endianness) -> {
         if (value.length > 8) {
-            List<Long> converted = ValueReader.readList(endianness, value, Long.class, 8);
+            List<Long> converted = ValueReader.readList(endianness, value, 8);
             if (converted.stream().allMatch(c -> c == Long.MAX_VALUE)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Long converted = ValueReader.readNumber(endianness, value, Long.class);
+            Long converted = ValueReader.readNumber(endianness, value);
 
             if (converted.equals(Long.MAX_VALUE)) {
                 return "illegal value";
@@ -99,63 +94,60 @@ public enum ValueTypes {
             return converted;
         }
     }),
-    UINT8(1, 2, 0xFF, (value) -> (endianness) -> {
+    UINT8(2, (value) -> (endianness) -> {
         if (value.length > 1) {
-            List<Integer> converted = ValueReader.readList(endianness, value, Integer.class, 1);
+            List<Integer> converted = ValueReader.readList(endianness, value, 1);
             if (converted.stream().allMatch(c -> c == 0xFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumber(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0xFF) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    UINT16(2, 132, 0xFFFF, (value) -> (endianness) -> {
+    UINT16(132, (value) -> (endianness) -> {
         if (value.length > 2) {
-            List<Integer> converted = ValueReader.readList(endianness, value, Integer.class, 2);
+            List<Integer> converted = ValueReader.readList(endianness, value, 2);
             if (converted.stream().allMatch(c -> c == 0xFFFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumber(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0xFFFF) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    UINT32(4, 134, 0xFFFFFFFL, (value) -> (endianness) -> {
+    UINT32(134, (value) -> (endianness) -> {
         if (value.length > 4) {
-            List<Long> converted = ValueReader.readList(endianness, value, Long.class, 4);
+            List<Long> converted = ValueReader.readList(endianness, value, 4);
             if (converted.stream().allMatch(c -> c == 0xFFFF_FFFFL)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Long converted = ValueReader.readNumber(endianness, value, Long.class);
+            Long converted = ValueReader.readNumber(endianness, value);
             if (converted == 0xFFFFFFFFL) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    UINT64(8, 143, Long.MAX_VALUE, (value) -> (endianness) -> {
+    UINT64(143, (value) -> (endianness) -> {
         if (value.length > 8) {
-            List<Long> converted = ValueReader.readList(endianness, value, Long.class, 8);
+            List<Long> converted = ValueReader.readList(endianness, value, 8);
             if (converted.stream().allMatch(c -> c == Long.MAX_VALUE)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Long converted = ValueReader.readNumber(endianness, value, Long.class);
+            Long converted = ValueReader.readNumber(endianness, value);
 
             if (converted.equals(Long.MAX_VALUE)) {
                 return "illegal value";
@@ -163,63 +155,60 @@ public enum ValueTypes {
             return converted;
         }
     }),
-    UINT8Z(1, 10, 0xFF, (value) -> (endianness) -> {
+    UINT8Z(10, (value) -> (endianness) -> {
         if (value.length > 1) {
-            List<Integer> converted = ValueReader.readList(endianness, value, Integer.class, 1);
+            List<Integer> converted = ValueReader.readList(endianness, value, 1);
             if (converted.stream().allMatch(c -> c == 0xFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumber(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0xFF) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    UINT16Z(2, 139, 0x0000, (value) -> (endianness) -> {
+    UINT16Z(139, (value) -> (endianness) -> {
         if (value.length > 2) {
-            List<Integer> converted = ValueReader.readList(endianness, value, Integer.class, 2);
+            List<Integer> converted = ValueReader.readList(endianness, value, 2);
             if (converted.stream().allMatch(c -> c == 0x0000)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Integer converted = ValueReader.readNumber(endianness, value, Integer.class);
+            Integer converted = ValueReader.readNumber(endianness, value);
             if (converted == 0x0000) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    UINT32Z(4, 140, 0x0000_0000, (value) -> (endianness) -> {
+    UINT32Z(140, (value) -> (endianness) -> {
         if (value.length > 4) {
-            List<Long> converted = ValueReader.readList(endianness, value, Long.class, 4);
+            List<Long> converted = ValueReader.readList(endianness, value, 4);
             if (converted.stream().allMatch(c -> c == 0x0000_0000)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Long converted = ValueReader.readNumber(endianness, value, Long.class);
+            Long converted = ValueReader.readNumber(endianness, value);
             if (converted == 0x0000_0000) {
                 return "illegal value";
             }
             return converted;
         }
     }),
-
-    UINT64Z(8, 144, 0x0000_0000_0000_0000, (value) -> (endianness) -> {
+    UINT64Z(144, (value) -> (endianness) -> {
         if (value.length > 8) {
-            List<Long> converted = ValueReader.readList(endianness, value, Long.class, 8);
+            List<Long> converted = ValueReader.readList(endianness, value, 8);
             if (converted.stream().allMatch(c -> c == 0x0000_0000_0000_0000)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Long converted = ValueReader.readNumber(endianness, value, Long.class);
+            Long converted = ValueReader.readNumber(endianness, value);
 
             if (converted.equals(0x0000_0000_0000_0000L)) {
                 return "illegal value";
@@ -227,15 +216,15 @@ public enum ValueTypes {
             return converted;
         }
     }),
-    FLOAT32(4, 136, 0xFFFF_FFFF, (value) -> (endianness) -> {
+    FLOAT32(136, (value) -> (endianness) -> {
         if (value.length > 8) {
-            List<Float> converted = ValueReader.readList(endianness, value, Float.class, 8);
+            List<Float> converted = ValueReader.readList(endianness, value, 8);
             if (converted.stream().allMatch(c -> c == 0xFFFF_FFFF)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Float converted = ValueReader.readNumber(endianness, value, Float.class);
+            Float converted = ValueReader.readNumber(endianness, value);
 
             if (converted.equals((float)(0xFFFF_FFFF))) {
                 return "illegal value";
@@ -243,15 +232,15 @@ public enum ValueTypes {
             return converted;
         }
     }),
-    FLOAT64(8, 137, Float.MAX_VALUE, (value) -> (endianness) -> {
+    FLOAT64(137, (value) -> (endianness) -> {
         if (value.length > 8) {
-            List<Float> converted = ValueReader.readList(endianness, value, Float.class, 8);
+            List<Float> converted = ValueReader.readList(endianness, value, 8);
             if (converted.stream().allMatch(c -> c == Float.MAX_VALUE)) {
                 return "illegal value";
             }
             return converted;
         } else {
-            Float converted = ValueReader.readNumber(endianness, value, Float.class);
+            Float converted = ValueReader.readNumber(endianness, value);
 
             if (converted.equals(Float.MAX_VALUE)) {
                 return "illegal value";
@@ -259,25 +248,21 @@ public enum ValueTypes {
             return converted;
         }
     }),
-    STRING(1, 7, 0x00, (value) -> (endianess) -> {
+    STRING(7, (value) -> (endianess) -> {
         StringBuilder sb = new StringBuilder();
         for (byte b : value) {
             if (b != 0x00) {
-                sb.append(b);
+                sb.append(Character.valueOf((char) b));
             }
         }
         return sb.toString();
     });
 
-    private final int typeWidth;
     private final int typeNumber;
-    private final float illegalValue;
     private final ValueReader valueReader;
 
-    ValueTypes(int typeWidth, int typeNumber, float illegalValue, ValueReader valueReader) {
-        this.typeWidth = typeWidth;
+    ValueTypes(int typeNumber, ValueReader valueReader) {
         this.typeNumber = typeNumber;
-        this.illegalValue = illegalValue;
         this.valueReader = valueReader;
     }
 
