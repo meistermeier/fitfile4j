@@ -1,4 +1,4 @@
-package com.meistermeier.garmin4j.reader;
+package com.meistermeier.fitfile4j.reader;
 
 import java.util.List;
 

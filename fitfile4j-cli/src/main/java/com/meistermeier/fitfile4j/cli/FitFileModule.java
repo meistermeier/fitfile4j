@@ -1,11 +1,11 @@
-package com.meistermeier.garmin4j.cli;
+package com.meistermeier.fitfile4j.cli;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.meistermeier.garmin4j.FitFile;
-import com.meistermeier.garmin4j.Message;
+import com.meistermeier.fitfile4j.FitFile;
+import com.meistermeier.fitfile4j.FitFile.Message;
 
 import java.io.IOException;
 import java.util.Map;

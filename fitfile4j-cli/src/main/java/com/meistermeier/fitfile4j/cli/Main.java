@@ -1,7 +1,7 @@
-package com.meistermeier.garmin4j.cli;
+package com.meistermeier.fitfile4j.cli;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.meistermeier.garmin4j.FitFile;
+import com.meistermeier.fitfile4j.FitFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         var objectMapper = new ObjectMapper().registerModule(new FitFileModule());
-        var file = Path.of("/Users/gerritmeier/projects/garmin_test_activities/raw_run.fit").toFile();
+        var file = Path.of(args[0]).toFile();
         try (var fileInputStream = new FileInputStream(file);
              var inputStream = new ByteArrayInputStream(fileInputStream.readAllBytes())) {
 

@@ -1,7 +1,7 @@
-package com.meistermeier.garmin4j;
+package com.meistermeier.fitfile4j;
 
-import com.meistermeier.garmin4j.reader.ValueReader;
-import com.meistermeier.garmin4j.reader.ValueTypes;
+import com.meistermeier.fitfile4j.reader.ValueReader;
+import com.meistermeier.fitfile4j.reader.ValueTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,10 @@ public record FitFile(Header header, List<Message> messages) {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FitFile.class);
 
-    record Header(int length, int protocolVersion, String profileVersion, long dataSize, String dataType) {
+    public record Header(int length, int protocolVersion, String profileVersion, long dataSize, String dataType) {
+    }
+
+    public record Message(int messageNumber, Map<Integer, Object> fields) {
     }
 
     public static FitFile from(ByteArrayInputStream inputStream) throws IOException {
@@ -25,7 +28,7 @@ public record FitFile(Header header, List<Message> messages) {
 
         return new FitFile(
                 header,
-                messages //messages.stream().filter(m -> m.messageNumber() ==0).toList()
+                messages
         );
     }
 
@@ -84,12 +87,14 @@ public record FitFile(Header header, List<Message> messages) {
             var recordHeader = RecordHeader.readRecordHeaderByte(inputStream);
             if (recordHeader.isDefinitionMessage()) {
                 // unused but move the read head in a readable way
+                // also this is documented as unused
+                @SuppressWarnings("unused")
                 var _reserved = inputStream.read();
                 var endianness = inputStream.read();
                 var typeFields = inputStream.readNBytes(2);
                 var localMessageType = endianness == 0
-                        ? Byte.toUnsignedInt(typeFields[0]) + (Byte.toUnsignedInt(typeFields[1]) << 8)
-                        : Byte.toUnsignedInt(typeFields[1]) + (Byte.toUnsignedInt(typeFields[0]) << 8);
+                        ? toUnsignedInt(typeFields[0]) + (toUnsignedInt(typeFields[1]) << 8)
+                        : toUnsignedInt(typeFields[1]) + (toUnsignedInt(typeFields[0]) << 8);
 
                 var numberOfFields = inputStream.read();
                 var fieldDefinitions = new ArrayList<FieldDefinition>();
@@ -117,14 +122,9 @@ public record FitFile(Header header, List<Message> messages) {
         return messages;
     }
 
-
     private record RecordHeader(int headerType, int developerFlag, int localMessageNumber,
                                 boolean isDefinitionMessage) {
-        /**
-         * Read and parse the record header byte
-         *
-         * @param inputStream - ongoing stream
-         */
+
         private static RecordHeader readRecordHeaderByte(ByteArrayInputStream inputStream) {
             var recordHeaderByte = inputStream.read();
             var headerType = (recordHeaderByte >> 7) & 1;
