@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.meistermeier.fitfile4j.reader;
+package com.meistermeier.fitfile4j.values;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 /**
@@ -30,13 +32,23 @@ public interface ValueReader {
 
 	Function<Integer, Object> read(byte[] input);
 
-	static ValueReader getReader(int typeNumber) {
+	Map<Integer, ValueReader> valueReaderCache = new HashMap<>(ValueTypes.values().length);
+
+	{
 		for (ValueTypes valueType : ValueTypes.values()) {
-			if (valueType.typeNumber == typeNumber) {
-				return valueType.valueReader;
-			}
+			valueReaderCache.put(valueType.typeNumber, valueType.valueReader);
 		}
-		return DEFAULT_INSTANCE;
+	}
+
+	static ValueReader getReader(int typeNumber) {
+		return valueReaderCache.computeIfAbsent(typeNumber, (typeNumberToSearch) -> {
+			for (ValueTypes valueType : ValueTypes.values()) {
+				if (valueType.typeNumber == typeNumberToSearch) {
+					return valueType.valueReader;
+				}
+			}
+			return DEFAULT_INSTANCE;
+		});
 	}
 
 	static <T> List<T> readList(int endianness, byte[] input, int typeLength) {
@@ -78,6 +90,28 @@ public interface ValueReader {
 				return (T) result;
 			}
 		}
+	}
+
+	static List<Float> readListFloat(int endianness, byte[] input, int typeLength) {
+		List<Float> result = new ArrayList<>();
+		for (var i = 0; i < input.length; i += typeLength) {
+			result.add(readNumberFloat(endianness, Arrays.copyOfRange(input, i, i + typeLength)));
+		}
+		return result;
+	}
+
+	static Float readNumberFloat(int endianness, byte[] input) {
+		Float result = 0f;
+		if (endianness == 0) {
+			for (var i = 0; i < input.length; i++) {
+				result += (Byte.toUnsignedLong(input[i]) << 8 * i);
+			}
+		} else {
+			for (int i = input.length - 1, x = 0; i >= 0; i--, x++) {
+				result += (Byte.toUnsignedLong(input[i]) << 8 * x);
+			}
+		}
+		return result;
 	}
 
 }

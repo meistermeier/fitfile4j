@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.meistermeier.fitfile4j.reader;
+package com.meistermeier.fitfile4j.values;
 
 import java.util.List;
 
@@ -233,13 +233,13 @@ enum ValueTypes {
 	}),
 	FLOAT32(136, (value) -> (endianness) -> {
 		if (value.length > 8) {
-			List<Float> converted = ValueReader.readList(endianness, value, 8);
+			List<Float> converted = ValueReader.readListFloat(endianness, value, 8);
 			if (converted.stream().allMatch(c -> c == 0xFFFF_FFFF)) {
 				return "illegal value";
 			}
 			return converted;
 		} else {
-			Float converted = ValueReader.readNumber(endianness, value);
+			Float converted = ValueReader.readNumberFloat(endianness, value);
 
 			if (converted.equals((float) (0xFFFF_FFFF))) {
 				return "illegal value";
@@ -249,13 +249,13 @@ enum ValueTypes {
 	}),
 	FLOAT64(137, (value) -> (endianness) -> {
 		if (value.length > 8) {
-			List<Float> converted = ValueReader.readList(endianness, value, 8);
+			List<Float> converted = ValueReader.readListFloat(endianness, value, 8);
 			if (converted.stream().allMatch(c -> c == Float.MAX_VALUE)) {
 				return "illegal value";
 			}
 			return converted;
 		} else {
-			Float converted = ValueReader.readNumber(endianness, value);
+			Float converted = ValueReader.readNumberFloat(endianness, value);
 
 			if (converted.equals(Float.MAX_VALUE)) {
 				return "illegal value";

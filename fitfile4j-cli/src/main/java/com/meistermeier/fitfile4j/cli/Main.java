@@ -20,6 +20,7 @@ import com.meistermeier.fitfile4j.FitFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -31,12 +32,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		var objectMapper = new ObjectMapper().registerModule(new FitFileModule());
-		var file = Path.of(args[0]).toFile();
+//		var file = Path.of("/Users/gerritmeier/Downloads/run.fit").toFile();
+		var file = Path.of("/Users/gerritmeier/Downloads/suunto.fit").toFile();
 		try (var fileInputStream = new FileInputStream(file);
 			var inputStream = new ByteArrayInputStream(fileInputStream.readAllBytes())) {
 
 			var fitFile = FitFile.from(inputStream);
-			System.out.println(objectMapper.writeValueAsString(fitFile.header()));
+			String result = objectMapper.writeValueAsString(fitFile.messages().stream().filter(message -> true).toList());
+			System.out.println(result);
+//			new FileWriter("test.json").append(result).close();
 
 		} catch (IOException e) {
 			throw new RuntimeException(e);

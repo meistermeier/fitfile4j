@@ -52,9 +52,11 @@ class FitFileModule extends SimpleModule {
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeNumberField("message_number", message.messageNumber());
 			jsonGenerator.writeObjectFieldStart("fields");
-			for (Map.Entry<Integer, Object> field : message.fields().entrySet()) {
+			for (Map.Entry<FitFile.Field, Object> field : message.fields().entrySet()) {
 				Object value = field.getValue();
-				jsonGenerator.writeObjectField(field.getKey().toString(), value);
+				int i = field.getKey().fieldDefinitionNumber();
+				var key = field.getKey().devField()? field.getKey().fieldName() : "" + i;
+				jsonGenerator.writeObjectField(key, value);
 			}
 			jsonGenerator.writeEndObject();
 			jsonGenerator.writeEndObject();
