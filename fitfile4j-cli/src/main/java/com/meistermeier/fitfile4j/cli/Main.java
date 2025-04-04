@@ -15,8 +15,8 @@
  */
 package com.meistermeier.fitfile4j.cli;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meistermeier.fitfile4j.FitFile;
+import com.meistermeier.fitfile4j.cli.json.JsonConverter;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -34,6 +34,8 @@ public class Main {
 		var objectMapper = new ObjectMapper().registerModule(new FitFileModule());
 //		var file = Path.of("/Users/gerritmeier/Downloads/run.fit").toFile();
 		var file = Path.of("/Users/gerritmeier/Downloads/suunto.fit").toFile();
+		var jsonConverter = new JsonConverter(true);
+		var file = Path.of(args[0]).toFile();
 		try (var fileInputStream = new FileInputStream(file);
 			var inputStream = new ByteArrayInputStream(fileInputStream.readAllBytes())) {
 

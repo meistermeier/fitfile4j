@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.meistermeier.fitfile4j.cli;
+package com.meistermeier.fitfile4j.cli.json;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.meistermeier.fitfile4j.FitFile;
 import com.meistermeier.fitfile4j.FitFile.Message;
+import com.meistermeier.fitfile4j.names.MessageName;
 
 import java.io.IOException;
 import java.util.Map;
@@ -36,6 +37,7 @@ class FitFileModule extends SimpleModule {
 		@Override
 		public void serialize(FitFile fitFile, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
 			jsonGenerator.writeStartObject();
+
 			jsonGenerator.writeObjectField("fields", fitFile.messages());
 			jsonGenerator.writeEndObject();
 		}
@@ -51,6 +53,10 @@ class FitFileModule extends SimpleModule {
 		public void serialize(Message message, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeNumberField("message_number", message.messageNumber());
+			var messageName = MessageName.findById(message.messageNumber());
+			if (messageName != null) {
+				jsonGenerator.writeStringField("message_name", messageName.getFieldName());
+			}
 			jsonGenerator.writeObjectFieldStart("fields");
 			for (Map.Entry<FitFile.Field, Object> field : message.fields().entrySet()) {
 				Object value = field.getValue();

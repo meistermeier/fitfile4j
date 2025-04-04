@@ -72,4 +72,18 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.meistermeier.fitfile4j</groupId>
+				<artifactId>fitfile4j-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<profileSource>/Users/gerritmeier/Downloads/FitSDKRelease_21.158.00/Profile.xlsx</profileSource>
+					<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

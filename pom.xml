@@ -70,6 +70,7 @@
 						<consoleOutput>true</consoleOutput>
 						<failsOnError>true</failsOnError>
 						<includeTestSourceDirectory>true</includeTestSourceDirectory>
+						<sourceDirectories>${project.build.sourceDirectory}</sourceDirectories>
 					</configuration>
 					<dependencies>
 						<dependency>
@@ -105,7 +106,7 @@
 						<factories>SCRIPT_STYLE</factories>
 					</mapping>
 					<properties>
-						<year>2022</year>
+						<year>2025</year>
 					</properties>
 					<licenseSets>
 						<licenseSet>
