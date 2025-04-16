@@ -34,12 +34,6 @@ public interface ValueReader {
 
 	Map<Integer, ValueReader> valueReaderCache = new HashMap<>(ValueTypes.values().length);
 
-	{
-		for (ValueTypes valueType : ValueTypes.values()) {
-			valueReaderCache.put(valueType.typeNumber, valueType.valueReader);
-		}
-	}
-
 	static ValueReader getReader(int typeNumber) {
 		return valueReaderCache.computeIfAbsent(typeNumber, (typeNumberToSearch) -> {
 			for (ValueTypes valueType : ValueTypes.values()) {

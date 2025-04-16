@@ -21,12 +21,16 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.meistermeier.fitfile4j.FitFile;
 import com.meistermeier.fitfile4j.FitFile.Message;
+import com.meistermeier.fitfile4j.names.FieldName;
 import com.meistermeier.fitfile4j.names.MessageName;
 
 import java.io.IOException;
 import java.util.Map;
 
-class FitFileModule extends SimpleModule {
+/**
+ * Jackson Module to serialize the data with names instead of just field and message numbers.
+ */
+public class FitFileModule extends SimpleModule {
 
 	static class FitFileSerializer extends StdSerializer<FitFile> {
 
@@ -55,13 +59,17 @@ class FitFileModule extends SimpleModule {
 			jsonGenerator.writeNumberField("message_number", message.messageNumber());
 			var messageName = MessageName.findById(message.messageNumber());
 			if (messageName != null) {
-				jsonGenerator.writeStringField("message_name", messageName.getFieldName());
+				jsonGenerator.writeStringField("message_name", messageName.getMessageName());
 			}
 			jsonGenerator.writeObjectFieldStart("fields");
 			for (Map.Entry<FitFile.Field, Object> field : message.fields().entrySet()) {
 				Object value = field.getValue();
 				int i = field.getKey().fieldDefinitionNumber();
-				var key = field.getKey().devField()? field.getKey().fieldName() : "" + i;
+
+				FieldName fieldName = FieldName.findById(message.messageNumber(), field.getKey().fieldDefinitionNumber());
+				var key = field.getKey().devField()
+					? field.getKey().fieldName()
+					: fieldName != null ? fieldName.getFieldName() : "" + field.getKey().fieldDefinitionNumber();
 				jsonGenerator.writeObjectField(key, value);
 			}
 			jsonGenerator.writeEndObject();
@@ -69,7 +77,7 @@ class FitFileModule extends SimpleModule {
 		}
 	}
 
-	FitFileModule() {
+	public FitFileModule() {
 		this.addSerializer(new FitFileSerializer());
 		this.addSerializer(new MessageSerializer());
 	}

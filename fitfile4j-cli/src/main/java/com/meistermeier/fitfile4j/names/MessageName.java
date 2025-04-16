@@ -246,11 +246,11 @@ public enum MessageName {
 
   private final int messageNumber;
 
-  private final String fieldName;
+  private final String messageName;
 
-  MessageName(int messageNumber, String fieldName) {
+  MessageName(int messageNumber, String messageName) {
     this.messageNumber = messageNumber;
-    this.fieldName = fieldName;
+    this.messageName = messageName;
   }
 
   public static MessageName findById(int messageNumber) {
@@ -262,7 +262,7 @@ public enum MessageName {
     return null;
   }
 
-  public String getFieldName() {
-    return this.fieldName;
+  public String getMessageName() {
+    return this.messageName;
   }
 }

@@ -26,12 +26,14 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
+		<module>fitfile4j-profile-generator</module>
 		<module>fitfile4j-parser</module>
 		<module>fitfile4j-cli</module>
 	</modules>
 
 	<properties>
 		<checkstyle.version>10.21.4</checkstyle.version>
+		<junit.version>5.11.4</junit.version>
 		<license-maven-plugin.version>5.0.0</license-maven-plugin.version>
 		<logback.version>1.5.18</logback.version>
 		<maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
@@ -54,6 +56,12 @@
 				<artifactId>logback-classic</artifactId>
 				<version>${logback.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -66,6 +74,7 @@
 					<version>${maven-checkstyle-plugin.version}</version>
 					<configuration>
 						<configLocation>etc/checkstyle/config.xml</configLocation>
+						<suppressionsLocation>etc/checkstyle/suppressions.xml</suppressionsLocation>
 						<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
 						<consoleOutput>true</consoleOutput>
 						<failsOnError>true</failsOnError>

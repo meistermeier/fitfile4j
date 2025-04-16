@@ -66,6 +66,19 @@ public record FitFile(Header header, List<Message> messages) {
 	}
 
 	/**
+	 * Field representation within a {@link Message}
+	 * @param fieldName The given field name, if exists
+	 * @param fieldDefinitionNumber The field definition number
+	 * @param devField flag to indicate if this field is a development field
+	 */
+	public record Field(String fieldName, int fieldDefinitionNumber, boolean devField) {
+
+		static Field from(String fieldName, FieldDefinition fieldDefinition) {
+			return new Field(fieldName, fieldDefinition.fieldDefinitionNumber(), fieldDefinition.devField());
+		}
+	}
+
+	/**
 	 * Generate a {@link FitFile} from an opened stream.
 	 *
 	 * @param inputStreamRaw the stream consuming the .fit file
@@ -95,9 +108,9 @@ public record FitFile(Header header, List<Message> messages) {
 			var profileVersion = "%s.%s".formatted(profileFieldsCombined / 100, profileFieldsCombined % 100);
 
 			var dataSize = Byte.toUnsignedLong(header[4])
-						   + (Byte.toUnsignedLong(header[5]) << 8)
-						   + (Byte.toUnsignedLong(header[6]) << 16)
-						   + (Byte.toUnsignedLong(header[7]) << 24);
+				+ (Byte.toUnsignedLong(header[5]) << 8)
+				+ (Byte.toUnsignedLong(header[6]) << 16)
+				+ (Byte.toUnsignedLong(header[7]) << 24);
 
 			var dataType = new String(new char[]{(char) header[8], (char) header[9], (char) header[10], (char) header[11]});
 
@@ -107,18 +120,13 @@ public record FitFile(Header header, List<Message> messages) {
 		}
 	}
 
-	public record FieldDefinition(int fieldDefinitionNumber, int baseType, int readLength, boolean devField) {
+	private record FieldDefinition(int fieldDefinitionNumber, int baseType, int readLength, boolean devField) {
 	}
 
-	public record Field(String fieldName, int fieldDefinitionNumber, boolean devField) {
-
-			static Field from(String fieldName, FieldDefinition fieldDefinition) {
-				return new Field(fieldName, fieldDefinition.fieldDefinitionNumber(), fieldDefinition.devField());
-			}
+	private record DeveloperField(int developerDataIndex, int fieldDefinitionNumber, int fitBaseTypeId, String fieldName) {
 	}
 
 	private record MessageDefinition(int messageNumber, List<FieldDefinition> fieldDefinitions, int endianness) {
-
 		public Message readMessage(FitFileStream inputStream, List<DeveloperField> developerFields) throws IOException {
 			var fields = new HashMap<Field, Object>();
 			String fieldName = null;
@@ -128,7 +136,7 @@ public record FitFile(Header header, List<Message> messages) {
 				if (fieldDefinition.devField() && messageNumber() != DEV_FIELD_DESCRIPTION_NUMBER && messageNumber() != 207) {
 					var possibleDevField = developerFields.stream()
 						.filter(df -> df.developerDataIndex() == fieldDefinition.baseType()
-									  && fieldDefinition.fieldDefinitionNumber() == df.fieldDefinitionNumber())
+							&& fieldDefinition.fieldDefinitionNumber() == df.fieldDefinitionNumber())
 						.findFirst();
 					if (possibleDevField.isPresent()) {
 						baseType = possibleDevField.get().fitBaseTypeId();
@@ -161,8 +169,10 @@ public record FitFile(Header header, List<Message> messages) {
 		while (inputStream.available() > 0) {
 
 			if (inputStream.available() == 2) {
-				// todo crc
+				LOGGER.debug("done");
 				break;
+			} else if (inputStream.available() < 2) {
+				LOGGER.warn("The file is probably corrupted because the last pair of bytes (CRC) is incomplete.");
 			}
 			var recordHeader = RecordHeader.readRecordHeaderByte(inputStream);
 			LOGGER.trace("{}", recordHeader);
@@ -248,7 +258,4 @@ public record FitFile(Header header, List<Message> messages) {
 		}
 	}
 
-	private record DeveloperField(int developerDataIndex, int fieldDefinitionNumber, int fitBaseTypeId,
-								  String fieldName) {
-	}
 }
