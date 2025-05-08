@@ -18,13 +18,17 @@ package com.meistermeier.fitfile4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * {@link InputStream} wrapper to enable insights into ongoing
+ * reading, like current position and actual read bytes.
+ *
  * @author Gerrit Meier
  */
-public class FitFileStream {
+public class FitFileStream implements Closeable {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FitFileStream.class);
 
@@ -54,5 +58,10 @@ public class FitFileStream {
 
 	public int pos() {
 		return position;
+	}
+
+	@Override
+	public void close() throws IOException {
+		fitFileInputStream.close();
 	}
 }

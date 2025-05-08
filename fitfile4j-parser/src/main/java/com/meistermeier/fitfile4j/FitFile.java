@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * A parsed .fit file representation
@@ -76,6 +77,25 @@ public record FitFile(Header header, List<Message> messages) {
 		static Field from(String fieldName, FieldDefinition fieldDefinition) {
 			return new Field(fieldName, fieldDefinition.fieldDefinitionNumber(), fieldDefinition.devField());
 		}
+
+		@Override
+		public boolean equals(Object o) {
+			if (o == null || getClass() != o.getClass()) {
+				return false;
+			}
+			Field field = (Field) o;
+			return fieldDefinitionNumber == field.fieldDefinitionNumber;
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hashCode(fieldDefinitionNumber);
+		}
+
+		@Override
+		public String toString() {
+			return fieldName();
+		}
 	}
 
 	/**
@@ -98,7 +118,8 @@ public record FitFile(Header header, List<Message> messages) {
 
 	private static Header readHeader(FitFileStream inputStream) {
 		try {
-			var header = inputStream.readNBytes(14);
+			// be sure to have a marker for legacy headers
+			var header = inputStream.readNBytes(12);
 			var headerSize = Byte.toUnsignedInt(header[0]);
 			var protocolVersion = header[1] >> 4;
 
@@ -113,6 +134,10 @@ public record FitFile(Header header, List<Message> messages) {
 				+ (Byte.toUnsignedLong(header[7]) << 24);
 
 			var dataType = new String(new char[]{(char) header[8], (char) header[9], (char) header[10], (char) header[11]});
+			if (headerSize == 14) {
+				// crc but ignored for now
+				inputStream.readNBytes(2);
+			}
 
 			return new Header(headerSize, protocolVersion, profileVersion, dataSize, dataType);
 		} catch (IOException e) {
