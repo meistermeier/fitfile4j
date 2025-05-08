@@ -22,9 +22,10 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.meistermeier.fitfile4j.FitFile;
 import com.meistermeier.fitfile4j.FitFile.Message;
 import com.meistermeier.fitfile4j.names.FieldName;
-import com.meistermeier.fitfile4j.names.MessageName;
+import com.meistermeier.fitfile4j.names.MESG_NUM;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 /**
@@ -49,27 +50,48 @@ public class FitFileModule extends SimpleModule {
 
 	static class MessageSerializer extends StdSerializer<Message> {
 
-		protected MessageSerializer() {
+		private final boolean withNames;
+
+		protected MessageSerializer(boolean withNames) {
 			super(Message.class);
+			this.withNames = withNames;
 		}
 
 		@Override
 		public void serialize(Message message, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeNumberField("message_number", message.messageNumber());
-			var messageName = MessageName.findById(message.messageNumber());
-			if (messageName != null) {
-				jsonGenerator.writeStringField("message_name", messageName.getMessageName());
+			if (withNames) {
+				var messageName = MESG_NUM.findById(message.messageNumber());
+				if (messageName != null) {
+					jsonGenerator.writeStringField("message_name", messageName.getMessageName());
+				}
 			}
 			jsonGenerator.writeObjectFieldStart("fields");
 			for (Map.Entry<FitFile.Field, Object> field : message.fields().entrySet()) {
 				Object value = field.getValue();
-				int i = field.getKey().fieldDefinitionNumber();
-
-				FieldName fieldName = FieldName.findById(message.messageNumber(), field.getKey().fieldDefinitionNumber());
-				var key = field.getKey().devField()
-					? field.getKey().fieldName()
-					: fieldName != null ? fieldName.getFieldName() : "" + field.getKey().fieldDefinitionNumber();
+				String key;
+				if (withNames) {
+					FieldName fieldName = FieldName.findById(message.messageNumber(), field.getKey().fieldDefinitionNumber());
+					key = field.getKey().devField()
+						? field.getKey().fieldName()
+						: fieldName != null ? fieldName.getFieldName() : "" + field.getKey().fieldDefinitionNumber();
+					// Content warning: You will enter reflection hell here
+					if (fieldName != null && fieldName.getEnumType() != null) {
+						try {
+							var findMethod = fieldName.getEnumType().getMethod("findById", int.class);
+							var result = findMethod.invoke(fieldName.getEnumType(), field.getKey().fieldDefinitionNumber());
+							if (result != null) {
+								var name = fieldName.getEnumType().getMethod("getMessageName");
+								value = name.invoke(result);
+							}
+						} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+							throw new RuntimeException(e);
+						}
+					}
+				} else {
+					key = "" + field.getKey().fieldDefinitionNumber();
+				}
 				jsonGenerator.writeObjectField(key, value);
 			}
 			jsonGenerator.writeEndObject();
@@ -77,8 +99,8 @@ public class FitFileModule extends SimpleModule {
 		}
 	}
 
-	public FitFileModule() {
+	public FitFileModule(boolean withNames) {
 		this.addSerializer(new FitFileSerializer());
-		this.addSerializer(new MessageSerializer());
+		this.addSerializer(new MessageSerializer(withNames));
 	}
 }
