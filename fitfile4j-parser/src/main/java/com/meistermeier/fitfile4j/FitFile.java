@@ -20,6 +20,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,6 +116,11 @@ public record FitFile(Header header, List<Message> messages) {
 			header,
 			messages
 		);
+	}
+
+	public static FitFile from(File fileDefinition) throws IOException {
+		var bais = new ByteArrayInputStream(new FileInputStream(fileDefinition).readAllBytes());
+		return from(bais);
 	}
 
 	private static Header readHeader(FitFileStream inputStream) {
