@@ -15,7 +15,7 @@
  */
 package com.meistermeier.fitfile4j.plugin;
 
-import org.dhatim.fastexcel.reader.CellType;
+import org.dhatim.fastexcel.reader.ExcelReaderException;
 import org.dhatim.fastexcel.reader.ReadableWorkbook;
 import org.dhatim.fastexcel.reader.Row;
 
@@ -30,42 +30,52 @@ import java.util.stream.Collectors;
 
 class ProfileParser {
 
-	private static final String MESSAGE_NUMBER_KEY = "mesg_num";
 	private final String profileSource;
 
 	ProfileParser(String profileSource) {
 		this.profileSource = profileSource;
 	}
 
-	Map<Integer, String> parseMessageNames() throws IOException {
-		Map<Integer, String> messageNames = new HashMap<>();
+	Map<String, Map<Long, String>> parseTypes() throws IOException {
+		Map<String, Map<Long, String>> types = new HashMap<>();
 		try (var workbook = new ReadableWorkbook(new File(profileSource))) {
 			workbook.findSheet("Types")
 				.ifPresent(wb -> {
 					try {
-						boolean startFound = false;
+						String currentType = null;
 						for (Row row : wb.read()) {
+							// skip first row
+							if (row.getRowNum() == 0) {
+								continue;
+							}
 							String cellValue = row.getCell(0).asString();
-							if (MESSAGE_NUMBER_KEY.equals(cellValue)) {
-								startFound = true;
-							} else if (!cellValue.isBlank() && !messageNames.isEmpty()) {
-								break;
-							} else if (startFound && row.getCell(3).getType().equals(CellType.NUMBER)) {
-								messageNames.put(row.getCell(3).asNumber().intValue(), row.getCellText(2));
+							if (!cellValue.isBlank()) {
+								if (currentType != null && types.get(currentType).isEmpty()) {
+									types.remove(currentType);
+								}
+								currentType = cellValue.toUpperCase();
+								types.put(currentType, new HashMap<>());
+							} else if (currentType != null) {
+								try {
+									String cellText = row.getCellText(3).trim();
+									types.get(currentType).put(cellText.startsWith("0x") ? Long.parseLong(cellText.replaceAll("0x", ""), 16) : Long.parseLong(cellText), row.getCellText(2));
+								} catch (ExcelReaderException e) {
+									System.err.println("nope");
+								}
 							}
 						}
 					} catch (IOException e) {
 						throw new RuntimeException(e);
 					}
 				});
-			return messageNames;
+			return types;
 		}
 	}
 
-	record FieldName(Integer messageNumber, Integer fieldNumber, String name) {
+	record FieldName(Long messageNumber, Integer fieldNumber, String name, String enumType) {
 	}
 
-	List<FieldName> parseFieldNames(Map<Integer, String> parsedMessageNames) throws IOException {
+	List<FieldName> parseFieldNames(Map<Long, String> parsedMessageNames) throws IOException {
 		var messageNames = parsedMessageNames.entrySet().stream()
 			.collect(Collectors.toUnmodifiableMap(Map.Entry::getValue, Map.Entry::getKey));
 		List<FieldName> fieldNames = new ArrayList<>();
@@ -74,7 +84,7 @@ class ProfileParser {
 			workbook.findSheet("Messages")
 				.ifPresent(wb -> {
 					try {
-						Integer currentMessage = null;
+						Long currentMessage = null;
 						for (Row row : wb.read()) {
 							String cellValue = row.getCell(0).asString();
 							if (!cellValue.isBlank()) {
@@ -82,7 +92,7 @@ class ProfileParser {
 								continue;
 							}
 							if (row.getCellRawValue(1).isPresent() && !row.getCellRawValue(1).get().isEmpty()) {
-								fieldNames.add(new FieldName(currentMessage, row.getCellAsNumber(1).map(BigDecimal::intValue).orElseThrow(() -> new RuntimeException("could not convert field")), row.getCellText(2)));
+								fieldNames.add(new FieldName(currentMessage, row.getCellAsNumber(1).map(BigDecimal::intValue).orElseThrow(() -> new RuntimeException("could not convert field")), row.getCellText(2), row.getCellText(3)));
 							}
 						}
 					} catch (IOException e) {

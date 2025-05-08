@@ -24,6 +24,7 @@ import com.squareup.javapoet.TypeSpec;
 import javax.lang.model.element.Modifier;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -33,9 +34,17 @@ import java.util.Map;
  */
 public class ProfileClassGenerator {
 
+	/**
+	 * Generate enum files MessageName and FieldName from given Profile.xlsx
+	 *
+	 * @param args sourceDir, outputDirectory, packageName
+	 * @throws Exception might fail, nothing gets caught
+	 */
 	public static void main(String[] args) throws Exception {
 		var pcg = new ProfileClassGenerator(args[0], args[1], args[2]);
 		pcg.createMessageNameMappings();
+//		helper function to create initial SQL
+//		pcg.createSql();
 	}
 
 	private final String outputDirectory;
@@ -48,93 +57,156 @@ public class ProfileClassGenerator {
 		this.profileParser = new ProfileParser(profileSource);
 	}
 
+	void createSql() throws Exception {
+		var types = this.profileParser.parseTypes();
+		var fieldNames = this.profileParser.parseFieldNames(types.get("MESG_NUM"));
+		List<String> createStatements = new ArrayList<>();
+		List<String> insertStatements = new ArrayList<>();
+		for (Map.Entry<String, Map<Long, String>> typeEntry : types.entrySet()) {
+			String createStatement = "CREATE TABLE " + typeEntry.getKey() +
+				"""
+					(
+						value INT not null,
+						value_name varchar not null
+					);""";
+			createStatements.add(createStatement);
+			var entries = typeEntry.getValue().entrySet().stream().map(e -> e.getKey() + ",'" + e.getValue() + "'")
+				.toList();
+			for (String entry : entries) {
+				String insertStatement = "INSERT INTO %s VALUES (%s);".formatted(typeEntry.getKey(), entry);
+				insertStatements.add(insertStatement);
+			}
+		}
+		createStatements.forEach(System.out::println);
+	}
+
 	void createMessageNameMappings() throws IOException {
-		var messageNames = this.profileParser.parseMessageNames();
-		var fieldNames = this.profileParser.parseFieldNames(messageNames);
-		var messagesEnum = createMessageNames(messageNames, packageName);
+		var types = this.profileParser.parseTypes();
+		var fieldNames = this.profileParser.parseFieldNames(types.get("MESG_NUM"));
+		var typesEnum = createTypes(types, packageName);
 		var fieldsEnum = createFieldNames(fieldNames, packageName);
 		if (outputDirectory != null && !outputDirectory.isBlank()) {
 			var output = Path.of(outputDirectory);
-			messagesEnum.writeTo(output);
+//			for (JavaFile javaFile : typesEnum) {
+//				javaFile.writeTo(output);
+//			}
 			fieldsEnum.writeTo(output);
 		} else {
-			messagesEnum.writeTo(System.out);
+			for (JavaFile javaFile : typesEnum) {
+				javaFile.writeTo(System.out);
+			}
 			fieldsEnum.writeTo(System.out);
 		}
 	}
 
-	private JavaFile createMessageNames(Map<Integer, String> messageNames, String packageNameToUse) {
-		var messageNameEnumBuilder = TypeSpec.enumBuilder("MessageName")
-			.addJavadoc("Name of messages to be mapped from their ids")
-			.addModifiers(Modifier.PUBLIC);
-		for (Map.Entry<Integer, String> message : messageNames.entrySet()) {
-			messageNameEnumBuilder.addEnumConstant(
-				message.getValue().toUpperCase(Locale.ROOT),
-				TypeSpec.anonymousClassBuilder("$L, $S", message.getKey(), message.getValue()).build()
-			);
-		}
-		messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
-		messageNameEnumBuilder.addField(String.class, "messageName", Modifier.PRIVATE, Modifier.FINAL);
-		messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
-			.addParameter(int.class, "messageNumber")
-			.addParameter(String.class, "messageName")
-			.addCode(CodeBlock.builder()
-				.add("""
-					this.messageNumber = messageNumber;
-					this.messageName = messageName;
-					""")
-				.build())
-			.build());
-		messageNameEnumBuilder
-			.addMethod(MethodSpec.methodBuilder("findById")
-				.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
+	private List<JavaFile> createTypes(Map<String, Map<Long, String>> types, String packageNameToUse) {
+		var files = new ArrayList<JavaFile>();
+		for (Map.Entry<String, Map<Long, String>> type : types.entrySet()) {
+
+			var messageNameEnumBuilder = TypeSpec.enumBuilder(type.getKey())
+				.addModifiers(Modifier.PUBLIC);
+			var typeContent = type.getValue();
+			for (Map.Entry<Long, String> content : typeContent.entrySet()) {
+				messageNameEnumBuilder.addEnumConstant(
+					"_" + content.getValue().toUpperCase(Locale.ROOT),
+					TypeSpec.anonymousClassBuilder("$L, $S", content.getKey(), content.getValue()).build()
+				);
+			}
+			messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+			messageNameEnumBuilder.addField(String.class, "messageName", Modifier.PRIVATE, Modifier.FINAL);
+			messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
 				.addParameter(int.class, "messageNumber")
+				.addParameter(String.class, "messageName")
 				.addCode(CodeBlock.builder()
 					.add("""
-						for (MessageName name: MessageName.values()) {
-							if (name.messageNumber == messageNumber) {
-								return name;
-							}
-						}
-						return null;
+						this.messageNumber = messageNumber;
+						this.messageName = messageName;
 						""")
 					.build())
-				.returns(ClassName.get(packageNameToUse, "MessageName"))
 				.build());
-		messageNameEnumBuilder
-			.addMethod(MethodSpec.methodBuilder("getMessageName")
-				.addModifiers(Modifier.PUBLIC)
-				.addCode("return this.messageName;")
-				.returns(String.class)
+			messageNameEnumBuilder
+				.addMethod(MethodSpec.methodBuilder("findById")
+					.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
+					.addParameter(int.class, "messageNumber")
+					.addCode(CodeBlock.builder()
+						.add("""
+							for (%s name: %s.values()) {
+								if (name.messageNumber == messageNumber) {
+									return name;
+								}
+							}
+							return null;
+							""".formatted(type.getKey(), type.getKey()))
+						.build())
+					.returns(ClassName.get(packageNameToUse, type.getKey()))
+					.build());
+			messageNameEnumBuilder
+				.addMethod(MethodSpec.methodBuilder("getMessageName")
+					.addModifiers(Modifier.PUBLIC)
+					.addCode("return this.messageName;")
+					.returns(String.class)
+					.build());
+			var messageNameEnum = messageNameEnumBuilder.build();
+			files.add(JavaFile.builder(packageNameToUse, messageNameEnum)
+				.skipJavaLangImports(true)
+				.addFileComment("auto-generated file from Profile.xlsx")
 				.build());
-		var messageNameEnum = messageNameEnumBuilder.build();
-		return JavaFile.builder(packageNameToUse, messageNameEnum)
-			.skipJavaLangImports(true)
-			.build();
+		}
+
+		return files;
 	}
 
 	private JavaFile createFieldNames(List<ProfileParser.FieldName> fieldNames, String packageNameToUse) {
+		var noEnums = List.of(
+			"UINT8",
+			"UINT8Z",
+			"SINT8",
+			"UINT16",
+			"UINT16Z",
+			"SINT16",
+			"UINT32",
+			"UINT32Z",
+			"SINT32",
+			"SINT64",
+			"UINT64",
+			"STRING",
+			"DATE_TIME",
+			"BOOL",
+			"BYTE",
+			"FLOAT32"
+			);
 		var messageNameEnumBuilder = TypeSpec.enumBuilder("FieldName")
 			.addJavadoc("Name of messages to be mapped from their ids")
 			.addModifiers(Modifier.PUBLIC);
 		for (ProfileParser.FieldName fieldName : fieldNames) {
+			var enumType = fieldName.enumType().toUpperCase();
+			if (enumType.equals("LOCALTIME_INTO_DAY")) {
+				enumType = "UINT32";
+			}
+			if (noEnums.contains(enumType)) {
+				enumType = null;
+			}
 			messageNameEnumBuilder.addEnumConstant(
 				fieldName.name().toUpperCase(Locale.ROOT) + "_" + fieldName.messageNumber(),
-				TypeSpec.anonymousClassBuilder("$L, $L, $S", fieldName.messageNumber(), fieldName.fieldNumber(), fieldName.name()).build()
+				TypeSpec.anonymousClassBuilder("$L, $L, $S, $L", fieldName.messageNumber(), fieldName.fieldNumber(), fieldName.name(), enumType != null ? enumType + ".class" : null
+				).build()
 			);
 		}
 		messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
 		messageNameEnumBuilder.addField(int.class, "fieldNumber", Modifier.PRIVATE, Modifier.FINAL);
 		messageNameEnumBuilder.addField(String.class, "fieldName", Modifier.PRIVATE, Modifier.FINAL);
+		messageNameEnumBuilder.addField(Class.class, "enumType", Modifier.PRIVATE, Modifier.FINAL);
 		messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
 			.addParameter(int.class, "messageNumber")
 			.addParameter(int.class, "fieldNumber")
 			.addParameter(String.class, "fieldName")
+			.addParameter(Class.class, "enumType")
 			.addCode(CodeBlock.builder()
 				.add("""
 					this.messageNumber = messageNumber;
 					this.fieldNumber = fieldNumber;
 					this.fieldName = fieldName;
+					this.enumType = enumType;
 					""")
 				.build())
 			.build());
@@ -161,9 +233,16 @@ public class ProfileClassGenerator {
 				.addCode("return this.fieldName;")
 				.returns(String.class)
 				.build());
+		messageNameEnumBuilder
+			.addMethod(MethodSpec.methodBuilder("getEnumType")
+				.addModifiers(Modifier.PUBLIC)
+				.addCode("return this.enumType;")
+				.returns(Class.class)
+				.build());
 		var messageNameEnum = messageNameEnumBuilder.build();
 		return JavaFile.builder(packageNameToUse, messageNameEnum)
 			.skipJavaLangImports(true)
+			.addFileComment("auto-generated file from Profile.xlsx")
 			.build();
 	}
 }
