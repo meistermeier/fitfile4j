@@ -2,17 +2,17 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_4 {
-  _BURMESE(16, "burmese"),
-
-  _MONGOLIAN(32, "mongolian"),
-
   _BRAZILIAN_PORTUGUESE(1, "brazilian_portuguese"),
 
   _INDONESIAN(2, "indonesian"),
 
   _MALAYSIAN(4, "malaysian"),
 
-  _VIETNAMESE(8, "vietnamese");
+  _VIETNAMESE(8, "vietnamese"),
+
+  _BURMESE(16, "burmese"),
+
+  _MONGOLIAN(32, "mongolian");
 
   private final int messageNumber;
 

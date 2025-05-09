@@ -2,40 +2,40 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum COURSE_CAPABILITIES {
-  _POSITION(16, "position"),
+  _PROCESSED(1L, "processed"),
 
-  _HEART_RATE(32, "heart_rate"),
+  _VALID(2L, "valid"),
 
-  _POWER(64, "power"),
+  _TIME(4L, "time"),
 
-  _CADENCE(128, "cadence"),
+  _DISTANCE(8L, "distance"),
 
-  _TRAINING(256, "training"),
+  _POSITION(16L, "position"),
 
-  _NAVIGATION(512, "navigation"),
+  _HEART_RATE(32L, "heart_rate"),
 
-  _BIKEWAY(1024, "bikeway"),
+  _POWER(64L, "power"),
 
-  _AVIATION(4096, "aviation"),
+  _CADENCE(128L, "cadence"),
 
-  _PROCESSED(1, "processed"),
+  _TRAINING(256L, "training"),
 
-  _VALID(2, "valid"),
+  _NAVIGATION(512L, "navigation"),
 
-  _TIME(4, "time"),
+  _BIKEWAY(1024L, "bikeway"),
 
-  _DISTANCE(8, "distance");
+  _AVIATION(4096L, "aviation");
 
-  private final int messageNumber;
+  private final long messageNumber;
 
   private final String messageName;
 
-  COURSE_CAPABILITIES(int messageNumber, String messageName) {
+  COURSE_CAPABILITIES(long messageNumber, String messageName) {
     this.messageNumber = messageNumber;
     this.messageName = messageName;
   }
 
-  public static COURSE_CAPABILITIES findById(int messageNumber) {
+  public static COURSE_CAPABILITIES findById(long messageNumber) {
     for (COURSE_CAPABILITIES name: COURSE_CAPABILITIES.values()) {
     	if (name.messageNumber == messageNumber) {
     		return name;

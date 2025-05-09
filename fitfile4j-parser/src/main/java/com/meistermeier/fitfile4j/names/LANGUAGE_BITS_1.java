@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_1 {
-  _NORWEGIAN(16, "norwegian"),
-
-  _POLISH(32, "polish"),
-
-  _PORTUGUESE(64, "portuguese"),
-
-  _SLOVAKIAN(128, "slovakian"),
-
   _DUTCH(1, "dutch"),
 
   _FINNISH(2, "finnish"),
 
   _GREEK(4, "greek"),
 
-  _HUNGARIAN(8, "hungarian");
+  _HUNGARIAN(8, "hungarian"),
+
+  _NORWEGIAN(16, "norwegian"),
+
+  _POLISH(32, "polish"),
+
+  _PORTUGUESE(64, "portuguese"),
+
+  _SLOVAKIAN(128, "slovakian");
 
   private final int messageNumber;
 

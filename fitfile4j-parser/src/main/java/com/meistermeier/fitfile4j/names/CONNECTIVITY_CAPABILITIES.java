@@ -2,69 +2,69 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CONNECTIVITY_CAPABILITIES {
-  _CONNECT_IQ_APP_DOWNLOAD(8192, "connect_iq_app_download"),
+  _BLUETOOTH(1L, "bluetooth"),
 
-  _GPS_EPHEMERIS_DOWNLOAD(512, "gps_ephemeris_download"),
+  _BLUETOOTH_LE(2L, "bluetooth_le"),
 
-  _LIVE_TRACK(64, "live_track"),
+  _ANT(4L, "ant"),
 
-  _INSTANT_INPUT(2147483648L, "instant_input"),
+  _ACTIVITY_UPLOAD(8L, "activity_upload"),
 
-  _WEATHER_CONDITIONS(128, "weather_conditions"),
+  _COURSE_DOWNLOAD(16L, "course_download"),
 
-  _WEATHER_ALERTS(256, "weather_alerts"),
+  _WORKOUT_DOWNLOAD(32L, "workout_download"),
 
-  _EXPLICIT_ARCHIVE(1024, "explicit_archive"),
+  _LIVE_TRACK(64L, "live_track"),
 
-  _SETUP_INCOMPLETE(2048, "setup_incomplete"),
+  _WEATHER_CONDITIONS(128L, "weather_conditions"),
 
-  _CONTINUE_SYNC_AFTER_SOFTWARE_UPDATE(4096, "continue_sync_after_software_update"),
+  _WEATHER_ALERTS(256L, "weather_alerts"),
 
-  _GOLF_COURSE_DOWNLOAD(16384, "golf_course_download"),
+  _GPS_EPHEMERIS_DOWNLOAD(512L, "gps_ephemeris_download"),
 
-  _DEVICE_INITIATES_SYNC(32768, "device_initiates_sync"),
+  _EXPLICIT_ARCHIVE(1024L, "explicit_archive"),
 
-  _SWING_SENSOR_REMOTE(4194304, "swing_sensor_remote"),
+  _SETUP_INCOMPLETE(2048L, "setup_incomplete"),
 
-  _INCIDENT_DETECTION(8388608, "incident_detection"),
+  _CONTINUE_SYNC_AFTER_SOFTWARE_UPDATE(4096L, "continue_sync_after_software_update"),
 
-  _AUDIO_PROMPTS(16777216, "audio_prompts"),
+  _CONNECT_IQ_APP_DOWNLOAD(8192L, "connect_iq_app_download"),
 
-  _WIFI_VERIFICATION(33554432, "wifi_verification"),
+  _GOLF_COURSE_DOWNLOAD(16384L, "golf_course_download"),
 
-  _TRUE_UP(67108864, "true_up"),
+  _DEVICE_INITIATES_SYNC(32768L, "device_initiates_sync"),
 
-  _FIND_MY_WATCH(134217728, "find_my_watch"),
+  _CONNECT_IQ_WATCH_APP_DOWNLOAD(65536L, "connect_iq_watch_app_download"),
 
-  _REMOTE_MANUAL_SYNC(268435456, "remote_manual_sync"),
+  _CONNECT_IQ_WIDGET_DOWNLOAD(131072L, "connect_iq_widget_download"),
 
-  _LIVE_TRACK_AUTO_START(536870912, "live_track_auto_start"),
+  _CONNECT_IQ_WATCH_FACE_DOWNLOAD(262144L, "connect_iq_watch_face_download"),
 
-  _LIVE_TRACK_MESSAGING(1073741824, "live_track_messaging"),
+  _CONNECT_IQ_DATA_FIELD_DOWNLOAD(524288L, "connect_iq_data_field_download"),
 
-  _BLUETOOTH(1, "bluetooth"),
+  _CONNECT_IQ_APP_MANAGMENT(1048576L, "connect_iq_app_managment"),
 
-  _CONNECT_IQ_WATCH_APP_DOWNLOAD(65536, "connect_iq_watch_app_download"),
+  _SWING_SENSOR(2097152L, "swing_sensor"),
 
-  _BLUETOOTH_LE(2, "bluetooth_le"),
+  _SWING_SENSOR_REMOTE(4194304L, "swing_sensor_remote"),
 
-  _CONNECT_IQ_WIDGET_DOWNLOAD(131072, "connect_iq_widget_download"),
+  _INCIDENT_DETECTION(8388608L, "incident_detection"),
 
-  _ANT(4, "ant"),
+  _AUDIO_PROMPTS(16777216L, "audio_prompts"),
 
-  _CONNECT_IQ_WATCH_FACE_DOWNLOAD(262144, "connect_iq_watch_face_download"),
+  _WIFI_VERIFICATION(33554432L, "wifi_verification"),
 
-  _ACTIVITY_UPLOAD(8, "activity_upload"),
+  _TRUE_UP(67108864L, "true_up"),
 
-  _CONNECT_IQ_DATA_FIELD_DOWNLOAD(524288, "connect_iq_data_field_download"),
+  _FIND_MY_WATCH(134217728L, "find_my_watch"),
 
-  _COURSE_DOWNLOAD(16, "course_download"),
+  _REMOTE_MANUAL_SYNC(268435456L, "remote_manual_sync"),
 
-  _CONNECT_IQ_APP_MANAGMENT(1048576, "connect_iq_app_managment"),
+  _LIVE_TRACK_AUTO_START(536870912L, "live_track_auto_start"),
 
-  _WORKOUT_DOWNLOAD(32, "workout_download"),
+  _LIVE_TRACK_MESSAGING(1073741824L, "live_track_messaging"),
 
-  _SWING_SENSOR(2097152, "swing_sensor");
+  _INSTANT_INPUT(2147483648L, "instant_input");
 
   private final long messageNumber;
 
@@ -75,7 +75,7 @@ public enum CONNECTIVITY_CAPABILITIES {
     this.messageName = messageName;
   }
 
-  public static CONNECTIVITY_CAPABILITIES findById(int messageNumber) {
+  public static CONNECTIVITY_CAPABILITIES findById(long messageNumber) {
     for (CONNECTIVITY_CAPABILITIES name: CONNECTIVITY_CAPABILITIES.values()) {
     	if (name.messageNumber == messageNumber) {
     		return name;

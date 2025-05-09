@@ -26,6 +26,7 @@ import com.meistermeier.fitfile4j.names.MESG_NUM;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
@@ -68,29 +69,34 @@ public class FitFileModule extends SimpleModule {
 				}
 			}
 			jsonGenerator.writeObjectFieldStart("fields");
-			for (Map.Entry<FitFile.Field, Object> field : message.fields().entrySet()) {
-				Object value = field.getValue();
+			for (FitFile.Entry entry : message.fields().fields()) {
+				Object value = entry.value();
 				String key;
 				if (withNames) {
-					FieldName fieldName = FieldName.findById(message.messageNumber(), field.getKey().fieldDefinitionNumber());
-					key = field.getKey().devField()
-						? field.getKey().fieldName()
-						: fieldName != null ? fieldName.getFieldName() : "" + field.getKey().fieldDefinitionNumber();
+					FieldName fieldName = FieldName.findById(message.messageNumber(), entry.field().fieldDefinitionNumber());
+					key = entry.field().devField()
+						? entry.field().fieldName()
+						: fieldName != null ? fieldName.getFieldName() : "" + entry.field().fieldDefinitionNumber();
 					// Content warning: You will enter reflection hell here
 					if (fieldName != null && fieldName.getEnumType() != null) {
 						try {
-							var findMethod = fieldName.getEnumType().getMethod("findById", int.class);
-							var result = findMethod.invoke(fieldName.getEnumType(), field.getKey().fieldDefinitionNumber());
+							Method findMethod = null;
+							try {
+								findMethod = fieldName.getEnumType().getMethod("findById", int.class);
+							} catch (NoSuchMethodException e) {
+								findMethod = fieldName.getEnumType().getMethod("findById", long.class);
+							}
+							var result = findMethod.invoke(fieldName.getEnumType(), value);
 							if (result != null) {
 								var name = fieldName.getEnumType().getMethod("getMessageName");
 								value = name.invoke(result);
 							}
-						} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+						} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | IllegalArgumentException e) {
 							throw new RuntimeException(e);
 						}
 					}
 				} else {
-					key = "" + field.getKey().fieldDefinitionNumber();
+					key = "" + entry.field().fieldDefinitionNumber();
 				}
 				jsonGenerator.writeObjectField(key, value);
 			}

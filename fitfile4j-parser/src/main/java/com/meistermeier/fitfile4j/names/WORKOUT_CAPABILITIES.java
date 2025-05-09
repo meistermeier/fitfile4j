@@ -2,44 +2,44 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_CAPABILITIES {
-  _SPEED(128, "speed"),
+  _INTERVAL(1L, "interval"),
 
-  _HEART_RATE(256, "heart_rate"),
+  _CUSTOM(2L, "custom"),
 
-  _DISTANCE(512, "distance"),
+  _FITNESS_EQUIPMENT(4L, "fitness_equipment"),
 
-  _CADENCE(1024, "cadence"),
+  _FIRSTBEAT(8L, "firstbeat"),
 
-  _POWER(2048, "power"),
+  _NEW_LEAF(16L, "new_leaf"),
 
-  _GRADE(4096, "grade"),
+  _TCX(32L, "tcx"),
 
-  _RESISTANCE(8192, "resistance"),
+  _SPEED(128L, "speed"),
 
-  _PROTECTED(16384, "protected"),
+  _HEART_RATE(256L, "heart_rate"),
 
-  _INTERVAL(1, "interval"),
+  _DISTANCE(512L, "distance"),
 
-  _CUSTOM(2, "custom"),
+  _CADENCE(1024L, "cadence"),
 
-  _FITNESS_EQUIPMENT(4, "fitness_equipment"),
+  _POWER(2048L, "power"),
 
-  _FIRSTBEAT(8, "firstbeat"),
+  _GRADE(4096L, "grade"),
 
-  _NEW_LEAF(16, "new_leaf"),
+  _RESISTANCE(8192L, "resistance"),
 
-  _TCX(32, "tcx");
+  _PROTECTED(16384L, "protected");
 
-  private final int messageNumber;
+  private final long messageNumber;
 
   private final String messageName;
 
-  WORKOUT_CAPABILITIES(int messageNumber, String messageName) {
+  WORKOUT_CAPABILITIES(long messageNumber, String messageName) {
     this.messageNumber = messageNumber;
     this.messageName = messageName;
   }
 
-  public static WORKOUT_CAPABILITIES findById(int messageNumber) {
+  public static WORKOUT_CAPABILITIES findById(long messageNumber) {
     for (WORKOUT_CAPABILITIES name: WORKOUT_CAPABILITIES.values()) {
     	if (name.messageNumber == messageNumber) {
     		return name;

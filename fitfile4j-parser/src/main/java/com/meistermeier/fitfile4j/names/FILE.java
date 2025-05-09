@@ -2,17 +2,11 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FILE {
-  _MONITORING_B(32, "monitoring_b"),
-
   _DEVICE(1, "device"),
 
   _SETTINGS(2, "settings"),
 
-  _SEGMENT(34, "segment"),
-
   _SPORT(3, "sport"),
-
-  _SEGMENT_LIST(35, "segment_list"),
 
   _ACTIVITY(4, "activity"),
 
@@ -21,8 +15,6 @@ public enum FILE {
   _COURSE(6, "course"),
 
   _SCHEDULES(7, "schedules"),
-
-  _EXD_CONFIGURATION(40, "exd_configuration"),
 
   _WEIGHT(9, "weight"),
 
@@ -36,9 +28,17 @@ public enum FILE {
 
   _ACTIVITY_SUMMARY(20, "activity_summary"),
 
-  _MFG_RANGE_MIN(247, "mfg_range_min"),
-
   _MONITORING_DAILY(28, "monitoring_daily"),
+
+  _MONITORING_B(32, "monitoring_b"),
+
+  _SEGMENT(34, "segment"),
+
+  _SEGMENT_LIST(35, "segment_list"),
+
+  _EXD_CONFIGURATION(40, "exd_configuration"),
+
+  _MFG_RANGE_MIN(247, "mfg_range_min"),
 
   _MFG_RANGE_MAX(254, "mfg_range_max");
 

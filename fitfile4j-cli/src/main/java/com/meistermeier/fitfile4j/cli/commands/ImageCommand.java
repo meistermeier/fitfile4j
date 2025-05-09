@@ -23,17 +23,17 @@ public class ImageCommand implements Callable<Integer> {
 
 	@Override
 	public Integer call() throws Exception {
-		createPicture(FitFile.from(parent.getFitFile()));
+		createImage(FitFile.from(parent.getFitFile()));
 		return 0;
 	}
 
 	record Coords(long x, long y) {
 	}
 
-	private void createPicture(FitFile fitFile) throws Exception {
+	private void createImage(FitFile fitFile) throws Exception {
 		var coordinates = fitFile.messages().stream().filter(message -> message.messageNumber() == 20)
-			.filter(m -> m.fields().get(new FitFile.Field(null, 0, false)) != null)
-			.map(m -> new Coords((long) m.fields().get(new FitFile.Field(null, 1, false)), -(long) m.fields().get(new FitFile.Field(null, 0, false))))
+			.filter(m -> m.fields().getFieldByFieldDefinitionNumber(0).isPresent() && m.fields().getFieldByFieldDefinitionNumber(1).isPresent())
+			.map(m -> new Coords((long) m.fields().getFieldByFieldDefinitionNumber(1).get().value(), -(long) m.fields().getFieldByFieldDefinitionNumber(1).get().value()))
 			.toList();
 		var minX = Long.MAX_VALUE;
 		var minY = Long.MAX_VALUE;

@@ -24,10 +24,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * A parsed .fit file representation
@@ -53,6 +56,22 @@ public record FitFile(Header header, List<Message> messages) {
 	public record Header(int length, int protocolVersion, String profileVersion, long dataSize, String dataType) {
 	}
 
+	public record Entry(Field field, Object value) {
+
+	}
+
+	public record Fields(Collection<Entry> fields) {
+
+		public Optional<Entry> getFieldByFieldDefinitionNumber(int fieldDefinitionNumber) {
+			for (Entry entry : fields) {
+				if (entry.field().fieldDefinitionNumber == fieldDefinitionNumber && !entry.field().devField) {
+					return Optional.of(entry);
+				}
+			}
+			return Optional.empty();
+		}
+	}
+
 	/**
 	 * Message is a recorded entry in the .FIT file.
 	 * There are repetitive ones like 'record' (msgNumber 20) or
@@ -65,7 +84,7 @@ public record FitFile(Header header, List<Message> messages) {
 	 * @param messageNumber the message number for this message type
 	 * @param fields        all fields that are part of the message
 	 */
-	public record Message(int messageNumber, Map<Field, Object> fields) {
+	public record Message(int messageNumber, Fields fields) {
 	}
 
 	/**
@@ -78,25 +97,6 @@ public record FitFile(Header header, List<Message> messages) {
 
 		static Field from(String fieldName, FieldDefinition fieldDefinition) {
 			return new Field(fieldName, fieldDefinition.fieldDefinitionNumber(), fieldDefinition.devField());
-		}
-
-		@Override
-		public boolean equals(Object o) {
-			if (o == null || getClass() != o.getClass()) {
-				return false;
-			}
-			Field field = (Field) o;
-			return fieldDefinitionNumber == field.fieldDefinitionNumber;
-		}
-
-		@Override
-		public int hashCode() {
-			return Objects.hashCode(fieldDefinitionNumber);
-		}
-
-		@Override
-		public String toString() {
-			return fieldName();
 		}
 	}
 
@@ -160,7 +160,7 @@ public record FitFile(Header header, List<Message> messages) {
 
 	private record MessageDefinition(int messageNumber, List<FieldDefinition> fieldDefinitions, int endianness) {
 		public Message readMessage(FitFileStream inputStream, List<DeveloperField> developerFields) throws IOException {
-			var fields = new HashMap<Field, Object>();
+			var fields = new ArrayList<Entry>();
 			String fieldName = null;
 			for (FieldDefinition fieldDefinition : fieldDefinitions) {
 				var fieldBuffer = inputStream.readNBytes(fieldDefinition.readLength());
@@ -186,11 +186,11 @@ public record FitFile(Header header, List<Message> messages) {
 					if (fieldName == null) {
 						fieldName = "" + fieldDefinition.fieldDefinitionNumber();
 					}
-					fields.put(Field.from(fieldName, fieldDefinition), apply);
+					fields.add(new Entry(Field.from(fieldName, fieldDefinition), apply));
 				}
 			}
 
-			return new Message(messageNumber, fields);
+			return new Message(messageNumber, new Fields(fields));
 		}
 	}
 
@@ -256,10 +256,14 @@ public record FitFile(Header header, List<Message> messages) {
 
 				if (messageDefinition.messageNumber == DEV_FIELD_DESCRIPTION_NUMBER) {
 					try {
-						var developerDataIndex = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 0 && !k.devField()).findFirst().get());
-						var fieldDefinitionNumber = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 1 && !k.devField()).findFirst().get());
-						var fitBaseTypeId = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 2 && !k.devField()).findFirst().get());
-						var fieldName = (String) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 3 && !k.devField()).findFirst().get());
+						var developerDataIndex = (int) message.fields.getFieldByFieldDefinitionNumber(0).get().value();
+//						var developerDataIndex = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 0 && !k.devField()).findFirst().get());
+						var fieldDefinitionNumber = (int) message.fields.getFieldByFieldDefinitionNumber(1).get().value();
+//						var fieldDefinitionNumber = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 1 && !k.devField()).findFirst().get());
+						var fitBaseTypeId = (int) message.fields.getFieldByFieldDefinitionNumber(2).get().value();
+//						var fitBaseTypeId = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 2 && !k.devField()).findFirst().get());
+						var fieldName = (String) message.fields.getFieldByFieldDefinitionNumber(3).get().value();
+//						var fieldName = (String) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 3 && !k.devField()).findFirst().get());
 						developerFields.add(new DeveloperField(developerDataIndex, fieldDefinitionNumber, fitBaseTypeId, fieldName));
 					} catch (ClassCastException e) {
 						throw new IllegalArgumentException("could not read developer field" + messageDefinition, e);

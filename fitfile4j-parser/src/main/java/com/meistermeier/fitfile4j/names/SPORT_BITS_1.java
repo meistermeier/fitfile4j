@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_BITS_1 {
-  _CROSS_COUNTRY_SKIING(16, "cross_country_skiing"),
-
-  _ALPINE_SKIING(32, "alpine_skiing"),
-
-  _SNOWBOARDING(64, "snowboarding"),
-
-  _ROWING(128, "rowing"),
-
   _TENNIS(1, "tennis"),
 
   _AMERICAN_FOOTBALL(2, "american_football"),
 
   _TRAINING(4, "training"),
 
-  _WALKING(8, "walking");
+  _WALKING(8, "walking"),
+
+  _CROSS_COUNTRY_SKIING(16, "cross_country_skiing"),
+
+  _ALPINE_SKIING(32, "alpine_skiing"),
+
+  _SNOWBOARDING(64, "snowboarding"),
+
+  _ROWING(128, "rowing");
 
   private final int messageNumber;
 

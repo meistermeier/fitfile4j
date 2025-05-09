@@ -14,25 +14,15 @@ public enum EVENT {
 
   _OFF_COURSE(7, "off_course"),
 
-  _TANK_PRESSURE_RESERVE(71, "tank_pressure_reserve"),
-
   _SESSION(8, "session"),
 
-  _TANK_PRESSURE_CRITICAL(72, "tank_pressure_critical"),
-
   _LAP(9, "lap"),
-
-  _TANK_LOST(73, "tank_lost"),
 
   _COURSE_POINT(10, "course_point"),
 
   _BATTERY(11, "battery"),
 
-  _RADAR_THREAT_ALERT(75, "radar_threat_alert"),
-
   _VIRTUAL_PARTNER_PACE(12, "virtual_partner_pace"),
-
-  _TANK_BATTERY_LOW(76, "tank_battery_low"),
 
   _HR_HIGH_ALERT(13, "hr_high_alert"),
 
@@ -44,11 +34,7 @@ public enum EVENT {
 
   _CAD_HIGH_ALERT(17, "cad_high_alert"),
 
-  _TANK_POD_CONNECTED(81, "tank_pod_connected"),
-
   _CAD_LOW_ALERT(18, "cad_low_alert"),
-
-  _TANK_POD_DISCONNECTED(82, "tank_pod_disconnected"),
 
   _POWER_HIGH_ALERT(19, "power_high_alert"),
 
@@ -92,7 +78,21 @@ public enum EVENT {
 
   _DIVE_ALERT(56, "dive_alert"),
 
-  _DIVE_GAS_SWITCHED(57, "dive_gas_switched");
+  _DIVE_GAS_SWITCHED(57, "dive_gas_switched"),
+
+  _TANK_PRESSURE_RESERVE(71, "tank_pressure_reserve"),
+
+  _TANK_PRESSURE_CRITICAL(72, "tank_pressure_critical"),
+
+  _TANK_LOST(73, "tank_lost"),
+
+  _RADAR_THREAT_ALERT(75, "radar_threat_alert"),
+
+  _TANK_BATTERY_LOW(76, "tank_battery_low"),
+
+  _TANK_POD_CONNECTED(81, "tank_pod_connected"),
+
+  _TANK_POD_DISCONNECTED(82, "tank_pod_disconnected");
 
   private final int messageNumber;
 

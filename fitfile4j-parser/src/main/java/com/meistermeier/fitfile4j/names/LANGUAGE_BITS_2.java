@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_2 {
-  _LATVIAN(16, "latvian"),
-
-  _UKRAINIAN(32, "ukrainian"),
-
-  _ARABIC(64, "arabic"),
-
-  _FARSI(128, "farsi"),
-
   _SLOVENIAN(1, "slovenian"),
 
   _SWEDISH(2, "swedish"),
 
   _RUSSIAN(4, "russian"),
 
-  _TURKISH(8, "turkish");
+  _TURKISH(8, "turkish"),
+
+  _LATVIAN(16, "latvian"),
+
+  _UKRAINIAN(32, "ukrainian"),
+
+  _ARABIC(64, "arabic"),
+
+  _FARSI(128, "farsi");
 
   private final int messageNumber;
 

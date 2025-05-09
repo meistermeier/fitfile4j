@@ -252,8 +252,6 @@ public enum MANUFACTURER {
 
   _LEOMO(127, "leomo"),
 
-  _ACTIGRAPHCORP(5759, "actigraphcorp"),
-
   _IFIT_COM(128, "ifit_com"),
 
   _COROS_BYTE(129, "coros_byte"),
@@ -456,7 +454,9 @@ public enum MANUFACTURER {
 
   _MYWHOOSH(331, "mywhoosh"),
 
-  _RAVEMEN(332, "ravemen");
+  _RAVEMEN(332, "ravemen"),
+
+  _ACTIGRAPHCORP(5759, "actigraphcorp");
 
   private final int messageNumber;
 

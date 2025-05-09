@@ -4,17 +4,11 @@ package com.meistermeier.fitfile4j.names;
 public enum MESG_NUM {
   _FILE_ID(0, "file_id"),
 
-  _MFG_RANGE_MIN(65280, "mfg_range_min"),
-
   _CAPABILITIES(1, "capabilities"),
 
   _DEVICE_SETTINGS(2, "device_settings"),
 
-  _DIVE_SETTINGS(258, "dive_settings"),
-
   _USER_PROFILE(3, "user_profile"),
-
-  _DIVE_GAS(259, "dive_gas"),
 
   _HRM_PROFILE(4, "hrm_profile"),
 
@@ -22,13 +16,9 @@ public enum MESG_NUM {
 
   _BIKE_PROFILE(6, "bike_profile"),
 
-  _DIVE_ALARM(262, "dive_alarm"),
-
   _ZONES_TARGET(7, "zones_target"),
 
   _HR_ZONE(8, "hr_zone"),
-
-  _EXERCISE_TITLE(264, "exercise_title"),
 
   _POWER_ZONE(9, "power_zone"),
 
@@ -36,17 +26,11 @@ public enum MESG_NUM {
 
   _SPORT(12, "sport"),
 
-  _DIVE_SUMMARY(268, "dive_summary"),
-
-  _SPO2_DATA(269, "spo2_data"),
-
   _GOAL(15, "goal"),
 
   _SESSION(18, "session"),
 
   _LAP(19, "lap"),
-
-  _SLEEP_LEVEL(275, "sleep_level"),
 
   _RECORD(20, "record"),
 
@@ -60,8 +44,6 @@ public enum MESG_NUM {
 
   _SCHEDULE(28, "schedule"),
 
-  _JUMP(285, "jump"),
-
   _WEIGHT_SCALE(30, "weight_scale"),
 
   _COURSE(31, "course"),
@@ -70,11 +52,7 @@ public enum MESG_NUM {
 
   _TOTALS(33, "totals"),
 
-  _AAD_ACCEL_FEATURES(289, "aad_accel_features"),
-
   _ACTIVITY(34, "activity"),
-
-  _BEAT_INTERVALS(290, "beat_intervals"),
 
   _SOFTWARE(35, "software"),
 
@@ -84,41 +62,13 @@ public enum MESG_NUM {
 
   _FIELD_CAPABILITIES(39, "field_capabilities"),
 
-  _RESPIRATION_RATE(297, "respiration_rate"),
-
-  _HSA_ACCELEROMETER_DATA(302, "hsa_accelerometer_data"),
-
-  _HSA_STEP_DATA(304, "hsa_step_data"),
-
   _FILE_CREATOR(49, "file_creator"),
 
-  _HSA_SPO2_DATA(305, "hsa_spo2_data"),
-
-  _HSA_STRESS_DATA(306, "hsa_stress_data"),
-
   _BLOOD_PRESSURE(51, "blood_pressure"),
-
-  _HSA_RESPIRATION_DATA(307, "hsa_respiration_data"),
-
-  _HSA_HEART_RATE_DATA(308, "hsa_heart_rate_data"),
 
   _SPEED_ZONE(53, "speed_zone"),
 
   _MONITORING(55, "monitoring"),
-
-  _SPLIT(312, "split"),
-
-  _SPLIT_SUMMARY(313, "split_summary"),
-
-  _HSA_BODY_BATTERY_DATA(314, "hsa_body_battery_data"),
-
-  _HSA_EVENT(315, "hsa_event"),
-
-  _CLIMB_PRO(317, "climb_pro"),
-
-  _TANK_UPDATE(319, "tank_update"),
-
-  _TANK_SUMMARY(323, "tank_summary"),
 
   _TRAINING_FILE(72, "training_file"),
 
@@ -130,8 +80,6 @@ public enum MESG_NUM {
 
   _ANT_CHANNEL_ID(82, "ant_channel_id"),
 
-  _SLEEP_ASSESSMENT(346, "sleep_assessment"),
-
   _LENGTH(101, "length"),
 
   _MONITORING_INFO(103, "monitoring_info"),
@@ -139,16 +87,6 @@ public enum MESG_NUM {
   _PAD(105, "pad"),
 
   _SLAVE_DEVICE(106, "slave_device"),
-
-  _HRV_STATUS_SUMMARY(370, "hrv_status_summary"),
-
-  _HRV_VALUE(371, "hrv_value"),
-
-  _RAW_BBI(372, "raw_bbi"),
-
-  _DEVICE_AUX_BATTERY_INFO(375, "device_aux_battery_info"),
-
-  _HSA_GYROSCOPE_DATA(376, "hsa_gyroscope_data"),
 
   _CONNECTIVITY(127, "connectivity"),
 
@@ -158,19 +96,9 @@ public enum MESG_NUM {
 
   _CADENCE_ZONE(131, "cadence_zone"),
 
-  _CHRONO_SHOT_SESSION(387, "chrono_shot_session"),
-
   _HR(132, "hr"),
 
-  _CHRONO_SHOT_DATA(388, "chrono_shot_data"),
-
-  _HSA_CONFIGURATION_DATA(389, "hsa_configuration_data"),
-
-  _DIVE_APNEA_ALARM(393, "dive_apnea_alarm"),
-
   _SEGMENT_LAP(142, "segment_lap"),
-
-  _SKIN_TEMP_OVERNIGHT(398, "skin_temp_overnight"),
 
   _MEMO_GLOB(145, "memo_glob"),
 
@@ -181,8 +109,6 @@ public enum MESG_NUM {
   _SEGMENT_POINT(150, "segment_point"),
 
   _SEGMENT_FILE(151, "segment_file"),
-
-  _HSA_WRIST_TEMPERATURE_DATA(409, "hsa_wrist_temperature_data"),
 
   _WORKOUT_SESSION(158, "workout_session"),
 
@@ -243,6 +169,80 @@ public enum MESG_NUM {
   _STRESS_LEVEL(227, "stress_level"),
 
   _MAX_MET_DATA(229, "max_met_data"),
+
+  _DIVE_SETTINGS(258, "dive_settings"),
+
+  _DIVE_GAS(259, "dive_gas"),
+
+  _DIVE_ALARM(262, "dive_alarm"),
+
+  _EXERCISE_TITLE(264, "exercise_title"),
+
+  _DIVE_SUMMARY(268, "dive_summary"),
+
+  _SPO2_DATA(269, "spo2_data"),
+
+  _SLEEP_LEVEL(275, "sleep_level"),
+
+  _JUMP(285, "jump"),
+
+  _AAD_ACCEL_FEATURES(289, "aad_accel_features"),
+
+  _BEAT_INTERVALS(290, "beat_intervals"),
+
+  _RESPIRATION_RATE(297, "respiration_rate"),
+
+  _HSA_ACCELEROMETER_DATA(302, "hsa_accelerometer_data"),
+
+  _HSA_STEP_DATA(304, "hsa_step_data"),
+
+  _HSA_SPO2_DATA(305, "hsa_spo2_data"),
+
+  _HSA_STRESS_DATA(306, "hsa_stress_data"),
+
+  _HSA_RESPIRATION_DATA(307, "hsa_respiration_data"),
+
+  _HSA_HEART_RATE_DATA(308, "hsa_heart_rate_data"),
+
+  _SPLIT(312, "split"),
+
+  _SPLIT_SUMMARY(313, "split_summary"),
+
+  _HSA_BODY_BATTERY_DATA(314, "hsa_body_battery_data"),
+
+  _HSA_EVENT(315, "hsa_event"),
+
+  _CLIMB_PRO(317, "climb_pro"),
+
+  _TANK_UPDATE(319, "tank_update"),
+
+  _TANK_SUMMARY(323, "tank_summary"),
+
+  _SLEEP_ASSESSMENT(346, "sleep_assessment"),
+
+  _HRV_STATUS_SUMMARY(370, "hrv_status_summary"),
+
+  _HRV_VALUE(371, "hrv_value"),
+
+  _RAW_BBI(372, "raw_bbi"),
+
+  _DEVICE_AUX_BATTERY_INFO(375, "device_aux_battery_info"),
+
+  _HSA_GYROSCOPE_DATA(376, "hsa_gyroscope_data"),
+
+  _CHRONO_SHOT_SESSION(387, "chrono_shot_session"),
+
+  _CHRONO_SHOT_DATA(388, "chrono_shot_data"),
+
+  _HSA_CONFIGURATION_DATA(389, "hsa_configuration_data"),
+
+  _DIVE_APNEA_ALARM(393, "dive_apnea_alarm"),
+
+  _SKIN_TEMP_OVERNIGHT(398, "skin_temp_overnight"),
+
+  _HSA_WRIST_TEMPERATURE_DATA(409, "hsa_wrist_temperature_data"),
+
+  _MFG_RANGE_MIN(65280, "mfg_range_min"),
 
   _MFG_RANGE_MAX(65534, "mfg_range_max");
 

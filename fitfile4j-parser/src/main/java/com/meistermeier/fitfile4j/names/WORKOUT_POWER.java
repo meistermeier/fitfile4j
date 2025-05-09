@@ -2,18 +2,18 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_POWER {
-  _WATTS_OFFSET(1000, "watts_offset");
+  _WATTS_OFFSET(1000L, "watts_offset");
 
-  private final int messageNumber;
+  private final long messageNumber;
 
   private final String messageName;
 
-  WORKOUT_POWER(int messageNumber, String messageName) {
+  WORKOUT_POWER(long messageNumber, String messageName) {
     this.messageNumber = messageNumber;
     this.messageName = messageName;
   }
 
-  public static WORKOUT_POWER findById(int messageNumber) {
+  public static WORKOUT_POWER findById(long messageNumber) {
     for (WORKOUT_POWER name: WORKOUT_POWER.values()) {
     	if (name.messageNumber == messageNumber) {
     		return name;

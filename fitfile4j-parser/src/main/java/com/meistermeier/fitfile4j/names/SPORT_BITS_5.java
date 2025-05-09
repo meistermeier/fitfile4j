@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_BITS_5 {
-  _KITESURFING(16, "kitesurfing"),
-
-  _TACTICAL(32, "tactical"),
-
-  _JUMPMASTER(64, "jumpmaster"),
-
-  _BOXING(128, "boxing"),
-
   _WATER_SKIING(1, "water_skiing"),
 
   _KAYAKING(2, "kayaking"),
 
   _RAFTING(4, "rafting"),
 
-  _WINDSURFING(8, "windsurfing");
+  _WINDSURFING(8, "windsurfing"),
+
+  _KITESURFING(16, "kitesurfing"),
+
+  _TACTICAL(32, "tactical"),
+
+  _JUMPMASTER(64, "jumpmaster"),
+
+  _BOXING(128, "boxing");
 
   private final int messageNumber;
 

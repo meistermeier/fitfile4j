@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_BITS_2 {
-  _FLYING(16, "flying"),
-
-  _E_BIKING(32, "e_biking"),
-
-  _MOTORCYCLING(64, "motorcycling"),
-
-  _BOATING(128, "boating"),
-
   _MOUNTAINEERING(1, "mountaineering"),
 
   _HIKING(2, "hiking"),
 
   _MULTISPORT(4, "multisport"),
 
-  _PADDLING(8, "paddling");
+  _PADDLING(8, "paddling"),
+
+  _FLYING(16, "flying"),
+
+  _E_BIKING(32, "e_biking"),
+
+  _MOTORCYCLING(64, "motorcycling"),
+
+  _BOATING(128, "boating");
 
   private final int messageNumber;
 

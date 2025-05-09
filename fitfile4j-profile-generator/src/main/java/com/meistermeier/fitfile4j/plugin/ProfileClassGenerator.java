@@ -25,6 +25,7 @@ import javax.lang.model.element.Modifier;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -56,13 +57,13 @@ public class ProfileClassGenerator {
 		this.packageName = packageName;
 		this.profileParser = new ProfileParser(profileSource);
 	}
-
+/*
 	void createSql() throws Exception {
 		var types = this.profileParser.parseTypes();
 		var fieldNames = this.profileParser.parseFieldNames(types.get("MESG_NUM"));
 		List<String> createStatements = new ArrayList<>();
 		List<String> insertStatements = new ArrayList<>();
-		for (Map.Entry<String, Map<Long, String>> typeEntry : types.entrySet()) {
+		for (Map.Entry<String, ProfileParser.Type> typeEntry : types.entrySet()) {
 			String createStatement = "CREATE TABLE " + typeEntry.getKey() +
 				"""
 					(
@@ -79,7 +80,7 @@ public class ProfileClassGenerator {
 		}
 		createStatements.forEach(System.out::println);
 	}
-
+*/
 	void createMessageNameMappings() throws IOException {
 		var types = this.profileParser.parseTypes();
 		var fieldNames = this.profileParser.parseFieldNames(types.get("MESG_NUM"));
@@ -87,9 +88,9 @@ public class ProfileClassGenerator {
 		var fieldsEnum = createFieldNames(fieldNames, packageName);
 		if (outputDirectory != null && !outputDirectory.isBlank()) {
 			var output = Path.of(outputDirectory);
-//			for (JavaFile javaFile : typesEnum) {
-//				javaFile.writeTo(output);
-//			}
+			for (JavaFile javaFile : typesEnum) {
+				javaFile.writeTo(output);
+			}
 			fieldsEnum.writeTo(output);
 		} else {
 			for (JavaFile javaFile : typesEnum) {
@@ -99,47 +100,86 @@ public class ProfileClassGenerator {
 		}
 	}
 
-	private List<JavaFile> createTypes(Map<String, Map<Long, String>> types, String packageNameToUse) {
+	private List<JavaFile> createTypes(Map<String, Collection<ProfileParser.Type>> types, String packageNameToUse) {
 		var files = new ArrayList<JavaFile>();
-		for (Map.Entry<String, Map<Long, String>> type : types.entrySet()) {
+		for (Map.Entry<String, Collection<ProfileParser.Type>> type : types.entrySet()) {
 
 			var messageNameEnumBuilder = TypeSpec.enumBuilder(type.getKey())
 				.addModifiers(Modifier.PUBLIC);
 			var typeContent = type.getValue();
-			for (Map.Entry<Long, String> content : typeContent.entrySet()) {
+			var longType = false;
+			for (ProfileParser.Type content : typeContent) {
+				if (content.longType()) {
+					longType = true;
+				}
 				messageNameEnumBuilder.addEnumConstant(
-					"_" + content.getValue().toUpperCase(Locale.ROOT),
-					TypeSpec.anonymousClassBuilder("$L, $S", content.getKey(), content.getValue()).build()
+					"_" + content.name().toUpperCase(Locale.ROOT),
+					longType
+						? TypeSpec.anonymousClassBuilder("$LL, $S", content.value(), content.name()).build()
+						: TypeSpec.anonymousClassBuilder("$L, $S", content.value(), content.name()).build()
 				);
 			}
-			messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+			if (longType) {
+				messageNameEnumBuilder.addField(long.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+			} else {
+				messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+			}
 			messageNameEnumBuilder.addField(String.class, "messageName", Modifier.PRIVATE, Modifier.FINAL);
-			messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
-				.addParameter(int.class, "messageNumber")
-				.addParameter(String.class, "messageName")
-				.addCode(CodeBlock.builder()
-					.add("""
-						this.messageNumber = messageNumber;
-						this.messageName = messageName;
-						""")
-					.build())
-				.build());
-			messageNameEnumBuilder
-				.addMethod(MethodSpec.methodBuilder("findById")
-					.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
-					.addParameter(int.class, "messageNumber")
+			if (longType) {
+				messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
+					.addParameter(long.class, "messageNumber")
+					.addParameter(String.class, "messageName")
 					.addCode(CodeBlock.builder()
 						.add("""
-							for (%s name: %s.values()) {
-								if (name.messageNumber == messageNumber) {
-									return name;
-								}
-							}
-							return null;
-							""".formatted(type.getKey(), type.getKey()))
+							this.messageNumber = messageNumber;
+							this.messageName = messageName;
+							""")
 						.build())
-					.returns(ClassName.get(packageNameToUse, type.getKey()))
 					.build());
+				messageNameEnumBuilder
+					.addMethod(MethodSpec.methodBuilder("findById")
+						.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
+						.addParameter(long.class, "messageNumber")
+						.addCode(CodeBlock.builder()
+							.add("""
+								for (%s name: %s.values()) {
+									if (name.messageNumber == messageNumber) {
+										return name;
+									}
+								}
+								return null;
+								""".formatted(type.getKey(), type.getKey()))
+							.build())
+						.returns(ClassName.get(packageNameToUse, type.getKey()))
+						.build());
+			} else {
+				messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
+					.addParameter(int.class, "messageNumber")
+					.addParameter(String.class, "messageName")
+					.addCode(CodeBlock.builder()
+						.add("""
+							this.messageNumber = messageNumber;
+							this.messageName = messageName;
+							""")
+						.build())
+					.build());
+				messageNameEnumBuilder
+					.addMethod(MethodSpec.methodBuilder("findById")
+						.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
+						.addParameter(int.class, "messageNumber")
+						.addCode(CodeBlock.builder()
+							.add("""
+								for (%s name: %s.values()) {
+									if (name.messageNumber == messageNumber) {
+										return name;
+									}
+								}
+								return null;
+								""".formatted(type.getKey(), type.getKey()))
+							.build())
+						.returns(ClassName.get(packageNameToUse, type.getKey()))
+						.build());
+			}
 			messageNameEnumBuilder
 				.addMethod(MethodSpec.methodBuilder("getMessageName")
 					.addModifiers(Modifier.PUBLIC)

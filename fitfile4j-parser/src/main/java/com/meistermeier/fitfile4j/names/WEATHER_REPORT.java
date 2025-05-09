@@ -4,6 +4,8 @@ package com.meistermeier.fitfile4j.names;
 public enum WEATHER_REPORT {
   _CURRENT(0, "current"),
 
+  _FORECAST(1, "forecast"),
+
   _HOURLY_FORECAST(1, "hourly_forecast"),
 
   _DAILY_FORECAST(2, "daily_forecast");

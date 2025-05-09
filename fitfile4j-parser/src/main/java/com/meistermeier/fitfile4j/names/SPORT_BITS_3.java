@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_BITS_3 {
-  _HUNTING(16, "hunting"),
-
-  _FISHING(32, "fishing"),
-
-  _INLINE_SKATING(64, "inline_skating"),
-
-  _ROCK_CLIMBING(128, "rock_climbing"),
-
   _DRIVING(1, "driving"),
 
   _GOLF(2, "golf"),
 
   _HANG_GLIDING(4, "hang_gliding"),
 
-  _HORSEBACK_RIDING(8, "horseback_riding");
+  _HORSEBACK_RIDING(8, "horseback_riding"),
+
+  _HUNTING(16, "hunting"),
+
+  _FISHING(32, "fishing"),
+
+  _INLINE_SKATING(64, "inline_skating"),
+
+  _ROCK_CLIMBING(128, "rock_climbing");
 
   private final int messageNumber;
 

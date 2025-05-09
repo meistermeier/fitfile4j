@@ -2,9 +2,9 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LEFT_RIGHT_BALANCE_100 {
-  _RIGHT(32768, "right"),
+  _MASK(16383, "mask"),
 
-  _MASK(16383, "mask");
+  _RIGHT(32768, "right");
 
   private final int messageNumber;
 

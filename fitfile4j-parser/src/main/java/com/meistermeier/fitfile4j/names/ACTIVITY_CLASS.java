@@ -2,11 +2,11 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_CLASS {
-  _ATHLETE(128, "athlete"),
+  _LEVEL(127, "level"),
 
   _LEVEL_MAX(100, "level_max"),
 
-  _LEVEL(127, "level");
+  _ATHLETE(128, "athlete");
 
   private final int messageNumber;
 

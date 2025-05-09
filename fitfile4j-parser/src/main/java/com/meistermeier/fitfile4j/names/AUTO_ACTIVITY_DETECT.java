@@ -2,30 +2,30 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTO_ACTIVITY_DETECT {
-  _NONE(0, "none"),
+  _NONE(0L, "none"),
 
-  _ELLIPTICAL(32, "elliptical"),
+  _RUNNING(1L, "running"),
 
-  _SEDENTARY(1024, "sedentary"),
+  _CYCLING(2L, "cycling"),
 
-  _RUNNING(1, "running"),
+  _SWIMMING(4L, "swimming"),
 
-  _CYCLING(2, "cycling"),
+  _WALKING(8L, "walking"),
 
-  _SWIMMING(4, "swimming"),
+  _ELLIPTICAL(32L, "elliptical"),
 
-  _WALKING(8, "walking");
+  _SEDENTARY(1024L, "sedentary");
 
-  private final int messageNumber;
+  private final long messageNumber;
 
   private final String messageName;
 
-  AUTO_ACTIVITY_DETECT(int messageNumber, String messageName) {
+  AUTO_ACTIVITY_DETECT(long messageNumber, String messageName) {
     this.messageNumber = messageNumber;
     this.messageName = messageName;
   }
 
-  public static AUTO_ACTIVITY_DETECT findById(int messageNumber) {
+  public static AUTO_ACTIVITY_DETECT findById(long messageNumber) {
     for (AUTO_ACTIVITY_DETECT name: AUTO_ACTIVITY_DETECT.values()) {
     	if (name.messageNumber == messageNumber) {
     		return name;

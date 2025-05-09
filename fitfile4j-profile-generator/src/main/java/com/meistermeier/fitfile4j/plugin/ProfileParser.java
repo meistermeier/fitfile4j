@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,17 +33,28 @@ class ProfileParser {
 
 	private final String profileSource;
 
+	private static final List<String> LONG_VALUES = List.of(
+		"UINT32",
+		"UINT32Z",
+		"SINT32",
+		"UINT64",
+		"SINT64"
+	);
+
 	ProfileParser(String profileSource) {
 		this.profileSource = profileSource;
 	}
+	record Type(Long value, String name, boolean longType) {
 
-	Map<String, Map<Long, String>> parseTypes() throws IOException {
-		Map<String, Map<Long, String>> types = new HashMap<>();
+	}
+	Map<String, Collection<Type>> parseTypes() throws IOException {
+		Map<String, Collection<Type>> types = new HashMap<>();
 		try (var workbook = new ReadableWorkbook(new File(profileSource))) {
 			workbook.findSheet("Types")
 				.ifPresent(wb -> {
 					try {
 						String currentType = null;
+						boolean longType = false;
 						for (Row row : wb.read()) {
 							// skip first row
 							if (row.getRowNum() == 0) {
@@ -54,11 +66,12 @@ class ProfileParser {
 									types.remove(currentType);
 								}
 								currentType = cellValue.toUpperCase();
-								types.put(currentType, new HashMap<>());
+								longType = LONG_VALUES.contains(row.getCellText(1).toUpperCase());
+								types.put(currentType, new ArrayList<>());
 							} else if (currentType != null) {
 								try {
 									String cellText = row.getCellText(3).trim();
-									types.get(currentType).put(cellText.startsWith("0x") ? Long.parseLong(cellText.replaceAll("0x", ""), 16) : Long.parseLong(cellText), row.getCellText(2));
+									types.get(currentType).add(new Type(cellText.startsWith("0x") ? Long.parseLong(cellText.replaceAll("0x", ""), 16) : Long.parseLong(cellText), row.getCellText(2), longType));
 								} catch (ExcelReaderException e) {
 									System.err.println("nope");
 								}
@@ -75,9 +88,9 @@ class ProfileParser {
 	record FieldName(Long messageNumber, Integer fieldNumber, String name, String enumType) {
 	}
 
-	List<FieldName> parseFieldNames(Map<Long, String> parsedMessageNames) throws IOException {
-		var messageNames = parsedMessageNames.entrySet().stream()
-			.collect(Collectors.toUnmodifiableMap(Map.Entry::getValue, Map.Entry::getKey));
+	List<FieldName> parseFieldNames(Collection<Type> types) throws IOException {
+		var messageNames = types.stream()
+			.collect(Collectors.toUnmodifiableMap(type -> type.name, type -> type.value));
 		List<FieldName> fieldNames = new ArrayList<>();
 
 		try (var workbook = new ReadableWorkbook(new File(profileSource))) {

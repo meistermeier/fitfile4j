@@ -2,21 +2,21 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_3 {
-  _KOREAN(16, "korean"),
-
-  _TAIWANESE(32, "taiwanese"),
-
-  _THAI(64, "thai"),
-
-  _HEBREW(128, "hebrew"),
-
   _BULGARIAN(1, "bulgarian"),
 
   _ROMANIAN(2, "romanian"),
 
   _CHINESE(4, "chinese"),
 
-  _JAPANESE(8, "japanese");
+  _JAPANESE(8, "japanese"),
+
+  _KOREAN(16, "korean"),
+
+  _TAIWANESE(32, "taiwanese"),
+
+  _THAI(64, "thai"),
+
+  _HEBREW(128, "hebrew");
 
   private final int messageNumber;
 

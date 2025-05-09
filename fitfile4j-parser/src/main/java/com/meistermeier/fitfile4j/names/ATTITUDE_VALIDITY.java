@@ -2,6 +2,16 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ATTITUDE_VALIDITY {
+  _TRACK_ANGLE_HEADING_VALID(1, "track_angle_heading_valid"),
+
+  _PITCH_VALID(2, "pitch_valid"),
+
+  _ROLL_VALID(4, "roll_valid"),
+
+  _LATERAL_BODY_ACCEL_VALID(8, "lateral_body_accel_valid"),
+
+  _NORMAL_BODY_ACCEL_VALID(16, "normal_body_accel_valid"),
+
   _TURN_RATE_VALID(32, "turn_rate_valid"),
 
   _HW_FAIL(64, "hw_fail"),
@@ -16,17 +26,7 @@ public enum ATTITUDE_VALIDITY {
 
   _TRUE_TRACK_ANGLE(2048, "true_track_angle"),
 
-  _MAGNETIC_HEADING(4096, "magnetic_heading"),
-
-  _TRACK_ANGLE_HEADING_VALID(1, "track_angle_heading_valid"),
-
-  _PITCH_VALID(2, "pitch_valid"),
-
-  _ROLL_VALID(4, "roll_valid"),
-
-  _LATERAL_BODY_ACCEL_VALID(8, "lateral_body_accel_valid"),
-
-  _NORMAL_BODY_ACCEL_VALID(16, "normal_body_accel_valid");
+  _MAGNETIC_HEADING(4096, "magnetic_heading");
 
   private final int messageNumber;
 
