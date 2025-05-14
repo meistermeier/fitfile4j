@@ -24,4 +24,5 @@
 <suppressions>
 	<suppress files="FieldName.java" checks="RegexpSinglelineJava"/>
 	<suppress files="MessageName.java" checks="RegexpSinglelineJava"/>
+	<suppress files="fitfile4j/names/*" checks=".*"/>
 </suppressions>

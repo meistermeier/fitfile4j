@@ -19,18 +19,15 @@ import com.meistermeier.fitfile4j.values.ValueReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * A parsed .fit file representation
@@ -56,10 +53,20 @@ public record FitFile(Header header, List<Message> messages) {
 	public record Header(int length, int protocolVersion, String profileVersion, long dataSize, String dataType) {
 	}
 
+	/**
+	 * Entry combines field and value
+	 * @param field {@link Field} definition
+	 * @param value value of this specific field within a message
+	 */
 	public record Entry(Field field, Object value) {
 
 	}
 
+	/**
+	 * Represents the fields within a message
+	 *
+	 * @param fields all fields within a message
+	 */
 	public record Fields(Collection<Entry> fields) {
 
 		public Optional<Entry> getFieldByFieldDefinitionNumber(int fieldDefinitionNumber) {
@@ -101,16 +108,16 @@ public record FitFile(Header header, List<Message> messages) {
 	}
 
 	/**
-	 * Generate a {@link FitFile} from an opened stream.
+	 * Generate a {@link FitFile} from a stream.
 	 *
-	 * @param inputStreamRaw the stream consuming the .fit file
+	 * @param inputStream the stream consuming the .fit file
 	 * @return {@link FitFile} with header and messages
 	 * @throws IOException any unhandled exception on reading
 	 */
-	public static FitFile from(ByteArrayInputStream inputStreamRaw) throws IOException {
-		var inputStream = new FitFileStream(inputStreamRaw);
-		Header header = readHeader(inputStream);
-		List<Message> messages = readMessages(inputStream);
+	public static FitFile from(InputStream inputStream) throws IOException {
+		var fitFileStream = new FitFileStream(inputStream);
+		Header header = readHeader(fitFileStream);
+		List<Message> messages = readMessages(fitFileStream);
 
 		return new FitFile(
 			header,
@@ -118,9 +125,15 @@ public record FitFile(Header header, List<Message> messages) {
 		);
 	}
 
+	/**
+	 * Generate a {@link FitFile} from a file.
+	 *
+	 * @param file .fit file to read
+	 * @return {@link FitFile} with header and messages
+	 * @throws IOException any unhandled exception on reading
+	 */
 	public static FitFile from(File fileDefinition) throws IOException {
-		var bais = new ByteArrayInputStream(new FileInputStream(fileDefinition).readAllBytes());
-		return from(bais);
+		return from(new FileInputStream(fileDefinition));
 	}
 
 	private static Header readHeader(FitFileStream inputStream) {
@@ -257,13 +270,9 @@ public record FitFile(Header header, List<Message> messages) {
 				if (messageDefinition.messageNumber == DEV_FIELD_DESCRIPTION_NUMBER) {
 					try {
 						var developerDataIndex = (int) message.fields.getFieldByFieldDefinitionNumber(0).get().value();
-//						var developerDataIndex = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 0 && !k.devField()).findFirst().get());
 						var fieldDefinitionNumber = (int) message.fields.getFieldByFieldDefinitionNumber(1).get().value();
-//						var fieldDefinitionNumber = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 1 && !k.devField()).findFirst().get());
 						var fitBaseTypeId = (int) message.fields.getFieldByFieldDefinitionNumber(2).get().value();
-//						var fitBaseTypeId = (int) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 2 && !k.devField()).findFirst().get());
 						var fieldName = (String) message.fields.getFieldByFieldDefinitionNumber(3).get().value();
-//						var fieldName = (String) message.fields.get(message.fields.keySet().stream().filter(k -> k.fieldDefinitionNumber == 3 && !k.devField()).findFirst().get());
 						developerFields.add(new DeveloperField(developerDataIndex, fieldDefinitionNumber, fitBaseTypeId, fieldName));
 					} catch (ClassCastException e) {
 						throw new IllegalArgumentException("could not read developer field" + messageDefinition, e);
