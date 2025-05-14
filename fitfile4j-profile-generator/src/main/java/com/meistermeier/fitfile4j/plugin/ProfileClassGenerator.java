@@ -43,9 +43,11 @@ public class ProfileClassGenerator {
 	 */
 	public static void main(String[] args) throws Exception {
 		var pcg = new ProfileClassGenerator(args[0], args[1], args[2]);
-		pcg.createMessageNameMappings();
-//		helper function to create initial SQL
-//		pcg.createSql();
+		// enable by demand ;)
+		// generate enums and type mapping
+		// pcg.createMessageNameMappings();
+		// create initial SQL
+		// pcg.createSql();
 	}
 
 	private final String outputDirectory;
@@ -57,13 +59,12 @@ public class ProfileClassGenerator {
 		this.packageName = packageName;
 		this.profileParser = new ProfileParser(profileSource);
 	}
-/*
+
 	void createSql() throws Exception {
 		var types = this.profileParser.parseTypes();
-		var fieldNames = this.profileParser.parseFieldNames(types.get("MESG_NUM"));
 		List<String> createStatements = new ArrayList<>();
 		List<String> insertStatements = new ArrayList<>();
-		for (Map.Entry<String, ProfileParser.Type> typeEntry : types.entrySet()) {
+		for (Map.Entry<String, Collection<ProfileParser.Type>> typeEntry : types.entrySet()) {
 			String createStatement = "CREATE TABLE " + typeEntry.getKey() +
 				"""
 					(
@@ -71,7 +72,7 @@ public class ProfileClassGenerator {
 						value_name varchar not null
 					);""";
 			createStatements.add(createStatement);
-			var entries = typeEntry.getValue().entrySet().stream().map(e -> e.getKey() + ",'" + e.getValue() + "'")
+			var entries = typeEntry.getValue().stream().map(e -> e.value() + ",'" + e.name() + "'")
 				.toList();
 			for (String entry : entries) {
 				String insertStatement = "INSERT INTO %s VALUES (%s);".formatted(typeEntry.getKey(), entry);
@@ -79,8 +80,9 @@ public class ProfileClassGenerator {
 			}
 		}
 		createStatements.forEach(System.out::println);
+		insertStatements.forEach(System.out::println);
 	}
-*/
+
 	void createMessageNameMappings() throws IOException {
 		var types = this.profileParser.parseTypes();
 		var fieldNames = this.profileParser.parseFieldNames(types.get("MESG_NUM"));
