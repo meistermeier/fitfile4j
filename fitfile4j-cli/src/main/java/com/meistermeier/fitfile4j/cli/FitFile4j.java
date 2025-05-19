@@ -15,48 +15,40 @@
  */
 package com.meistermeier.fitfile4j.cli;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.meistermeier.fitfile4j.FitFile;
 import com.meistermeier.fitfile4j.cli.commands.DatabaseCommand;
 import com.meistermeier.fitfile4j.cli.commands.ImageCommand;
-import com.meistermeier.fitfile4j.cli.json.FitFileModule;
+import com.meistermeier.fitfile4j.cli.commands.JsonCommand;
 import picocli.CommandLine;
-
-import java.io.File;
-import java.util.concurrent.Callable;
+import picocli.CommandLine.Model.CommandSpec;
 
 /**
  * Entry point for the fitfile4j command line tool
  */
 @CommandLine.Command(
-	subcommands = {DatabaseCommand.class, ImageCommand.class}
+	name = "fitfile4j",
+	version = "1.0-SNAPSHOT",
+	subcommands = {
+		DatabaseCommand.class,
+		ImageCommand.class,
+		JsonCommand.class
+	},
+	mixinStandardHelpOptions = true
 )
-public class FitFile4j implements Callable<Integer> {
+public class FitFile4j implements Runnable {
 
-	@CommandLine.Option(names = {"-f", "--file"})
-	File fitFile;
+	@CommandLine.Option(names = "--help", usageHelp = true, description = "display this help")
+	boolean help;
 
-	@CommandLine.Option(names = {"-j", "--json"})
-	boolean jsonExport;
-
-	@CommandLine.Option(names = {"-n", "--names"})
-	boolean names;
+	@CommandLine.Spec
+	CommandSpec spec;
 
 	@Override
-	public Integer call() throws Exception {
-		var fitContent = FitFile.from(fitFile);
-		if (jsonExport) {
-			var objectMapper = new ObjectMapper().registerModule(new FitFileModule(names));
-			System.out.println(objectMapper.writeValueAsString(fitContent.messages()));
-		}
-		return 0;
-	}
-
-	public File getFitFile() {
-		return fitFile;
+	public void run() {
+		throw new CommandLine.ParameterException(spec.commandLine(), "Please use a subcommand");
 	}
 
 	public static void main(String[] args) {
-		new CommandLine(new FitFile4j()).execute(args);
+		System.exit(new CommandLine(new FitFile4j()).execute(args));
 	}
+
 }

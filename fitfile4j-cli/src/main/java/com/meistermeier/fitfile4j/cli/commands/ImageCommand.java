@@ -16,11 +16,11 @@
 package com.meistermeier.fitfile4j.cli.commands;
 
 import com.meistermeier.fitfile4j.FitFile;
-import com.meistermeier.fitfile4j.cli.FitFile4j;
 import picocli.CommandLine;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
@@ -30,8 +30,9 @@ import java.util.concurrent.Callable;
 @CommandLine.Command(name = "image")
 public class ImageCommand implements Callable<Integer> {
 
-	@CommandLine.ParentCommand
-	FitFile4j parent;
+
+	@CommandLine.Parameters
+	File fitFileSource;
 
 	@CommandLine.Option(names = "--size")
 	Integer size;
@@ -41,7 +42,7 @@ public class ImageCommand implements Callable<Integer> {
 
 	@Override
 	public Integer call() throws Exception {
-		createImage(FitFile.from(parent.getFitFile()));
+		createImage(FitFile.from(fitFileSource));
 		return 0;
 	}
 
