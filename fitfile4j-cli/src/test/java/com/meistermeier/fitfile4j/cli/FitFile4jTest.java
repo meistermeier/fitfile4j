@@ -57,7 +57,7 @@ class FitFile4jTest {
 		}
 
 		@Test
-		void migrationFailsWhenFileExists() throws Exception {
+		void migrationFailsWhenFileExists() {
 			var fitFile4j = new FitFile4j();
 			// initial duckdb db creation
 			new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath());
