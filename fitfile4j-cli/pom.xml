@@ -29,7 +29,9 @@
 	<artifactId>fitfile4j-cli</artifactId>
 
 	<properties>
-		<jackson.version>2.18.2</jackson.version>
+		<flyway.version>11.8.2</flyway.version>
+		<flyway-duckdb.version>10.18.0</flyway-duckdb.version>
+		<jackson.version>2.18.1</jackson.version>
 		<mainClass>com.meistermeier.fitfile4j.cli.FitFile4j</mainClass>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
@@ -54,6 +56,22 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-duckdb</artifactId>
+			<version>${flyway-duckdb.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.duckdb</groupId>
 			<artifactId>duckdb_jdbc</artifactId>
 		</dependency>
@@ -62,32 +80,13 @@
 			<artifactId>logback-classic</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
+			<groupId>com.fasterxml.jackson.jr</groupId>
+			<artifactId>jackson-jr-objects</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>info.picocli</groupId>
 			<artifactId>picocli</artifactId>
 			<version>${picocli.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-database-duckdb</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -139,6 +138,28 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>${flyway.version}</version>
+				<configuration>
+					<url>jdbc:duckdb:fitfile.db</url>
+					<user/>
+					<password/>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.duckdb</groupId>
+						<artifactId>duckdb_jdbc</artifactId>
+						<version>${duckdb.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.flywaydb</groupId>
+						<artifactId>flyway-database-duckdb</artifactId>
+						<version>${flyway-duckdb.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

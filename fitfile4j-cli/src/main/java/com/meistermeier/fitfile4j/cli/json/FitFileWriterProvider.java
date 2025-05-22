@@ -16,11 +16,10 @@
 package com.meistermeier.fitfile4j.cli.json;
 
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.fasterxml.jackson.jr.ob.api.ReaderWriterProvider;
+import com.fasterxml.jackson.jr.ob.api.ValueWriter;
+import com.fasterxml.jackson.jr.ob.impl.JSONWriter;
 import com.meistermeier.fitfile4j.FitFile;
-import com.meistermeier.fitfile4j.FitFile.Message;
 import com.meistermeier.fitfile4j.names.FieldName;
 import com.meistermeier.fitfile4j.names.MESG_NUM;
 
@@ -31,34 +30,34 @@ import java.lang.reflect.Method;
 /**
  * Jackson Module to serialize the data with names instead of just field and message numbers.
  */
-public class FitFileModule extends SimpleModule {
+public class FitFileWriterProvider extends ReaderWriterProvider {
 
-	static class FitFileSerializer extends StdSerializer<FitFile> {
+	private final boolean withNames;
 
-		protected FitFileSerializer() {
-			super(FitFile.class);
-		}
-
-		@Override
-		public void serialize(FitFile fitFile, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-			jsonGenerator.writeStartObject();
-
-			jsonGenerator.writeObjectField("fields", fitFile.messages());
-			jsonGenerator.writeEndObject();
-		}
+	public FitFileWriterProvider(boolean withNames) {
+		this.withNames = withNames;
 	}
 
-	static class MessageSerializer extends StdSerializer<Message> {
+	@Override
+	public ValueWriter findValueWriter(JSONWriter jsonWriter, Class<?> aClass) {
+
+		if (aClass == FitFile.Message.class) {
+			return new MessageWriter(withNames);
+		}
+		return super.findValueWriter(jsonWriter, aClass);
+	}
+
+	static class MessageWriter implements ValueWriter {
 
 		private final boolean withNames;
 
-		protected MessageSerializer(boolean withNames) {
-			super(Message.class);
+		public MessageWriter(boolean withNames) {
 			this.withNames = withNames;
 		}
 
 		@Override
-		public void serialize(Message message, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+		public void writeValue(JSONWriter jsonWriter, JsonGenerator jsonGenerator, Object o) throws IOException {
+			var message = (FitFile.Message) o;
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeNumberField("message_number", message.messageNumber());
 			if (withNames) {
@@ -97,15 +96,16 @@ public class FitFileModule extends SimpleModule {
 				} else {
 					key = "" + entry.field().fieldDefinitionNumber();
 				}
-				jsonGenerator.writeObjectField(key, value);
+				jsonGenerator.writeFieldName(key);
+				jsonWriter.writeValue(value);
 			}
 			jsonGenerator.writeEndObject();
 			jsonGenerator.writeEndObject();
 		}
-	}
 
-	public FitFileModule(boolean withNames) {
-		this.addSerializer(new FitFileSerializer());
-		this.addSerializer(new MessageSerializer(withNames));
+		@Override
+		public Class<?> valueType() {
+			return FitFile.class;
+		}
 	}
 }

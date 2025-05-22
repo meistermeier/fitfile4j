@@ -29,12 +29,13 @@ import java.util.concurrent.Callable;
 		DeleteCommand.class
 	}
 )
-public class DatabaseCommand implements Callable<Integer> {
+public class DatabaseCommand implements Runnable {
+
+	@CommandLine.Spec
+	CommandLine.Model.CommandSpec spec;
 
 	@Override
-	public Integer call() throws Exception {
-
-		return 0;
+	public void run() {
+		throw new CommandLine.ParameterException(spec.commandLine(), "Please use a database subcommand");
 	}
-
 }

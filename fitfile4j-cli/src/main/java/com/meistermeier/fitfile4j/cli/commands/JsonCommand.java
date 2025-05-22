@@ -15,9 +15,11 @@
  */
 package com.meistermeier.fitfile4j.cli.commands;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.jr.ob.JSON;
+import com.fasterxml.jackson.jr.ob.JacksonJrExtension;
+import com.fasterxml.jackson.jr.ob.api.ExtensionContext;
 import com.meistermeier.fitfile4j.FitFile;
-import com.meistermeier.fitfile4j.cli.json.FitFileModule;
+import com.meistermeier.fitfile4j.cli.json.FitFileWriterProvider;
 import picocli.CommandLine;
 
 import java.io.File;
@@ -38,8 +40,14 @@ public class JsonCommand implements Callable<Integer> {
 	@Override
 	public Integer call() throws Exception {
 		var fitFile = FitFile.from(fitFileSource);
-		var objectMapper = new ObjectMapper().registerModule(new FitFileModule(names));
-		System.out.println(objectMapper.writeValueAsString(fitFile.messages()));
+		var json = JSON.builder().register(new JacksonJrExtension() {
+				@Override
+				protected void register(ExtensionContext extensionContext) {
+					extensionContext.appendProvider(new FitFileWriterProvider(names));
+				}
+			})
+			.build();
+		System.out.println(json.asString(fitFile.messages()));
 		return 0;
 	}
 
