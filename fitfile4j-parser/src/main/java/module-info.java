@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-module fitfile4j.generator {
-	requires com.squareup.javapoet;
-	requires org.dhatim.fastexcel.reader;
-	requires java.compiler;
+module fitfile4j {
+	requires org.slf4j;
+
+	exports com.meistermeier.fitfile4j;
+	exports com.meistermeier.fitfile4j.names;
 }

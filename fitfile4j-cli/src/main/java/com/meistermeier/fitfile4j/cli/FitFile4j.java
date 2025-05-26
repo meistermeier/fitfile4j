@@ -27,14 +27,16 @@ import picocli.CommandLine.Model.CommandSpec;
 @CommandLine.Command(
 	name = "fitfile4j",
 	version = "1.0-SNAPSHOT",
+	description = "Tool to work with .FIT files",
 	subcommands = {
 		DatabaseCommand.class,
 		ImageCommand.class,
 		JsonCommand.class
-	},
-	mixinStandardHelpOptions = true
+	}
 )
 public class FitFile4j implements Runnable {
+
+	public static final String DEFAULT_DATABASE = "fitfile.db";
 
 	@CommandLine.Option(names = "--help", usageHelp = true, description = "display this help")
 	boolean help;
@@ -44,7 +46,7 @@ public class FitFile4j implements Runnable {
 
 	@Override
 	public void run() {
-		throw new CommandLine.ParameterException(spec.commandLine(), "Please use a subcommand");
+		throw new CommandLine.ParameterException(spec.commandLine(), "Please provide a subcommand");
 	}
 
 	public static void main(String[] args) {

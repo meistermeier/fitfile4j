@@ -15,11 +15,13 @@
  */
 package com.meistermeier.fitfile4j.cli.commands;
 
-
+import com.meistermeier.fitfile4j.cli.FitFile4j;
 import org.flywaydb.core.Flyway;
 import picocli.CommandLine;
 
+import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
@@ -29,7 +31,7 @@ import java.util.concurrent.Callable;
 @CommandLine.Command(name = "create")
 public class CreateDatabaseCommand implements Callable<Integer> {
 
-	@CommandLine.Option(names = "-d", defaultValue = "something.db")
+	@CommandLine.Option(names = "-d", defaultValue = FitFile4j.DEFAULT_DATABASE)
 	String databaseFile;
 
 	@CommandLine.Option(names = {"-o", "--overwrite"})
@@ -37,9 +39,18 @@ public class CreateDatabaseCommand implements Callable<Integer> {
 
 	@Override
 	public Integer call() {
-		if (Files.exists(Paths.get(databaseFile)) && !overwrite) {
+		Path databasePath = Paths.get(databaseFile);
+		if (Files.exists(databasePath) && !overwrite) {
 			System.err.println("Database file already exists. If you want to overwrite it, use the command with the --overwrite flag.");
 			return 1;
+		}
+
+		if (overwrite) {
+			try {
+				Files.delete(databasePath);
+			} catch (IOException e) {
+				throw new RuntimeException("Could not delete database file " + databasePath.toAbsolutePath(), e);
+			}
 		}
 
 		String jdbcUrl = "jdbc:duckdb:" + databaseFile;

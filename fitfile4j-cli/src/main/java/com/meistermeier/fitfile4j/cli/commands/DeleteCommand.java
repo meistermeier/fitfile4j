@@ -16,6 +16,7 @@
 package com.meistermeier.fitfile4j.cli.commands;
 
 
+import com.meistermeier.fitfile4j.cli.FitFile4j;
 import picocli.CommandLine;
 
 import java.nio.file.Files;
@@ -32,7 +33,7 @@ public class DeleteCommand implements Callable<Integer> {
 	@CommandLine.Parameters
 	Long id;
 
-	@CommandLine.Option(names = "-d", defaultValue = "something.db")
+	@CommandLine.Option(names = "-d", defaultValue = FitFile4j.DEFAULT_DATABASE)
 	String databaseFile;
 
 	@Override

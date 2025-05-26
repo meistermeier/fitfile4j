@@ -17,8 +17,6 @@ package com.meistermeier.fitfile4j.cli.commands;
 
 import picocli.CommandLine;
 
-import java.util.concurrent.Callable;
-
 /**
  * Command to generate path images from fit file coordinates
  */
@@ -36,6 +34,6 @@ public class DatabaseCommand implements Runnable {
 
 	@Override
 	public void run() {
-		throw new CommandLine.ParameterException(spec.commandLine(), "Please use a database subcommand");
+		throw new CommandLine.ParameterException(spec.commandLine(), "Please provide a database subcommand");
 	}
 }

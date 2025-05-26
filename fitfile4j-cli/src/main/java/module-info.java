@@ -13,8 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-module fitfile4j.generator {
-	requires com.squareup.javapoet;
-	requires org.dhatim.fastexcel.reader;
-	requires java.compiler;
+module fitfile4j.cli {
+
+	requires fitfile4j;
+	requires org.slf4j;
+	requires info.picocli;
+	requires java.desktop;
+	requires java.sql;
+	requires com.fasterxml.jackson.jr.ob;
+	requires com.fasterxml.jackson.core;
+	requires flyway.core;
+	requires duckdb.jdbc;
+
+	// picocli
+	opens com.meistermeier.fitfile4j.cli;
+	opens com.meistermeier.fitfile4j.cli.commands;
+	// flyway migration resources
+	opens db.migration;
+
 }

@@ -17,6 +17,7 @@ package com.meistermeier.fitfile4j.cli.commands;
 
 
 import com.meistermeier.fitfile4j.FitFile;
+import com.meistermeier.fitfile4j.cli.FitFile4j;
 import picocli.CommandLine;
 
 import java.io.File;
@@ -38,7 +39,7 @@ public class InsertFitFileCommand implements Callable<Integer> {
 	@CommandLine.Parameters
 	File fitFileSource;
 
-	@CommandLine.Option(names = "-d", defaultValue = "something.db")
+	@CommandLine.Option(names = "-d", defaultValue = FitFile4j.DEFAULT_DATABASE)
 	String databaseFile;
 
 	@Override

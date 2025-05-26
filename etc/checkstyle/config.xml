@@ -34,9 +34,6 @@
 
 	<module name="NewlineAtEndOfFile"/>
 	<module name="SuppressWarningsFilter"/>
-<!--	<module name="SuppressionFilter">-->
-<!--		<property name="file" value="suppressions.xml" />-->
-<!--	</module>-->
 
 	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">
 		<module name="SuppressWarningsHolder"/>
@@ -72,19 +69,7 @@
 		<!-- Imports -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck">
-			<property
-				name="excludes"
-				value="
-                    tech.units.indriya.unit.Units.*,
-                    javax.measure.MetricPrefix.*
-                "
-			/>
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck">
-			<property name="regexp" value="true"/>
-			<property name="illegalPkgs"
-					  value="^sun.*, ^org\.apache\.commons\.(?!compress|dbcp2|lang|lang3|logging|pool2|csv).*, ^com\.google\.common.*, ^org\.flywaydb\.core\.internal.*, ^org\.testcontainers\.shaded.*, ^org\.neo4j\.driver\.internal\.shaded.*, ^org\.jetbrains.*"/>
-			<property name="illegalClasses" value="^reactor\.core\.support\.Assert"/>
+			<property name="excludes" value="org.junit.jupiter.api.Assertions.*" />
 		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck">

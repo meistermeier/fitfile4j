@@ -16,17 +16,52 @@
 package com.meistermeier.fitfile4j.cli;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.PrintStream;
 import java.sql.DriverManager;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 class FitFile4jTest {
+
+	final PrintStream originalOut = System.out;
+	final PrintStream originalErr = System.err;
+	final ByteArrayOutputStream out = new ByteArrayOutputStream();
+	final ByteArrayOutputStream err = new ByteArrayOutputStream();
+
+	@Nested
+	@DisplayName("main command")
+	class MainCommand {
+		@BeforeEach
+		void cleanOutput() throws Exception {
+			out.reset();
+			err.reset();
+			System.setOut(new PrintStream(out));
+			System.setErr(new PrintStream(err));
+		}
+
+		@AfterEach
+		void cleanOutputAgain() {
+			System.setOut(originalOut);
+			System.setErr(originalErr);
+		}
+
+		@Test
+		void reportMissingSubcommand() {
+			var fitFile4j = new FitFile4j();
+			new CommandLine(fitFile4j).execute();
+			assertEquals("Please provide a subcommand", err.toString().split("\n")[0]);
+		}
+	}
 
 	@Nested
 	@DisplayName("database")
@@ -39,19 +74,33 @@ class FitFile4jTest {
 			String[] tempDbNameParts = tempDbName.split("\\.");
 			tempDb = File.createTempFile(tempDbNameParts[0], tempDbNameParts[1]);
 			tempDb.delete();
+
+			out.reset();
+			err.reset();
+			System.setOut(new PrintStream(out));
+			System.setErr(new PrintStream(err));
 		}
 
 		@AfterEach
 		void cleanOutputAgain() {
 			tempDb.delete();
+			System.setOut(originalOut);
+			System.setErr(originalErr);
+		}
+
+		@Test
+		void reportMissingSubcommand() {
+			var fitFile4j = new FitFile4j();
+			new CommandLine(fitFile4j).execute("database");
+			assertEquals("Please provide a database subcommand", err.toString().split("\n")[0]);
 		}
 
 		@Test
 		void migrationSucceeds() {
 			var fitFile4j = new FitFile4j();
 			var returnValue = new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath());
-			Assertions.assertEquals(0, returnValue);
-			Assertions.assertTrue(tempDb.exists());
+			assertEquals(0, returnValue);
+			assertTrue(tempDb.exists());
 
 			verifyMigrationHasContent(tempDb.getAbsolutePath());
 		}
@@ -62,8 +111,8 @@ class FitFile4jTest {
 			// initial duckdb db creation
 			new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath());
 			var returnValue = new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath());
-			Assertions.assertEquals(1, returnValue);
-			Assertions.assertTrue(tempDb.exists());
+			assertEquals(1, returnValue);
+			assertTrue(tempDb.exists());
 		}
 
 		@Test
@@ -72,8 +121,8 @@ class FitFile4jTest {
 			// initial duckdb db creation
 			new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath());
 			var returnValue = new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath(), "-o");
-			Assertions.assertEquals(0, returnValue);
-			Assertions.assertTrue(tempDb.exists());
+			assertEquals(0, returnValue);
+			assertTrue(tempDb.exists());
 
 			verifyMigrationHasContent(tempDb.getAbsolutePath());
 		}
@@ -81,9 +130,9 @@ class FitFile4jTest {
 		private static void verifyMigrationHasContent(String databasePath) {
 			try (var connection = DriverManager.getConnection("jdbc:duckdb:" + databasePath);
 				var statement = connection.prepareStatement("SHOW TABLES")) {
-				Assertions.assertTrue(statement.executeQuery().getFetchSize() > 0);
+				assertTrue(statement.executeQuery().getFetchSize() > 0);
 			} catch (Exception e) {
-				Assertions.fail(e);
+				fail(e);
 			}
 		}
 	}
