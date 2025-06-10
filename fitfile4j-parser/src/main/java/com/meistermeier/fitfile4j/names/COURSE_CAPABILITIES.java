@@ -2,49 +2,51 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum COURSE_CAPABILITIES {
-  _PROCESSED(1L, "processed"),
 
-  _VALID(2L, "valid"),
+	_PROCESSED(1L, "processed"),
 
-  _TIME(4L, "time"),
+	_VALID(2L, "valid"),
 
-  _DISTANCE(8L, "distance"),
+	_TIME(4L, "time"),
 
-  _POSITION(16L, "position"),
+	_DISTANCE(8L, "distance"),
 
-  _HEART_RATE(32L, "heart_rate"),
+	_POSITION(16L, "position"),
 
-  _POWER(64L, "power"),
+	_HEART_RATE(32L, "heart_rate"),
 
-  _CADENCE(128L, "cadence"),
+	_POWER(64L, "power"),
 
-  _TRAINING(256L, "training"),
+	_CADENCE(128L, "cadence"),
 
-  _NAVIGATION(512L, "navigation"),
+	_TRAINING(256L, "training"),
 
-  _BIKEWAY(1024L, "bikeway"),
+	_NAVIGATION(512L, "navigation"),
 
-  _AVIATION(4096L, "aviation");
+	_BIKEWAY(1024L, "bikeway"),
 
-  private final long messageNumber;
+	_AVIATION(4096L, "aviation");
 
-  private final String messageName;
+	private final long messageNumber;
 
-  COURSE_CAPABILITIES(long messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static COURSE_CAPABILITIES findById(long messageNumber) {
-    for (COURSE_CAPABILITIES name: COURSE_CAPABILITIES.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	COURSE_CAPABILITIES(long messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static COURSE_CAPABILITIES findById(long messageNumber) {
+		for (COURSE_CAPABILITIES name : COURSE_CAPABILITIES.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

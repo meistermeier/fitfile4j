@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DISPLAY_HEART {
-  _BPM(0, "bpm"),
 
-  _MAX(1, "max"),
+	_BPM(0, "bpm"),
 
-  _RESERVE(2, "reserve");
+	_MAX(1, "max"),
 
-  private final int messageNumber;
+	_RESERVE(2, "reserve");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DISPLAY_HEART(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DISPLAY_HEART findById(int messageNumber) {
-    for (DISPLAY_HEART name: DISPLAY_HEART.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DISPLAY_HEART(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DISPLAY_HEART findById(int messageNumber) {
+		for (DISPLAY_HEART name : DISPLAY_HEART.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

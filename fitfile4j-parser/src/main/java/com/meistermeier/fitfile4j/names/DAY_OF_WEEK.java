@@ -2,39 +2,41 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DAY_OF_WEEK {
-  _SUNDAY(0, "sunday"),
 
-  _MONDAY(1, "monday"),
+	_SUNDAY(0, "sunday"),
 
-  _TUESDAY(2, "tuesday"),
+	_MONDAY(1, "monday"),
 
-  _WEDNESDAY(3, "wednesday"),
+	_TUESDAY(2, "tuesday"),
 
-  _THURSDAY(4, "thursday"),
+	_WEDNESDAY(3, "wednesday"),
 
-  _FRIDAY(5, "friday"),
+	_THURSDAY(4, "thursday"),
 
-  _SATURDAY(6, "saturday");
+	_FRIDAY(5, "friday"),
 
-  private final int messageNumber;
+	_SATURDAY(6, "saturday");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DAY_OF_WEEK(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DAY_OF_WEEK findById(int messageNumber) {
-    for (DAY_OF_WEEK name: DAY_OF_WEEK.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DAY_OF_WEEK(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DAY_OF_WEEK findById(int messageNumber) {
+		for (DAY_OF_WEEK name : DAY_OF_WEEK.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

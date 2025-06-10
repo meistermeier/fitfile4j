@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SESSION_TRIGGER {
-  _ACTIVITY_END(0, "activity_end"),
 
-  _MANUAL(1, "manual"),
+	_ACTIVITY_END(0, "activity_end"),
 
-  _AUTO_MULTI_SPORT(2, "auto_multi_sport"),
+	_MANUAL(1, "manual"),
 
-  _FITNESS_EQUIPMENT(3, "fitness_equipment");
+	_AUTO_MULTI_SPORT(2, "auto_multi_sport"),
 
-  private final int messageNumber;
+	_FITNESS_EQUIPMENT(3, "fitness_equipment");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SESSION_TRIGGER(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SESSION_TRIGGER findById(int messageNumber) {
-    for (SESSION_TRIGGER name: SESSION_TRIGGER.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SESSION_TRIGGER(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SESSION_TRIGGER findById(int messageNumber) {
+		for (SESSION_TRIGGER name : SESSION_TRIGGER.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

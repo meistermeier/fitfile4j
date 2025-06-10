@@ -2,39 +2,41 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum INTENSITY {
-  _ACTIVE(0, "active"),
 
-  _REST(1, "rest"),
+	_ACTIVE(0, "active"),
 
-  _WARMUP(2, "warmup"),
+	_REST(1, "rest"),
 
-  _COOLDOWN(3, "cooldown"),
+	_WARMUP(2, "warmup"),
 
-  _RECOVERY(4, "recovery"),
+	_COOLDOWN(3, "cooldown"),
 
-  _INTERVAL(5, "interval"),
+	_RECOVERY(4, "recovery"),
 
-  _OTHER(6, "other");
+	_INTERVAL(5, "interval"),
 
-  private final int messageNumber;
+	_OTHER(6, "other");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  INTENSITY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static INTENSITY findById(int messageNumber) {
-    for (INTENSITY name: INTENSITY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	INTENSITY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static INTENSITY findById(int messageNumber) {
+		for (INTENSITY name : INTENSITY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

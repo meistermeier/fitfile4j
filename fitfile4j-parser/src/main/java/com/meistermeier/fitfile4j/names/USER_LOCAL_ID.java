@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum USER_LOCAL_ID {
-  _LOCAL_MIN(0, "local_min"),
 
-  _LOCAL_MAX(15, "local_max"),
+	_LOCAL_MIN(0, "local_min"),
 
-  _STATIONARY_MIN(16, "stationary_min"),
+	_LOCAL_MAX(15, "local_max"),
 
-  _STATIONARY_MAX(255, "stationary_max"),
+	_STATIONARY_MIN(16, "stationary_min"),
 
-  _PORTABLE_MIN(256, "portable_min"),
+	_STATIONARY_MAX(255, "stationary_max"),
 
-  _PORTABLE_MAX(65534, "portable_max");
+	_PORTABLE_MIN(256, "portable_min"),
 
-  private final int messageNumber;
+	_PORTABLE_MAX(65534, "portable_max");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  USER_LOCAL_ID(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static USER_LOCAL_ID findById(int messageNumber) {
-    for (USER_LOCAL_ID name: USER_LOCAL_ID.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	USER_LOCAL_ID(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static USER_LOCAL_ID findById(int messageNumber) {
+		for (USER_LOCAL_ID name : USER_LOCAL_ID.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

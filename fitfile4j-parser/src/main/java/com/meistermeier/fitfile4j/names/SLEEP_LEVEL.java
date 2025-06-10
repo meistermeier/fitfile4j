@@ -2,35 +2,37 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SLEEP_LEVEL {
-  _UNMEASURABLE(0, "unmeasurable"),
 
-  _AWAKE(1, "awake"),
+	_UNMEASURABLE(0, "unmeasurable"),
 
-  _LIGHT(2, "light"),
+	_AWAKE(1, "awake"),
 
-  _DEEP(3, "deep"),
+	_LIGHT(2, "light"),
 
-  _REM(4, "rem");
+	_DEEP(3, "deep"),
 
-  private final int messageNumber;
+	_REM(4, "rem");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SLEEP_LEVEL(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SLEEP_LEVEL findById(int messageNumber) {
-    for (SLEEP_LEVEL name: SLEEP_LEVEL.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SLEEP_LEVEL(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SLEEP_LEVEL findById(int messageNumber) {
+		for (SLEEP_LEVEL name : SLEEP_LEVEL.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

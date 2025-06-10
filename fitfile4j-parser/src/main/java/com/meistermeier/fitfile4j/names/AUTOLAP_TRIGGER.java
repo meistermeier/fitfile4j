@@ -2,41 +2,43 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTOLAP_TRIGGER {
-  _TIME(0, "time"),
 
-  _DISTANCE(1, "distance"),
+	_TIME(0, "time"),
 
-  _POSITION_START(2, "position_start"),
+	_DISTANCE(1, "distance"),
 
-  _POSITION_LAP(3, "position_lap"),
+	_POSITION_START(2, "position_start"),
 
-  _POSITION_WAYPOINT(4, "position_waypoint"),
+	_POSITION_LAP(3, "position_lap"),
 
-  _POSITION_MARKED(5, "position_marked"),
+	_POSITION_WAYPOINT(4, "position_waypoint"),
 
-  _OFF(6, "off"),
+	_POSITION_MARKED(5, "position_marked"),
 
-  _AUTO_SELECT(13, "auto_select");
+	_OFF(6, "off"),
 
-  private final int messageNumber;
+	_AUTO_SELECT(13, "auto_select");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  AUTOLAP_TRIGGER(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static AUTOLAP_TRIGGER findById(int messageNumber) {
-    for (AUTOLAP_TRIGGER name: AUTOLAP_TRIGGER.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	AUTOLAP_TRIGGER(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static AUTOLAP_TRIGGER findById(int messageNumber) {
+		for (AUTOLAP_TRIGGER name : AUTOLAP_TRIGGER.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

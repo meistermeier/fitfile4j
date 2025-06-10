@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SOURCE_TYPE {
-  _ANT(0, "ant"),
 
-  _ANTPLUS(1, "antplus"),
+	_ANT(0, "ant"),
 
-  _BLUETOOTH(2, "bluetooth"),
+	_ANTPLUS(1, "antplus"),
 
-  _BLUETOOTH_LOW_ENERGY(3, "bluetooth_low_energy"),
+	_BLUETOOTH(2, "bluetooth"),
 
-  _WIFI(4, "wifi"),
+	_BLUETOOTH_LOW_ENERGY(3, "bluetooth_low_energy"),
 
-  _LOCAL(5, "local");
+	_WIFI(4, "wifi"),
 
-  private final int messageNumber;
+	_LOCAL(5, "local");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SOURCE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SOURCE_TYPE findById(int messageNumber) {
-    for (SOURCE_TYPE name: SOURCE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SOURCE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SOURCE_TYPE findById(int messageNumber) {
+		for (SOURCE_TYPE name : SOURCE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,219 +2,221 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_DESCRIPTORS {
-  _BIKE_LIGHT_BATTERY_STATUS(0, "bike_light_battery_status"),
 
-  _BEAM_ANGLE_STATUS(1, "beam_angle_status"),
+	_BIKE_LIGHT_BATTERY_STATUS(0, "bike_light_battery_status"),
 
-  _BATERY_LEVEL(2, "batery_level"),
+	_BEAM_ANGLE_STATUS(1, "beam_angle_status"),
 
-  _LIGHT_NETWORK_MODE(3, "light_network_mode"),
+	_BATERY_LEVEL(2, "batery_level"),
 
-  _NUMBER_LIGHTS_CONNECTED(4, "number_lights_connected"),
+	_LIGHT_NETWORK_MODE(3, "light_network_mode"),
 
-  _CADENCE(5, "cadence"),
+	_NUMBER_LIGHTS_CONNECTED(4, "number_lights_connected"),
 
-  _DISTANCE(6, "distance"),
+	_CADENCE(5, "cadence"),
 
-  _ESTIMATED_TIME_OF_ARRIVAL(7, "estimated_time_of_arrival"),
+	_DISTANCE(6, "distance"),
 
-  _HEADING(8, "heading"),
+	_ESTIMATED_TIME_OF_ARRIVAL(7, "estimated_time_of_arrival"),
 
-  _TIME(9, "time"),
+	_HEADING(8, "heading"),
 
-  _BATTERY_LEVEL(10, "battery_level"),
+	_TIME(9, "time"),
 
-  _TRAINER_RESISTANCE(11, "trainer_resistance"),
+	_BATTERY_LEVEL(10, "battery_level"),
 
-  _TRAINER_TARGET_POWER(12, "trainer_target_power"),
+	_TRAINER_RESISTANCE(11, "trainer_resistance"),
 
-  _TIME_SEATED(13, "time_seated"),
+	_TRAINER_TARGET_POWER(12, "trainer_target_power"),
 
-  _TIME_STANDING(14, "time_standing"),
+	_TIME_SEATED(13, "time_seated"),
 
-  _ELEVATION(15, "elevation"),
+	_TIME_STANDING(14, "time_standing"),
 
-  _GRADE(16, "grade"),
+	_ELEVATION(15, "elevation"),
 
-  _ASCENT(17, "ascent"),
+	_GRADE(16, "grade"),
 
-  _DESCENT(18, "descent"),
+	_ASCENT(17, "ascent"),
 
-  _VERTICAL_SPEED(19, "vertical_speed"),
+	_DESCENT(18, "descent"),
 
-  _DI2_BATTERY_LEVEL(20, "di2_battery_level"),
+	_VERTICAL_SPEED(19, "vertical_speed"),
 
-  _FRONT_GEAR(21, "front_gear"),
+	_DI2_BATTERY_LEVEL(20, "di2_battery_level"),
 
-  _REAR_GEAR(22, "rear_gear"),
+	_FRONT_GEAR(21, "front_gear"),
 
-  _GEAR_RATIO(23, "gear_ratio"),
+	_REAR_GEAR(22, "rear_gear"),
 
-  _HEART_RATE(24, "heart_rate"),
+	_GEAR_RATIO(23, "gear_ratio"),
 
-  _HEART_RATE_ZONE(25, "heart_rate_zone"),
+	_HEART_RATE(24, "heart_rate"),
 
-  _TIME_IN_HEART_RATE_ZONE(26, "time_in_heart_rate_zone"),
+	_HEART_RATE_ZONE(25, "heart_rate_zone"),
 
-  _HEART_RATE_RESERVE(27, "heart_rate_reserve"),
+	_TIME_IN_HEART_RATE_ZONE(26, "time_in_heart_rate_zone"),
 
-  _CALORIES(28, "calories"),
+	_HEART_RATE_RESERVE(27, "heart_rate_reserve"),
 
-  _GPS_ACCURACY(29, "gps_accuracy"),
+	_CALORIES(28, "calories"),
 
-  _GPS_SIGNAL_STRENGTH(30, "gps_signal_strength"),
+	_GPS_ACCURACY(29, "gps_accuracy"),
 
-  _TEMPERATURE(31, "temperature"),
+	_GPS_SIGNAL_STRENGTH(30, "gps_signal_strength"),
 
-  _TIME_OF_DAY(32, "time_of_day"),
+	_TEMPERATURE(31, "temperature"),
 
-  _BALANCE(33, "balance"),
+	_TIME_OF_DAY(32, "time_of_day"),
 
-  _PEDAL_SMOOTHNESS(34, "pedal_smoothness"),
+	_BALANCE(33, "balance"),
 
-  _POWER(35, "power"),
+	_PEDAL_SMOOTHNESS(34, "pedal_smoothness"),
 
-  _FUNCTIONAL_THRESHOLD_POWER(36, "functional_threshold_power"),
+	_POWER(35, "power"),
 
-  _INTENSITY_FACTOR(37, "intensity_factor"),
+	_FUNCTIONAL_THRESHOLD_POWER(36, "functional_threshold_power"),
 
-  _WORK(38, "work"),
+	_INTENSITY_FACTOR(37, "intensity_factor"),
 
-  _POWER_RATIO(39, "power_ratio"),
+	_WORK(38, "work"),
 
-  _NORMALIZED_POWER(40, "normalized_power"),
+	_POWER_RATIO(39, "power_ratio"),
 
-  _TRAINING_STRESS_SCORE(41, "training_stress_Score"),
+	_NORMALIZED_POWER(40, "normalized_power"),
 
-  _TIME_ON_ZONE(42, "time_on_zone"),
+	_TRAINING_STRESS_SCORE(41, "training_stress_Score"),
 
-  _SPEED(43, "speed"),
+	_TIME_ON_ZONE(42, "time_on_zone"),
 
-  _LAPS(44, "laps"),
+	_SPEED(43, "speed"),
 
-  _REPS(45, "reps"),
+	_LAPS(44, "laps"),
 
-  _WORKOUT_STEP(46, "workout_step"),
+	_REPS(45, "reps"),
 
-  _COURSE_DISTANCE(47, "course_distance"),
+	_WORKOUT_STEP(46, "workout_step"),
 
-  _NAVIGATION_DISTANCE(48, "navigation_distance"),
+	_COURSE_DISTANCE(47, "course_distance"),
 
-  _COURSE_ESTIMATED_TIME_OF_ARRIVAL(49, "course_estimated_time_of_arrival"),
+	_NAVIGATION_DISTANCE(48, "navigation_distance"),
 
-  _NAVIGATION_ESTIMATED_TIME_OF_ARRIVAL(50, "navigation_estimated_time_of_arrival"),
+	_COURSE_ESTIMATED_TIME_OF_ARRIVAL(49, "course_estimated_time_of_arrival"),
 
-  _COURSE_TIME(51, "course_time"),
+	_NAVIGATION_ESTIMATED_TIME_OF_ARRIVAL(50, "navigation_estimated_time_of_arrival"),
 
-  _NAVIGATION_TIME(52, "navigation_time"),
+	_COURSE_TIME(51, "course_time"),
 
-  _COURSE_HEADING(53, "course_heading"),
+	_NAVIGATION_TIME(52, "navigation_time"),
 
-  _NAVIGATION_HEADING(54, "navigation_heading"),
+	_COURSE_HEADING(53, "course_heading"),
 
-  _POWER_ZONE(55, "power_zone"),
+	_NAVIGATION_HEADING(54, "navigation_heading"),
 
-  _TORQUE_EFFECTIVENESS(56, "torque_effectiveness"),
+	_POWER_ZONE(55, "power_zone"),
 
-  _TIMER_TIME(57, "timer_time"),
+	_TORQUE_EFFECTIVENESS(56, "torque_effectiveness"),
 
-  _POWER_WEIGHT_RATIO(58, "power_weight_ratio"),
+	_TIMER_TIME(57, "timer_time"),
 
-  _LEFT_PLATFORM_CENTER_OFFSET(59, "left_platform_center_offset"),
+	_POWER_WEIGHT_RATIO(58, "power_weight_ratio"),
 
-  _RIGHT_PLATFORM_CENTER_OFFSET(60, "right_platform_center_offset"),
+	_LEFT_PLATFORM_CENTER_OFFSET(59, "left_platform_center_offset"),
 
-  _LEFT_POWER_PHASE_START_ANGLE(61, "left_power_phase_start_angle"),
+	_RIGHT_PLATFORM_CENTER_OFFSET(60, "right_platform_center_offset"),
 
-  _RIGHT_POWER_PHASE_START_ANGLE(62, "right_power_phase_start_angle"),
+	_LEFT_POWER_PHASE_START_ANGLE(61, "left_power_phase_start_angle"),
 
-  _LEFT_POWER_PHASE_FINISH_ANGLE(63, "left_power_phase_finish_angle"),
+	_RIGHT_POWER_PHASE_START_ANGLE(62, "right_power_phase_start_angle"),
 
-  _RIGHT_POWER_PHASE_FINISH_ANGLE(64, "right_power_phase_finish_angle"),
+	_LEFT_POWER_PHASE_FINISH_ANGLE(63, "left_power_phase_finish_angle"),
 
-  _GEARS(65, "gears"),
+	_RIGHT_POWER_PHASE_FINISH_ANGLE(64, "right_power_phase_finish_angle"),
 
-  _PACE(66, "pace"),
+	_GEARS(65, "gears"),
 
-  _TRAINING_EFFECT(67, "training_effect"),
+	_PACE(66, "pace"),
 
-  _VERTICAL_OSCILLATION(68, "vertical_oscillation"),
+	_TRAINING_EFFECT(67, "training_effect"),
 
-  _VERTICAL_RATIO(69, "vertical_ratio"),
+	_VERTICAL_OSCILLATION(68, "vertical_oscillation"),
 
-  _GROUND_CONTACT_TIME(70, "ground_contact_time"),
+	_VERTICAL_RATIO(69, "vertical_ratio"),
 
-  _LEFT_GROUND_CONTACT_TIME_BALANCE(71, "left_ground_contact_time_balance"),
+	_GROUND_CONTACT_TIME(70, "ground_contact_time"),
 
-  _RIGHT_GROUND_CONTACT_TIME_BALANCE(72, "right_ground_contact_time_balance"),
+	_LEFT_GROUND_CONTACT_TIME_BALANCE(71, "left_ground_contact_time_balance"),
 
-  _STRIDE_LENGTH(73, "stride_length"),
+	_RIGHT_GROUND_CONTACT_TIME_BALANCE(72, "right_ground_contact_time_balance"),
 
-  _RUNNING_CADENCE(74, "running_cadence"),
+	_STRIDE_LENGTH(73, "stride_length"),
 
-  _PERFORMANCE_CONDITION(75, "performance_condition"),
+	_RUNNING_CADENCE(74, "running_cadence"),
 
-  _COURSE_TYPE(76, "course_type"),
+	_PERFORMANCE_CONDITION(75, "performance_condition"),
 
-  _TIME_IN_POWER_ZONE(77, "time_in_power_zone"),
+	_COURSE_TYPE(76, "course_type"),
 
-  _NAVIGATION_TURN(78, "navigation_turn"),
+	_TIME_IN_POWER_ZONE(77, "time_in_power_zone"),
 
-  _COURSE_LOCATION(79, "course_location"),
+	_NAVIGATION_TURN(78, "navigation_turn"),
 
-  _NAVIGATION_LOCATION(80, "navigation_location"),
+	_COURSE_LOCATION(79, "course_location"),
 
-  _COMPASS(81, "compass"),
+	_NAVIGATION_LOCATION(80, "navigation_location"),
 
-  _GEAR_COMBO(82, "gear_combo"),
+	_COMPASS(81, "compass"),
 
-  _MUSCLE_OXYGEN(83, "muscle_oxygen"),
+	_GEAR_COMBO(82, "gear_combo"),
 
-  _ICON(84, "icon"),
+	_MUSCLE_OXYGEN(83, "muscle_oxygen"),
 
-  _COMPASS_HEADING(85, "compass_heading"),
+	_ICON(84, "icon"),
 
-  _GPS_HEADING(86, "gps_heading"),
+	_COMPASS_HEADING(85, "compass_heading"),
 
-  _GPS_ELEVATION(87, "gps_elevation"),
+	_GPS_HEADING(86, "gps_heading"),
 
-  _ANAEROBIC_TRAINING_EFFECT(88, "anaerobic_training_effect"),
+	_GPS_ELEVATION(87, "gps_elevation"),
 
-  _COURSE(89, "course"),
+	_ANAEROBIC_TRAINING_EFFECT(88, "anaerobic_training_effect"),
 
-  _OFF_COURSE(90, "off_course"),
+	_COURSE(89, "course"),
 
-  _GLIDE_RATIO(91, "glide_ratio"),
+	_OFF_COURSE(90, "off_course"),
 
-  _VERTICAL_DISTANCE(92, "vertical_distance"),
+	_GLIDE_RATIO(91, "glide_ratio"),
 
-  _VMG(93, "vmg"),
+	_VERTICAL_DISTANCE(92, "vertical_distance"),
 
-  _AMBIENT_PRESSURE(94, "ambient_pressure"),
+	_VMG(93, "vmg"),
 
-  _PRESSURE(95, "pressure"),
+	_AMBIENT_PRESSURE(94, "ambient_pressure"),
 
-  _VAM(96, "vam");
+	_PRESSURE(95, "pressure"),
 
-  private final int messageNumber;
+	_VAM(96, "vam");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  EXD_DESCRIPTORS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static EXD_DESCRIPTORS findById(int messageNumber) {
-    for (EXD_DESCRIPTORS name: EXD_DESCRIPTORS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	EXD_DESCRIPTORS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static EXD_DESCRIPTORS findById(int messageNumber) {
+		for (EXD_DESCRIPTORS name : EXD_DESCRIPTORS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,39 +2,41 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTO_ACTIVITY_DETECT {
-  _NONE(0L, "none"),
 
-  _RUNNING(1L, "running"),
+	_NONE(0L, "none"),
 
-  _CYCLING(2L, "cycling"),
+	_RUNNING(1L, "running"),
 
-  _SWIMMING(4L, "swimming"),
+	_CYCLING(2L, "cycling"),
 
-  _WALKING(8L, "walking"),
+	_SWIMMING(4L, "swimming"),
 
-  _ELLIPTICAL(32L, "elliptical"),
+	_WALKING(8L, "walking"),
 
-  _SEDENTARY(1024L, "sedentary");
+	_ELLIPTICAL(32L, "elliptical"),
 
-  private final long messageNumber;
+	_SEDENTARY(1024L, "sedentary");
 
-  private final String messageName;
+	private final long messageNumber;
 
-  AUTO_ACTIVITY_DETECT(long messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static AUTO_ACTIVITY_DETECT findById(long messageNumber) {
-    for (AUTO_ACTIVITY_DETECT name: AUTO_ACTIVITY_DETECT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	AUTO_ACTIVITY_DETECT(long messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static AUTO_ACTIVITY_DETECT findById(long messageNumber) {
+		for (AUTO_ACTIVITY_DETECT name : AUTO_ACTIVITY_DETECT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

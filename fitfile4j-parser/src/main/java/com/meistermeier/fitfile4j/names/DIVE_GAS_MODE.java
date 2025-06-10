@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_GAS_MODE {
-  _OPEN_CIRCUIT(0, "open_circuit"),
 
-  _CLOSED_CIRCUIT_DILUENT(1, "closed_circuit_diluent");
+	_OPEN_CIRCUIT(0, "open_circuit"),
 
-  private final int messageNumber;
+	_CLOSED_CIRCUIT_DILUENT(1, "closed_circuit_diluent");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DIVE_GAS_MODE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DIVE_GAS_MODE findById(int messageNumber) {
-    for (DIVE_GAS_MODE name: DIVE_GAS_MODE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DIVE_GAS_MODE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DIVE_GAS_MODE findById(int messageNumber) {
+		for (DIVE_GAS_MODE name : DIVE_GAS_MODE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

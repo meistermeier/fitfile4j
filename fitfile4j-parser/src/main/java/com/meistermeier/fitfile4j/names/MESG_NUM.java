@@ -2,269 +2,275 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MESG_NUM {
-  _FILE_ID(0, "file_id"),
 
-  _CAPABILITIES(1, "capabilities"),
+	_FILE_ID(0, "file_id"),
 
-  _DEVICE_SETTINGS(2, "device_settings"),
+	_CAPABILITIES(1, "capabilities"),
 
-  _USER_PROFILE(3, "user_profile"),
+	_DEVICE_SETTINGS(2, "device_settings"),
 
-  _HRM_PROFILE(4, "hrm_profile"),
+	_USER_PROFILE(3, "user_profile"),
 
-  _SDM_PROFILE(5, "sdm_profile"),
+	_HRM_PROFILE(4, "hrm_profile"),
 
-  _BIKE_PROFILE(6, "bike_profile"),
+	_SDM_PROFILE(5, "sdm_profile"),
 
-  _ZONES_TARGET(7, "zones_target"),
+	_BIKE_PROFILE(6, "bike_profile"),
 
-  _HR_ZONE(8, "hr_zone"),
+	_ZONES_TARGET(7, "zones_target"),
 
-  _POWER_ZONE(9, "power_zone"),
+	_HR_ZONE(8, "hr_zone"),
 
-  _MET_ZONE(10, "met_zone"),
+	_POWER_ZONE(9, "power_zone"),
 
-  _SPORT(12, "sport"),
+	_MET_ZONE(10, "met_zone"),
 
-  _GOAL(15, "goal"),
+	_SPORT(12, "sport"),
 
-  _SESSION(18, "session"),
+	_GOAL(15, "goal"),
 
-  _LAP(19, "lap"),
+	_SESSION(18, "session"),
 
-  _RECORD(20, "record"),
+	_LAP(19, "lap"),
 
-  _EVENT(21, "event"),
+	_RECORD(20, "record"),
 
-  _DEVICE_INFO(23, "device_info"),
+	_EVENT(21, "event"),
 
-  _WORKOUT(26, "workout"),
+	_DEVICE_INFO(23, "device_info"),
 
-  _WORKOUT_STEP(27, "workout_step"),
+	_WORKOUT(26, "workout"),
 
-  _SCHEDULE(28, "schedule"),
+	_WORKOUT_STEP(27, "workout_step"),
 
-  _WEIGHT_SCALE(30, "weight_scale"),
+	_SCHEDULE(28, "schedule"),
 
-  _COURSE(31, "course"),
+	_WEIGHT_SCALE(30, "weight_scale"),
 
-  _COURSE_POINT(32, "course_point"),
+	_COURSE(31, "course"),
 
-  _TOTALS(33, "totals"),
+	_COURSE_POINT(32, "course_point"),
 
-  _ACTIVITY(34, "activity"),
+	_TOTALS(33, "totals"),
 
-  _SOFTWARE(35, "software"),
+	_ACTIVITY(34, "activity"),
 
-  _FILE_CAPABILITIES(37, "file_capabilities"),
+	_SOFTWARE(35, "software"),
 
-  _MESG_CAPABILITIES(38, "mesg_capabilities"),
+	_FILE_CAPABILITIES(37, "file_capabilities"),
 
-  _FIELD_CAPABILITIES(39, "field_capabilities"),
+	_MESG_CAPABILITIES(38, "mesg_capabilities"),
 
-  _FILE_CREATOR(49, "file_creator"),
+	_FIELD_CAPABILITIES(39, "field_capabilities"),
 
-  _BLOOD_PRESSURE(51, "blood_pressure"),
+	_FILE_CREATOR(49, "file_creator"),
 
-  _SPEED_ZONE(53, "speed_zone"),
+	_BLOOD_PRESSURE(51, "blood_pressure"),
 
-  _MONITORING(55, "monitoring"),
+	_SPEED_ZONE(53, "speed_zone"),
 
-  _TRAINING_FILE(72, "training_file"),
+	_MONITORING(55, "monitoring"),
 
-  _HRV(78, "hrv"),
+	_TRAINING_FILE(72, "training_file"),
 
-  _ANT_RX(80, "ant_rx"),
+	_HRV(78, "hrv"),
 
-  _ANT_TX(81, "ant_tx"),
+	_ANT_RX(80, "ant_rx"),
 
-  _ANT_CHANNEL_ID(82, "ant_channel_id"),
+	_ANT_TX(81, "ant_tx"),
 
-  _LENGTH(101, "length"),
+	_ANT_CHANNEL_ID(82, "ant_channel_id"),
 
-  _MONITORING_INFO(103, "monitoring_info"),
+	_LENGTH(101, "length"),
 
-  _PAD(105, "pad"),
+	_MONITORING_INFO(103, "monitoring_info"),
 
-  _SLAVE_DEVICE(106, "slave_device"),
+	_PAD(105, "pad"),
 
-  _CONNECTIVITY(127, "connectivity"),
+	_SLAVE_DEVICE(106, "slave_device"),
 
-  _WEATHER_CONDITIONS(128, "weather_conditions"),
+	_CONNECTIVITY(127, "connectivity"),
 
-  _WEATHER_ALERT(129, "weather_alert"),
+	_WEATHER_CONDITIONS(128, "weather_conditions"),
 
-  _CADENCE_ZONE(131, "cadence_zone"),
+	_WEATHER_ALERT(129, "weather_alert"),
 
-  _HR(132, "hr"),
+	_CADENCE_ZONE(131, "cadence_zone"),
 
-  _SEGMENT_LAP(142, "segment_lap"),
+	_HR(132, "hr"),
 
-  _MEMO_GLOB(145, "memo_glob"),
+	_SEGMENT_LAP(142, "segment_lap"),
 
-  _SEGMENT_ID(148, "segment_id"),
+	_MEMO_GLOB(145, "memo_glob"),
 
-  _SEGMENT_LEADERBOARD_ENTRY(149, "segment_leaderboard_entry"),
+	_SEGMENT_ID(148, "segment_id"),
 
-  _SEGMENT_POINT(150, "segment_point"),
+	_SEGMENT_LEADERBOARD_ENTRY(149, "segment_leaderboard_entry"),
 
-  _SEGMENT_FILE(151, "segment_file"),
+	_SEGMENT_POINT(150, "segment_point"),
 
-  _WORKOUT_SESSION(158, "workout_session"),
+	_SEGMENT_FILE(151, "segment_file"),
 
-  _WATCHFACE_SETTINGS(159, "watchface_settings"),
+	_WORKOUT_SESSION(158, "workout_session"),
 
-  _GPS_METADATA(160, "gps_metadata"),
+	_WATCHFACE_SETTINGS(159, "watchface_settings"),
 
-  _CAMERA_EVENT(161, "camera_event"),
+	_GPS_METADATA(160, "gps_metadata"),
 
-  _TIMESTAMP_CORRELATION(162, "timestamp_correlation"),
+	_CAMERA_EVENT(161, "camera_event"),
 
-  _GYROSCOPE_DATA(164, "gyroscope_data"),
+	_TIMESTAMP_CORRELATION(162, "timestamp_correlation"),
 
-  _ACCELEROMETER_DATA(165, "accelerometer_data"),
+	_GYROSCOPE_DATA(164, "gyroscope_data"),
 
-  _THREE_D_SENSOR_CALIBRATION(167, "three_d_sensor_calibration"),
+	_ACCELEROMETER_DATA(165, "accelerometer_data"),
 
-  _VIDEO_FRAME(169, "video_frame"),
+	_THREE_D_SENSOR_CALIBRATION(167, "three_d_sensor_calibration"),
 
-  _OBDII_DATA(174, "obdii_data"),
+	_VIDEO_FRAME(169, "video_frame"),
 
-  _NMEA_SENTENCE(177, "nmea_sentence"),
+	_OBDII_DATA(174, "obdii_data"),
 
-  _AVIATION_ATTITUDE(178, "aviation_attitude"),
+	_NMEA_SENTENCE(177, "nmea_sentence"),
 
-  _VIDEO(184, "video"),
+	_AVIATION_ATTITUDE(178, "aviation_attitude"),
 
-  _VIDEO_TITLE(185, "video_title"),
+	_VIDEO(184, "video"),
 
-  _VIDEO_DESCRIPTION(186, "video_description"),
+	_VIDEO_TITLE(185, "video_title"),
 
-  _VIDEO_CLIP(187, "video_clip"),
+	_VIDEO_DESCRIPTION(186, "video_description"),
 
-  _OHR_SETTINGS(188, "ohr_settings"),
+	_VIDEO_CLIP(187, "video_clip"),
 
-  _EXD_SCREEN_CONFIGURATION(200, "exd_screen_configuration"),
+	_OHR_SETTINGS(188, "ohr_settings"),
 
-  _EXD_DATA_FIELD_CONFIGURATION(201, "exd_data_field_configuration"),
+	_EXD_SCREEN_CONFIGURATION(200, "exd_screen_configuration"),
 
-  _EXD_DATA_CONCEPT_CONFIGURATION(202, "exd_data_concept_configuration"),
+	_EXD_DATA_FIELD_CONFIGURATION(201, "exd_data_field_configuration"),
 
-  _FIELD_DESCRIPTION(206, "field_description"),
+	_EXD_DATA_CONCEPT_CONFIGURATION(202, "exd_data_concept_configuration"),
 
-  _DEVELOPER_DATA_ID(207, "developer_data_id"),
+	_FIELD_DESCRIPTION(206, "field_description"),
 
-  _MAGNETOMETER_DATA(208, "magnetometer_data"),
+	_DEVELOPER_DATA_ID(207, "developer_data_id"),
 
-  _BAROMETER_DATA(209, "barometer_data"),
+	_MAGNETOMETER_DATA(208, "magnetometer_data"),
 
-  _ONE_D_SENSOR_CALIBRATION(210, "one_d_sensor_calibration"),
+	_BAROMETER_DATA(209, "barometer_data"),
 
-  _MONITORING_HR_DATA(211, "monitoring_hr_data"),
+	_ONE_D_SENSOR_CALIBRATION(210, "one_d_sensor_calibration"),
 
-  _TIME_IN_ZONE(216, "time_in_zone"),
+	_MONITORING_HR_DATA(211, "monitoring_hr_data"),
 
-  _SET(225, "set"),
+	_TIME_IN_ZONE(216, "time_in_zone"),
 
-  _STRESS_LEVEL(227, "stress_level"),
+	_SET(225, "set"),
 
-  _MAX_MET_DATA(229, "max_met_data"),
+	_STRESS_LEVEL(227, "stress_level"),
 
-  _DIVE_SETTINGS(258, "dive_settings"),
+	_MAX_MET_DATA(229, "max_met_data"),
 
-  _DIVE_GAS(259, "dive_gas"),
+	_DIVE_SETTINGS(258, "dive_settings"),
 
-  _DIVE_ALARM(262, "dive_alarm"),
+	_DIVE_GAS(259, "dive_gas"),
 
-  _EXERCISE_TITLE(264, "exercise_title"),
+	_DIVE_ALARM(262, "dive_alarm"),
 
-  _DIVE_SUMMARY(268, "dive_summary"),
+	_EXERCISE_TITLE(264, "exercise_title"),
 
-  _SPO2_DATA(269, "spo2_data"),
+	_DIVE_SUMMARY(268, "dive_summary"),
 
-  _SLEEP_LEVEL(275, "sleep_level"),
+	_SPO2_DATA(269, "spo2_data"),
 
-  _JUMP(285, "jump"),
+	_SLEEP_LEVEL(275, "sleep_level"),
 
-  _AAD_ACCEL_FEATURES(289, "aad_accel_features"),
+	_JUMP(285, "jump"),
 
-  _BEAT_INTERVALS(290, "beat_intervals"),
+	_AAD_ACCEL_FEATURES(289, "aad_accel_features"),
 
-  _RESPIRATION_RATE(297, "respiration_rate"),
+	_BEAT_INTERVALS(290, "beat_intervals"),
 
-  _HSA_ACCELEROMETER_DATA(302, "hsa_accelerometer_data"),
+	_RESPIRATION_RATE(297, "respiration_rate"),
 
-  _HSA_STEP_DATA(304, "hsa_step_data"),
+	_HSA_ACCELEROMETER_DATA(302, "hsa_accelerometer_data"),
 
-  _HSA_SPO2_DATA(305, "hsa_spo2_data"),
+	_HSA_STEP_DATA(304, "hsa_step_data"),
 
-  _HSA_STRESS_DATA(306, "hsa_stress_data"),
+	_HSA_SPO2_DATA(305, "hsa_spo2_data"),
 
-  _HSA_RESPIRATION_DATA(307, "hsa_respiration_data"),
+	_HSA_STRESS_DATA(306, "hsa_stress_data"),
 
-  _HSA_HEART_RATE_DATA(308, "hsa_heart_rate_data"),
+	_HSA_RESPIRATION_DATA(307, "hsa_respiration_data"),
 
-  _SPLIT(312, "split"),
+	_HSA_HEART_RATE_DATA(308, "hsa_heart_rate_data"),
 
-  _SPLIT_SUMMARY(313, "split_summary"),
+	_SPLIT(312, "split"),
 
-  _HSA_BODY_BATTERY_DATA(314, "hsa_body_battery_data"),
+	_SPLIT_SUMMARY(313, "split_summary"),
 
-  _HSA_EVENT(315, "hsa_event"),
+	_HSA_BODY_BATTERY_DATA(314, "hsa_body_battery_data"),
 
-  _CLIMB_PRO(317, "climb_pro"),
+	_HSA_EVENT(315, "hsa_event"),
 
-  _TANK_UPDATE(319, "tank_update"),
+	_CLIMB_PRO(317, "climb_pro"),
 
-  _TANK_SUMMARY(323, "tank_summary"),
+	_TANK_UPDATE(319, "tank_update"),
 
-  _SLEEP_ASSESSMENT(346, "sleep_assessment"),
+	_TANK_SUMMARY(323, "tank_summary"),
 
-  _HRV_STATUS_SUMMARY(370, "hrv_status_summary"),
+	_SLEEP_ASSESSMENT(346, "sleep_assessment"),
 
-  _HRV_VALUE(371, "hrv_value"),
+	_HRV_STATUS_SUMMARY(370, "hrv_status_summary"),
 
-  _RAW_BBI(372, "raw_bbi"),
+	_HRV_VALUE(371, "hrv_value"),
 
-  _DEVICE_AUX_BATTERY_INFO(375, "device_aux_battery_info"),
+	_RAW_BBI(372, "raw_bbi"),
 
-  _HSA_GYROSCOPE_DATA(376, "hsa_gyroscope_data"),
+	_DEVICE_AUX_BATTERY_INFO(375, "device_aux_battery_info"),
 
-  _CHRONO_SHOT_SESSION(387, "chrono_shot_session"),
+	_HSA_GYROSCOPE_DATA(376, "hsa_gyroscope_data"),
 
-  _CHRONO_SHOT_DATA(388, "chrono_shot_data"),
+	_CHRONO_SHOT_SESSION(387, "chrono_shot_session"),
 
-  _HSA_CONFIGURATION_DATA(389, "hsa_configuration_data"),
+	_CHRONO_SHOT_DATA(388, "chrono_shot_data"),
 
-  _DIVE_APNEA_ALARM(393, "dive_apnea_alarm"),
+	_HSA_CONFIGURATION_DATA(389, "hsa_configuration_data"),
 
-  _SKIN_TEMP_OVERNIGHT(398, "skin_temp_overnight"),
+	_DIVE_APNEA_ALARM(393, "dive_apnea_alarm"),
 
-  _HSA_WRIST_TEMPERATURE_DATA(409, "hsa_wrist_temperature_data"),
+	_SKIN_TEMP_OVERNIGHT(398, "skin_temp_overnight"),
 
-  _MFG_RANGE_MIN(65280, "mfg_range_min"),
+	_HSA_WRIST_TEMPERATURE_DATA(409, "hsa_wrist_temperature_data"),
 
-  _MFG_RANGE_MAX(65534, "mfg_range_max");
+	_MFG_RANGE_MIN(65280, "mfg_range_min"),
 
-  private final int messageNumber;
+	_MFG_RANGE_MAX(65534, "mfg_range_max");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  MESG_NUM(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static MESG_NUM findById(int messageNumber) {
-    for (MESG_NUM name: MESG_NUM.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	MESG_NUM(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static MESG_NUM findById(int messageNumber) {
+		for (MESG_NUM name : MESG_NUM.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

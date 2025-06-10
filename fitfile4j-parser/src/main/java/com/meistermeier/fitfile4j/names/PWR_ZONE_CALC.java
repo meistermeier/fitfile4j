@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PWR_ZONE_CALC {
-  _CUSTOM(0, "custom"),
 
-  _PERCENT_FTP(1, "percent_ftp");
+	_CUSTOM(0, "custom"),
 
-  private final int messageNumber;
+	_PERCENT_FTP(1, "percent_ftp");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  PWR_ZONE_CALC(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static PWR_ZONE_CALC findById(int messageNumber) {
-    for (PWR_ZONE_CALC name: PWR_ZONE_CALC.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	PWR_ZONE_CALC(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static PWR_ZONE_CALC findById(int messageNumber) {
+		for (PWR_ZONE_CALC name : PWR_ZONE_CALC.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -28,7 +28,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Jackson Module to serialize the data with names instead of just field and message numbers.
+ * Jackson Module to serialize the data with names instead of just field and message
+ * numbers.
  */
 public class FitFileWriterProvider extends ReaderWriterProvider {
 
@@ -66,22 +67,23 @@ public class FitFileWriterProvider extends ReaderWriterProvider {
 					jsonGenerator.writeStringField("message_name", messageName.getMessageName());
 				}
 			}
-			jsonGenerator.writeObjectFieldStart("fields");
-			for (FitFile.Entry entry : message.fields().fields()) {
+			jsonGenerator.writeObjectFieldStart("entries");
+			for (FitFile.Entry entry : message.fields().entries()) {
 				Object value = entry.value();
 				String key;
 				if (withNames) {
-					FieldName fieldName = FieldName.findById(message.messageNumber(), entry.field().fieldDefinitionNumber());
-					key = entry.field().devField()
-						? entry.field().fieldName()
-						: fieldName != null ? fieldName.getFieldName() : "" + entry.field().fieldDefinitionNumber();
+					FieldName fieldName = FieldName.findById(message.messageNumber(),
+							entry.field().fieldDefinitionNumber());
+					key = entry.field().devField() ? entry.field().fieldName()
+							: fieldName != null ? fieldName.getFieldName() : "" + entry.field().fieldDefinitionNumber();
 					// Content warning: You will enter reflection hell here
 					if (fieldName != null && fieldName.getEnumType() != null) {
 						try {
 							Method findMethod = null;
 							try {
 								findMethod = fieldName.getEnumType().getMethod("findById", int.class);
-							} catch (NoSuchMethodException e) {
+							}
+							catch (NoSuchMethodException e) {
 								findMethod = fieldName.getEnumType().getMethod("findById", long.class);
 							}
 							var result = findMethod.invoke(fieldName.getEnumType(), value);
@@ -89,11 +91,14 @@ public class FitFileWriterProvider extends ReaderWriterProvider {
 								var name = fieldName.getEnumType().getMethod("getMessageName");
 								value = name.invoke(result);
 							}
-						} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | IllegalArgumentException e) {
+						}
+						catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException
+								| IllegalArgumentException e) {
 							throw new RuntimeException(e);
 						}
 					}
-				} else {
+				}
+				else {
 					key = "" + entry.field().fieldDefinitionNumber();
 				}
 				jsonGenerator.writeFieldName(key);
@@ -107,5 +112,7 @@ public class FitFileWriterProvider extends ReaderWriterProvider {
 		public Class<?> valueType() {
 			return FitFile.class;
 		}
+
 	}
+
 }

@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum STROKE_TYPE {
-  _NO_EVENT(0, "no_event"),
 
-  _OTHER(1, "other"),
+	_NO_EVENT(0, "no_event"),
 
-  _SERVE(2, "serve"),
+	_OTHER(1, "other"),
 
-  _FOREHAND(3, "forehand"),
+	_SERVE(2, "serve"),
 
-  _BACKHAND(4, "backhand"),
+	_FOREHAND(3, "forehand"),
 
-  _SMASH(5, "smash");
+	_BACKHAND(4, "backhand"),
 
-  private final int messageNumber;
+	_SMASH(5, "smash");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  STROKE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static STROKE_TYPE findById(int messageNumber) {
-    for (STROKE_TYPE name: STROKE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	STROKE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static STROKE_TYPE findById(int messageNumber) {
+		for (STROKE_TYPE name : STROKE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

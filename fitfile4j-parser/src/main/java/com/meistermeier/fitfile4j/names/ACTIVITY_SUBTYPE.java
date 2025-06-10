@@ -2,65 +2,67 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_SUBTYPE {
-  _GENERIC(0, "generic"),
 
-  _TREADMILL(1, "treadmill"),
+	_GENERIC(0, "generic"),
 
-  _STREET(2, "street"),
+	_TREADMILL(1, "treadmill"),
 
-  _TRAIL(3, "trail"),
+	_STREET(2, "street"),
 
-  _TRACK(4, "track"),
+	_TRAIL(3, "trail"),
 
-  _SPIN(5, "spin"),
+	_TRACK(4, "track"),
 
-  _INDOOR_CYCLING(6, "indoor_cycling"),
+	_SPIN(5, "spin"),
 
-  _ROAD(7, "road"),
+	_INDOOR_CYCLING(6, "indoor_cycling"),
 
-  _MOUNTAIN(8, "mountain"),
+	_ROAD(7, "road"),
 
-  _DOWNHILL(9, "downhill"),
+	_MOUNTAIN(8, "mountain"),
 
-  _RECUMBENT(10, "recumbent"),
+	_DOWNHILL(9, "downhill"),
 
-  _CYCLOCROSS(11, "cyclocross"),
+	_RECUMBENT(10, "recumbent"),
 
-  _HAND_CYCLING(12, "hand_cycling"),
+	_CYCLOCROSS(11, "cyclocross"),
 
-  _TRACK_CYCLING(13, "track_cycling"),
+	_HAND_CYCLING(12, "hand_cycling"),
 
-  _INDOOR_ROWING(14, "indoor_rowing"),
+	_TRACK_CYCLING(13, "track_cycling"),
 
-  _ELLIPTICAL(15, "elliptical"),
+	_INDOOR_ROWING(14, "indoor_rowing"),
 
-  _STAIR_CLIMBING(16, "stair_climbing"),
+	_ELLIPTICAL(15, "elliptical"),
 
-  _LAP_SWIMMING(17, "lap_swimming"),
+	_STAIR_CLIMBING(16, "stair_climbing"),
 
-  _OPEN_WATER(18, "open_water"),
+	_LAP_SWIMMING(17, "lap_swimming"),
 
-  _ALL(254, "all");
+	_OPEN_WATER(18, "open_water"),
 
-  private final int messageNumber;
+	_ALL(254, "all");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ACTIVITY_SUBTYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ACTIVITY_SUBTYPE findById(int messageNumber) {
-    for (ACTIVITY_SUBTYPE name: ACTIVITY_SUBTYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ACTIVITY_SUBTYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ACTIVITY_SUBTYPE findById(int messageNumber) {
+		for (ACTIVITY_SUBTYPE name : ACTIVITY_SUBTYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

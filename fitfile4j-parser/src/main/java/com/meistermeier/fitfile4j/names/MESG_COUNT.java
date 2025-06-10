@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MESG_COUNT {
-  _NUM_PER_FILE(0, "num_per_file"),
 
-  _MAX_PER_FILE(1, "max_per_file"),
+	_NUM_PER_FILE(0, "num_per_file"),
 
-  _MAX_PER_FILE_TYPE(2, "max_per_file_type");
+	_MAX_PER_FILE(1, "max_per_file"),
 
-  private final int messageNumber;
+	_MAX_PER_FILE_TYPE(2, "max_per_file_type");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  MESG_COUNT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static MESG_COUNT findById(int messageNumber) {
-    for (MESG_COUNT name: MESG_COUNT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	MESG_COUNT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static MESG_COUNT findById(int messageNumber) {
+		for (MESG_COUNT name : MESG_COUNT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

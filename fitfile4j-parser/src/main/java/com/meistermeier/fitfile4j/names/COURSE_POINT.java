@@ -2,131 +2,133 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum COURSE_POINT {
-  _GENERIC(0, "generic"),
 
-  _SUMMIT(1, "summit"),
+	_GENERIC(0, "generic"),
 
-  _VALLEY(2, "valley"),
+	_SUMMIT(1, "summit"),
 
-  _WATER(3, "water"),
+	_VALLEY(2, "valley"),
 
-  _FOOD(4, "food"),
+	_WATER(3, "water"),
 
-  _DANGER(5, "danger"),
+	_FOOD(4, "food"),
 
-  _LEFT(6, "left"),
+	_DANGER(5, "danger"),
 
-  _RIGHT(7, "right"),
+	_LEFT(6, "left"),
 
-  _STRAIGHT(8, "straight"),
+	_RIGHT(7, "right"),
 
-  _FIRST_AID(9, "first_aid"),
+	_STRAIGHT(8, "straight"),
 
-  _FOURTH_CATEGORY(10, "fourth_category"),
+	_FIRST_AID(9, "first_aid"),
 
-  _THIRD_CATEGORY(11, "third_category"),
+	_FOURTH_CATEGORY(10, "fourth_category"),
 
-  _SECOND_CATEGORY(12, "second_category"),
+	_THIRD_CATEGORY(11, "third_category"),
 
-  _FIRST_CATEGORY(13, "first_category"),
+	_SECOND_CATEGORY(12, "second_category"),
 
-  _HORS_CATEGORY(14, "hors_category"),
+	_FIRST_CATEGORY(13, "first_category"),
 
-  _SPRINT(15, "sprint"),
+	_HORS_CATEGORY(14, "hors_category"),
 
-  _LEFT_FORK(16, "left_fork"),
+	_SPRINT(15, "sprint"),
 
-  _RIGHT_FORK(17, "right_fork"),
+	_LEFT_FORK(16, "left_fork"),
 
-  _MIDDLE_FORK(18, "middle_fork"),
+	_RIGHT_FORK(17, "right_fork"),
 
-  _SLIGHT_LEFT(19, "slight_left"),
+	_MIDDLE_FORK(18, "middle_fork"),
 
-  _SHARP_LEFT(20, "sharp_left"),
+	_SLIGHT_LEFT(19, "slight_left"),
 
-  _SLIGHT_RIGHT(21, "slight_right"),
+	_SHARP_LEFT(20, "sharp_left"),
 
-  _SHARP_RIGHT(22, "sharp_right"),
+	_SLIGHT_RIGHT(21, "slight_right"),
 
-  _U_TURN(23, "u_turn"),
+	_SHARP_RIGHT(22, "sharp_right"),
 
-  _SEGMENT_START(24, "segment_start"),
+	_U_TURN(23, "u_turn"),
 
-  _SEGMENT_END(25, "segment_end"),
+	_SEGMENT_START(24, "segment_start"),
 
-  _CAMPSITE(27, "campsite"),
+	_SEGMENT_END(25, "segment_end"),
 
-  _AID_STATION(28, "aid_station"),
+	_CAMPSITE(27, "campsite"),
 
-  _REST_AREA(29, "rest_area"),
+	_AID_STATION(28, "aid_station"),
 
-  _GENERAL_DISTANCE(30, "general_distance"),
+	_REST_AREA(29, "rest_area"),
 
-  _SERVICE(31, "service"),
+	_GENERAL_DISTANCE(30, "general_distance"),
 
-  _ENERGY_GEL(32, "energy_gel"),
+	_SERVICE(31, "service"),
 
-  _SPORTS_DRINK(33, "sports_drink"),
+	_ENERGY_GEL(32, "energy_gel"),
 
-  _MILE_MARKER(34, "mile_marker"),
+	_SPORTS_DRINK(33, "sports_drink"),
 
-  _CHECKPOINT(35, "checkpoint"),
+	_MILE_MARKER(34, "mile_marker"),
 
-  _SHELTER(36, "shelter"),
+	_CHECKPOINT(35, "checkpoint"),
 
-  _MEETING_SPOT(37, "meeting_spot"),
+	_SHELTER(36, "shelter"),
 
-  _OVERLOOK(38, "overlook"),
+	_MEETING_SPOT(37, "meeting_spot"),
 
-  _TOILET(39, "toilet"),
+	_OVERLOOK(38, "overlook"),
 
-  _SHOWER(40, "shower"),
+	_TOILET(39, "toilet"),
 
-  _GEAR(41, "gear"),
+	_SHOWER(40, "shower"),
 
-  _SHARP_CURVE(42, "sharp_curve"),
+	_GEAR(41, "gear"),
 
-  _STEEP_INCLINE(43, "steep_incline"),
+	_SHARP_CURVE(42, "sharp_curve"),
 
-  _TUNNEL(44, "tunnel"),
+	_STEEP_INCLINE(43, "steep_incline"),
 
-  _BRIDGE(45, "bridge"),
+	_TUNNEL(44, "tunnel"),
 
-  _OBSTACLE(46, "obstacle"),
+	_BRIDGE(45, "bridge"),
 
-  _CROSSING(47, "crossing"),
+	_OBSTACLE(46, "obstacle"),
 
-  _STORE(48, "store"),
+	_CROSSING(47, "crossing"),
 
-  _TRANSITION(49, "transition"),
+	_STORE(48, "store"),
 
-  _NAVAID(50, "navaid"),
+	_TRANSITION(49, "transition"),
 
-  _TRANSPORT(51, "transport"),
+	_NAVAID(50, "navaid"),
 
-  _ALERT(52, "alert"),
+	_TRANSPORT(51, "transport"),
 
-  _INFO(53, "info");
+	_ALERT(52, "alert"),
 
-  private final int messageNumber;
+	_INFO(53, "info");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  COURSE_POINT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static COURSE_POINT findById(int messageNumber) {
-    for (COURSE_POINT name: COURSE_POINT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	COURSE_POINT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static COURSE_POINT findById(int messageNumber) {
+		for (COURSE_POINT name : COURSE_POINT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

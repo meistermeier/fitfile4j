@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MESSAGE_INDEX {
-  _SELECTED(32768, "selected"),
 
-  _RESERVED(28672, "reserved"),
+	_SELECTED(32768, "selected"),
 
-  _MASK(4095, "mask");
+	_RESERVED(28672, "reserved"),
 
-  private final int messageNumber;
+	_MASK(4095, "mask");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  MESSAGE_INDEX(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static MESSAGE_INDEX findById(int messageNumber) {
-    for (MESSAGE_INDEX name: MESSAGE_INDEX.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	MESSAGE_INDEX(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static MESSAGE_INDEX findById(int messageNumber) {
+		for (MESSAGE_INDEX name : MESSAGE_INDEX.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

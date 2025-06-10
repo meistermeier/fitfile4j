@@ -2,51 +2,53 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ATTITUDE_VALIDITY {
-  _TRACK_ANGLE_HEADING_VALID(1, "track_angle_heading_valid"),
 
-  _PITCH_VALID(2, "pitch_valid"),
+	_TRACK_ANGLE_HEADING_VALID(1, "track_angle_heading_valid"),
 
-  _ROLL_VALID(4, "roll_valid"),
+	_PITCH_VALID(2, "pitch_valid"),
 
-  _LATERAL_BODY_ACCEL_VALID(8, "lateral_body_accel_valid"),
+	_ROLL_VALID(4, "roll_valid"),
 
-  _NORMAL_BODY_ACCEL_VALID(16, "normal_body_accel_valid"),
+	_LATERAL_BODY_ACCEL_VALID(8, "lateral_body_accel_valid"),
 
-  _TURN_RATE_VALID(32, "turn_rate_valid"),
+	_NORMAL_BODY_ACCEL_VALID(16, "normal_body_accel_valid"),
 
-  _HW_FAIL(64, "hw_fail"),
+	_TURN_RATE_VALID(32, "turn_rate_valid"),
 
-  _MAG_INVALID(128, "mag_invalid"),
+	_HW_FAIL(64, "hw_fail"),
 
-  _NO_GPS(256, "no_gps"),
+	_MAG_INVALID(128, "mag_invalid"),
 
-  _GPS_INVALID(512, "gps_invalid"),
+	_NO_GPS(256, "no_gps"),
 
-  _SOLUTION_COASTING(1024, "solution_coasting"),
+	_GPS_INVALID(512, "gps_invalid"),
 
-  _TRUE_TRACK_ANGLE(2048, "true_track_angle"),
+	_SOLUTION_COASTING(1024, "solution_coasting"),
 
-  _MAGNETIC_HEADING(4096, "magnetic_heading");
+	_TRUE_TRACK_ANGLE(2048, "true_track_angle"),
 
-  private final int messageNumber;
+	_MAGNETIC_HEADING(4096, "magnetic_heading");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ATTITUDE_VALIDITY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ATTITUDE_VALIDITY findById(int messageNumber) {
-    for (ATTITUDE_VALIDITY name: ATTITUDE_VALIDITY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ATTITUDE_VALIDITY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ATTITUDE_VALIDITY findById(int messageNumber) {
+		for (ATTITUDE_VALIDITY name : ATTITUDE_VALIDITY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

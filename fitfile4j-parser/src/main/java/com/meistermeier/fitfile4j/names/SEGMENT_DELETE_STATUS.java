@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SEGMENT_DELETE_STATUS {
-  _DO_NOT_DELETE(0, "do_not_delete"),
 
-  _DELETE_ONE(1, "delete_one"),
+	_DO_NOT_DELETE(0, "do_not_delete"),
 
-  _DELETE_ALL(2, "delete_all");
+	_DELETE_ONE(1, "delete_one"),
 
-  private final int messageNumber;
+	_DELETE_ALL(2, "delete_all");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SEGMENT_DELETE_STATUS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SEGMENT_DELETE_STATUS findById(int messageNumber) {
-    for (SEGMENT_DELETE_STATUS name: SEGMENT_DELETE_STATUS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SEGMENT_DELETE_STATUS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SEGMENT_DELETE_STATUS findById(int messageNumber) {
+		for (SEGMENT_DELETE_STATUS name : SEGMENT_DELETE_STATUS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

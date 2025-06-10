@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TIME_MODE {
-  _HOUR12(0, "hour12"),
 
-  _HOUR24(1, "hour24"),
+	_HOUR12(0, "hour12"),
 
-  _MILITARY(2, "military"),
+	_HOUR24(1, "hour24"),
 
-  _HOUR_12_WITH_SECONDS(3, "hour_12_with_seconds"),
+	_MILITARY(2, "military"),
 
-  _HOUR_24_WITH_SECONDS(4, "hour_24_with_seconds"),
+	_HOUR_12_WITH_SECONDS(3, "hour_12_with_seconds"),
 
-  _UTC(5, "utc");
+	_HOUR_24_WITH_SECONDS(4, "hour_24_with_seconds"),
 
-  private final int messageNumber;
+	_UTC(5, "utc");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  TIME_MODE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static TIME_MODE findById(int messageNumber) {
-    for (TIME_MODE name: TIME_MODE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	TIME_MODE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static TIME_MODE findById(int messageNumber) {
+		for (TIME_MODE name : TIME_MODE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

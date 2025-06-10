@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SET_TYPE {
-  _REST(0, "rest"),
 
-  _ACTIVE(1, "active");
+	_REST(0, "rest"),
 
-  private final int messageNumber;
+	_ACTIVE(1, "active");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SET_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SET_TYPE findById(int messageNumber) {
-    for (SET_TYPE name: SET_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SET_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SET_TYPE findById(int messageNumber) {
+		for (SET_TYPE name : SET_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

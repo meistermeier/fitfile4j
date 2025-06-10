@@ -2,103 +2,105 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE {
-  _ENGLISH(0, "english"),
 
-  _FRENCH(1, "french"),
+	_ENGLISH(0, "english"),
 
-  _ITALIAN(2, "italian"),
+	_FRENCH(1, "french"),
 
-  _GERMAN(3, "german"),
+	_ITALIAN(2, "italian"),
 
-  _SPANISH(4, "spanish"),
+	_GERMAN(3, "german"),
 
-  _CROATIAN(5, "croatian"),
+	_SPANISH(4, "spanish"),
 
-  _CZECH(6, "czech"),
+	_CROATIAN(5, "croatian"),
 
-  _DANISH(7, "danish"),
+	_CZECH(6, "czech"),
 
-  _DUTCH(8, "dutch"),
+	_DANISH(7, "danish"),
 
-  _FINNISH(9, "finnish"),
+	_DUTCH(8, "dutch"),
 
-  _GREEK(10, "greek"),
+	_FINNISH(9, "finnish"),
 
-  _HUNGARIAN(11, "hungarian"),
+	_GREEK(10, "greek"),
 
-  _NORWEGIAN(12, "norwegian"),
+	_HUNGARIAN(11, "hungarian"),
 
-  _POLISH(13, "polish"),
+	_NORWEGIAN(12, "norwegian"),
 
-  _PORTUGUESE(14, "portuguese"),
+	_POLISH(13, "polish"),
 
-  _SLOVAKIAN(15, "slovakian"),
+	_PORTUGUESE(14, "portuguese"),
 
-  _SLOVENIAN(16, "slovenian"),
+	_SLOVAKIAN(15, "slovakian"),
 
-  _SWEDISH(17, "swedish"),
+	_SLOVENIAN(16, "slovenian"),
 
-  _RUSSIAN(18, "russian"),
+	_SWEDISH(17, "swedish"),
 
-  _TURKISH(19, "turkish"),
+	_RUSSIAN(18, "russian"),
 
-  _LATVIAN(20, "latvian"),
+	_TURKISH(19, "turkish"),
 
-  _UKRAINIAN(21, "ukrainian"),
+	_LATVIAN(20, "latvian"),
 
-  _ARABIC(22, "arabic"),
+	_UKRAINIAN(21, "ukrainian"),
 
-  _FARSI(23, "farsi"),
+	_ARABIC(22, "arabic"),
 
-  _BULGARIAN(24, "bulgarian"),
+	_FARSI(23, "farsi"),
 
-  _ROMANIAN(25, "romanian"),
+	_BULGARIAN(24, "bulgarian"),
 
-  _CHINESE(26, "chinese"),
+	_ROMANIAN(25, "romanian"),
 
-  _JAPANESE(27, "japanese"),
+	_CHINESE(26, "chinese"),
 
-  _KOREAN(28, "korean"),
+	_JAPANESE(27, "japanese"),
 
-  _TAIWANESE(29, "taiwanese"),
+	_KOREAN(28, "korean"),
 
-  _THAI(30, "thai"),
+	_TAIWANESE(29, "taiwanese"),
 
-  _HEBREW(31, "hebrew"),
+	_THAI(30, "thai"),
 
-  _BRAZILIAN_PORTUGUESE(32, "brazilian_portuguese"),
+	_HEBREW(31, "hebrew"),
 
-  _INDONESIAN(33, "indonesian"),
+	_BRAZILIAN_PORTUGUESE(32, "brazilian_portuguese"),
 
-  _MALAYSIAN(34, "malaysian"),
+	_INDONESIAN(33, "indonesian"),
 
-  _VIETNAMESE(35, "vietnamese"),
+	_MALAYSIAN(34, "malaysian"),
 
-  _BURMESE(36, "burmese"),
+	_VIETNAMESE(35, "vietnamese"),
 
-  _MONGOLIAN(37, "mongolian"),
+	_BURMESE(36, "burmese"),
 
-  _CUSTOM(254, "custom");
+	_MONGOLIAN(37, "mongolian"),
 
-  private final int messageNumber;
+	_CUSTOM(254, "custom");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  LANGUAGE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static LANGUAGE findById(int messageNumber) {
-    for (LANGUAGE name: LANGUAGE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	LANGUAGE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static LANGUAGE findById(int messageNumber) {
+		for (LANGUAGE name : LANGUAGE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

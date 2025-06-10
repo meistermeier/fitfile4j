@@ -2,35 +2,37 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTO_SYNC_FREQUENCY {
-  _NEVER(0, "never"),
 
-  _OCCASIONALLY(1, "occasionally"),
+	_NEVER(0, "never"),
 
-  _FREQUENT(2, "frequent"),
+	_OCCASIONALLY(1, "occasionally"),
 
-  _ONCE_A_DAY(3, "once_a_day"),
+	_FREQUENT(2, "frequent"),
 
-  _REMOTE(4, "remote");
+	_ONCE_A_DAY(3, "once_a_day"),
 
-  private final int messageNumber;
+	_REMOTE(4, "remote");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  AUTO_SYNC_FREQUENCY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static AUTO_SYNC_FREQUENCY findById(int messageNumber) {
-    for (AUTO_SYNC_FREQUENCY name: AUTO_SYNC_FREQUENCY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	AUTO_SYNC_FREQUENCY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static AUTO_SYNC_FREQUENCY findById(int messageNumber) {
+		for (AUTO_SYNC_FREQUENCY name : AUTO_SYNC_FREQUENCY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

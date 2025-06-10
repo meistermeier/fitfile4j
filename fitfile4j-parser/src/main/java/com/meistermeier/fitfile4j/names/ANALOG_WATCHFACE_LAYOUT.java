@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ANALOG_WATCHFACE_LAYOUT {
-  _MINIMAL(0, "minimal"),
 
-  _TRADITIONAL(1, "traditional"),
+	_MINIMAL(0, "minimal"),
 
-  _MODERN(2, "modern");
+	_TRADITIONAL(1, "traditional"),
 
-  private final int messageNumber;
+	_MODERN(2, "modern");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ANALOG_WATCHFACE_LAYOUT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ANALOG_WATCHFACE_LAYOUT findById(int messageNumber) {
-    for (ANALOG_WATCHFACE_LAYOUT name: ANALOG_WATCHFACE_LAYOUT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ANALOG_WATCHFACE_LAYOUT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ANALOG_WATCHFACE_LAYOUT findById(int messageNumber) {
+		for (ANALOG_WATCHFACE_LAYOUT name : ANALOG_WATCHFACE_LAYOUT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

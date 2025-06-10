@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_4 {
-  _BRAZILIAN_PORTUGUESE(1, "brazilian_portuguese"),
 
-  _INDONESIAN(2, "indonesian"),
+	_BRAZILIAN_PORTUGUESE(1, "brazilian_portuguese"),
 
-  _MALAYSIAN(4, "malaysian"),
+	_INDONESIAN(2, "indonesian"),
 
-  _VIETNAMESE(8, "vietnamese"),
+	_MALAYSIAN(4, "malaysian"),
 
-  _BURMESE(16, "burmese"),
+	_VIETNAMESE(8, "vietnamese"),
 
-  _MONGOLIAN(32, "mongolian");
+	_BURMESE(16, "burmese"),
 
-  private final int messageNumber;
+	_MONGOLIAN(32, "mongolian");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  LANGUAGE_BITS_4(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static LANGUAGE_BITS_4 findById(int messageNumber) {
-    for (LANGUAGE_BITS_4 name: LANGUAGE_BITS_4.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	LANGUAGE_BITS_4(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static LANGUAGE_BITS_4 findById(int messageNumber) {
+		for (LANGUAGE_BITS_4 name : LANGUAGE_BITS_4.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

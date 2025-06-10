@@ -2,39 +2,41 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SWIM_STROKE {
-  _FREESTYLE(0, "freestyle"),
 
-  _BACKSTROKE(1, "backstroke"),
+	_FREESTYLE(0, "freestyle"),
 
-  _BREASTSTROKE(2, "breaststroke"),
+	_BACKSTROKE(1, "backstroke"),
 
-  _BUTTERFLY(3, "butterfly"),
+	_BREASTSTROKE(2, "breaststroke"),
 
-  _DRILL(4, "drill"),
+	_BUTTERFLY(3, "butterfly"),
 
-  _MIXED(5, "mixed"),
+	_DRILL(4, "drill"),
 
-  _IM(6, "im");
+	_MIXED(5, "mixed"),
 
-  private final int messageNumber;
+	_IM(6, "im");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SWIM_STROKE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SWIM_STROKE findById(int messageNumber) {
-    for (SWIM_STROKE name: SWIM_STROKE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SWIM_STROKE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SWIM_STROKE findById(int messageNumber) {
+		for (SWIM_STROKE name : SWIM_STROKE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

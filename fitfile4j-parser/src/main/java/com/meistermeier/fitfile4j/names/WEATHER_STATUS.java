@@ -2,67 +2,69 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_STATUS {
-  _CLEAR(0, "clear"),
 
-  _PARTLY_CLOUDY(1, "partly_cloudy"),
+	_CLEAR(0, "clear"),
 
-  _MOSTLY_CLOUDY(2, "mostly_cloudy"),
+	_PARTLY_CLOUDY(1, "partly_cloudy"),
 
-  _RAIN(3, "rain"),
+	_MOSTLY_CLOUDY(2, "mostly_cloudy"),
 
-  _SNOW(4, "snow"),
+	_RAIN(3, "rain"),
 
-  _WINDY(5, "windy"),
+	_SNOW(4, "snow"),
 
-  _THUNDERSTORMS(6, "thunderstorms"),
+	_WINDY(5, "windy"),
 
-  _WINTRY_MIX(7, "wintry_mix"),
+	_THUNDERSTORMS(6, "thunderstorms"),
 
-  _FOG(8, "fog"),
+	_WINTRY_MIX(7, "wintry_mix"),
 
-  _HAZY(11, "hazy"),
+	_FOG(8, "fog"),
 
-  _HAIL(12, "hail"),
+	_HAZY(11, "hazy"),
 
-  _SCATTERED_SHOWERS(13, "scattered_showers"),
+	_HAIL(12, "hail"),
 
-  _SCATTERED_THUNDERSTORMS(14, "scattered_thunderstorms"),
+	_SCATTERED_SHOWERS(13, "scattered_showers"),
 
-  _UNKNOWN_PRECIPITATION(15, "unknown_precipitation"),
+	_SCATTERED_THUNDERSTORMS(14, "scattered_thunderstorms"),
 
-  _LIGHT_RAIN(16, "light_rain"),
+	_UNKNOWN_PRECIPITATION(15, "unknown_precipitation"),
 
-  _HEAVY_RAIN(17, "heavy_rain"),
+	_LIGHT_RAIN(16, "light_rain"),
 
-  _LIGHT_SNOW(18, "light_snow"),
+	_HEAVY_RAIN(17, "heavy_rain"),
 
-  _HEAVY_SNOW(19, "heavy_snow"),
+	_LIGHT_SNOW(18, "light_snow"),
 
-  _LIGHT_RAIN_SNOW(20, "light_rain_snow"),
+	_HEAVY_SNOW(19, "heavy_snow"),
 
-  _HEAVY_RAIN_SNOW(21, "heavy_rain_snow"),
+	_LIGHT_RAIN_SNOW(20, "light_rain_snow"),
 
-  _CLOUDY(22, "cloudy");
+	_HEAVY_RAIN_SNOW(21, "heavy_rain_snow"),
 
-  private final int messageNumber;
+	_CLOUDY(22, "cloudy");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WEATHER_STATUS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WEATHER_STATUS findById(int messageNumber) {
-    for (WEATHER_STATUS name: WEATHER_STATUS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WEATHER_STATUS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WEATHER_STATUS findById(int messageNumber) {
+		for (WEATHER_STATUS name : WEATHER_STATUS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

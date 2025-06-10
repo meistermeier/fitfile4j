@@ -15,7 +15,6 @@
  */
 package com.meistermeier.fitfile4j.cli.commands;
 
-
 import com.meistermeier.fitfile4j.cli.FitFile4j;
 import picocli.CommandLine;
 
@@ -63,4 +62,5 @@ public class DeleteCommand implements Callable<Integer> {
 
 		return 0;
 	}
+
 }

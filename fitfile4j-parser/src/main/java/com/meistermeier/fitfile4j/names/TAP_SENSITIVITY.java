@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TAP_SENSITIVITY {
-  _HIGH(0, "high"),
 
-  _MEDIUM(1, "medium"),
+	_HIGH(0, "high"),
 
-  _LOW(2, "low");
+	_MEDIUM(1, "medium"),
 
-  private final int messageNumber;
+	_LOW(2, "low");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  TAP_SENSITIVITY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static TAP_SENSITIVITY findById(int messageNumber) {
-    for (TAP_SENSITIVITY name: TAP_SENSITIVITY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	TAP_SENSITIVITY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static TAP_SENSITIVITY findById(int messageNumber) {
+		for (TAP_SENSITIVITY name : TAP_SENSITIVITY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

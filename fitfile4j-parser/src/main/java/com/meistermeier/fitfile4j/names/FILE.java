@@ -2,65 +2,67 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FILE {
-  _DEVICE(1, "device"),
 
-  _SETTINGS(2, "settings"),
+	_DEVICE(1, "device"),
 
-  _SPORT(3, "sport"),
+	_SETTINGS(2, "settings"),
 
-  _ACTIVITY(4, "activity"),
+	_SPORT(3, "sport"),
 
-  _WORKOUT(5, "workout"),
+	_ACTIVITY(4, "activity"),
 
-  _COURSE(6, "course"),
+	_WORKOUT(5, "workout"),
 
-  _SCHEDULES(7, "schedules"),
+	_COURSE(6, "course"),
 
-  _WEIGHT(9, "weight"),
+	_SCHEDULES(7, "schedules"),
 
-  _TOTALS(10, "totals"),
+	_WEIGHT(9, "weight"),
 
-  _GOALS(11, "goals"),
+	_TOTALS(10, "totals"),
 
-  _BLOOD_PRESSURE(14, "blood_pressure"),
+	_GOALS(11, "goals"),
 
-  _MONITORING_A(15, "monitoring_a"),
+	_BLOOD_PRESSURE(14, "blood_pressure"),
 
-  _ACTIVITY_SUMMARY(20, "activity_summary"),
+	_MONITORING_A(15, "monitoring_a"),
 
-  _MONITORING_DAILY(28, "monitoring_daily"),
+	_ACTIVITY_SUMMARY(20, "activity_summary"),
 
-  _MONITORING_B(32, "monitoring_b"),
+	_MONITORING_DAILY(28, "monitoring_daily"),
 
-  _SEGMENT(34, "segment"),
+	_MONITORING_B(32, "monitoring_b"),
 
-  _SEGMENT_LIST(35, "segment_list"),
+	_SEGMENT(34, "segment"),
 
-  _EXD_CONFIGURATION(40, "exd_configuration"),
+	_SEGMENT_LIST(35, "segment_list"),
 
-  _MFG_RANGE_MIN(247, "mfg_range_min"),
+	_EXD_CONFIGURATION(40, "exd_configuration"),
 
-  _MFG_RANGE_MAX(254, "mfg_range_max");
+	_MFG_RANGE_MIN(247, "mfg_range_min"),
 
-  private final int messageNumber;
+	_MFG_RANGE_MAX(254, "mfg_range_max");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  FILE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static FILE findById(int messageNumber) {
-    for (FILE name: FILE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	FILE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static FILE findById(int messageNumber) {
+		for (FILE name : FILE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

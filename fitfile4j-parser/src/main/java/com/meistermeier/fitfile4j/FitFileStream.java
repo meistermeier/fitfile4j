@@ -23,8 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * {@link InputStream} wrapper to enable insights into ongoing
- * reading, like current position and actual read bytes.
+ * {@link InputStream} wrapper to enable insights into ongoing reading, like current
+ * position and actual read bytes.
  *
  * @author Gerrit Meier
  */
@@ -33,25 +33,31 @@ class FitFileStream implements Closeable {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FitFileStream.class);
 
 	private final InputStream fitFileInputStream;
+
 	private int position = 0;
+
+	private boolean traceReadPositions = true;
 
 	FitFileStream(InputStream fitFileInputStream) {
 		this.fitFileInputStream = fitFileInputStream;
 	}
-
 
 	int available() throws IOException {
 		return fitFileInputStream.available();
 	}
 
 	int read() throws IOException {
-		LOGGER.trace("reading one byte");
+		if (traceReadPositions && LOGGER.isTraceEnabled()) {
+			LOGGER.trace("reading one byte from position {}", position);
+		}
 		position += 1;
 		return fitFileInputStream.read();
 	}
 
 	byte[] readNBytes(int i) throws IOException {
-		LOGGER.trace("reading {} bytes", i);
+		if (traceReadPositions && LOGGER.isTraceEnabled()) {
+			LOGGER.trace("reading {} bytes starting at position {}", i, position);
+		}
 		position += i;
 		return fitFileInputStream.readNBytes(i);
 	}
@@ -64,4 +70,5 @@ class FitFileStream implements Closeable {
 	public void close() throws IOException {
 		fitFileInputStream.close();
 	}
+
 }

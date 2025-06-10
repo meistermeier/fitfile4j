@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum NO_FLY_TIME_MODE {
-  _STANDARD(0, "standard"),
 
-  _FLAT_24_HOURS(1, "flat_24_hours");
+	_STANDARD(0, "standard"),
 
-  private final int messageNumber;
+	_FLAT_24_HOURS(1, "flat_24_hours");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  NO_FLY_TIME_MODE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static NO_FLY_TIME_MODE findById(int messageNumber) {
-    for (NO_FLY_TIME_MODE name: NO_FLY_TIME_MODE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	NO_FLY_TIME_MODE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static NO_FLY_TIME_MODE findById(int messageNumber) {
+		for (NO_FLY_TIME_MODE name : NO_FLY_TIME_MODE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

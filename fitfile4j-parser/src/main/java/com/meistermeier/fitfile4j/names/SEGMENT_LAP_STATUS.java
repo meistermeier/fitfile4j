@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SEGMENT_LAP_STATUS {
-  _END(0, "end"),
 
-  _FAIL(1, "fail");
+	_END(0, "end"),
 
-  private final int messageNumber;
+	_FAIL(1, "fail");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SEGMENT_LAP_STATUS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SEGMENT_LAP_STATUS findById(int messageNumber) {
-    for (SEGMENT_LAP_STATUS name: SEGMENT_LAP_STATUS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SEGMENT_LAP_STATUS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SEGMENT_LAP_STATUS findById(int messageNumber) {
+		for (SEGMENT_LAP_STATUS name : SEGMENT_LAP_STATUS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

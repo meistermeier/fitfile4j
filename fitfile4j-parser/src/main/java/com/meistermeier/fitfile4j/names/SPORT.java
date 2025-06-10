@@ -2,163 +2,165 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT {
-  _GENERIC(0, "generic"),
 
-  _RUNNING(1, "running"),
+	_GENERIC(0, "generic"),
 
-  _CYCLING(2, "cycling"),
+	_RUNNING(1, "running"),
 
-  _TRANSITION(3, "transition"),
+	_CYCLING(2, "cycling"),
 
-  _FITNESS_EQUIPMENT(4, "fitness_equipment"),
+	_TRANSITION(3, "transition"),
 
-  _SWIMMING(5, "swimming"),
+	_FITNESS_EQUIPMENT(4, "fitness_equipment"),
 
-  _BASKETBALL(6, "basketball"),
+	_SWIMMING(5, "swimming"),
 
-  _SOCCER(7, "soccer"),
+	_BASKETBALL(6, "basketball"),
 
-  _TENNIS(8, "tennis"),
+	_SOCCER(7, "soccer"),
 
-  _AMERICAN_FOOTBALL(9, "american_football"),
+	_TENNIS(8, "tennis"),
 
-  _TRAINING(10, "training"),
+	_AMERICAN_FOOTBALL(9, "american_football"),
 
-  _WALKING(11, "walking"),
+	_TRAINING(10, "training"),
 
-  _CROSS_COUNTRY_SKIING(12, "cross_country_skiing"),
+	_WALKING(11, "walking"),
 
-  _ALPINE_SKIING(13, "alpine_skiing"),
+	_CROSS_COUNTRY_SKIING(12, "cross_country_skiing"),
 
-  _SNOWBOARDING(14, "snowboarding"),
+	_ALPINE_SKIING(13, "alpine_skiing"),
 
-  _ROWING(15, "rowing"),
+	_SNOWBOARDING(14, "snowboarding"),
 
-  _MOUNTAINEERING(16, "mountaineering"),
+	_ROWING(15, "rowing"),
 
-  _HIKING(17, "hiking"),
+	_MOUNTAINEERING(16, "mountaineering"),
 
-  _MULTISPORT(18, "multisport"),
+	_HIKING(17, "hiking"),
 
-  _PADDLING(19, "paddling"),
+	_MULTISPORT(18, "multisport"),
 
-  _FLYING(20, "flying"),
+	_PADDLING(19, "paddling"),
 
-  _E_BIKING(21, "e_biking"),
+	_FLYING(20, "flying"),
 
-  _MOTORCYCLING(22, "motorcycling"),
+	_E_BIKING(21, "e_biking"),
 
-  _BOATING(23, "boating"),
+	_MOTORCYCLING(22, "motorcycling"),
 
-  _DRIVING(24, "driving"),
+	_BOATING(23, "boating"),
 
-  _GOLF(25, "golf"),
+	_DRIVING(24, "driving"),
 
-  _HANG_GLIDING(26, "hang_gliding"),
+	_GOLF(25, "golf"),
 
-  _HORSEBACK_RIDING(27, "horseback_riding"),
+	_HANG_GLIDING(26, "hang_gliding"),
 
-  _HUNTING(28, "hunting"),
+	_HORSEBACK_RIDING(27, "horseback_riding"),
 
-  _FISHING(29, "fishing"),
+	_HUNTING(28, "hunting"),
 
-  _INLINE_SKATING(30, "inline_skating"),
+	_FISHING(29, "fishing"),
 
-  _ROCK_CLIMBING(31, "rock_climbing"),
+	_INLINE_SKATING(30, "inline_skating"),
 
-  _SAILING(32, "sailing"),
+	_ROCK_CLIMBING(31, "rock_climbing"),
 
-  _ICE_SKATING(33, "ice_skating"),
+	_SAILING(32, "sailing"),
 
-  _SKY_DIVING(34, "sky_diving"),
+	_ICE_SKATING(33, "ice_skating"),
 
-  _SNOWSHOEING(35, "snowshoeing"),
+	_SKY_DIVING(34, "sky_diving"),
 
-  _SNOWMOBILING(36, "snowmobiling"),
+	_SNOWSHOEING(35, "snowshoeing"),
 
-  _STAND_UP_PADDLEBOARDING(37, "stand_up_paddleboarding"),
+	_SNOWMOBILING(36, "snowmobiling"),
 
-  _SURFING(38, "surfing"),
+	_STAND_UP_PADDLEBOARDING(37, "stand_up_paddleboarding"),
 
-  _WAKEBOARDING(39, "wakeboarding"),
+	_SURFING(38, "surfing"),
 
-  _WATER_SKIING(40, "water_skiing"),
+	_WAKEBOARDING(39, "wakeboarding"),
 
-  _KAYAKING(41, "kayaking"),
+	_WATER_SKIING(40, "water_skiing"),
 
-  _RAFTING(42, "rafting"),
+	_KAYAKING(41, "kayaking"),
 
-  _WINDSURFING(43, "windsurfing"),
+	_RAFTING(42, "rafting"),
 
-  _KITESURFING(44, "kitesurfing"),
+	_WINDSURFING(43, "windsurfing"),
 
-  _TACTICAL(45, "tactical"),
+	_KITESURFING(44, "kitesurfing"),
 
-  _JUMPMASTER(46, "jumpmaster"),
+	_TACTICAL(45, "tactical"),
 
-  _BOXING(47, "boxing"),
+	_JUMPMASTER(46, "jumpmaster"),
 
-  _FLOOR_CLIMBING(48, "floor_climbing"),
+	_BOXING(47, "boxing"),
 
-  _BASEBALL(49, "baseball"),
+	_FLOOR_CLIMBING(48, "floor_climbing"),
 
-  _DIVING(53, "diving"),
+	_BASEBALL(49, "baseball"),
 
-  _HIIT(62, "hiit"),
+	_DIVING(53, "diving"),
 
-  _RACKET(64, "racket"),
+	_HIIT(62, "hiit"),
 
-  _WHEELCHAIR_PUSH_WALK(65, "wheelchair_push_walk"),
+	_RACKET(64, "racket"),
 
-  _WHEELCHAIR_PUSH_RUN(66, "wheelchair_push_run"),
+	_WHEELCHAIR_PUSH_WALK(65, "wheelchair_push_walk"),
 
-  _MEDITATION(67, "meditation"),
+	_WHEELCHAIR_PUSH_RUN(66, "wheelchair_push_run"),
 
-  _DISC_GOLF(69, "disc_golf"),
+	_MEDITATION(67, "meditation"),
 
-  _CRICKET(71, "cricket"),
+	_DISC_GOLF(69, "disc_golf"),
 
-  _RUGBY(72, "rugby"),
+	_CRICKET(71, "cricket"),
 
-  _HOCKEY(73, "hockey"),
+	_RUGBY(72, "rugby"),
 
-  _LACROSSE(74, "lacrosse"),
+	_HOCKEY(73, "hockey"),
 
-  _VOLLEYBALL(75, "volleyball"),
+	_LACROSSE(74, "lacrosse"),
 
-  _WATER_TUBING(76, "water_tubing"),
+	_VOLLEYBALL(75, "volleyball"),
 
-  _WAKESURFING(77, "wakesurfing"),
+	_WATER_TUBING(76, "water_tubing"),
 
-  _MIXED_MARTIAL_ARTS(80, "mixed_martial_arts"),
+	_WAKESURFING(77, "wakesurfing"),
 
-  _SNORKELING(82, "snorkeling"),
+	_MIXED_MARTIAL_ARTS(80, "mixed_martial_arts"),
 
-  _DANCE(83, "dance"),
+	_SNORKELING(82, "snorkeling"),
 
-  _JUMP_ROPE(84, "jump_rope"),
+	_DANCE(83, "dance"),
 
-  _ALL(254, "all");
+	_JUMP_ROPE(84, "jump_rope"),
 
-  private final int messageNumber;
+	_ALL(254, "all");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SPORT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SPORT findById(int messageNumber) {
-    for (SPORT name: SPORT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SPORT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SPORT findById(int messageNumber) {
+		for (SPORT name : SPORT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

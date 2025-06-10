@@ -22,7 +22,6 @@ module fitfile4j.cli {
 	requires java.sql;
 	requires com.fasterxml.jackson.jr.ob;
 	requires com.fasterxml.jackson.core;
-	requires flyway.core;
 	requires duckdb.jdbc;
 
 	// picocli

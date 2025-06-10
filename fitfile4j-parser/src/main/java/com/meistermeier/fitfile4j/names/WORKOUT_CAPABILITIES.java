@@ -2,53 +2,55 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_CAPABILITIES {
-  _INTERVAL(1L, "interval"),
 
-  _CUSTOM(2L, "custom"),
+	_INTERVAL(1L, "interval"),
 
-  _FITNESS_EQUIPMENT(4L, "fitness_equipment"),
+	_CUSTOM(2L, "custom"),
 
-  _FIRSTBEAT(8L, "firstbeat"),
+	_FITNESS_EQUIPMENT(4L, "fitness_equipment"),
 
-  _NEW_LEAF(16L, "new_leaf"),
+	_FIRSTBEAT(8L, "firstbeat"),
 
-  _TCX(32L, "tcx"),
+	_NEW_LEAF(16L, "new_leaf"),
 
-  _SPEED(128L, "speed"),
+	_TCX(32L, "tcx"),
 
-  _HEART_RATE(256L, "heart_rate"),
+	_SPEED(128L, "speed"),
 
-  _DISTANCE(512L, "distance"),
+	_HEART_RATE(256L, "heart_rate"),
 
-  _CADENCE(1024L, "cadence"),
+	_DISTANCE(512L, "distance"),
 
-  _POWER(2048L, "power"),
+	_CADENCE(1024L, "cadence"),
 
-  _GRADE(4096L, "grade"),
+	_POWER(2048L, "power"),
 
-  _RESISTANCE(8192L, "resistance"),
+	_GRADE(4096L, "grade"),
 
-  _PROTECTED(16384L, "protected");
+	_RESISTANCE(8192L, "resistance"),
 
-  private final long messageNumber;
+	_PROTECTED(16384L, "protected");
 
-  private final String messageName;
+	private final long messageNumber;
 
-  WORKOUT_CAPABILITIES(long messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WORKOUT_CAPABILITIES findById(long messageNumber) {
-    for (WORKOUT_CAPABILITIES name: WORKOUT_CAPABILITIES.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WORKOUT_CAPABILITIES(long messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WORKOUT_CAPABILITIES findById(long messageNumber) {
+		for (WORKOUT_CAPABILITIES name : WORKOUT_CAPABILITIES.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

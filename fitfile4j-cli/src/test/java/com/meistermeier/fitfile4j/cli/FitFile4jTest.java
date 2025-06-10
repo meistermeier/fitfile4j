@@ -34,13 +34,17 @@ import static org.junit.jupiter.api.Assertions.fail;
 class FitFile4jTest {
 
 	final PrintStream originalOut = System.out;
+
 	final PrintStream originalErr = System.err;
+
 	final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
 	final ByteArrayOutputStream err = new ByteArrayOutputStream();
 
 	@Nested
 	@DisplayName("main command")
 	class MainCommand {
+
 		@BeforeEach
 		void cleanOutput() throws Exception {
 			out.reset();
@@ -61,12 +65,15 @@ class FitFile4jTest {
 			new CommandLine(fitFile4j).execute();
 			assertEquals("Please provide a subcommand", err.toString().split("\n")[0]);
 		}
+
 	}
 
 	@Nested
 	@DisplayName("database")
 	class Database {
+
 		String tempDbName = "test.db";
+
 		File tempDb;
 
 		@BeforeEach
@@ -120,7 +127,8 @@ class FitFile4jTest {
 			var fitFile4j = new FitFile4j();
 			// initial duckdb db creation
 			new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath());
-			var returnValue = new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath(), "-o");
+			var returnValue = new CommandLine(fitFile4j).execute("database", "create", "-d", tempDb.getAbsolutePath(),
+					"-o");
 			assertEquals(0, returnValue);
 			assertTrue(tempDb.exists());
 
@@ -129,12 +137,14 @@ class FitFile4jTest {
 
 		private static void verifyMigrationHasContent(String databasePath) {
 			try (var connection = DriverManager.getConnection("jdbc:duckdb:" + databasePath);
-				var statement = connection.prepareStatement("SHOW TABLES")) {
+					var statement = connection.prepareStatement("SHOW TABLES")) {
 				assertTrue(statement.executeQuery().getFetchSize() > 0);
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				fail(e);
 			}
 		}
+
 	}
 
 }

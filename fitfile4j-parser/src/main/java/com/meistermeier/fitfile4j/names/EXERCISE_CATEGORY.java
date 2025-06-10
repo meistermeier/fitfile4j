@@ -2,93 +2,95 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXERCISE_CATEGORY {
-  _BENCH_PRESS(0, "bench_press"),
 
-  _CALF_RAISE(1, "calf_raise"),
+	_BENCH_PRESS(0, "bench_press"),
 
-  _CARDIO(2, "cardio"),
+	_CALF_RAISE(1, "calf_raise"),
 
-  _CARRY(3, "carry"),
+	_CARDIO(2, "cardio"),
 
-  _CHOP(4, "chop"),
+	_CARRY(3, "carry"),
 
-  _CORE(5, "core"),
+	_CHOP(4, "chop"),
 
-  _CRUNCH(6, "crunch"),
+	_CORE(5, "core"),
 
-  _CURL(7, "curl"),
+	_CRUNCH(6, "crunch"),
 
-  _DEADLIFT(8, "deadlift"),
+	_CURL(7, "curl"),
 
-  _FLYE(9, "flye"),
+	_DEADLIFT(8, "deadlift"),
 
-  _HIP_RAISE(10, "hip_raise"),
+	_FLYE(9, "flye"),
 
-  _HIP_STABILITY(11, "hip_stability"),
+	_HIP_RAISE(10, "hip_raise"),
 
-  _HIP_SWING(12, "hip_swing"),
+	_HIP_STABILITY(11, "hip_stability"),
 
-  _HYPEREXTENSION(13, "hyperextension"),
+	_HIP_SWING(12, "hip_swing"),
 
-  _LATERAL_RAISE(14, "lateral_raise"),
+	_HYPEREXTENSION(13, "hyperextension"),
 
-  _LEG_CURL(15, "leg_curl"),
+	_LATERAL_RAISE(14, "lateral_raise"),
 
-  _LEG_RAISE(16, "leg_raise"),
+	_LEG_CURL(15, "leg_curl"),
 
-  _LUNGE(17, "lunge"),
+	_LEG_RAISE(16, "leg_raise"),
 
-  _OLYMPIC_LIFT(18, "olympic_lift"),
+	_LUNGE(17, "lunge"),
 
-  _PLANK(19, "plank"),
+	_OLYMPIC_LIFT(18, "olympic_lift"),
 
-  _PLYO(20, "plyo"),
+	_PLANK(19, "plank"),
 
-  _PULL_UP(21, "pull_up"),
+	_PLYO(20, "plyo"),
 
-  _PUSH_UP(22, "push_up"),
+	_PULL_UP(21, "pull_up"),
 
-  _ROW(23, "row"),
+	_PUSH_UP(22, "push_up"),
 
-  _SHOULDER_PRESS(24, "shoulder_press"),
+	_ROW(23, "row"),
 
-  _SHOULDER_STABILITY(25, "shoulder_stability"),
+	_SHOULDER_PRESS(24, "shoulder_press"),
 
-  _SHRUG(26, "shrug"),
+	_SHOULDER_STABILITY(25, "shoulder_stability"),
 
-  _SIT_UP(27, "sit_up"),
+	_SHRUG(26, "shrug"),
 
-  _SQUAT(28, "squat"),
+	_SIT_UP(27, "sit_up"),
 
-  _TOTAL_BODY(29, "total_body"),
+	_SQUAT(28, "squat"),
 
-  _TRICEPS_EXTENSION(30, "triceps_extension"),
+	_TOTAL_BODY(29, "total_body"),
 
-  _WARM_UP(31, "warm_up"),
+	_TRICEPS_EXTENSION(30, "triceps_extension"),
 
-  _RUN(32, "run"),
+	_WARM_UP(31, "warm_up"),
 
-  _UNKNOWN(65534, "unknown");
+	_RUN(32, "run"),
 
-  private final int messageNumber;
+	_UNKNOWN(65534, "unknown");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  EXERCISE_CATEGORY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static EXERCISE_CATEGORY findById(int messageNumber) {
-    for (EXERCISE_CATEGORY name: EXERCISE_CATEGORY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	EXERCISE_CATEGORY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static EXERCISE_CATEGORY findById(int messageNumber) {
+		for (EXERCISE_CATEGORY name : EXERCISE_CATEGORY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

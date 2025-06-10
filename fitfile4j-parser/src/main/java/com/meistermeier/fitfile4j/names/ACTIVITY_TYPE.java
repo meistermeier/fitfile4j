@@ -2,43 +2,45 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_TYPE {
-  _GENERIC(0, "generic"),
 
-  _RUNNING(1, "running"),
+	_GENERIC(0, "generic"),
 
-  _CYCLING(2, "cycling"),
+	_RUNNING(1, "running"),
 
-  _TRANSITION(3, "transition"),
+	_CYCLING(2, "cycling"),
 
-  _FITNESS_EQUIPMENT(4, "fitness_equipment"),
+	_TRANSITION(3, "transition"),
 
-  _SWIMMING(5, "swimming"),
+	_FITNESS_EQUIPMENT(4, "fitness_equipment"),
 
-  _WALKING(6, "walking"),
+	_SWIMMING(5, "swimming"),
 
-  _SEDENTARY(8, "sedentary"),
+	_WALKING(6, "walking"),
 
-  _ALL(254, "all");
+	_SEDENTARY(8, "sedentary"),
 
-  private final int messageNumber;
+	_ALL(254, "all");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ACTIVITY_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ACTIVITY_TYPE findById(int messageNumber) {
-    for (ACTIVITY_TYPE name: ACTIVITY_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ACTIVITY_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ACTIVITY_TYPE findById(int messageNumber) {
+		for (ACTIVITY_TYPE name : ACTIVITY_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

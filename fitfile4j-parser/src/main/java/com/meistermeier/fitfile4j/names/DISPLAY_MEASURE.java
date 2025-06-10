@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DISPLAY_MEASURE {
-  _METRIC(0, "metric"),
 
-  _STATUTE(1, "statute"),
+	_METRIC(0, "metric"),
 
-  _NAUTICAL(2, "nautical");
+	_STATUTE(1, "statute"),
 
-  private final int messageNumber;
+	_NAUTICAL(2, "nautical");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DISPLAY_MEASURE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DISPLAY_MEASURE findById(int messageNumber) {
-    for (DISPLAY_MEASURE name: DISPLAY_MEASURE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DISPLAY_MEASURE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DISPLAY_MEASURE findById(int messageNumber) {
+		for (DISPLAY_MEASURE name : DISPLAY_MEASURE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

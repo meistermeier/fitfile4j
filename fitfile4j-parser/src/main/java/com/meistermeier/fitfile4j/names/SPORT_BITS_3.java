@@ -2,41 +2,43 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_BITS_3 {
-  _DRIVING(1, "driving"),
 
-  _GOLF(2, "golf"),
+	_DRIVING(1, "driving"),
 
-  _HANG_GLIDING(4, "hang_gliding"),
+	_GOLF(2, "golf"),
 
-  _HORSEBACK_RIDING(8, "horseback_riding"),
+	_HANG_GLIDING(4, "hang_gliding"),
 
-  _HUNTING(16, "hunting"),
+	_HORSEBACK_RIDING(8, "horseback_riding"),
 
-  _FISHING(32, "fishing"),
+	_HUNTING(16, "hunting"),
 
-  _INLINE_SKATING(64, "inline_skating"),
+	_FISHING(32, "fishing"),
 
-  _ROCK_CLIMBING(128, "rock_climbing");
+	_INLINE_SKATING(64, "inline_skating"),
 
-  private final int messageNumber;
+	_ROCK_CLIMBING(128, "rock_climbing");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SPORT_BITS_3(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SPORT_BITS_3 findById(int messageNumber) {
-    for (SPORT_BITS_3 name: SPORT_BITS_3.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SPORT_BITS_3(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SPORT_BITS_3 findById(int messageNumber) {
+		for (SPORT_BITS_3 name : SPORT_BITS_3.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

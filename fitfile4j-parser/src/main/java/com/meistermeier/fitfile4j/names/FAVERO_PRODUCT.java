@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FAVERO_PRODUCT {
-  _ASSIOMA_UNO(10, "assioma_uno"),
 
-  _ASSIOMA_DUO(12, "assioma_duo");
+	_ASSIOMA_UNO(10, "assioma_uno"),
 
-  private final int messageNumber;
+	_ASSIOMA_DUO(12, "assioma_duo");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  FAVERO_PRODUCT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static FAVERO_PRODUCT findById(int messageNumber) {
-    for (FAVERO_PRODUCT name: FAVERO_PRODUCT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	FAVERO_PRODUCT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static FAVERO_PRODUCT findById(int messageNumber) {
+		for (FAVERO_PRODUCT name : FAVERO_PRODUCT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_ALARM_TYPE {
-  _DEPTH(0, "depth"),
 
-  _TIME(1, "time"),
+	_DEPTH(0, "depth"),
 
-  _SPEED(2, "speed");
+	_TIME(1, "time"),
 
-  private final int messageNumber;
+	_SPEED(2, "speed");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DIVE_ALARM_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DIVE_ALARM_TYPE findById(int messageNumber) {
-    for (DIVE_ALARM_TYPE name: DIVE_ALARM_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DIVE_ALARM_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DIVE_ALARM_TYPE findById(int messageNumber) {
+		for (DIVE_ALARM_TYPE name : DIVE_ALARM_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

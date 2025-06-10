@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CCR_SETPOINT_SWITCH_MODE {
-  _MANUAL(0, "manual"),
 
-  _AUTOMATIC(1, "automatic");
+	_MANUAL(0, "manual"),
 
-  private final int messageNumber;
+	_AUTOMATIC(1, "automatic");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  CCR_SETPOINT_SWITCH_MODE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static CCR_SETPOINT_SWITCH_MODE findById(int messageNumber) {
-    for (CCR_SETPOINT_SWITCH_MODE name: CCR_SETPOINT_SWITCH_MODE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	CCR_SETPOINT_SWITCH_MODE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static CCR_SETPOINT_SWITCH_MODE findById(int messageNumber) {
+		for (CCR_SETPOINT_SWITCH_MODE name : CCR_SETPOINT_SWITCH_MODE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

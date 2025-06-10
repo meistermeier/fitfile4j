@@ -2,35 +2,37 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HRV_STATUS {
-  _NONE(0, "none"),
 
-  _POOR(1, "poor"),
+	_NONE(0, "none"),
 
-  _LOW(2, "low"),
+	_POOR(1, "poor"),
 
-  _UNBALANCED(3, "unbalanced"),
+	_LOW(2, "low"),
 
-  _BALANCED(4, "balanced");
+	_UNBALANCED(3, "unbalanced"),
 
-  private final int messageNumber;
+	_BALANCED(4, "balanced");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  HRV_STATUS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static HRV_STATUS findById(int messageNumber) {
-    for (HRV_STATUS name: HRV_STATUS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	HRV_STATUS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static HRV_STATUS findById(int messageNumber) {
+		for (HRV_STATUS name : HRV_STATUS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

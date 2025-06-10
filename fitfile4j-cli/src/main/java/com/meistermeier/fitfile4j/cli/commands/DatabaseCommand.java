@@ -20,13 +20,8 @@ import picocli.CommandLine;
 /**
  * Command to generate path images from fit file coordinates
  */
-@CommandLine.Command(name = "database", aliases = {"db"},
-	subcommands = {
-		CreateDatabaseCommand.class,
-		InsertFitFileCommand.class,
-		DeleteCommand.class
-	}
-)
+@CommandLine.Command(name = "database", aliases = { "db" },
+		subcommands = { CreateDatabaseCommand.class, InsertFitFileCommand.class, DeleteCommand.class })
 public class DatabaseCommand implements Runnable {
 
 	@CommandLine.Spec
@@ -36,4 +31,5 @@ public class DatabaseCommand implements Runnable {
 	public void run() {
 		throw new CommandLine.ParameterException(spec.commandLine(), "Please provide a database subcommand");
 	}
+
 }

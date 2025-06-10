@@ -2,75 +2,77 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ANTPLUS_DEVICE_TYPE {
-  _ANTFS(1, "antfs"),
 
-  _BIKE_POWER(11, "bike_power"),
+	_ANTFS(1, "antfs"),
 
-  _ENVIRONMENT_SENSOR_LEGACY(12, "environment_sensor_legacy"),
+	_BIKE_POWER(11, "bike_power"),
 
-  _MULTI_SPORT_SPEED_DISTANCE(15, "multi_sport_speed_distance"),
+	_ENVIRONMENT_SENSOR_LEGACY(12, "environment_sensor_legacy"),
 
-  _CONTROL(16, "control"),
+	_MULTI_SPORT_SPEED_DISTANCE(15, "multi_sport_speed_distance"),
 
-  _FITNESS_EQUIPMENT(17, "fitness_equipment"),
+	_CONTROL(16, "control"),
 
-  _BLOOD_PRESSURE(18, "blood_pressure"),
+	_FITNESS_EQUIPMENT(17, "fitness_equipment"),
 
-  _GEOCACHE_NODE(19, "geocache_node"),
+	_BLOOD_PRESSURE(18, "blood_pressure"),
 
-  _LIGHT_ELECTRIC_VEHICLE(20, "light_electric_vehicle"),
+	_GEOCACHE_NODE(19, "geocache_node"),
 
-  _ENV_SENSOR(25, "env_sensor"),
+	_LIGHT_ELECTRIC_VEHICLE(20, "light_electric_vehicle"),
 
-  _RACQUET(26, "racquet"),
+	_ENV_SENSOR(25, "env_sensor"),
 
-  _CONTROL_HUB(27, "control_hub"),
+	_RACQUET(26, "racquet"),
 
-  _MUSCLE_OXYGEN(31, "muscle_oxygen"),
+	_CONTROL_HUB(27, "control_hub"),
 
-  _SHIFTING(34, "shifting"),
+	_MUSCLE_OXYGEN(31, "muscle_oxygen"),
 
-  _BIKE_LIGHT_MAIN(35, "bike_light_main"),
+	_SHIFTING(34, "shifting"),
 
-  _BIKE_LIGHT_SHARED(36, "bike_light_shared"),
+	_BIKE_LIGHT_MAIN(35, "bike_light_main"),
 
-  _EXD(38, "exd"),
+	_BIKE_LIGHT_SHARED(36, "bike_light_shared"),
 
-  _BIKE_RADAR(40, "bike_radar"),
+	_EXD(38, "exd"),
 
-  _BIKE_AERO(46, "bike_aero"),
+	_BIKE_RADAR(40, "bike_radar"),
 
-  _WEIGHT_SCALE(119, "weight_scale"),
+	_BIKE_AERO(46, "bike_aero"),
 
-  _HEART_RATE(120, "heart_rate"),
+	_WEIGHT_SCALE(119, "weight_scale"),
 
-  _BIKE_SPEED_CADENCE(121, "bike_speed_cadence"),
+	_HEART_RATE(120, "heart_rate"),
 
-  _BIKE_CADENCE(122, "bike_cadence"),
+	_BIKE_SPEED_CADENCE(121, "bike_speed_cadence"),
 
-  _BIKE_SPEED(123, "bike_speed"),
+	_BIKE_CADENCE(122, "bike_cadence"),
 
-  _STRIDE_SPEED_DISTANCE(124, "stride_speed_distance");
+	_BIKE_SPEED(123, "bike_speed"),
 
-  private final int messageNumber;
+	_STRIDE_SPEED_DISTANCE(124, "stride_speed_distance");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ANTPLUS_DEVICE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ANTPLUS_DEVICE_TYPE findById(int messageNumber) {
-    for (ANTPLUS_DEVICE_TYPE name: ANTPLUS_DEVICE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ANTPLUS_DEVICE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ANTPLUS_DEVICE_TYPE findById(int messageNumber) {
+		for (ANTPLUS_DEVICE_TYPE name : ANTPLUS_DEVICE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

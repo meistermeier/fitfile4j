@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_EQUIPMENT {
-  _NONE(0, "none"),
 
-  _SWIM_FINS(1, "swim_fins"),
+	_NONE(0, "none"),
 
-  _SWIM_KICKBOARD(2, "swim_kickboard"),
+	_SWIM_FINS(1, "swim_fins"),
 
-  _SWIM_PADDLES(3, "swim_paddles"),
+	_SWIM_KICKBOARD(2, "swim_kickboard"),
 
-  _SWIM_PULL_BUOY(4, "swim_pull_buoy"),
+	_SWIM_PADDLES(3, "swim_paddles"),
 
-  _SWIM_SNORKEL(5, "swim_snorkel");
+	_SWIM_PULL_BUOY(4, "swim_pull_buoy"),
 
-  private final int messageNumber;
+	_SWIM_SNORKEL(5, "swim_snorkel");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WORKOUT_EQUIPMENT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WORKOUT_EQUIPMENT findById(int messageNumber) {
-    for (WORKOUT_EQUIPMENT name: WORKOUT_EQUIPMENT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WORKOUT_EQUIPMENT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WORKOUT_EQUIPMENT findById(int messageNumber) {
+		for (WORKOUT_EQUIPMENT name : WORKOUT_EQUIPMENT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

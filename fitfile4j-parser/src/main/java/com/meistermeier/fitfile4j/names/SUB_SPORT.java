@@ -2,203 +2,205 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SUB_SPORT {
-  _GENERIC(0, "generic"),
 
-  _TREADMILL(1, "treadmill"),
+	_GENERIC(0, "generic"),
 
-  _STREET(2, "street"),
+	_TREADMILL(1, "treadmill"),
 
-  _TRAIL(3, "trail"),
+	_STREET(2, "street"),
 
-  _TRACK(4, "track"),
+	_TRAIL(3, "trail"),
 
-  _SPIN(5, "spin"),
+	_TRACK(4, "track"),
 
-  _INDOOR_CYCLING(6, "indoor_cycling"),
+	_SPIN(5, "spin"),
 
-  _ROAD(7, "road"),
+	_INDOOR_CYCLING(6, "indoor_cycling"),
 
-  _MOUNTAIN(8, "mountain"),
+	_ROAD(7, "road"),
 
-  _DOWNHILL(9, "downhill"),
+	_MOUNTAIN(8, "mountain"),
 
-  _RECUMBENT(10, "recumbent"),
+	_DOWNHILL(9, "downhill"),
 
-  _CYCLOCROSS(11, "cyclocross"),
+	_RECUMBENT(10, "recumbent"),
 
-  _HAND_CYCLING(12, "hand_cycling"),
+	_CYCLOCROSS(11, "cyclocross"),
 
-  _TRACK_CYCLING(13, "track_cycling"),
+	_HAND_CYCLING(12, "hand_cycling"),
 
-  _INDOOR_ROWING(14, "indoor_rowing"),
+	_TRACK_CYCLING(13, "track_cycling"),
 
-  _ELLIPTICAL(15, "elliptical"),
+	_INDOOR_ROWING(14, "indoor_rowing"),
 
-  _STAIR_CLIMBING(16, "stair_climbing"),
+	_ELLIPTICAL(15, "elliptical"),
 
-  _LAP_SWIMMING(17, "lap_swimming"),
+	_STAIR_CLIMBING(16, "stair_climbing"),
 
-  _OPEN_WATER(18, "open_water"),
+	_LAP_SWIMMING(17, "lap_swimming"),
 
-  _FLEXIBILITY_TRAINING(19, "flexibility_training"),
+	_OPEN_WATER(18, "open_water"),
 
-  _STRENGTH_TRAINING(20, "strength_training"),
+	_FLEXIBILITY_TRAINING(19, "flexibility_training"),
 
-  _WARM_UP(21, "warm_up"),
+	_STRENGTH_TRAINING(20, "strength_training"),
 
-  _MATCH(22, "match"),
+	_WARM_UP(21, "warm_up"),
 
-  _EXERCISE(23, "exercise"),
+	_MATCH(22, "match"),
 
-  _CHALLENGE(24, "challenge"),
+	_EXERCISE(23, "exercise"),
 
-  _INDOOR_SKIING(25, "indoor_skiing"),
+	_CHALLENGE(24, "challenge"),
 
-  _CARDIO_TRAINING(26, "cardio_training"),
+	_INDOOR_SKIING(25, "indoor_skiing"),
 
-  _INDOOR_WALKING(27, "indoor_walking"),
+	_CARDIO_TRAINING(26, "cardio_training"),
 
-  _E_BIKE_FITNESS(28, "e_bike_fitness"),
+	_INDOOR_WALKING(27, "indoor_walking"),
 
-  _BMX(29, "bmx"),
+	_E_BIKE_FITNESS(28, "e_bike_fitness"),
 
-  _CASUAL_WALKING(30, "casual_walking"),
+	_BMX(29, "bmx"),
 
-  _SPEED_WALKING(31, "speed_walking"),
+	_CASUAL_WALKING(30, "casual_walking"),
 
-  _BIKE_TO_RUN_TRANSITION(32, "bike_to_run_transition"),
+	_SPEED_WALKING(31, "speed_walking"),
 
-  _RUN_TO_BIKE_TRANSITION(33, "run_to_bike_transition"),
+	_BIKE_TO_RUN_TRANSITION(32, "bike_to_run_transition"),
 
-  _SWIM_TO_BIKE_TRANSITION(34, "swim_to_bike_transition"),
+	_RUN_TO_BIKE_TRANSITION(33, "run_to_bike_transition"),
 
-  _ATV(35, "atv"),
+	_SWIM_TO_BIKE_TRANSITION(34, "swim_to_bike_transition"),
 
-  _MOTOCROSS(36, "motocross"),
+	_ATV(35, "atv"),
 
-  _BACKCOUNTRY(37, "backcountry"),
+	_MOTOCROSS(36, "motocross"),
 
-  _RESORT(38, "resort"),
+	_BACKCOUNTRY(37, "backcountry"),
 
-  _RC_DRONE(39, "rc_drone"),
+	_RESORT(38, "resort"),
 
-  _WINGSUIT(40, "wingsuit"),
+	_RC_DRONE(39, "rc_drone"),
 
-  _WHITEWATER(41, "whitewater"),
+	_WINGSUIT(40, "wingsuit"),
 
-  _SKATE_SKIING(42, "skate_skiing"),
+	_WHITEWATER(41, "whitewater"),
 
-  _YOGA(43, "yoga"),
+	_SKATE_SKIING(42, "skate_skiing"),
 
-  _PILATES(44, "pilates"),
+	_YOGA(43, "yoga"),
 
-  _INDOOR_RUNNING(45, "indoor_running"),
+	_PILATES(44, "pilates"),
 
-  _GRAVEL_CYCLING(46, "gravel_cycling"),
+	_INDOOR_RUNNING(45, "indoor_running"),
 
-  _E_BIKE_MOUNTAIN(47, "e_bike_mountain"),
+	_GRAVEL_CYCLING(46, "gravel_cycling"),
 
-  _COMMUTING(48, "commuting"),
+	_E_BIKE_MOUNTAIN(47, "e_bike_mountain"),
 
-  _MIXED_SURFACE(49, "mixed_surface"),
+	_COMMUTING(48, "commuting"),
 
-  _NAVIGATE(50, "navigate"),
+	_MIXED_SURFACE(49, "mixed_surface"),
 
-  _TRACK_ME(51, "track_me"),
+	_NAVIGATE(50, "navigate"),
 
-  _MAP(52, "map"),
+	_TRACK_ME(51, "track_me"),
 
-  _SINGLE_GAS_DIVING(53, "single_gas_diving"),
+	_MAP(52, "map"),
 
-  _MULTI_GAS_DIVING(54, "multi_gas_diving"),
+	_SINGLE_GAS_DIVING(53, "single_gas_diving"),
 
-  _GAUGE_DIVING(55, "gauge_diving"),
+	_MULTI_GAS_DIVING(54, "multi_gas_diving"),
 
-  _APNEA_DIVING(56, "apnea_diving"),
+	_GAUGE_DIVING(55, "gauge_diving"),
 
-  _APNEA_HUNTING(57, "apnea_hunting"),
+	_APNEA_DIVING(56, "apnea_diving"),
 
-  _VIRTUAL_ACTIVITY(58, "virtual_activity"),
+	_APNEA_HUNTING(57, "apnea_hunting"),
 
-  _OBSTACLE(59, "obstacle"),
+	_VIRTUAL_ACTIVITY(58, "virtual_activity"),
 
-  _BREATHING(62, "breathing"),
+	_OBSTACLE(59, "obstacle"),
 
-  _SAIL_RACE(65, "sail_race"),
+	_BREATHING(62, "breathing"),
 
-  _ULTRA(67, "ultra"),
+	_SAIL_RACE(65, "sail_race"),
 
-  _INDOOR_CLIMBING(68, "indoor_climbing"),
+	_ULTRA(67, "ultra"),
 
-  _BOULDERING(69, "bouldering"),
+	_INDOOR_CLIMBING(68, "indoor_climbing"),
 
-  _HIIT(70, "hiit"),
+	_BOULDERING(69, "bouldering"),
 
-  _AMRAP(73, "amrap"),
+	_HIIT(70, "hiit"),
 
-  _EMOM(74, "emom"),
+	_AMRAP(73, "amrap"),
 
-  _TABATA(75, "tabata"),
+	_EMOM(74, "emom"),
 
-  _PICKLEBALL(84, "pickleball"),
+	_TABATA(75, "tabata"),
 
-  _PADEL(85, "padel"),
+	_PICKLEBALL(84, "pickleball"),
 
-  _INDOOR_WHEELCHAIR_WALK(86, "indoor_wheelchair_walk"),
+	_PADEL(85, "padel"),
 
-  _INDOOR_WHEELCHAIR_RUN(87, "indoor_wheelchair_run"),
+	_INDOOR_WHEELCHAIR_WALK(86, "indoor_wheelchair_walk"),
 
-  _INDOOR_HAND_CYCLING(88, "indoor_hand_cycling"),
+	_INDOOR_WHEELCHAIR_RUN(87, "indoor_wheelchair_run"),
 
-  _SQUASH(94, "squash"),
+	_INDOOR_HAND_CYCLING(88, "indoor_hand_cycling"),
 
-  _BADMINTON(95, "badminton"),
+	_SQUASH(94, "squash"),
 
-  _RACQUETBALL(96, "racquetball"),
+	_BADMINTON(95, "badminton"),
 
-  _TABLE_TENNIS(97, "table_tennis"),
+	_RACQUETBALL(96, "racquetball"),
 
-  _FLY_CANOPY(110, "fly_canopy"),
+	_TABLE_TENNIS(97, "table_tennis"),
 
-  _FLY_PARAGLIDE(111, "fly_paraglide"),
+	_FLY_CANOPY(110, "fly_canopy"),
 
-  _FLY_PARAMOTOR(112, "fly_paramotor"),
+	_FLY_PARAGLIDE(111, "fly_paraglide"),
 
-  _FLY_PRESSURIZED(113, "fly_pressurized"),
+	_FLY_PARAMOTOR(112, "fly_paramotor"),
 
-  _FLY_NAVIGATE(114, "fly_navigate"),
+	_FLY_PRESSURIZED(113, "fly_pressurized"),
 
-  _FLY_TIMER(115, "fly_timer"),
+	_FLY_NAVIGATE(114, "fly_navigate"),
 
-  _FLY_ALTIMETER(116, "fly_altimeter"),
+	_FLY_TIMER(115, "fly_timer"),
 
-  _FLY_WX(117, "fly_wx"),
+	_FLY_ALTIMETER(116, "fly_altimeter"),
 
-  _FLY_VFR(118, "fly_vfr"),
+	_FLY_WX(117, "fly_wx"),
 
-  _FLY_IFR(119, "fly_ifr"),
+	_FLY_VFR(118, "fly_vfr"),
 
-  _ALL(254, "all");
+	_FLY_IFR(119, "fly_ifr"),
 
-  private final int messageNumber;
+	_ALL(254, "all");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SUB_SPORT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SUB_SPORT findById(int messageNumber) {
-    for (SUB_SPORT name: SUB_SPORT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SUB_SPORT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SUB_SPORT findById(int messageNumber) {
+		for (SUB_SPORT name : SUB_SPORT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

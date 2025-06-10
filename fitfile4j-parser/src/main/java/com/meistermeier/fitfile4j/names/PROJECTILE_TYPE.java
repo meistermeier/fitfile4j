@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PROJECTILE_TYPE {
-  _ARROW(0, "arrow"),
 
-  _RIFLE_CARTRIDGE(1, "rifle_cartridge"),
+	_ARROW(0, "arrow"),
 
-  _PISTOL_CARTRIDGE(2, "pistol_cartridge"),
+	_RIFLE_CARTRIDGE(1, "rifle_cartridge"),
 
-  _SHOTSHELL(3, "shotshell"),
+	_PISTOL_CARTRIDGE(2, "pistol_cartridge"),
 
-  _AIR_RIFLE_PELLET(4, "air_rifle_pellet"),
+	_SHOTSHELL(3, "shotshell"),
 
-  _OTHER(5, "other");
+	_AIR_RIFLE_PELLET(4, "air_rifle_pellet"),
 
-  private final int messageNumber;
+	_OTHER(5, "other");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  PROJECTILE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static PROJECTILE_TYPE findById(int messageNumber) {
-    for (PROJECTILE_TYPE name: PROJECTILE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	PROJECTILE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static PROJECTILE_TYPE findById(int messageNumber) {
+		for (PROJECTILE_TYPE name : PROJECTILE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

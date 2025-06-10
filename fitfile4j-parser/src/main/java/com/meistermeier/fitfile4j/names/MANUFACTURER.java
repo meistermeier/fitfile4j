@@ -2,481 +2,483 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MANUFACTURER {
-  _GARMIN(1, "garmin"),
 
-  _GARMIN_FR405_ANTFS(2, "garmin_fr405_antfs"),
+	_GARMIN(1, "garmin"),
 
-  _ZEPHYR(3, "zephyr"),
+	_GARMIN_FR405_ANTFS(2, "garmin_fr405_antfs"),
 
-  _DAYTON(4, "dayton"),
+	_ZEPHYR(3, "zephyr"),
 
-  _IDT(5, "idt"),
+	_DAYTON(4, "dayton"),
 
-  _SRM(6, "srm"),
+	_IDT(5, "idt"),
 
-  _QUARQ(7, "quarq"),
+	_SRM(6, "srm"),
 
-  _IBIKE(8, "ibike"),
+	_QUARQ(7, "quarq"),
 
-  _SARIS(9, "saris"),
+	_IBIKE(8, "ibike"),
 
-  _SPARK_HK(10, "spark_hk"),
+	_SARIS(9, "saris"),
 
-  _TANITA(11, "tanita"),
+	_SPARK_HK(10, "spark_hk"),
 
-  _ECHOWELL(12, "echowell"),
+	_TANITA(11, "tanita"),
 
-  _DYNASTREAM_OEM(13, "dynastream_oem"),
+	_ECHOWELL(12, "echowell"),
 
-  _NAUTILUS(14, "nautilus"),
+	_DYNASTREAM_OEM(13, "dynastream_oem"),
 
-  _DYNASTREAM(15, "dynastream"),
+	_NAUTILUS(14, "nautilus"),
 
-  _TIMEX(16, "timex"),
+	_DYNASTREAM(15, "dynastream"),
 
-  _METRIGEAR(17, "metrigear"),
+	_TIMEX(16, "timex"),
 
-  _XELIC(18, "xelic"),
+	_METRIGEAR(17, "metrigear"),
 
-  _BEURER(19, "beurer"),
+	_XELIC(18, "xelic"),
 
-  _CARDIOSPORT(20, "cardiosport"),
+	_BEURER(19, "beurer"),
 
-  _A_AND_D(21, "a_and_d"),
+	_CARDIOSPORT(20, "cardiosport"),
 
-  _HMM(22, "hmm"),
+	_A_AND_D(21, "a_and_d"),
 
-  _SUUNTO(23, "suunto"),
+	_HMM(22, "hmm"),
 
-  _THITA_ELEKTRONIK(24, "thita_elektronik"),
+	_SUUNTO(23, "suunto"),
 
-  _GPULSE(25, "gpulse"),
+	_THITA_ELEKTRONIK(24, "thita_elektronik"),
 
-  _CLEAN_MOBILE(26, "clean_mobile"),
+	_GPULSE(25, "gpulse"),
 
-  _PEDAL_BRAIN(27, "pedal_brain"),
+	_CLEAN_MOBILE(26, "clean_mobile"),
 
-  _PEAKSWARE(28, "peaksware"),
+	_PEDAL_BRAIN(27, "pedal_brain"),
 
-  _SAXONAR(29, "saxonar"),
+	_PEAKSWARE(28, "peaksware"),
 
-  _LEMOND_FITNESS(30, "lemond_fitness"),
+	_SAXONAR(29, "saxonar"),
 
-  _DEXCOM(31, "dexcom"),
+	_LEMOND_FITNESS(30, "lemond_fitness"),
 
-  _WAHOO_FITNESS(32, "wahoo_fitness"),
+	_DEXCOM(31, "dexcom"),
 
-  _OCTANE_FITNESS(33, "octane_fitness"),
+	_WAHOO_FITNESS(32, "wahoo_fitness"),
 
-  _ARCHINOETICS(34, "archinoetics"),
+	_OCTANE_FITNESS(33, "octane_fitness"),
 
-  _THE_HURT_BOX(35, "the_hurt_box"),
+	_ARCHINOETICS(34, "archinoetics"),
 
-  _CITIZEN_SYSTEMS(36, "citizen_systems"),
+	_THE_HURT_BOX(35, "the_hurt_box"),
 
-  _MAGELLAN(37, "magellan"),
+	_CITIZEN_SYSTEMS(36, "citizen_systems"),
 
-  _OSYNCE(38, "osynce"),
+	_MAGELLAN(37, "magellan"),
 
-  _HOLUX(39, "holux"),
+	_OSYNCE(38, "osynce"),
 
-  _CONCEPT2(40, "concept2"),
+	_HOLUX(39, "holux"),
 
-  _SHIMANO(41, "shimano"),
+	_CONCEPT2(40, "concept2"),
 
-  _ONE_GIANT_LEAP(42, "one_giant_leap"),
+	_SHIMANO(41, "shimano"),
 
-  _ACE_SENSOR(43, "ace_sensor"),
+	_ONE_GIANT_LEAP(42, "one_giant_leap"),
 
-  _BRIM_BROTHERS(44, "brim_brothers"),
+	_ACE_SENSOR(43, "ace_sensor"),
 
-  _XPLOVA(45, "xplova"),
+	_BRIM_BROTHERS(44, "brim_brothers"),
 
-  _PERCEPTION_DIGITAL(46, "perception_digital"),
+	_XPLOVA(45, "xplova"),
 
-  _BF1SYSTEMS(47, "bf1systems"),
+	_PERCEPTION_DIGITAL(46, "perception_digital"),
 
-  _PIONEER(48, "pioneer"),
+	_BF1SYSTEMS(47, "bf1systems"),
 
-  _SPANTEC(49, "spantec"),
+	_PIONEER(48, "pioneer"),
 
-  _METALOGICS(50, "metalogics"),
+	_SPANTEC(49, "spantec"),
 
-  _4IIIIS(51, "4iiiis"),
+	_METALOGICS(50, "metalogics"),
 
-  _SEIKO_EPSON(52, "seiko_epson"),
+	_4IIIIS(51, "4iiiis"),
 
-  _SEIKO_EPSON_OEM(53, "seiko_epson_oem"),
+	_SEIKO_EPSON(52, "seiko_epson"),
 
-  _IFOR_POWELL(54, "ifor_powell"),
+	_SEIKO_EPSON_OEM(53, "seiko_epson_oem"),
 
-  _MAXWELL_GUIDER(55, "maxwell_guider"),
+	_IFOR_POWELL(54, "ifor_powell"),
 
-  _STAR_TRAC(56, "star_trac"),
+	_MAXWELL_GUIDER(55, "maxwell_guider"),
 
-  _BREAKAWAY(57, "breakaway"),
+	_STAR_TRAC(56, "star_trac"),
 
-  _ALATECH_TECHNOLOGY_LTD(58, "alatech_technology_ltd"),
+	_BREAKAWAY(57, "breakaway"),
 
-  _MIO_TECHNOLOGY_EUROPE(59, "mio_technology_europe"),
+	_ALATECH_TECHNOLOGY_LTD(58, "alatech_technology_ltd"),
 
-  _ROTOR(60, "rotor"),
+	_MIO_TECHNOLOGY_EUROPE(59, "mio_technology_europe"),
 
-  _GEONAUTE(61, "geonaute"),
+	_ROTOR(60, "rotor"),
 
-  _ID_BIKE(62, "id_bike"),
+	_GEONAUTE(61, "geonaute"),
 
-  _SPECIALIZED(63, "specialized"),
+	_ID_BIKE(62, "id_bike"),
 
-  _WTEK(64, "wtek"),
+	_SPECIALIZED(63, "specialized"),
 
-  _PHYSICAL_ENTERPRISES(65, "physical_enterprises"),
+	_WTEK(64, "wtek"),
 
-  _NORTH_POLE_ENGINEERING(66, "north_pole_engineering"),
+	_PHYSICAL_ENTERPRISES(65, "physical_enterprises"),
 
-  _BKOOL(67, "bkool"),
+	_NORTH_POLE_ENGINEERING(66, "north_pole_engineering"),
 
-  _CATEYE(68, "cateye"),
+	_BKOOL(67, "bkool"),
 
-  _STAGES_CYCLING(69, "stages_cycling"),
+	_CATEYE(68, "cateye"),
 
-  _SIGMASPORT(70, "sigmasport"),
+	_STAGES_CYCLING(69, "stages_cycling"),
 
-  _TOMTOM(71, "tomtom"),
+	_SIGMASPORT(70, "sigmasport"),
 
-  _PERIPEDAL(72, "peripedal"),
+	_TOMTOM(71, "tomtom"),
 
-  _WATTBIKE(73, "wattbike"),
+	_PERIPEDAL(72, "peripedal"),
 
-  _MOXY(76, "moxy"),
+	_WATTBIKE(73, "wattbike"),
 
-  _CICLOSPORT(77, "ciclosport"),
+	_MOXY(76, "moxy"),
 
-  _POWERBAHN(78, "powerbahn"),
+	_CICLOSPORT(77, "ciclosport"),
 
-  _ACORN_PROJECTS_APS(79, "acorn_projects_aps"),
+	_POWERBAHN(78, "powerbahn"),
 
-  _LIFEBEAM(80, "lifebeam"),
+	_ACORN_PROJECTS_APS(79, "acorn_projects_aps"),
 
-  _BONTRAGER(81, "bontrager"),
+	_LIFEBEAM(80, "lifebeam"),
 
-  _WELLGO(82, "wellgo"),
+	_BONTRAGER(81, "bontrager"),
 
-  _SCOSCHE(83, "scosche"),
+	_WELLGO(82, "wellgo"),
 
-  _MAGURA(84, "magura"),
+	_SCOSCHE(83, "scosche"),
 
-  _WOODWAY(85, "woodway"),
+	_MAGURA(84, "magura"),
 
-  _ELITE(86, "elite"),
+	_WOODWAY(85, "woodway"),
 
-  _NIELSEN_KELLERMAN(87, "nielsen_kellerman"),
+	_ELITE(86, "elite"),
 
-  _DK_CITY(88, "dk_city"),
+	_NIELSEN_KELLERMAN(87, "nielsen_kellerman"),
 
-  _TACX(89, "tacx"),
+	_DK_CITY(88, "dk_city"),
 
-  _DIRECTION_TECHNOLOGY(90, "direction_technology"),
+	_TACX(89, "tacx"),
 
-  _MAGTONIC(91, "magtonic"),
+	_DIRECTION_TECHNOLOGY(90, "direction_technology"),
 
-  _1PARTCARBON(92, "1partcarbon"),
+	_MAGTONIC(91, "magtonic"),
 
-  _INSIDE_RIDE_TECHNOLOGIES(93, "inside_ride_technologies"),
+	_1PARTCARBON(92, "1partcarbon"),
 
-  _SOUND_OF_MOTION(94, "sound_of_motion"),
+	_INSIDE_RIDE_TECHNOLOGIES(93, "inside_ride_technologies"),
 
-  _STRYD(95, "stryd"),
+	_SOUND_OF_MOTION(94, "sound_of_motion"),
 
-  _ICG(96, "icg"),
+	_STRYD(95, "stryd"),
 
-  _MIPULSE(97, "MiPulse"),
+	_ICG(96, "icg"),
 
-  _BSX_ATHLETICS(98, "bsx_athletics"),
+	_MIPULSE(97, "MiPulse"),
 
-  _LOOK(99, "look"),
+	_BSX_ATHLETICS(98, "bsx_athletics"),
 
-  _CAMPAGNOLO_SRL(100, "campagnolo_srl"),
+	_LOOK(99, "look"),
 
-  _BODY_BIKE_SMART(101, "body_bike_smart"),
+	_CAMPAGNOLO_SRL(100, "campagnolo_srl"),
 
-  _PRAXISWORKS(102, "praxisworks"),
+	_BODY_BIKE_SMART(101, "body_bike_smart"),
 
-  _LIMITS_TECHNOLOGY(103, "limits_technology"),
+	_PRAXISWORKS(102, "praxisworks"),
 
-  _TOPACTION_TECHNOLOGY(104, "topaction_technology"),
+	_LIMITS_TECHNOLOGY(103, "limits_technology"),
 
-  _COSINUSS(105, "cosinuss"),
+	_TOPACTION_TECHNOLOGY(104, "topaction_technology"),
 
-  _FITCARE(106, "fitcare"),
+	_COSINUSS(105, "cosinuss"),
 
-  _MAGENE(107, "magene"),
+	_FITCARE(106, "fitcare"),
 
-  _GIANT_MANUFACTURING_CO(108, "giant_manufacturing_co"),
+	_MAGENE(107, "magene"),
 
-  _TIGRASPORT(109, "tigrasport"),
+	_GIANT_MANUFACTURING_CO(108, "giant_manufacturing_co"),
 
-  _SALUTRON(110, "salutron"),
+	_TIGRASPORT(109, "tigrasport"),
 
-  _TECHNOGYM(111, "technogym"),
+	_SALUTRON(110, "salutron"),
 
-  _BRYTON_SENSORS(112, "bryton_sensors"),
+	_TECHNOGYM(111, "technogym"),
 
-  _LATITUDE_LIMITED(113, "latitude_limited"),
+	_BRYTON_SENSORS(112, "bryton_sensors"),
 
-  _SOARING_TECHNOLOGY(114, "soaring_technology"),
+	_LATITUDE_LIMITED(113, "latitude_limited"),
 
-  _IGPSPORT(115, "igpsport"),
+	_SOARING_TECHNOLOGY(114, "soaring_technology"),
 
-  _THINKRIDER(116, "thinkrider"),
+	_IGPSPORT(115, "igpsport"),
 
-  _GOPHER_SPORT(117, "gopher_sport"),
+	_THINKRIDER(116, "thinkrider"),
 
-  _WATERROWER(118, "waterrower"),
+	_GOPHER_SPORT(117, "gopher_sport"),
 
-  _ORANGETHEORY(119, "orangetheory"),
+	_WATERROWER(118, "waterrower"),
 
-  _INPEAK(120, "inpeak"),
+	_ORANGETHEORY(119, "orangetheory"),
 
-  _KINETIC(121, "kinetic"),
+	_INPEAK(120, "inpeak"),
 
-  _JOHNSON_HEALTH_TECH(122, "johnson_health_tech"),
+	_KINETIC(121, "kinetic"),
 
-  _POLAR_ELECTRO(123, "polar_electro"),
+	_JOHNSON_HEALTH_TECH(122, "johnson_health_tech"),
 
-  _SEESENSE(124, "seesense"),
+	_POLAR_ELECTRO(123, "polar_electro"),
 
-  _NCI_TECHNOLOGY(125, "nci_technology"),
+	_SEESENSE(124, "seesense"),
 
-  _IQSQUARE(126, "iqsquare"),
+	_NCI_TECHNOLOGY(125, "nci_technology"),
 
-  _LEOMO(127, "leomo"),
+	_IQSQUARE(126, "iqsquare"),
 
-  _IFIT_COM(128, "ifit_com"),
+	_LEOMO(127, "leomo"),
 
-  _COROS_BYTE(129, "coros_byte"),
+	_IFIT_COM(128, "ifit_com"),
 
-  _VERSA_DESIGN(130, "versa_design"),
+	_COROS_BYTE(129, "coros_byte"),
 
-  _CHILEAF(131, "chileaf"),
+	_VERSA_DESIGN(130, "versa_design"),
 
-  _CYCPLUS(132, "cycplus"),
+	_CHILEAF(131, "chileaf"),
 
-  _GRAVAA_BYTE(133, "gravaa_byte"),
+	_CYCPLUS(132, "cycplus"),
 
-  _SIGEYI(134, "sigeyi"),
+	_GRAVAA_BYTE(133, "gravaa_byte"),
 
-  _COOSPO(135, "coospo"),
+	_SIGEYI(134, "sigeyi"),
 
-  _GEOID(136, "geoid"),
+	_COOSPO(135, "coospo"),
 
-  _BOSCH(137, "bosch"),
+	_GEOID(136, "geoid"),
 
-  _KYTO(138, "kyto"),
+	_BOSCH(137, "bosch"),
 
-  _KINETIC_SPORTS(139, "kinetic_sports"),
+	_KYTO(138, "kyto"),
 
-  _DECATHLON_BYTE(140, "decathlon_byte"),
+	_KINETIC_SPORTS(139, "kinetic_sports"),
 
-  _TQ_SYSTEMS(141, "tq_systems"),
+	_DECATHLON_BYTE(140, "decathlon_byte"),
 
-  _TAG_HEUER(142, "tag_heuer"),
+	_TQ_SYSTEMS(141, "tq_systems"),
 
-  _KEISER_FITNESS(143, "keiser_fitness"),
+	_TAG_HEUER(142, "tag_heuer"),
 
-  _ZWIFT_BYTE(144, "zwift_byte"),
+	_KEISER_FITNESS(143, "keiser_fitness"),
 
-  _PORSCHE_EP(145, "porsche_ep"),
+	_ZWIFT_BYTE(144, "zwift_byte"),
 
-  _BLACKBIRD(146, "blackbird"),
+	_PORSCHE_EP(145, "porsche_ep"),
 
-  _MEILAN_BYTE(147, "meilan_byte"),
+	_BLACKBIRD(146, "blackbird"),
 
-  _EZON(148, "ezon"),
+	_MEILAN_BYTE(147, "meilan_byte"),
 
-  _LAISI(149, "laisi"),
+	_EZON(148, "ezon"),
 
-  _MYZONE(150, "myzone"),
+	_LAISI(149, "laisi"),
 
-  _ABAWO(151, "abawo"),
+	_MYZONE(150, "myzone"),
 
-  _BAFANG(152, "bafang"),
+	_ABAWO(151, "abawo"),
 
-  _DEVELOPMENT(255, "development"),
+	_BAFANG(152, "bafang"),
 
-  _HEALTHANDLIFE(257, "healthandlife"),
+	_DEVELOPMENT(255, "development"),
 
-  _LEZYNE(258, "lezyne"),
+	_HEALTHANDLIFE(257, "healthandlife"),
 
-  _SCRIBE_LABS(259, "scribe_labs"),
+	_LEZYNE(258, "lezyne"),
 
-  _ZWIFT(260, "zwift"),
+	_SCRIBE_LABS(259, "scribe_labs"),
 
-  _WATTEAM(261, "watteam"),
+	_ZWIFT(260, "zwift"),
 
-  _RECON(262, "recon"),
+	_WATTEAM(261, "watteam"),
 
-  _FAVERO_ELECTRONICS(263, "favero_electronics"),
+	_RECON(262, "recon"),
 
-  _DYNOVELO(264, "dynovelo"),
+	_FAVERO_ELECTRONICS(263, "favero_electronics"),
 
-  _STRAVA(265, "strava"),
+	_DYNOVELO(264, "dynovelo"),
 
-  _PRECOR(266, "precor"),
+	_STRAVA(265, "strava"),
 
-  _BRYTON(267, "bryton"),
+	_PRECOR(266, "precor"),
 
-  _SRAM(268, "sram"),
+	_BRYTON(267, "bryton"),
 
-  _NAVMAN(269, "navman"),
+	_SRAM(268, "sram"),
 
-  _COBI(270, "cobi"),
+	_NAVMAN(269, "navman"),
 
-  _SPIVI(271, "spivi"),
+	_COBI(270, "cobi"),
 
-  _MIO_MAGELLAN(272, "mio_magellan"),
+	_SPIVI(271, "spivi"),
 
-  _EVESPORTS(273, "evesports"),
+	_MIO_MAGELLAN(272, "mio_magellan"),
 
-  _SENSITIVUS_GAUGE(274, "sensitivus_gauge"),
+	_EVESPORTS(273, "evesports"),
 
-  _PODOON(275, "podoon"),
+	_SENSITIVUS_GAUGE(274, "sensitivus_gauge"),
 
-  _LIFE_TIME_FITNESS(276, "life_time_fitness"),
+	_PODOON(275, "podoon"),
 
-  _FALCO_E_MOTORS(277, "falco_e_motors"),
+	_LIFE_TIME_FITNESS(276, "life_time_fitness"),
 
-  _MINOURA(278, "minoura"),
+	_FALCO_E_MOTORS(277, "falco_e_motors"),
 
-  _CYCLIQ(279, "cycliq"),
+	_MINOURA(278, "minoura"),
 
-  _LUXOTTICA(280, "luxottica"),
+	_CYCLIQ(279, "cycliq"),
 
-  _TRAINER_ROAD(281, "trainer_road"),
+	_LUXOTTICA(280, "luxottica"),
 
-  _THE_SUFFERFEST(282, "the_sufferfest"),
+	_TRAINER_ROAD(281, "trainer_road"),
 
-  _FULLSPEEDAHEAD(283, "fullspeedahead"),
+	_THE_SUFFERFEST(282, "the_sufferfest"),
 
-  _VIRTUALTRAINING(284, "virtualtraining"),
+	_FULLSPEEDAHEAD(283, "fullspeedahead"),
 
-  _FEEDBACKSPORTS(285, "feedbacksports"),
+	_VIRTUALTRAINING(284, "virtualtraining"),
 
-  _OMATA(286, "omata"),
+	_FEEDBACKSPORTS(285, "feedbacksports"),
 
-  _VDO(287, "vdo"),
+	_OMATA(286, "omata"),
 
-  _MAGNETICDAYS(288, "magneticdays"),
+	_VDO(287, "vdo"),
 
-  _HAMMERHEAD(289, "hammerhead"),
+	_MAGNETICDAYS(288, "magneticdays"),
 
-  _KINETIC_BY_KURT(290, "kinetic_by_kurt"),
+	_HAMMERHEAD(289, "hammerhead"),
 
-  _SHAPELOG(291, "shapelog"),
+	_KINETIC_BY_KURT(290, "kinetic_by_kurt"),
 
-  _DABUZIDUO(292, "dabuziduo"),
+	_SHAPELOG(291, "shapelog"),
 
-  _JETBLACK(293, "jetblack"),
+	_DABUZIDUO(292, "dabuziduo"),
 
-  _COROS(294, "coros"),
+	_JETBLACK(293, "jetblack"),
 
-  _VIRTUGO(295, "virtugo"),
+	_COROS(294, "coros"),
 
-  _VELOSENSE(296, "velosense"),
+	_VIRTUGO(295, "virtugo"),
 
-  _CYCLIGENTINC(297, "cycligentinc"),
+	_VELOSENSE(296, "velosense"),
 
-  _TRAILFORKS(298, "trailforks"),
+	_CYCLIGENTINC(297, "cycligentinc"),
 
-  _MAHLE_EBIKEMOTION(299, "mahle_ebikemotion"),
+	_TRAILFORKS(298, "trailforks"),
 
-  _NURVV(300, "nurvv"),
+	_MAHLE_EBIKEMOTION(299, "mahle_ebikemotion"),
 
-  _MICROPROGRAM(301, "microprogram"),
+	_NURVV(300, "nurvv"),
 
-  _ZONE5CLOUD(302, "zone5cloud"),
+	_MICROPROGRAM(301, "microprogram"),
 
-  _GREENTEG(303, "greenteg"),
+	_ZONE5CLOUD(302, "zone5cloud"),
 
-  _YAMAHA_MOTORS(304, "yamaha_motors"),
+	_GREENTEG(303, "greenteg"),
 
-  _WHOOP(305, "whoop"),
+	_YAMAHA_MOTORS(304, "yamaha_motors"),
 
-  _GRAVAA(306, "gravaa"),
+	_WHOOP(305, "whoop"),
 
-  _ONELAP(307, "onelap"),
+	_GRAVAA(306, "gravaa"),
 
-  _MONARK_EXERCISE(308, "monark_exercise"),
+	_ONELAP(307, "onelap"),
 
-  _FORM(309, "form"),
+	_MONARK_EXERCISE(308, "monark_exercise"),
 
-  _DECATHLON(310, "decathlon"),
+	_FORM(309, "form"),
 
-  _SYNCROS(311, "syncros"),
+	_DECATHLON(310, "decathlon"),
 
-  _HEATUP(312, "heatup"),
+	_SYNCROS(311, "syncros"),
 
-  _CANNONDALE(313, "cannondale"),
+	_HEATUP(312, "heatup"),
 
-  _TRUE_FITNESS(314, "true_fitness"),
+	_CANNONDALE(313, "cannondale"),
 
-  _RGT_CYCLING(315, "RGT_cycling"),
+	_TRUE_FITNESS(314, "true_fitness"),
 
-  _VASA(316, "vasa"),
+	_RGT_CYCLING(315, "RGT_cycling"),
 
-  _RACE_REPUBLIC(317, "race_republic"),
+	_VASA(316, "vasa"),
 
-  _FAZUA(318, "fazua"),
+	_RACE_REPUBLIC(317, "race_republic"),
 
-  _OREKA_TRAINING(319, "oreka_training"),
+	_FAZUA(318, "fazua"),
 
-  _LSEC(320, "lsec"),
+	_OREKA_TRAINING(319, "oreka_training"),
 
-  _LULULEMON_STUDIO(321, "lululemon_studio"),
+	_LSEC(320, "lsec"),
 
-  _SHANYUE(322, "shanyue"),
+	_LULULEMON_STUDIO(321, "lululemon_studio"),
 
-  _SPINNING_MDA(323, "spinning_mda"),
+	_SHANYUE(322, "shanyue"),
 
-  _HILLDATING(324, "hilldating"),
+	_SPINNING_MDA(323, "spinning_mda"),
 
-  _AERO_SENSOR(325, "aero_sensor"),
+	_HILLDATING(324, "hilldating"),
 
-  _NIKE(326, "nike"),
+	_AERO_SENSOR(325, "aero_sensor"),
 
-  _MAGICSHINE(327, "magicshine"),
+	_NIKE(326, "nike"),
 
-  _ICTRAINER(328, "ictrainer"),
+	_MAGICSHINE(327, "magicshine"),
 
-  _ABSOLUTE_CYCLING(329, "absolute_cycling"),
+	_ICTRAINER(328, "ictrainer"),
 
-  _EO_SWIMBETTER(330, "eo_swimbetter"),
+	_ABSOLUTE_CYCLING(329, "absolute_cycling"),
 
-  _MYWHOOSH(331, "mywhoosh"),
+	_EO_SWIMBETTER(330, "eo_swimbetter"),
 
-  _RAVEMEN(332, "ravemen"),
+	_MYWHOOSH(331, "mywhoosh"),
 
-  _ACTIGRAPHCORP(5759, "actigraphcorp");
+	_RAVEMEN(332, "ravemen"),
 
-  private final int messageNumber;
+	_ACTIGRAPHCORP(5759, "actigraphcorp");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  MANUFACTURER(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static MANUFACTURER findById(int messageNumber) {
-    for (MANUFACTURER name: MANUFACTURER.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	MANUFACTURER(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static MANUFACTURER findById(int messageNumber) {
+		for (MANUFACTURER name : MANUFACTURER.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

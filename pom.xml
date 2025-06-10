@@ -45,6 +45,7 @@
 	</modules>
 
 	<properties>
+		<assertj.version>3.26.3</assertj.version>
 		<checkstyle.version>10.21.4</checkstyle.version>
 		<junit.version>5.11.4</junit.version>
 		<license-maven-plugin.version>5.0.0</license-maven-plugin.version>
@@ -62,6 +63,13 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-bom</artifactId>
 				<version>${slf4j.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.assertj</groupId>
+				<artifactId>assertj-bom</artifactId>
+				<version>${assertj.version}</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
@@ -121,6 +129,20 @@
 							<goal>check</goal>
 						</goals>
 						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>io.spring.javaformat</groupId>
+				<artifactId>spring-javaformat-maven-plugin</artifactId>
+				<version>0.0.46</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<inherited>true</inherited>
+						<goals>
+							<goal>validate</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>

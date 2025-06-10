@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TONE {
-  _OFF(0, "off"),
 
-  _TONE(1, "tone"),
+	_OFF(0, "off"),
 
-  _VIBRATE(2, "vibrate"),
+	_TONE(1, "tone"),
 
-  _TONE_AND_VIBRATE(3, "tone_and_vibrate");
+	_VIBRATE(2, "vibrate"),
 
-  private final int messageNumber;
+	_TONE_AND_VIBRATE(3, "tone_and_vibrate");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  TONE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static TONE findById(int messageNumber) {
-    for (TONE name: TONE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	TONE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static TONE findById(int messageNumber) {
+		for (TONE name : TONE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

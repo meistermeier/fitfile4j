@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY {
-  _MANUAL(0, "manual"),
 
-  _AUTO_MULTI_SPORT(1, "auto_multi_sport");
+	_MANUAL(0, "manual"),
 
-  private final int messageNumber;
+	_AUTO_MULTI_SPORT(1, "auto_multi_sport");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ACTIVITY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ACTIVITY findById(int messageNumber) {
-    for (ACTIVITY name: ACTIVITY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ACTIVITY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ACTIVITY findById(int messageNumber) {
+		for (ACTIVITY name : ACTIVITY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

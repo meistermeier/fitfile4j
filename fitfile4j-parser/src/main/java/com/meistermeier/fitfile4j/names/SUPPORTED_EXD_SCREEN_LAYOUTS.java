@@ -2,41 +2,43 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SUPPORTED_EXD_SCREEN_LAYOUTS {
-  _FULL_SCREEN(1L, "full_screen"),
 
-  _HALF_VERTICAL(2L, "half_vertical"),
+	_FULL_SCREEN(1L, "full_screen"),
 
-  _HALF_HORIZONTAL(4L, "half_horizontal"),
+	_HALF_VERTICAL(2L, "half_vertical"),
 
-  _HALF_VERTICAL_RIGHT_SPLIT(8L, "half_vertical_right_split"),
+	_HALF_HORIZONTAL(4L, "half_horizontal"),
 
-  _HALF_HORIZONTAL_BOTTOM_SPLIT(16L, "half_horizontal_bottom_split"),
+	_HALF_VERTICAL_RIGHT_SPLIT(8L, "half_vertical_right_split"),
 
-  _FULL_QUARTER_SPLIT(32L, "full_quarter_split"),
+	_HALF_HORIZONTAL_BOTTOM_SPLIT(16L, "half_horizontal_bottom_split"),
 
-  _HALF_VERTICAL_LEFT_SPLIT(64L, "half_vertical_left_split"),
+	_FULL_QUARTER_SPLIT(32L, "full_quarter_split"),
 
-  _HALF_HORIZONTAL_TOP_SPLIT(128L, "half_horizontal_top_split");
+	_HALF_VERTICAL_LEFT_SPLIT(64L, "half_vertical_left_split"),
 
-  private final long messageNumber;
+	_HALF_HORIZONTAL_TOP_SPLIT(128L, "half_horizontal_top_split");
 
-  private final String messageName;
+	private final long messageNumber;
 
-  SUPPORTED_EXD_SCREEN_LAYOUTS(long messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SUPPORTED_EXD_SCREEN_LAYOUTS findById(long messageNumber) {
-    for (SUPPORTED_EXD_SCREEN_LAYOUTS name: SUPPORTED_EXD_SCREEN_LAYOUTS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SUPPORTED_EXD_SCREEN_LAYOUTS(long messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SUPPORTED_EXD_SCREEN_LAYOUTS findById(long messageNumber) {
+		for (SUPPORTED_EXD_SCREEN_LAYOUTS name : SUPPORTED_EXD_SCREEN_LAYOUTS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

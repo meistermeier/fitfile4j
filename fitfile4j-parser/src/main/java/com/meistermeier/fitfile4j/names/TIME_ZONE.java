@@ -2,237 +2,239 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TIME_ZONE {
-  _ALMATY(0, "almaty"),
 
-  _BANGKOK(1, "bangkok"),
+	_ALMATY(0, "almaty"),
 
-  _BOMBAY(2, "bombay"),
+	_BANGKOK(1, "bangkok"),
 
-  _BRASILIA(3, "brasilia"),
+	_BOMBAY(2, "bombay"),
 
-  _CAIRO(4, "cairo"),
+	_BRASILIA(3, "brasilia"),
 
-  _CAPE_VERDE_IS(5, "cape_verde_is"),
+	_CAIRO(4, "cairo"),
 
-  _DARWIN(6, "darwin"),
+	_CAPE_VERDE_IS(5, "cape_verde_is"),
 
-  _ENIWETOK(7, "eniwetok"),
+	_DARWIN(6, "darwin"),
 
-  _FIJI(8, "fiji"),
+	_ENIWETOK(7, "eniwetok"),
 
-  _HONG_KONG(9, "hong_kong"),
+	_FIJI(8, "fiji"),
 
-  _ISLAMABAD(10, "islamabad"),
+	_HONG_KONG(9, "hong_kong"),
 
-  _KABUL(11, "kabul"),
+	_ISLAMABAD(10, "islamabad"),
 
-  _MAGADAN(12, "magadan"),
+	_KABUL(11, "kabul"),
 
-  _MID_ATLANTIC(13, "mid_atlantic"),
+	_MAGADAN(12, "magadan"),
 
-  _MOSCOW(14, "moscow"),
+	_MID_ATLANTIC(13, "mid_atlantic"),
 
-  _MUSCAT(15, "muscat"),
+	_MOSCOW(14, "moscow"),
 
-  _NEWFOUNDLAND(16, "newfoundland"),
+	_MUSCAT(15, "muscat"),
 
-  _SAMOA(17, "samoa"),
+	_NEWFOUNDLAND(16, "newfoundland"),
 
-  _SYDNEY(18, "sydney"),
+	_SAMOA(17, "samoa"),
 
-  _TEHRAN(19, "tehran"),
+	_SYDNEY(18, "sydney"),
 
-  _TOKYO(20, "tokyo"),
+	_TEHRAN(19, "tehran"),
 
-  _US_ALASKA(21, "us_alaska"),
+	_TOKYO(20, "tokyo"),
 
-  _US_ATLANTIC(22, "us_atlantic"),
+	_US_ALASKA(21, "us_alaska"),
 
-  _US_CENTRAL(23, "us_central"),
+	_US_ATLANTIC(22, "us_atlantic"),
 
-  _US_EASTERN(24, "us_eastern"),
+	_US_CENTRAL(23, "us_central"),
 
-  _US_HAWAII(25, "us_hawaii"),
+	_US_EASTERN(24, "us_eastern"),
 
-  _US_MOUNTAIN(26, "us_mountain"),
+	_US_HAWAII(25, "us_hawaii"),
 
-  _US_PACIFIC(27, "us_pacific"),
+	_US_MOUNTAIN(26, "us_mountain"),
 
-  _OTHER(28, "other"),
+	_US_PACIFIC(27, "us_pacific"),
 
-  _AUCKLAND(29, "auckland"),
+	_OTHER(28, "other"),
 
-  _KATHMANDU(30, "kathmandu"),
+	_AUCKLAND(29, "auckland"),
 
-  _EUROPE_WESTERN_WET(31, "europe_western_wet"),
+	_KATHMANDU(30, "kathmandu"),
 
-  _EUROPE_CENTRAL_CET(32, "europe_central_cet"),
+	_EUROPE_WESTERN_WET(31, "europe_western_wet"),
 
-  _EUROPE_EASTERN_EET(33, "europe_eastern_eet"),
+	_EUROPE_CENTRAL_CET(32, "europe_central_cet"),
 
-  _JAKARTA(34, "jakarta"),
+	_EUROPE_EASTERN_EET(33, "europe_eastern_eet"),
 
-  _PERTH(35, "perth"),
+	_JAKARTA(34, "jakarta"),
 
-  _ADELAIDE(36, "adelaide"),
+	_PERTH(35, "perth"),
 
-  _BRISBANE(37, "brisbane"),
+	_ADELAIDE(36, "adelaide"),
 
-  _TASMANIA(38, "tasmania"),
+	_BRISBANE(37, "brisbane"),
 
-  _ICELAND(39, "iceland"),
+	_TASMANIA(38, "tasmania"),
 
-  _AMSTERDAM(40, "amsterdam"),
+	_ICELAND(39, "iceland"),
 
-  _ATHENS(41, "athens"),
+	_AMSTERDAM(40, "amsterdam"),
 
-  _BARCELONA(42, "barcelona"),
+	_ATHENS(41, "athens"),
 
-  _BERLIN(43, "berlin"),
+	_BARCELONA(42, "barcelona"),
 
-  _BRUSSELS(44, "brussels"),
+	_BERLIN(43, "berlin"),
 
-  _BUDAPEST(45, "budapest"),
+	_BRUSSELS(44, "brussels"),
 
-  _COPENHAGEN(46, "copenhagen"),
+	_BUDAPEST(45, "budapest"),
 
-  _DUBLIN(47, "dublin"),
+	_COPENHAGEN(46, "copenhagen"),
 
-  _HELSINKI(48, "helsinki"),
+	_DUBLIN(47, "dublin"),
 
-  _LISBON(49, "lisbon"),
+	_HELSINKI(48, "helsinki"),
 
-  _LONDON(50, "london"),
+	_LISBON(49, "lisbon"),
 
-  _MADRID(51, "madrid"),
+	_LONDON(50, "london"),
 
-  _MUNICH(52, "munich"),
+	_MADRID(51, "madrid"),
 
-  _OSLO(53, "oslo"),
+	_MUNICH(52, "munich"),
 
-  _PARIS(54, "paris"),
+	_OSLO(53, "oslo"),
 
-  _PRAGUE(55, "prague"),
+	_PARIS(54, "paris"),
 
-  _REYKJAVIK(56, "reykjavik"),
+	_PRAGUE(55, "prague"),
 
-  _ROME(57, "rome"),
+	_REYKJAVIK(56, "reykjavik"),
 
-  _STOCKHOLM(58, "stockholm"),
+	_ROME(57, "rome"),
 
-  _VIENNA(59, "vienna"),
+	_STOCKHOLM(58, "stockholm"),
 
-  _WARSAW(60, "warsaw"),
+	_VIENNA(59, "vienna"),
 
-  _ZURICH(61, "zurich"),
+	_WARSAW(60, "warsaw"),
 
-  _QUEBEC(62, "quebec"),
+	_ZURICH(61, "zurich"),
 
-  _ONTARIO(63, "ontario"),
+	_QUEBEC(62, "quebec"),
 
-  _MANITOBA(64, "manitoba"),
+	_ONTARIO(63, "ontario"),
 
-  _SASKATCHEWAN(65, "saskatchewan"),
+	_MANITOBA(64, "manitoba"),
 
-  _ALBERTA(66, "alberta"),
+	_SASKATCHEWAN(65, "saskatchewan"),
 
-  _BRITISH_COLUMBIA(67, "british_columbia"),
+	_ALBERTA(66, "alberta"),
 
-  _BOISE(68, "boise"),
+	_BRITISH_COLUMBIA(67, "british_columbia"),
 
-  _BOSTON(69, "boston"),
+	_BOISE(68, "boise"),
 
-  _CHICAGO(70, "chicago"),
+	_BOSTON(69, "boston"),
 
-  _DALLAS(71, "dallas"),
+	_CHICAGO(70, "chicago"),
 
-  _DENVER(72, "denver"),
+	_DALLAS(71, "dallas"),
 
-  _KANSAS_CITY(73, "kansas_city"),
+	_DENVER(72, "denver"),
 
-  _LAS_VEGAS(74, "las_vegas"),
+	_KANSAS_CITY(73, "kansas_city"),
 
-  _LOS_ANGELES(75, "los_angeles"),
+	_LAS_VEGAS(74, "las_vegas"),
 
-  _MIAMI(76, "miami"),
+	_LOS_ANGELES(75, "los_angeles"),
 
-  _MINNEAPOLIS(77, "minneapolis"),
+	_MIAMI(76, "miami"),
 
-  _NEW_YORK(78, "new_york"),
+	_MINNEAPOLIS(77, "minneapolis"),
 
-  _NEW_ORLEANS(79, "new_orleans"),
+	_NEW_YORK(78, "new_york"),
 
-  _PHOENIX(80, "phoenix"),
+	_NEW_ORLEANS(79, "new_orleans"),
 
-  _SANTA_FE(81, "santa_fe"),
+	_PHOENIX(80, "phoenix"),
 
-  _SEATTLE(82, "seattle"),
+	_SANTA_FE(81, "santa_fe"),
 
-  _WASHINGTON_DC(83, "washington_dc"),
+	_SEATTLE(82, "seattle"),
 
-  _US_ARIZONA(84, "us_arizona"),
+	_WASHINGTON_DC(83, "washington_dc"),
 
-  _CHITA(85, "chita"),
+	_US_ARIZONA(84, "us_arizona"),
 
-  _EKATERINBURG(86, "ekaterinburg"),
+	_CHITA(85, "chita"),
 
-  _IRKUTSK(87, "irkutsk"),
+	_EKATERINBURG(86, "ekaterinburg"),
 
-  _KALININGRAD(88, "kaliningrad"),
+	_IRKUTSK(87, "irkutsk"),
 
-  _KRASNOYARSK(89, "krasnoyarsk"),
+	_KALININGRAD(88, "kaliningrad"),
 
-  _NOVOSIBIRSK(90, "novosibirsk"),
+	_KRASNOYARSK(89, "krasnoyarsk"),
 
-  _PETROPAVLOVSK_KAMCHATSKIY(91, "petropavlovsk_kamchatskiy"),
+	_NOVOSIBIRSK(90, "novosibirsk"),
 
-  _SAMARA(92, "samara"),
+	_PETROPAVLOVSK_KAMCHATSKIY(91, "petropavlovsk_kamchatskiy"),
 
-  _VLADIVOSTOK(93, "vladivostok"),
+	_SAMARA(92, "samara"),
 
-  _MEXICO_CENTRAL(94, "mexico_central"),
+	_VLADIVOSTOK(93, "vladivostok"),
 
-  _MEXICO_MOUNTAIN(95, "mexico_mountain"),
+	_MEXICO_CENTRAL(94, "mexico_central"),
 
-  _MEXICO_PACIFIC(96, "mexico_pacific"),
+	_MEXICO_MOUNTAIN(95, "mexico_mountain"),
 
-  _CAPE_TOWN(97, "cape_town"),
+	_MEXICO_PACIFIC(96, "mexico_pacific"),
 
-  _WINKHOEK(98, "winkhoek"),
+	_CAPE_TOWN(97, "cape_town"),
 
-  _LAGOS(99, "lagos"),
+	_WINKHOEK(98, "winkhoek"),
 
-  _RIYAHD(100, "riyahd"),
+	_LAGOS(99, "lagos"),
 
-  _VENEZUELA(101, "venezuela"),
+	_RIYAHD(100, "riyahd"),
 
-  _AUSTRALIA_LH(102, "australia_lh"),
+	_VENEZUELA(101, "venezuela"),
 
-  _SANTIAGO(103, "santiago"),
+	_AUSTRALIA_LH(102, "australia_lh"),
 
-  _MANUAL(253, "manual"),
+	_SANTIAGO(103, "santiago"),
 
-  _AUTOMATIC(254, "automatic");
+	_MANUAL(253, "manual"),
 
-  private final int messageNumber;
+	_AUTOMATIC(254, "automatic");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  TIME_ZONE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static TIME_ZONE findById(int messageNumber) {
-    for (TIME_ZONE name: TIME_ZONE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	TIME_ZONE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static TIME_ZONE findById(int messageNumber) {
+		for (TIME_ZONE name : TIME_ZONE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

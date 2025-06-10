@@ -2,113 +2,115 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_QUALIFIERS {
-  _NO_QUALIFIER(0, "no_qualifier"),
 
-  _INSTANTANEOUS(1, "instantaneous"),
+	_NO_QUALIFIER(0, "no_qualifier"),
 
-  _AVERAGE(2, "average"),
+	_INSTANTANEOUS(1, "instantaneous"),
 
-  _LAP(3, "lap"),
+	_AVERAGE(2, "average"),
 
-  _MAXIMUM(4, "maximum"),
+	_LAP(3, "lap"),
 
-  _MAXIMUM_AVERAGE(5, "maximum_average"),
+	_MAXIMUM(4, "maximum"),
 
-  _MAXIMUM_LAP(6, "maximum_lap"),
+	_MAXIMUM_AVERAGE(5, "maximum_average"),
 
-  _LAST_LAP(7, "last_lap"),
+	_MAXIMUM_LAP(6, "maximum_lap"),
 
-  _AVERAGE_LAP(8, "average_lap"),
+	_LAST_LAP(7, "last_lap"),
 
-  _TO_DESTINATION(9, "to_destination"),
+	_AVERAGE_LAP(8, "average_lap"),
 
-  _TO_GO(10, "to_go"),
+	_TO_DESTINATION(9, "to_destination"),
 
-  _TO_NEXT(11, "to_next"),
+	_TO_GO(10, "to_go"),
 
-  _NEXT_COURSE_POINT(12, "next_course_point"),
+	_TO_NEXT(11, "to_next"),
 
-  _TOTAL(13, "total"),
+	_NEXT_COURSE_POINT(12, "next_course_point"),
 
-  _THREE_SECOND_AVERAGE(14, "three_second_average"),
+	_TOTAL(13, "total"),
 
-  _TEN_SECOND_AVERAGE(15, "ten_second_average"),
+	_THREE_SECOND_AVERAGE(14, "three_second_average"),
 
-  _THIRTY_SECOND_AVERAGE(16, "thirty_second_average"),
+	_TEN_SECOND_AVERAGE(15, "ten_second_average"),
 
-  _PERCENT_MAXIMUM(17, "percent_maximum"),
+	_THIRTY_SECOND_AVERAGE(16, "thirty_second_average"),
 
-  _PERCENT_MAXIMUM_AVERAGE(18, "percent_maximum_average"),
+	_PERCENT_MAXIMUM(17, "percent_maximum"),
 
-  _LAP_PERCENT_MAXIMUM(19, "lap_percent_maximum"),
+	_PERCENT_MAXIMUM_AVERAGE(18, "percent_maximum_average"),
 
-  _ELAPSED(20, "elapsed"),
+	_LAP_PERCENT_MAXIMUM(19, "lap_percent_maximum"),
 
-  _SUNRISE(21, "sunrise"),
+	_ELAPSED(20, "elapsed"),
 
-  _SUNSET(22, "sunset"),
+	_SUNRISE(21, "sunrise"),
 
-  _COMPARED_TO_VIRTUAL_PARTNER(23, "compared_to_virtual_partner"),
+	_SUNSET(22, "sunset"),
 
-  _MAXIMUM_24H(24, "maximum_24h"),
+	_COMPARED_TO_VIRTUAL_PARTNER(23, "compared_to_virtual_partner"),
 
-  _MINIMUM_24H(25, "minimum_24h"),
+	_MAXIMUM_24H(24, "maximum_24h"),
 
-  _MINIMUM(26, "minimum"),
+	_MINIMUM_24H(25, "minimum_24h"),
 
-  _FIRST(27, "first"),
+	_MINIMUM(26, "minimum"),
 
-  _SECOND(28, "second"),
+	_FIRST(27, "first"),
 
-  _THIRD(29, "third"),
+	_SECOND(28, "second"),
 
-  _SHIFTER(30, "shifter"),
+	_THIRD(29, "third"),
 
-  _LAST_SPORT(31, "last_sport"),
+	_SHIFTER(30, "shifter"),
 
-  _MOVING(32, "moving"),
+	_LAST_SPORT(31, "last_sport"),
 
-  _STOPPED(33, "stopped"),
+	_MOVING(32, "moving"),
 
-  _ESTIMATED_TOTAL(34, "estimated_total"),
+	_STOPPED(33, "stopped"),
 
-  _ZONE_9(242, "zone_9"),
+	_ESTIMATED_TOTAL(34, "estimated_total"),
 
-  _ZONE_8(243, "zone_8"),
+	_ZONE_9(242, "zone_9"),
 
-  _ZONE_7(244, "zone_7"),
+	_ZONE_8(243, "zone_8"),
 
-  _ZONE_6(245, "zone_6"),
+	_ZONE_7(244, "zone_7"),
 
-  _ZONE_5(246, "zone_5"),
+	_ZONE_6(245, "zone_6"),
 
-  _ZONE_4(247, "zone_4"),
+	_ZONE_5(246, "zone_5"),
 
-  _ZONE_3(248, "zone_3"),
+	_ZONE_4(247, "zone_4"),
 
-  _ZONE_2(249, "zone_2"),
+	_ZONE_3(248, "zone_3"),
 
-  _ZONE_1(250, "zone_1");
+	_ZONE_2(249, "zone_2"),
 
-  private final int messageNumber;
+	_ZONE_1(250, "zone_1");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  EXD_QUALIFIERS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static EXD_QUALIFIERS findById(int messageNumber) {
-    for (EXD_QUALIFIERS name: EXD_QUALIFIERS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	EXD_QUALIFIERS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static EXD_QUALIFIERS findById(int messageNumber) {
+		for (EXD_QUALIFIERS name : EXD_QUALIFIERS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

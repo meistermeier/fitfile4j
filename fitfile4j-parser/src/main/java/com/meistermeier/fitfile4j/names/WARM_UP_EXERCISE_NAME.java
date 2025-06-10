@@ -2,87 +2,89 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WARM_UP_EXERCISE_NAME {
-  _QUADRUPED_ROCKING(0, "quadruped_rocking"),
 
-  _NECK_TILTS(1, "neck_tilts"),
+	_QUADRUPED_ROCKING(0, "quadruped_rocking"),
 
-  _ANKLE_CIRCLES(2, "ankle_circles"),
+	_NECK_TILTS(1, "neck_tilts"),
 
-  _ANKLE_DORSIFLEXION_WITH_BAND(3, "ankle_dorsiflexion_with_band"),
+	_ANKLE_CIRCLES(2, "ankle_circles"),
 
-  _ANKLE_INTERNAL_ROTATION(4, "ankle_internal_rotation"),
+	_ANKLE_DORSIFLEXION_WITH_BAND(3, "ankle_dorsiflexion_with_band"),
 
-  _ARM_CIRCLES(5, "arm_circles"),
+	_ANKLE_INTERNAL_ROTATION(4, "ankle_internal_rotation"),
 
-  _BENT_OVER_REACH_TO_SKY(6, "bent_over_reach_to_sky"),
+	_ARM_CIRCLES(5, "arm_circles"),
 
-  _CAT_CAMEL(7, "cat_camel"),
+	_BENT_OVER_REACH_TO_SKY(6, "bent_over_reach_to_sky"),
 
-  _ELBOW_TO_FOOT_LUNGE(8, "elbow_to_foot_lunge"),
+	_CAT_CAMEL(7, "cat_camel"),
 
-  _FORWARD_AND_BACKWARD_LEG_SWINGS(9, "forward_and_backward_leg_swings"),
+	_ELBOW_TO_FOOT_LUNGE(8, "elbow_to_foot_lunge"),
 
-  _GROINERS(10, "groiners"),
+	_FORWARD_AND_BACKWARD_LEG_SWINGS(9, "forward_and_backward_leg_swings"),
 
-  _INVERTED_HAMSTRING_STRETCH(11, "inverted_hamstring_stretch"),
+	_GROINERS(10, "groiners"),
 
-  _LATERAL_DUCK_UNDER(12, "lateral_duck_under"),
+	_INVERTED_HAMSTRING_STRETCH(11, "inverted_hamstring_stretch"),
 
-  _NECK_ROTATIONS(13, "neck_rotations"),
+	_LATERAL_DUCK_UNDER(12, "lateral_duck_under"),
 
-  _OPPOSITE_ARM_AND_LEG_BALANCE(14, "opposite_arm_and_leg_balance"),
+	_NECK_ROTATIONS(13, "neck_rotations"),
 
-  _REACH_ROLL_AND_LIFT(15, "reach_roll_and_lift"),
+	_OPPOSITE_ARM_AND_LEG_BALANCE(14, "opposite_arm_and_leg_balance"),
 
-  _SCORPION(16, "scorpion"),
+	_REACH_ROLL_AND_LIFT(15, "reach_roll_and_lift"),
 
-  _SHOULDER_CIRCLES(17, "shoulder_circles"),
+	_SCORPION(16, "scorpion"),
 
-  _SIDE_TO_SIDE_LEG_SWINGS(18, "side_to_side_leg_swings"),
+	_SHOULDER_CIRCLES(17, "shoulder_circles"),
 
-  _SLEEPER_STRETCH(19, "sleeper_stretch"),
+	_SIDE_TO_SIDE_LEG_SWINGS(18, "side_to_side_leg_swings"),
 
-  _SLIDE_OUT(20, "slide_out"),
+	_SLEEPER_STRETCH(19, "sleeper_stretch"),
 
-  _SWISS_BALL_HIP_CROSSOVER(21, "swiss_ball_hip_crossover"),
+	_SLIDE_OUT(20, "slide_out"),
 
-  _SWISS_BALL_REACH_ROLL_AND_LIFT(22, "swiss_ball_reach_roll_and_lift"),
+	_SWISS_BALL_HIP_CROSSOVER(21, "swiss_ball_hip_crossover"),
 
-  _SWISS_BALL_WINDSHIELD_WIPERS(23, "swiss_ball_windshield_wipers"),
+	_SWISS_BALL_REACH_ROLL_AND_LIFT(22, "swiss_ball_reach_roll_and_lift"),
 
-  _THORACIC_ROTATION(24, "thoracic_rotation"),
+	_SWISS_BALL_WINDSHIELD_WIPERS(23, "swiss_ball_windshield_wipers"),
 
-  _WALKING_HIGH_KICKS(25, "walking_high_kicks"),
+	_THORACIC_ROTATION(24, "thoracic_rotation"),
 
-  _WALKING_HIGH_KNEES(26, "walking_high_knees"),
+	_WALKING_HIGH_KICKS(25, "walking_high_kicks"),
 
-  _WALKING_KNEE_HUGS(27, "walking_knee_hugs"),
+	_WALKING_HIGH_KNEES(26, "walking_high_knees"),
 
-  _WALKING_LEG_CRADLES(28, "walking_leg_cradles"),
+	_WALKING_KNEE_HUGS(27, "walking_knee_hugs"),
 
-  _WALKOUT(29, "walkout"),
+	_WALKING_LEG_CRADLES(28, "walking_leg_cradles"),
 
-  _WALKOUT_FROM_PUSH_UP_POSITION(30, "walkout_from_push_up_position");
+	_WALKOUT(29, "walkout"),
 
-  private final int messageNumber;
+	_WALKOUT_FROM_PUSH_UP_POSITION(30, "walkout_from_push_up_position");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WARM_UP_EXERCISE_NAME(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WARM_UP_EXERCISE_NAME findById(int messageNumber) {
-    for (WARM_UP_EXERCISE_NAME name: WARM_UP_EXERCISE_NAME.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WARM_UP_EXERCISE_NAME(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WARM_UP_EXERCISE_NAME findById(int messageNumber) {
+		for (WARM_UP_EXERCISE_NAME name : WARM_UP_EXERCISE_NAME.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

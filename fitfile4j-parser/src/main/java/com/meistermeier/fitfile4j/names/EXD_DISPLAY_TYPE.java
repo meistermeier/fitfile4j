@@ -2,47 +2,49 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_DISPLAY_TYPE {
-  _NUMERICAL(0, "numerical"),
 
-  _SIMPLE(1, "simple"),
+	_NUMERICAL(0, "numerical"),
 
-  _GRAPH(2, "graph"),
+	_SIMPLE(1, "simple"),
 
-  _BAR(3, "bar"),
+	_GRAPH(2, "graph"),
 
-  _CIRCLE_GRAPH(4, "circle_graph"),
+	_BAR(3, "bar"),
 
-  _VIRTUAL_PARTNER(5, "virtual_partner"),
+	_CIRCLE_GRAPH(4, "circle_graph"),
 
-  _BALANCE(6, "balance"),
+	_VIRTUAL_PARTNER(5, "virtual_partner"),
 
-  _STRING_LIST(7, "string_list"),
+	_BALANCE(6, "balance"),
 
-  _STRING(8, "string"),
+	_STRING_LIST(7, "string_list"),
 
-  _SIMPLE_DYNAMIC_ICON(9, "simple_dynamic_icon"),
+	_STRING(8, "string"),
 
-  _GAUGE(10, "gauge");
+	_SIMPLE_DYNAMIC_ICON(9, "simple_dynamic_icon"),
 
-  private final int messageNumber;
+	_GAUGE(10, "gauge");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  EXD_DISPLAY_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static EXD_DISPLAY_TYPE findById(int messageNumber) {
-    for (EXD_DISPLAY_TYPE name: EXD_DISPLAY_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	EXD_DISPLAY_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static EXD_DISPLAY_TYPE findById(int messageNumber) {
+		for (EXD_DISPLAY_TYPE name : EXD_DISPLAY_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

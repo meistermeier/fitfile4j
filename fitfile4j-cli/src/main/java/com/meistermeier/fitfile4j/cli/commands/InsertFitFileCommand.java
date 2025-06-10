@@ -15,7 +15,6 @@
  */
 package com.meistermeier.fitfile4j.cli.commands;
 
-
 import com.meistermeier.fitfile4j.FitFile;
 import com.meistermeier.fitfile4j.cli.FitFile4j;
 import picocli.CommandLine;
@@ -52,37 +51,65 @@ public class InsertFitFileCommand implements Callable<Integer> {
 		String jdbcUrl = "jdbc:duckdb:" + databaseFile;
 
 		var fitFile = FitFile.from(fitFileSource);
-		var sportMessage = fitFile.messages().stream().filter(m -> m.messageNumber() == 12).findFirst().get()
-			.fields().fields().stream().collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value));
+		var sportMessage = fitFile.messages()
+			.stream()
+			.filter(m -> m.messageNumber() == 12)
+			.findFirst()
+			.get()
+			.fields()
+			.entries()
+			.stream()
+			.collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value));
 		var sportName = sportMessage.get(3);
 		var sport = sportMessage.get(0);
 		var subSport = sportMessage.get(1);
 
-		var createFields = fitFile.messages().stream().filter(m -> m.messageNumber() == 0).findFirst().get()
-			.fields().fields().stream().collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value));
+		var createFields = fitFile.messages()
+			.stream()
+			.filter(m -> m.messageNumber() == 0)
+			.findFirst()
+			.get()
+			.fields()
+			.entries()
+			.stream()
+			.collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value));
 		long id = (long) createFields.get(4);
 		var createdAt = FIT_TIME_OFFSET + id * 1000;
 		var product = createFields.get(2);
 
-		var sessionInfo = fitFile.messages().stream().filter(m -> m.messageNumber() == 18).findFirst().get()
-			.fields().fields().stream().collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value));
+		var sessionInfo = fitFile.messages()
+			.stream()
+			.filter(m -> m.messageNumber() == 18)
+			.findFirst()
+			.get()
+			.fields()
+			.entries()
+			.stream()
+			.collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value));
 		float avgSpeed = 0f;
 		if (sessionInfo.get(14) != null) {
 			avgSpeed = (int) sessionInfo.get(14);
-		} else {
+		}
+		else {
 			avgSpeed = (long) sessionInfo.get(124);
 		}
 
 		var duration = (long) sessionInfo.get(8);
 		var distance = (long) sessionInfo.get(9);
 
-		var records = fitFile.messages().stream().filter(m -> m.messageNumber() == 20)
-			.map(m -> m.fields().fields().stream().collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value)))
+		var records = fitFile.messages()
+			.stream()
+			.filter(m -> m.messageNumber() == 20)
+			.map(m -> m.fields()
+				.entries()
+				.stream()
+				.collect(Collectors.toMap(e -> e.field().fieldDefinitionNumber(), FitFile.Entry::value)))
 			.toList();
 
 		try (var connection = DriverManager.getConnection(jdbcUrl)) {
 
-			try (var statement = connection.prepareStatement("INSERT INTO FIT_ACTIVITY (id, sportName, sport, sub_sport, created_at) VALUES (?, ?, ?, ?, ?)")) {
+			try (var statement = connection.prepareStatement(
+					"INSERT INTO FIT_ACTIVITY (id, sportName, sport, sub_sport, created_at) VALUES (?, ?, ?, ?, ?)")) {
 				statement.setObject(1, id);
 				statement.setObject(2, sportName);
 				statement.setObject(3, sport);
@@ -90,14 +117,16 @@ public class InsertFitFileCommand implements Callable<Integer> {
 				statement.setObject(5, createdAt);
 				statement.executeUpdate();
 			}
-			try (var statement = connection.prepareStatement("INSERT INTO SESSION (activity_id, avg_speed, total_elapsed_time, total_distance) VALUES (?, ?, ?, ?)")) {
+			try (var statement = connection.prepareStatement(
+					"INSERT INTO SESSION (activity_id, avg_speed, total_elapsed_time, total_distance) VALUES (?, ?, ?, ?)")) {
 				statement.setObject(1, id);
 				statement.setObject(2, avgSpeed);
 				statement.setObject(3, duration);
 				statement.setObject(4, distance);
 				statement.executeUpdate();
 			}
-			try (var statement = connection.prepareStatement("INSERT INTO RECORD (activity_id, lat, lng, speed, heart_rate, altitude) VALUES (?, ?, ?, ?, ?, ?)")) {
+			try (var statement = connection.prepareStatement(
+					"INSERT INTO RECORD (activity_id, lat, lng, speed, heart_rate, altitude) VALUES (?, ?, ?, ?, ?, ?)")) {
 				for (Map<Integer, Object> r : records) {
 					statement.setObject(1, id);
 					statement.setObject(2, r.get(0));
@@ -113,4 +142,5 @@ public class InsertFitFileCommand implements Callable<Integer> {
 
 		return 0;
 	}
+
 }

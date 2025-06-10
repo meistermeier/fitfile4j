@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIGITAL_WATCHFACE_LAYOUT {
-  _TRADITIONAL(0, "traditional"),
 
-  _MODERN(1, "modern"),
+	_TRADITIONAL(0, "traditional"),
 
-  _BOLD(2, "bold");
+	_MODERN(1, "modern"),
 
-  private final int messageNumber;
+	_BOLD(2, "bold");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DIGITAL_WATCHFACE_LAYOUT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DIGITAL_WATCHFACE_LAYOUT findById(int messageNumber) {
-    for (DIGITAL_WATCHFACE_LAYOUT name: DIGITAL_WATCHFACE_LAYOUT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DIGITAL_WATCHFACE_LAYOUT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DIGITAL_WATCHFACE_LAYOUT findById(int messageNumber) {
+		for (DIGITAL_WATCHFACE_LAYOUT name : DIGITAL_WATCHFACE_LAYOUT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,195 +2,197 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_SEVERE_TYPE {
-  _UNSPECIFIED(0, "unspecified"),
 
-  _TORNADO(1, "tornado"),
+	_UNSPECIFIED(0, "unspecified"),
 
-  _TSUNAMI(2, "tsunami"),
+	_TORNADO(1, "tornado"),
 
-  _HURRICANE(3, "hurricane"),
+	_TSUNAMI(2, "tsunami"),
 
-  _EXTREME_WIND(4, "extreme_wind"),
+	_HURRICANE(3, "hurricane"),
 
-  _TYPHOON(5, "typhoon"),
+	_EXTREME_WIND(4, "extreme_wind"),
 
-  _INLAND_HURRICANE(6, "inland_hurricane"),
+	_TYPHOON(5, "typhoon"),
 
-  _HURRICANE_FORCE_WIND(7, "hurricane_force_wind"),
+	_INLAND_HURRICANE(6, "inland_hurricane"),
 
-  _WATERSPOUT(8, "waterspout"),
+	_HURRICANE_FORCE_WIND(7, "hurricane_force_wind"),
 
-  _SEVERE_THUNDERSTORM(9, "severe_thunderstorm"),
+	_WATERSPOUT(8, "waterspout"),
 
-  _WRECKHOUSE_WINDS(10, "wreckhouse_winds"),
+	_SEVERE_THUNDERSTORM(9, "severe_thunderstorm"),
 
-  _LES_SUETES_WIND(11, "les_suetes_wind"),
+	_WRECKHOUSE_WINDS(10, "wreckhouse_winds"),
 
-  _AVALANCHE(12, "avalanche"),
+	_LES_SUETES_WIND(11, "les_suetes_wind"),
 
-  _FLASH_FLOOD(13, "flash_flood"),
+	_AVALANCHE(12, "avalanche"),
 
-  _TROPICAL_STORM(14, "tropical_storm"),
+	_FLASH_FLOOD(13, "flash_flood"),
 
-  _INLAND_TROPICAL_STORM(15, "inland_tropical_storm"),
+	_TROPICAL_STORM(14, "tropical_storm"),
 
-  _BLIZZARD(16, "blizzard"),
+	_INLAND_TROPICAL_STORM(15, "inland_tropical_storm"),
 
-  _ICE_STORM(17, "ice_storm"),
+	_BLIZZARD(16, "blizzard"),
 
-  _FREEZING_RAIN(18, "freezing_rain"),
+	_ICE_STORM(17, "ice_storm"),
 
-  _DEBRIS_FLOW(19, "debris_flow"),
+	_FREEZING_RAIN(18, "freezing_rain"),
 
-  _FLASH_FREEZE(20, "flash_freeze"),
+	_DEBRIS_FLOW(19, "debris_flow"),
 
-  _DUST_STORM(21, "dust_storm"),
+	_FLASH_FREEZE(20, "flash_freeze"),
 
-  _HIGH_WIND(22, "high_wind"),
+	_DUST_STORM(21, "dust_storm"),
 
-  _WINTER_STORM(23, "winter_storm"),
+	_HIGH_WIND(22, "high_wind"),
 
-  _HEAVY_FREEZING_SPRAY(24, "heavy_freezing_spray"),
+	_WINTER_STORM(23, "winter_storm"),
 
-  _EXTREME_COLD(25, "extreme_cold"),
+	_HEAVY_FREEZING_SPRAY(24, "heavy_freezing_spray"),
 
-  _WIND_CHILL(26, "wind_chill"),
+	_EXTREME_COLD(25, "extreme_cold"),
 
-  _COLD_WAVE(27, "cold_wave"),
+	_WIND_CHILL(26, "wind_chill"),
 
-  _HEAVY_SNOW_ALERT(28, "heavy_snow_alert"),
+	_COLD_WAVE(27, "cold_wave"),
 
-  _LAKE_EFFECT_BLOWING_SNOW(29, "lake_effect_blowing_snow"),
+	_HEAVY_SNOW_ALERT(28, "heavy_snow_alert"),
 
-  _SNOW_SQUALL(30, "snow_squall"),
+	_LAKE_EFFECT_BLOWING_SNOW(29, "lake_effect_blowing_snow"),
 
-  _LAKE_EFFECT_SNOW(31, "lake_effect_snow"),
+	_SNOW_SQUALL(30, "snow_squall"),
 
-  _WINTER_WEATHER(32, "winter_weather"),
+	_LAKE_EFFECT_SNOW(31, "lake_effect_snow"),
 
-  _SLEET(33, "sleet"),
+	_WINTER_WEATHER(32, "winter_weather"),
 
-  _SNOWFALL(34, "snowfall"),
+	_SLEET(33, "sleet"),
 
-  _SNOW_AND_BLOWING_SNOW(35, "snow_and_blowing_snow"),
+	_SNOWFALL(34, "snowfall"),
 
-  _BLOWING_SNOW(36, "blowing_snow"),
+	_SNOW_AND_BLOWING_SNOW(35, "snow_and_blowing_snow"),
 
-  _SNOW_ALERT(37, "snow_alert"),
+	_BLOWING_SNOW(36, "blowing_snow"),
 
-  _ARCTIC_OUTFLOW(38, "arctic_outflow"),
+	_SNOW_ALERT(37, "snow_alert"),
 
-  _FREEZING_DRIZZLE(39, "freezing_drizzle"),
+	_ARCTIC_OUTFLOW(38, "arctic_outflow"),
 
-  _STORM(40, "storm"),
+	_FREEZING_DRIZZLE(39, "freezing_drizzle"),
 
-  _STORM_SURGE(41, "storm_surge"),
+	_STORM(40, "storm"),
 
-  _RAINFALL(42, "rainfall"),
+	_STORM_SURGE(41, "storm_surge"),
 
-  _AREAL_FLOOD(43, "areal_flood"),
+	_RAINFALL(42, "rainfall"),
 
-  _COASTAL_FLOOD(44, "coastal_flood"),
+	_AREAL_FLOOD(43, "areal_flood"),
 
-  _LAKESHORE_FLOOD(45, "lakeshore_flood"),
+	_COASTAL_FLOOD(44, "coastal_flood"),
 
-  _EXCESSIVE_HEAT(46, "excessive_heat"),
+	_LAKESHORE_FLOOD(45, "lakeshore_flood"),
 
-  _HEAT(47, "heat"),
+	_EXCESSIVE_HEAT(46, "excessive_heat"),
 
-  _WEATHER(48, "weather"),
+	_HEAT(47, "heat"),
 
-  _HIGH_HEAT_AND_HUMIDITY(49, "high_heat_and_humidity"),
+	_WEATHER(48, "weather"),
 
-  _HUMIDEX_AND_HEALTH(50, "humidex_and_health"),
+	_HIGH_HEAT_AND_HUMIDITY(49, "high_heat_and_humidity"),
 
-  _HUMIDEX(51, "humidex"),
+	_HUMIDEX_AND_HEALTH(50, "humidex_and_health"),
 
-  _GALE(52, "gale"),
+	_HUMIDEX(51, "humidex"),
 
-  _FREEZING_SPRAY(53, "freezing_spray"),
+	_GALE(52, "gale"),
 
-  _SPECIAL_MARINE(54, "special_marine"),
+	_FREEZING_SPRAY(53, "freezing_spray"),
 
-  _SQUALL(55, "squall"),
+	_SPECIAL_MARINE(54, "special_marine"),
 
-  _STRONG_WIND(56, "strong_wind"),
+	_SQUALL(55, "squall"),
 
-  _LAKE_WIND(57, "lake_wind"),
+	_STRONG_WIND(56, "strong_wind"),
 
-  _MARINE_WEATHER(58, "marine_weather"),
+	_LAKE_WIND(57, "lake_wind"),
 
-  _WIND(59, "wind"),
+	_MARINE_WEATHER(58, "marine_weather"),
 
-  _SMALL_CRAFT_HAZARDOUS_SEAS(60, "small_craft_hazardous_seas"),
+	_WIND(59, "wind"),
 
-  _HAZARDOUS_SEAS(61, "hazardous_seas"),
+	_SMALL_CRAFT_HAZARDOUS_SEAS(60, "small_craft_hazardous_seas"),
 
-  _SMALL_CRAFT(62, "small_craft"),
+	_HAZARDOUS_SEAS(61, "hazardous_seas"),
 
-  _SMALL_CRAFT_WINDS(63, "small_craft_winds"),
+	_SMALL_CRAFT(62, "small_craft"),
 
-  _SMALL_CRAFT_ROUGH_BAR(64, "small_craft_rough_bar"),
+	_SMALL_CRAFT_WINDS(63, "small_craft_winds"),
 
-  _HIGH_WATER_LEVEL(65, "high_water_level"),
+	_SMALL_CRAFT_ROUGH_BAR(64, "small_craft_rough_bar"),
 
-  _ASHFALL(66, "ashfall"),
+	_HIGH_WATER_LEVEL(65, "high_water_level"),
 
-  _FREEZING_FOG(67, "freezing_fog"),
+	_ASHFALL(66, "ashfall"),
 
-  _DENSE_FOG(68, "dense_fog"),
+	_FREEZING_FOG(67, "freezing_fog"),
 
-  _DENSE_SMOKE(69, "dense_smoke"),
+	_DENSE_FOG(68, "dense_fog"),
 
-  _BLOWING_DUST(70, "blowing_dust"),
+	_DENSE_SMOKE(69, "dense_smoke"),
 
-  _HARD_FREEZE(71, "hard_freeze"),
+	_BLOWING_DUST(70, "blowing_dust"),
 
-  _FREEZE(72, "freeze"),
+	_HARD_FREEZE(71, "hard_freeze"),
 
-  _FROST(73, "frost"),
+	_FREEZE(72, "freeze"),
 
-  _FIRE_WEATHER(74, "fire_weather"),
+	_FROST(73, "frost"),
 
-  _FLOOD(75, "flood"),
+	_FIRE_WEATHER(74, "fire_weather"),
 
-  _RIP_TIDE(76, "rip_tide"),
+	_FLOOD(75, "flood"),
 
-  _HIGH_SURF(77, "high_surf"),
+	_RIP_TIDE(76, "rip_tide"),
 
-  _SMOG(78, "smog"),
+	_HIGH_SURF(77, "high_surf"),
 
-  _AIR_QUALITY(79, "air_quality"),
+	_SMOG(78, "smog"),
 
-  _BRISK_WIND(80, "brisk_wind"),
+	_AIR_QUALITY(79, "air_quality"),
 
-  _AIR_STAGNATION(81, "air_stagnation"),
+	_BRISK_WIND(80, "brisk_wind"),
 
-  _LOW_WATER(82, "low_water"),
+	_AIR_STAGNATION(81, "air_stagnation"),
 
-  _HYDROLOGICAL(83, "hydrological"),
+	_LOW_WATER(82, "low_water"),
 
-  _SPECIAL_WEATHER(84, "special_weather");
+	_HYDROLOGICAL(83, "hydrological"),
 
-  private final int messageNumber;
+	_SPECIAL_WEATHER(84, "special_weather");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WEATHER_SEVERE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WEATHER_SEVERE_TYPE findById(int messageNumber) {
-    for (WEATHER_SEVERE_TYPE name: WEATHER_SEVERE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WEATHER_SEVERE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WEATHER_SEVERE_TYPE findById(int messageNumber) {
+		for (WEATHER_SEVERE_TYPE name : WEATHER_SEVERE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

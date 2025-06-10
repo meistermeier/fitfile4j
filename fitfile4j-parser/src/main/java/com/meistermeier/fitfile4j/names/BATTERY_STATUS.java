@@ -2,39 +2,41 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BATTERY_STATUS {
-  _NEW(1, "new"),
 
-  _GOOD(2, "good"),
+	_NEW(1, "new"),
 
-  _OK(3, "ok"),
+	_GOOD(2, "good"),
 
-  _LOW(4, "low"),
+	_OK(3, "ok"),
 
-  _CRITICAL(5, "critical"),
+	_LOW(4, "low"),
 
-  _CHARGING(6, "charging"),
+	_CRITICAL(5, "critical"),
 
-  _UNKNOWN(7, "unknown");
+	_CHARGING(6, "charging"),
 
-  private final int messageNumber;
+	_UNKNOWN(7, "unknown");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  BATTERY_STATUS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static BATTERY_STATUS findById(int messageNumber) {
-    for (BATTERY_STATUS name: BATTERY_STATUS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	BATTERY_STATUS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static BATTERY_STATUS findById(int messageNumber) {
+		for (BATTERY_STATUS name : BATTERY_STATUS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

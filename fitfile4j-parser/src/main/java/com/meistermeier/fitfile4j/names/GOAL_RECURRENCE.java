@@ -2,37 +2,39 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GOAL_RECURRENCE {
-  _OFF(0, "off"),
 
-  _DAILY(1, "daily"),
+	_OFF(0, "off"),
 
-  _WEEKLY(2, "weekly"),
+	_DAILY(1, "daily"),
 
-  _MONTHLY(3, "monthly"),
+	_WEEKLY(2, "weekly"),
 
-  _YEARLY(4, "yearly"),
+	_MONTHLY(3, "monthly"),
 
-  _CUSTOM(5, "custom");
+	_YEARLY(4, "yearly"),
 
-  private final int messageNumber;
+	_CUSTOM(5, "custom");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  GOAL_RECURRENCE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static GOAL_RECURRENCE findById(int messageNumber) {
-    for (GOAL_RECURRENCE name: GOAL_RECURRENCE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	GOAL_RECURRENCE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static GOAL_RECURRENCE findById(int messageNumber) {
+		for (GOAL_RECURRENCE name : GOAL_RECURRENCE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

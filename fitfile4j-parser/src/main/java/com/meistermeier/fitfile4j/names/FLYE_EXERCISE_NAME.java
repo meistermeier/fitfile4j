@@ -2,45 +2,47 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FLYE_EXERCISE_NAME {
-  _CABLE_CROSSOVER(0, "cable_crossover"),
 
-  _DECLINE_DUMBBELL_FLYE(1, "decline_dumbbell_flye"),
+	_CABLE_CROSSOVER(0, "cable_crossover"),
 
-  _DUMBBELL_FLYE(2, "dumbbell_flye"),
+	_DECLINE_DUMBBELL_FLYE(1, "decline_dumbbell_flye"),
 
-  _INCLINE_DUMBBELL_FLYE(3, "incline_dumbbell_flye"),
+	_DUMBBELL_FLYE(2, "dumbbell_flye"),
 
-  _KETTLEBELL_FLYE(4, "kettlebell_flye"),
+	_INCLINE_DUMBBELL_FLYE(3, "incline_dumbbell_flye"),
 
-  _KNEELING_REAR_FLYE(5, "kneeling_rear_flye"),
+	_KETTLEBELL_FLYE(4, "kettlebell_flye"),
 
-  _SINGLE_ARM_STANDING_CABLE_REVERSE_FLYE(6, "single_arm_standing_cable_reverse_flye"),
+	_KNEELING_REAR_FLYE(5, "kneeling_rear_flye"),
 
-  _SWISS_BALL_DUMBBELL_FLYE(7, "swiss_ball_dumbbell_flye"),
+	_SINGLE_ARM_STANDING_CABLE_REVERSE_FLYE(6, "single_arm_standing_cable_reverse_flye"),
 
-  _ARM_ROTATIONS(8, "arm_rotations"),
+	_SWISS_BALL_DUMBBELL_FLYE(7, "swiss_ball_dumbbell_flye"),
 
-  _HUG_A_TREE(9, "hug_a_tree");
+	_ARM_ROTATIONS(8, "arm_rotations"),
 
-  private final int messageNumber;
+	_HUG_A_TREE(9, "hug_a_tree");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  FLYE_EXERCISE_NAME(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static FLYE_EXERCISE_NAME findById(int messageNumber) {
-    for (FLYE_EXERCISE_NAME name: FLYE_EXERCISE_NAME.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	FLYE_EXERCISE_NAME(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static FLYE_EXERCISE_NAME findById(int messageNumber) {
+		for (FLYE_EXERCISE_NAME name : FLYE_EXERCISE_NAME.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

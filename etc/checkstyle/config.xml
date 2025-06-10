@@ -69,7 +69,7 @@
 		<!-- Imports -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck">
-			<property name="excludes" value="org.junit.jupiter.api.Assertions.*" />
+			<property name="excludes" value="org.junit.jupiter.api.Assertions.*,org.assertj.core.api.Assertions.*" />
 		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck">

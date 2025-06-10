@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTOSCROLL {
-  _NONE(0, "none"),
 
-  _SLOW(1, "slow"),
+	_NONE(0, "none"),
 
-  _MEDIUM(2, "medium"),
+	_SLOW(1, "slow"),
 
-  _FAST(3, "fast");
+	_MEDIUM(2, "medium"),
 
-  private final int messageNumber;
+	_FAST(3, "fast");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  AUTOSCROLL(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static AUTOSCROLL findById(int messageNumber) {
-    for (AUTOSCROLL name: AUTOSCROLL.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	AUTOSCROLL(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static AUTOSCROLL findById(int messageNumber) {
+		for (AUTOSCROLL name : AUTOSCROLL.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_LEVEL {
-  _LOW(0, "low"),
 
-  _MEDIUM(1, "medium"),
+	_LOW(0, "low"),
 
-  _HIGH(2, "high");
+	_MEDIUM(1, "medium"),
 
-  private final int messageNumber;
+	_HIGH(2, "high");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ACTIVITY_LEVEL(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ACTIVITY_LEVEL findById(int messageNumber) {
-    for (ACTIVITY_LEVEL name: ACTIVITY_LEVEL.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ACTIVITY_LEVEL(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ACTIVITY_LEVEL findById(int messageNumber) {
+		for (ACTIVITY_LEVEL name : ACTIVITY_LEVEL.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

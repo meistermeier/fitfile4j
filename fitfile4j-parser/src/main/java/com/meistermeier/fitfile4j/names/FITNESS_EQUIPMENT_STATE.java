@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FITNESS_EQUIPMENT_STATE {
-  _READY(0, "ready"),
 
-  _IN_USE(1, "in_use"),
+	_READY(0, "ready"),
 
-  _PAUSED(2, "paused"),
+	_IN_USE(1, "in_use"),
 
-  _UNKNOWN(3, "unknown");
+	_PAUSED(2, "paused"),
 
-  private final int messageNumber;
+	_UNKNOWN(3, "unknown");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  FITNESS_EQUIPMENT_STATE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static FITNESS_EQUIPMENT_STATE findById(int messageNumber) {
-    for (FITNESS_EQUIPMENT_STATE name: FITNESS_EQUIPMENT_STATE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	FITNESS_EQUIPMENT_STATE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static FITNESS_EQUIPMENT_STATE findById(int messageNumber) {
+		for (FITNESS_EQUIPMENT_STATE name : FITNESS_EQUIPMENT_STATE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,43 +2,45 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LAP_TRIGGER {
-  _MANUAL(0, "manual"),
 
-  _TIME(1, "time"),
+	_MANUAL(0, "manual"),
 
-  _DISTANCE(2, "distance"),
+	_TIME(1, "time"),
 
-  _POSITION_START(3, "position_start"),
+	_DISTANCE(2, "distance"),
 
-  _POSITION_LAP(4, "position_lap"),
+	_POSITION_START(3, "position_start"),
 
-  _POSITION_WAYPOINT(5, "position_waypoint"),
+	_POSITION_LAP(4, "position_lap"),
 
-  _POSITION_MARKED(6, "position_marked"),
+	_POSITION_WAYPOINT(5, "position_waypoint"),
 
-  _SESSION_END(7, "session_end"),
+	_POSITION_MARKED(6, "position_marked"),
 
-  _FITNESS_EQUIPMENT(8, "fitness_equipment");
+	_SESSION_END(7, "session_end"),
 
-  private final int messageNumber;
+	_FITNESS_EQUIPMENT(8, "fitness_equipment");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  LAP_TRIGGER(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static LAP_TRIGGER findById(int messageNumber) {
-    for (LAP_TRIGGER name: LAP_TRIGGER.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	LAP_TRIGGER(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static LAP_TRIGGER findById(int messageNumber) {
+		for (LAP_TRIGGER name : LAP_TRIGGER.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,29 +2,31 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GENDER {
-  _FEMALE(0, "female"),
 
-  _MALE(1, "male");
+	_FEMALE(0, "female"),
 
-  private final int messageNumber;
+	_MALE(1, "male");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  GENDER(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static GENDER findById(int messageNumber) {
-    for (GENDER name: GENDER.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	GENDER(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static GENDER findById(int messageNumber) {
+		for (GENDER name : GENDER.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

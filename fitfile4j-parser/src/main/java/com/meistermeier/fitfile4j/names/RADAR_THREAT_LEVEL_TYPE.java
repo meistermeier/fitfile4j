@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum RADAR_THREAT_LEVEL_TYPE {
-  _THREAT_UNKNOWN(0, "threat_unknown"),
 
-  _THREAT_NONE(1, "threat_none"),
+	_THREAT_UNKNOWN(0, "threat_unknown"),
 
-  _THREAT_APPROACHING(2, "threat_approaching"),
+	_THREAT_NONE(1, "threat_none"),
 
-  _THREAT_APPROACHING_FAST(3, "threat_approaching_fast");
+	_THREAT_APPROACHING(2, "threat_approaching"),
 
-  private final int messageNumber;
+	_THREAT_APPROACHING_FAST(3, "threat_approaching_fast");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  RADAR_THREAT_LEVEL_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static RADAR_THREAT_LEVEL_TYPE findById(int messageNumber) {
-    for (RADAR_THREAT_LEVEL_TYPE name: RADAR_THREAT_LEVEL_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	RADAR_THREAT_LEVEL_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static RADAR_THREAT_LEVEL_TYPE findById(int messageNumber) {
+		for (RADAR_THREAT_LEVEL_TYPE name : RADAR_THREAT_LEVEL_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

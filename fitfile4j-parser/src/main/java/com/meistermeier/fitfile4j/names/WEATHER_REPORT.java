@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_REPORT {
-  _CURRENT(0, "current"),
 
-  _FORECAST(1, "forecast"),
+	_CURRENT(0, "current"),
 
-  _HOURLY_FORECAST(1, "hourly_forecast"),
+	_FORECAST(1, "forecast"),
 
-  _DAILY_FORECAST(2, "daily_forecast");
+	_HOURLY_FORECAST(1, "hourly_forecast"),
 
-  private final int messageNumber;
+	_DAILY_FORECAST(2, "daily_forecast");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WEATHER_REPORT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WEATHER_REPORT findById(int messageNumber) {
-    for (WEATHER_REPORT name: WEATHER_REPORT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WEATHER_REPORT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WEATHER_REPORT findById(int messageNumber) {
+		for (WEATHER_REPORT name : WEATHER_REPORT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

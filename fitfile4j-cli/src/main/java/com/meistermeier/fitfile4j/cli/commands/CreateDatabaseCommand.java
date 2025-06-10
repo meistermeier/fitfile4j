@@ -16,13 +16,18 @@
 package com.meistermeier.fitfile4j.cli.commands;
 
 import com.meistermeier.fitfile4j.cli.FitFile4j;
-import org.flywaydb.core.Flyway;
 import picocli.CommandLine;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.concurrent.Callable;
 
 /**
@@ -34,32 +39,47 @@ public class CreateDatabaseCommand implements Callable<Integer> {
 	@CommandLine.Option(names = "-d", defaultValue = FitFile4j.DEFAULT_DATABASE)
 	String databaseFile;
 
-	@CommandLine.Option(names = {"-o", "--overwrite"})
+	@CommandLine.Option(names = { "-o", "--overwrite" })
 	boolean overwrite;
 
 	@Override
 	public Integer call() {
 		Path databasePath = Paths.get(databaseFile);
 		if (Files.exists(databasePath) && !overwrite) {
-			System.err.println("Database file already exists. If you want to overwrite it, use the command with the --overwrite flag.");
+			System.err.println(
+					"Database file already exists. If you want to overwrite it, use the command with the --overwrite flag.");
 			return 1;
 		}
 
 		if (overwrite) {
 			try {
 				Files.delete(databasePath);
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				throw new RuntimeException("Could not delete database file " + databasePath.toAbsolutePath(), e);
 			}
 		}
-
 		String jdbcUrl = "jdbc:duckdb:" + databaseFile;
-		var flyway = Flyway.configure().dataSource(jdbcUrl, null, null).load();
-		var migrationResult = flyway.migrate();
-		if (migrationResult.success) {
-			System.out.println("Migration successful.");
-		}
+		try (var connection = DriverManager.getConnection(jdbcUrl)) {
+			var migrationFolder = Path.of(CreateDatabaseCommand.class.getResource("/db/migration/").getFile());
+			for (File migration : migrationFolder.toFile().listFiles()) {
+				var lines = new BufferedReader(new FileReader(migration)).lines().toList();
+				var statementBuilder = new StringBuilder();
 
+				for (String line : lines) {
+					statementBuilder.append(line);
+					if (line.endsWith("\n")) {
+						var statement = connection.prepareStatement(statementBuilder.toString());
+						statement.executeUpdate();
+						statement.close();
+					}
+				}
+			}
+		}
+		catch (SQLException | FileNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 		return 0;
 	}
+
 }

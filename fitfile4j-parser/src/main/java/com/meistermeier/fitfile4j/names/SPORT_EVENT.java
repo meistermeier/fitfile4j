@@ -2,43 +2,45 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_EVENT {
-  _UNCATEGORIZED(0, "uncategorized"),
 
-  _GEOCACHING(1, "geocaching"),
+	_UNCATEGORIZED(0, "uncategorized"),
 
-  _FITNESS(2, "fitness"),
+	_GEOCACHING(1, "geocaching"),
 
-  _RECREATION(3, "recreation"),
+	_FITNESS(2, "fitness"),
 
-  _RACE(4, "race"),
+	_RECREATION(3, "recreation"),
 
-  _SPECIAL_EVENT(5, "special_event"),
+	_RACE(4, "race"),
 
-  _TRAINING(6, "training"),
+	_SPECIAL_EVENT(5, "special_event"),
 
-  _TRANSPORTATION(7, "transportation"),
+	_TRAINING(6, "training"),
 
-  _TOURING(8, "touring");
+	_TRANSPORTATION(7, "transportation"),
 
-  private final int messageNumber;
+	_TOURING(8, "touring");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SPORT_EVENT(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SPORT_EVENT findById(int messageNumber) {
-    for (SPORT_EVENT name: SPORT_EVENT.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SPORT_EVENT(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SPORT_EVENT findById(int messageNumber) {
+		for (SPORT_EVENT name : SPORT_EVENT.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

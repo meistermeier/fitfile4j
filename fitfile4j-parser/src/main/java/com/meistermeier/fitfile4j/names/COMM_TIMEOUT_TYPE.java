@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum COMM_TIMEOUT_TYPE {
-  _WILDCARD_PAIRING_TIMEOUT(0, "wildcard_pairing_timeout"),
 
-  _PAIRING_TIMEOUT(1, "pairing_timeout"),
+	_WILDCARD_PAIRING_TIMEOUT(0, "wildcard_pairing_timeout"),
 
-  _CONNECTION_LOST(2, "connection_lost"),
+	_PAIRING_TIMEOUT(1, "pairing_timeout"),
 
-  _CONNECTION_TIMEOUT(3, "connection_timeout");
+	_CONNECTION_LOST(2, "connection_lost"),
 
-  private final int messageNumber;
+	_CONNECTION_TIMEOUT(3, "connection_timeout");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  COMM_TIMEOUT_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static COMM_TIMEOUT_TYPE findById(int messageNumber) {
-    for (COMM_TIMEOUT_TYPE name: COMM_TIMEOUT_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	COMM_TIMEOUT_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static COMM_TIMEOUT_TYPE findById(int messageNumber) {
+		for (COMM_TIMEOUT_TYPE name : COMM_TIMEOUT_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

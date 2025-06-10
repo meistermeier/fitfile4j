@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GOAL_SOURCE {
-  _AUTO(0, "auto"),
 
-  _COMMUNITY(1, "community"),
+	_AUTO(0, "auto"),
 
-  _USER(2, "user");
+	_COMMUNITY(1, "community"),
 
-  private final int messageNumber;
+	_USER(2, "user");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  GOAL_SOURCE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static GOAL_SOURCE findById(int messageNumber) {
-    for (GOAL_SOURCE name: GOAL_SOURCE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	GOAL_SOURCE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static GOAL_SOURCE findById(int messageNumber) {
+		for (GOAL_SOURCE name : GOAL_SOURCE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

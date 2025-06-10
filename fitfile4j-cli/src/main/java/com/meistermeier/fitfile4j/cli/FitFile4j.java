@@ -24,16 +24,8 @@ import picocli.CommandLine.Model.CommandSpec;
 /**
  * Entry point for the fitfile4j command line tool
  */
-@CommandLine.Command(
-	name = "fitfile4j",
-	version = "1.0-SNAPSHOT",
-	description = "Tool to work with .FIT files",
-	subcommands = {
-		DatabaseCommand.class,
-		ImageCommand.class,
-		JsonCommand.class
-	}
-)
+@CommandLine.Command(name = "fitfile4j", version = "1.0-SNAPSHOT", description = "Tool to work with .FIT files",
+		subcommands = { DatabaseCommand.class, ImageCommand.class, JsonCommand.class })
 public class FitFile4j implements Runnable {
 
 	public static final String DEFAULT_DATABASE = "fitfile.db";

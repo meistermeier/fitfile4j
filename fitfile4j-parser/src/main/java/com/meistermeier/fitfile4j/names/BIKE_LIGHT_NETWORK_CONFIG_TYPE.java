@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BIKE_LIGHT_NETWORK_CONFIG_TYPE {
-  _AUTO(0, "auto"),
 
-  _INDIVIDUAL(4, "individual"),
+	_AUTO(0, "auto"),
 
-  _HIGH_VISIBILITY(5, "high_visibility"),
+	_INDIVIDUAL(4, "individual"),
 
-  _TRAIL(6, "trail");
+	_HIGH_VISIBILITY(5, "high_visibility"),
 
-  private final int messageNumber;
+	_TRAIL(6, "trail");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  BIKE_LIGHT_NETWORK_CONFIG_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static BIKE_LIGHT_NETWORK_CONFIG_TYPE findById(int messageNumber) {
-    for (BIKE_LIGHT_NETWORK_CONFIG_TYPE name: BIKE_LIGHT_NETWORK_CONFIG_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	BIKE_LIGHT_NETWORK_CONFIG_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static BIKE_LIGHT_NETWORK_CONFIG_TYPE findById(int messageNumber) {
+		for (BIKE_LIGHT_NETWORK_CONFIG_TYPE name : BIKE_LIGHT_NETWORK_CONFIG_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

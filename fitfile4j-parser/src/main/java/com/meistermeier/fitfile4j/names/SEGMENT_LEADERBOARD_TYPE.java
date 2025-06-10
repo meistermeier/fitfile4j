@@ -2,55 +2,57 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SEGMENT_LEADERBOARD_TYPE {
-  _OVERALL(0, "overall"),
 
-  _PERSONAL_BEST(1, "personal_best"),
+	_OVERALL(0, "overall"),
 
-  _CONNECTIONS(2, "connections"),
+	_PERSONAL_BEST(1, "personal_best"),
 
-  _GROUP(3, "group"),
+	_CONNECTIONS(2, "connections"),
 
-  _CHALLENGER(4, "challenger"),
+	_GROUP(3, "group"),
 
-  _KOM(5, "kom"),
+	_CHALLENGER(4, "challenger"),
 
-  _QOM(6, "qom"),
+	_KOM(5, "kom"),
 
-  _PR(7, "pr"),
+	_QOM(6, "qom"),
 
-  _GOAL(8, "goal"),
+	_PR(7, "pr"),
 
-  _CARROT(9, "carrot"),
+	_GOAL(8, "goal"),
 
-  _CLUB_LEADER(10, "club_leader"),
+	_CARROT(9, "carrot"),
 
-  _RIVAL(11, "rival"),
+	_CLUB_LEADER(10, "club_leader"),
 
-  _LAST(12, "last"),
+	_RIVAL(11, "rival"),
 
-  _RECENT_BEST(13, "recent_best"),
+	_LAST(12, "last"),
 
-  _COURSE_RECORD(14, "course_record");
+	_RECENT_BEST(13, "recent_best"),
 
-  private final int messageNumber;
+	_COURSE_RECORD(14, "course_record");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  SEGMENT_LEADERBOARD_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static SEGMENT_LEADERBOARD_TYPE findById(int messageNumber) {
-    for (SEGMENT_LEADERBOARD_TYPE name: SEGMENT_LEADERBOARD_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	SEGMENT_LEADERBOARD_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static SEGMENT_LEADERBOARD_TYPE findById(int messageNumber) {
+		for (SEGMENT_LEADERBOARD_TYPE name : SEGMENT_LEADERBOARD_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

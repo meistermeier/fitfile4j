@@ -34,19 +34,18 @@ public class JsonCommand implements Callable<Integer> {
 	@CommandLine.Parameters
 	File fitFileSource;
 
-	@CommandLine.Option(names = {"-n", "--names"}, description = "Resolves names of messages and fields")
+	@CommandLine.Option(names = { "-n", "--names" }, description = "Resolves names of messages and entries")
 	boolean names;
 
 	@Override
 	public Integer call() throws Exception {
 		var fitFile = FitFile.from(fitFileSource);
 		var json = JSON.builder().register(new JacksonJrExtension() {
-				@Override
-				protected void register(ExtensionContext extensionContext) {
-					extensionContext.appendProvider(new FitFileWriterProvider(names));
-				}
-			})
-			.build();
+			@Override
+			protected void register(ExtensionContext extensionContext) {
+				extensionContext.appendProvider(new FitFileWriterProvider(names));
+			}
+		}).build();
 		System.out.println(json.asString(fitFile.messages()));
 		return 0;
 	}

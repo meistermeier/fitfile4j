@@ -30,7 +30,6 @@ import java.util.concurrent.Callable;
 @CommandLine.Command(name = "image")
 public class ImageCommand implements Callable<Integer> {
 
-
 	@CommandLine.Parameters
 	File fitFileSource;
 
@@ -50,16 +49,19 @@ public class ImageCommand implements Callable<Integer> {
 	}
 
 	private void createImage(FitFile fitFile) throws Exception {
-		var coordinates = fitFile.messages().stream().filter(message -> message.messageNumber() == 20)
-			.filter(m -> m.fields().getFieldByFieldDefinitionNumber(0).isPresent() && m.fields().getFieldByFieldDefinitionNumber(1).isPresent())
-			.map(m -> new Coords((long) m.fields().getFieldByFieldDefinitionNumber(1).get().value(), -(long) m.fields().getFieldByFieldDefinitionNumber(1).get().value()))
+		var coordinates = fitFile.messages()
+			.stream()
+			.filter(message -> message.messageNumber() == 20)
+			.filter(m -> m.fields().getEntryByFieldDefinitionNumber(0).isPresent()
+					&& m.fields().getEntryByFieldDefinitionNumber(1).isPresent())
+			.map(m -> new Coords((long) m.fields().getEntryByFieldDefinitionNumber(1).get().value(),
+					-(long) m.fields().getEntryByFieldDefinitionNumber(1).get().value()))
 			.toList();
 		var minX = Long.MAX_VALUE;
 		var minY = Long.MAX_VALUE;
 		var maxX = Long.MIN_VALUE;
 		var maxY = Long.MIN_VALUE;
-		for (
-			Coords coordinate : coordinates) {
+		for (Coords coordinate : coordinates) {
 			if (coordinate.x() < minX) {
 				minX = coordinate.x();
 			}
@@ -95,4 +97,5 @@ public class ImageCommand implements Callable<Integer> {
 
 		ImageIO.write(image, "png", Path.of("./test.png").toFile());
 	}
+
 }

@@ -2,59 +2,61 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FIT_BASE_TYPE {
-  _ENUM(0, "enum"),
 
-  _SINT8(1, "sint8"),
+	_ENUM(0, "enum"),
 
-  _UINT8(2, "uint8"),
+	_SINT8(1, "sint8"),
 
-  _SINT16(131, "sint16"),
+	_UINT8(2, "uint8"),
 
-  _UINT16(132, "uint16"),
+	_SINT16(131, "sint16"),
 
-  _SINT32(133, "sint32"),
+	_UINT16(132, "uint16"),
 
-  _UINT32(134, "uint32"),
+	_SINT32(133, "sint32"),
 
-  _STRING(7, "string"),
+	_UINT32(134, "uint32"),
 
-  _FLOAT32(136, "float32"),
+	_STRING(7, "string"),
 
-  _FLOAT64(137, "float64"),
+	_FLOAT32(136, "float32"),
 
-  _UINT8Z(10, "uint8z"),
+	_FLOAT64(137, "float64"),
 
-  _UINT16Z(139, "uint16z"),
+	_UINT8Z(10, "uint8z"),
 
-  _UINT32Z(140, "uint32z"),
+	_UINT16Z(139, "uint16z"),
 
-  _BYTE(13, "byte"),
+	_UINT32Z(140, "uint32z"),
 
-  _SINT64(142, "sint64"),
+	_BYTE(13, "byte"),
 
-  _UINT64(143, "uint64"),
+	_SINT64(142, "sint64"),
 
-  _UINT64Z(144, "uint64z");
+	_UINT64(143, "uint64"),
 
-  private final int messageNumber;
+	_UINT64Z(144, "uint64z");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  FIT_BASE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static FIT_BASE_TYPE findById(int messageNumber) {
-    for (FIT_BASE_TYPE name: FIT_BASE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	FIT_BASE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static FIT_BASE_TYPE findById(int messageNumber) {
+		for (FIT_BASE_TYPE name : FIT_BASE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

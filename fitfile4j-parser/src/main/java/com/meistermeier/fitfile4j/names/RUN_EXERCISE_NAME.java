@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum RUN_EXERCISE_NAME {
-  _RUN(0, "run"),
 
-  _WALK(1, "walk"),
+	_RUN(0, "run"),
 
-  _JOG(2, "jog"),
+	_WALK(1, "walk"),
 
-  _SPRINT(3, "sprint");
+	_JOG(2, "jog"),
 
-  private final int messageNumber;
+	_SPRINT(3, "sprint");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  RUN_EXERCISE_NAME(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static RUN_EXERCISE_NAME findById(int messageNumber) {
-    for (RUN_EXERCISE_NAME name: RUN_EXERCISE_NAME.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	RUN_EXERCISE_NAME(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static RUN_EXERCISE_NAME findById(int messageNumber) {
+		for (RUN_EXERCISE_NAME name : RUN_EXERCISE_NAME.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

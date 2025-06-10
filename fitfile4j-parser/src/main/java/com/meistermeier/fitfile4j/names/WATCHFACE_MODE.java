@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WATCHFACE_MODE {
-  _DIGITAL(0, "digital"),
 
-  _ANALOG(1, "analog"),
+	_DIGITAL(0, "digital"),
 
-  _CONNECT_IQ(2, "connect_iq"),
+	_ANALOG(1, "analog"),
 
-  _DISABLED(3, "disabled");
+	_CONNECT_IQ(2, "connect_iq"),
 
-  private final int messageNumber;
+	_DISABLED(3, "disabled");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WATCHFACE_MODE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WATCHFACE_MODE findById(int messageNumber) {
-    for (WATCHFACE_MODE name: WATCHFACE_MODE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WATCHFACE_MODE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WATCHFACE_MODE findById(int messageNumber) {
+		for (WATCHFACE_MODE name : WATCHFACE_MODE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

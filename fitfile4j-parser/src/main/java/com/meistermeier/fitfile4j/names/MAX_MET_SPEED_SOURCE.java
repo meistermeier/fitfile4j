@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MAX_MET_SPEED_SOURCE {
-  _ONBOARD_GPS(0, "onboard_gps"),
 
-  _CONNECTED_GPS(1, "connected_gps"),
+	_ONBOARD_GPS(0, "onboard_gps"),
 
-  _CADENCE(2, "cadence");
+	_CONNECTED_GPS(1, "connected_gps"),
 
-  private final int messageNumber;
+	_CADENCE(2, "cadence");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  MAX_MET_SPEED_SOURCE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static MAX_MET_SPEED_SOURCE findById(int messageNumber) {
-    for (MAX_MET_SPEED_SOURCE name: MAX_MET_SPEED_SOURCE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	MAX_MET_SPEED_SOURCE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static MAX_MET_SPEED_SOURCE findById(int messageNumber) {
+		for (MAX_MET_SPEED_SOURCE name : MAX_MET_SPEED_SOURCE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

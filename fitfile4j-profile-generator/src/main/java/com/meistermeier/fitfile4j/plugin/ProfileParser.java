@@ -33,54 +33,55 @@ class ProfileParser {
 
 	private final String profileSource;
 
-	private static final List<String> LONG_VALUES = List.of(
-		"UINT32",
-		"UINT32Z",
-		"SINT32",
-		"UINT64",
-		"SINT64"
-	);
+	private static final List<String> LONG_VALUES = List.of("UINT32", "UINT32Z", "SINT32", "UINT64", "SINT64");
 
 	ProfileParser(String profileSource) {
 		this.profileSource = profileSource;
 	}
+
 	record Type(Long value, String name, boolean longType) {
 
 	}
+
 	Map<String, Collection<Type>> parseTypes() throws IOException {
 		Map<String, Collection<Type>> types = new HashMap<>();
 		try (var workbook = new ReadableWorkbook(new File(profileSource))) {
-			workbook.findSheet("Types")
-				.ifPresent(wb -> {
-					try {
-						String currentType = null;
-						boolean longType = false;
-						for (Row row : wb.read()) {
-							// skip first row
-							if (row.getRowNum() == 0) {
-								continue;
+			workbook.findSheet("Types").ifPresent(wb -> {
+				try {
+					String currentType = null;
+					boolean longType = false;
+					for (Row row : wb.read()) {
+						// skip first row
+						if (row.getRowNum() == 0) {
+							continue;
+						}
+						String cellValue = row.getCell(0).asString();
+						if (!cellValue.isBlank()) {
+							if (currentType != null && types.get(currentType).isEmpty()) {
+								types.remove(currentType);
 							}
-							String cellValue = row.getCell(0).asString();
-							if (!cellValue.isBlank()) {
-								if (currentType != null && types.get(currentType).isEmpty()) {
-									types.remove(currentType);
-								}
-								currentType = cellValue.toUpperCase();
-								longType = LONG_VALUES.contains(row.getCellText(1).toUpperCase());
-								types.put(currentType, new ArrayList<>());
-							} else if (currentType != null) {
-								try {
-									String cellText = row.getCellText(3).trim();
-									types.get(currentType).add(new Type(cellText.startsWith("0x") ? Long.parseLong(cellText.replaceAll("0x", ""), 16) : Long.parseLong(cellText), row.getCellText(2), longType));
-								} catch (ExcelReaderException e) {
-									System.err.println("nope");
-								}
+							currentType = cellValue.toUpperCase();
+							longType = LONG_VALUES.contains(row.getCellText(1).toUpperCase());
+							types.put(currentType, new ArrayList<>());
+						}
+						else if (currentType != null) {
+							try {
+								String cellText = row.getCellText(3).trim();
+								types.get(currentType)
+									.add(new Type(cellText.startsWith("0x")
+											? Long.parseLong(cellText.replaceAll("0x", ""), 16)
+											: Long.parseLong(cellText), row.getCellText(2), longType));
+							}
+							catch (ExcelReaderException e) {
+								System.err.println("nope");
 							}
 						}
-					} catch (IOException e) {
-						throw new RuntimeException(e);
 					}
-				});
+				}
+				catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			});
 			return types;
 		}
 	}
@@ -89,30 +90,34 @@ class ProfileParser {
 	}
 
 	List<FieldName> parseFieldNames(Collection<Type> types) throws IOException {
-		var messageNames = types.stream()
-			.collect(Collectors.toUnmodifiableMap(type -> type.name, type -> type.value));
+		var messageNames = types.stream().collect(Collectors.toUnmodifiableMap(type -> type.name, type -> type.value));
 		List<FieldName> fieldNames = new ArrayList<>();
 
 		try (var workbook = new ReadableWorkbook(new File(profileSource))) {
-			workbook.findSheet("Messages")
-				.ifPresent(wb -> {
-					try {
-						Long currentMessage = null;
-						for (Row row : wb.read()) {
-							String cellValue = row.getCell(0).asString();
-							if (!cellValue.isBlank()) {
-								currentMessage = messageNames.get(cellValue);
-								continue;
-							}
-							if (row.getCellRawValue(1).isPresent() && !row.getCellRawValue(1).get().isEmpty()) {
-								fieldNames.add(new FieldName(currentMessage, row.getCellAsNumber(1).map(BigDecimal::intValue).orElseThrow(() -> new RuntimeException("could not convert field")), row.getCellText(2), row.getCellText(3)));
-							}
+			workbook.findSheet("Messages").ifPresent(wb -> {
+				try {
+					Long currentMessage = null;
+					for (Row row : wb.read()) {
+						String cellValue = row.getCell(0).asString();
+						if (!cellValue.isBlank()) {
+							currentMessage = messageNames.get(cellValue);
+							continue;
 						}
-					} catch (IOException e) {
-						throw new RuntimeException(e);
+						if (row.getCellRawValue(1).isPresent() && !row.getCellRawValue(1).get().isEmpty()) {
+							fieldNames.add(new FieldName(currentMessage,
+									row.getCellAsNumber(1)
+										.map(BigDecimal::intValue)
+										.orElseThrow(() -> new RuntimeException("could not convert field")),
+									row.getCellText(2), row.getCellText(3)));
+						}
 					}
-				});
+				}
+				catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			});
 			return fieldNames;
 		}
 	}
+
 }

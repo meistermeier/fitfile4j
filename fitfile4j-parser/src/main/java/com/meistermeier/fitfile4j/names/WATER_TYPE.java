@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WATER_TYPE {
-  _FRESH(0, "fresh"),
 
-  _SALT(1, "salt"),
+	_FRESH(0, "fresh"),
 
-  _EN13319(2, "en13319"),
+	_SALT(1, "salt"),
 
-  _CUSTOM(3, "custom");
+	_EN13319(2, "en13319"),
 
-  private final int messageNumber;
+	_CUSTOM(3, "custom");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WATER_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WATER_TYPE findById(int messageNumber) {
-    for (WATER_TYPE name: WATER_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WATER_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WATER_TYPE findById(int messageNumber) {
+		for (WATER_TYPE name : WATER_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

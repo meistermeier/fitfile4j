@@ -2,33 +2,35 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ATTITUDE_STAGE {
-  _FAILED(0, "failed"),
 
-  _ALIGNING(1, "aligning"),
+	_FAILED(0, "failed"),
 
-  _DEGRADED(2, "degraded"),
+	_ALIGNING(1, "aligning"),
 
-  _VALID(3, "valid");
+	_DEGRADED(2, "degraded"),
 
-  private final int messageNumber;
+	_VALID(3, "valid");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  ATTITUDE_STAGE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static ATTITUDE_STAGE findById(int messageNumber) {
-    for (ATTITUDE_STAGE name: ATTITUDE_STAGE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	ATTITUDE_STAGE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static ATTITUDE_STAGE findById(int messageNumber) {
+		for (ATTITUDE_STAGE name : ATTITUDE_STAGE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

@@ -2,31 +2,33 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_GAS_STATUS {
-  _DISABLED(0, "disabled"),
 
-  _ENABLED(1, "enabled"),
+	_DISABLED(0, "disabled"),
 
-  _BACKUP_ONLY(2, "backup_only");
+	_ENABLED(1, "enabled"),
 
-  private final int messageNumber;
+	_BACKUP_ONLY(2, "backup_only");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  DIVE_GAS_STATUS(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static DIVE_GAS_STATUS findById(int messageNumber) {
-    for (DIVE_GAS_STATUS name: DIVE_GAS_STATUS.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	DIVE_GAS_STATUS(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static DIVE_GAS_STATUS findById(int messageNumber) {
+		for (DIVE_GAS_STATUS name : DIVE_GAS_STATUS.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

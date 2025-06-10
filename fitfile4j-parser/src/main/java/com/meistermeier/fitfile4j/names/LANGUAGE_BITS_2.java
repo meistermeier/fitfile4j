@@ -2,41 +2,43 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_2 {
-  _SLOVENIAN(1, "slovenian"),
 
-  _SWEDISH(2, "swedish"),
+	_SLOVENIAN(1, "slovenian"),
 
-  _RUSSIAN(4, "russian"),
+	_SWEDISH(2, "swedish"),
 
-  _TURKISH(8, "turkish"),
+	_RUSSIAN(4, "russian"),
 
-  _LATVIAN(16, "latvian"),
+	_TURKISH(8, "turkish"),
 
-  _UKRAINIAN(32, "ukrainian"),
+	_LATVIAN(16, "latvian"),
 
-  _ARABIC(64, "arabic"),
+	_UKRAINIAN(32, "ukrainian"),
 
-  _FARSI(128, "farsi");
+	_ARABIC(64, "arabic"),
 
-  private final int messageNumber;
+	_FARSI(128, "farsi");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  LANGUAGE_BITS_2(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static LANGUAGE_BITS_2 findById(int messageNumber) {
-    for (LANGUAGE_BITS_2 name: LANGUAGE_BITS_2.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	LANGUAGE_BITS_2(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static LANGUAGE_BITS_2 findById(int messageNumber) {
+		for (LANGUAGE_BITS_2 name : LANGUAGE_BITS_2.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

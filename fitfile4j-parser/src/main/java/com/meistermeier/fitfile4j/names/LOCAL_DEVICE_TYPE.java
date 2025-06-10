@@ -2,41 +2,43 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LOCAL_DEVICE_TYPE {
-  _GPS(0, "gps"),
 
-  _GLONASS(1, "glonass"),
+	_GPS(0, "gps"),
 
-  _GPS_GLONASS(2, "gps_glonass"),
+	_GLONASS(1, "glonass"),
 
-  _ACCELEROMETER(3, "accelerometer"),
+	_GPS_GLONASS(2, "gps_glonass"),
 
-  _BAROMETER(4, "barometer"),
+	_ACCELEROMETER(3, "accelerometer"),
 
-  _TEMPERATURE(5, "temperature"),
+	_BAROMETER(4, "barometer"),
 
-  _WHR(10, "whr"),
+	_TEMPERATURE(5, "temperature"),
 
-  _SENSOR_HUB(12, "sensor_hub");
+	_WHR(10, "whr"),
 
-  private final int messageNumber;
+	_SENSOR_HUB(12, "sensor_hub");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  LOCAL_DEVICE_TYPE(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static LOCAL_DEVICE_TYPE findById(int messageNumber) {
-    for (LOCAL_DEVICE_TYPE name: LOCAL_DEVICE_TYPE.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	LOCAL_DEVICE_TYPE(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static LOCAL_DEVICE_TYPE findById(int messageNumber) {
+		for (LOCAL_DEVICE_TYPE name : LOCAL_DEVICE_TYPE.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }

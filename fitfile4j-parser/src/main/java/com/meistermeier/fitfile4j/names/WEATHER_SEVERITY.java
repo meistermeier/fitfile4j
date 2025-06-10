@@ -2,35 +2,37 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_SEVERITY {
-  _UNKNOWN(0, "unknown"),
 
-  _WARNING(1, "warning"),
+	_UNKNOWN(0, "unknown"),
 
-  _WATCH(2, "watch"),
+	_WARNING(1, "warning"),
 
-  _ADVISORY(3, "advisory"),
+	_WATCH(2, "watch"),
 
-  _STATEMENT(4, "statement");
+	_ADVISORY(3, "advisory"),
 
-  private final int messageNumber;
+	_STATEMENT(4, "statement");
 
-  private final String messageName;
+	private final int messageNumber;
 
-  WEATHER_SEVERITY(int messageNumber, String messageName) {
-    this.messageNumber = messageNumber;
-    this.messageName = messageName;
-  }
+	private final String messageName;
 
-  public static WEATHER_SEVERITY findById(int messageNumber) {
-    for (WEATHER_SEVERITY name: WEATHER_SEVERITY.values()) {
-    	if (name.messageNumber == messageNumber) {
-    		return name;
-    	}
-    }
-    return null;
-  }
+	WEATHER_SEVERITY(int messageNumber, String messageName) {
+		this.messageNumber = messageNumber;
+		this.messageName = messageName;
+	}
 
-  public String getMessageName() {
-    return this.messageName;
-  }
+	public static WEATHER_SEVERITY findById(int messageNumber) {
+		for (WEATHER_SEVERITY name : WEATHER_SEVERITY.values()) {
+			if (name.messageNumber == messageNumber) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMessageName() {
+		return this.messageName;
+	}
+
 }
