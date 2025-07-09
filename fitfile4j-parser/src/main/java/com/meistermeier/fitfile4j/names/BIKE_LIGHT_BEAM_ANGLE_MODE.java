@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BIKE_LIGHT_BEAM_ANGLE_MODE {
-
 	_MANUAL(0, "manual"),
 
 	_AUTO(1, "auto");
@@ -17,7 +16,7 @@ public enum BIKE_LIGHT_BEAM_ANGLE_MODE {
 	}
 
 	public static BIKE_LIGHT_BEAM_ANGLE_MODE findById(int messageNumber) {
-		for (BIKE_LIGHT_BEAM_ANGLE_MODE name : BIKE_LIGHT_BEAM_ANGLE_MODE.values()) {
+		for (BIKE_LIGHT_BEAM_ANGLE_MODE name: BIKE_LIGHT_BEAM_ANGLE_MODE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum BIKE_LIGHT_BEAM_ANGLE_MODE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

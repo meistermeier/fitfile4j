@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CLIMB_PRO_EVENT {
-
 	_APPROACH(0, "approach"),
 
 	_START(1, "start"),
@@ -19,7 +18,7 @@ public enum CLIMB_PRO_EVENT {
 	}
 
 	public static CLIMB_PRO_EVENT findById(int messageNumber) {
-		for (CLIMB_PRO_EVENT name : CLIMB_PRO_EVENT.values()) {
+		for (CLIMB_PRO_EVENT name: CLIMB_PRO_EVENT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum CLIMB_PRO_EVENT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

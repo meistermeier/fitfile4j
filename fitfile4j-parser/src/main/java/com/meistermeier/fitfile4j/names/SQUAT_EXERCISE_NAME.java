@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SQUAT_EXERCISE_NAME {
-
 	_LEG_PRESS(0, "leg_press"),
 
 	_BACK_SQUAT_WITH_BODY_BAR(1, "back_squat_with_body_bar"),
@@ -183,11 +182,9 @@ public enum SQUAT_EXERCISE_NAME {
 
 	_SQUAT_JUMPS_IN_N_OUT(89, "squat_jumps_in_n_out"),
 
-	_PILATES_PLIE_SQUATS_PARALLEL_TURNED_OUT_FLAT_AND_HEELS(90,
-			"pilates_plie_squats_parallel_turned_out_flat_and_heels"),
+	_PILATES_PLIE_SQUATS_PARALLEL_TURNED_OUT_FLAT_AND_HEELS(90, "pilates_plie_squats_parallel_turned_out_flat_and_heels"),
 
-	_RELEVE_STRAIGHT_LEG_AND_KNEE_BENT_WITH_ONE_LEG_VARIATION(91,
-			"releve_straight_leg_and_knee_bent_with_one_leg_variation");
+	_RELEVE_STRAIGHT_LEG_AND_KNEE_BENT_WITH_ONE_LEG_VARIATION(91, "releve_straight_leg_and_knee_bent_with_one_leg_variation");
 
 	private final int messageNumber;
 
@@ -199,7 +196,7 @@ public enum SQUAT_EXERCISE_NAME {
 	}
 
 	public static SQUAT_EXERCISE_NAME findById(int messageNumber) {
-		for (SQUAT_EXERCISE_NAME name : SQUAT_EXERCISE_NAME.values()) {
+		for (SQUAT_EXERCISE_NAME name: SQUAT_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -207,8 +204,11 @@ public enum SQUAT_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

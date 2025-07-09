@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PLYO_EXERCISE_NAME {
-
 	_ALTERNATING_JUMP_LUNGE(0, "alternating_jump_lunge"),
 
 	_WEIGHTED_ALTERNATING_JUMP_LUNGE(1, "weighted_alternating_jump_lunge"),
@@ -79,7 +78,7 @@ public enum PLYO_EXERCISE_NAME {
 	}
 
 	public static PLYO_EXERCISE_NAME findById(int messageNumber) {
-		for (PLYO_EXERCISE_NAME name : PLYO_EXERCISE_NAME.values()) {
+		for (PLYO_EXERCISE_NAME name: PLYO_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -87,8 +86,11 @@ public enum PLYO_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

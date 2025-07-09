@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TIMER_TRIGGER {
-
 	_MANUAL(0, "manual"),
 
 	_AUTO(1, "auto"),
@@ -19,7 +18,7 @@ public enum TIMER_TRIGGER {
 	}
 
 	public static TIMER_TRIGGER findById(int messageNumber) {
-		for (TIMER_TRIGGER name : TIMER_TRIGGER.values()) {
+		for (TIMER_TRIGGER name: TIMER_TRIGGER.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum TIMER_TRIGGER {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

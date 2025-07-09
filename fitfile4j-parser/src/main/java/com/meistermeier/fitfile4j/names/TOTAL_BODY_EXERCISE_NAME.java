@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TOTAL_BODY_EXERCISE_NAME {
-
 	_BURPEE(0, "burpee"),
 
 	_WEIGHTED_BURPEE(1, "weighted_burpee"),
@@ -39,7 +38,7 @@ public enum TOTAL_BODY_EXERCISE_NAME {
 	}
 
 	public static TOTAL_BODY_EXERCISE_NAME findById(int messageNumber) {
-		for (TOTAL_BODY_EXERCISE_NAME name : TOTAL_BODY_EXERCISE_NAME.values()) {
+		for (TOTAL_BODY_EXERCISE_NAME name: TOTAL_BODY_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -47,8 +46,11 @@ public enum TOTAL_BODY_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LATERAL_RAISE_EXERCISE_NAME {
-
 	_45_DEGREE_CABLE_EXTERNAL_ROTATION(0, "45_degree_cable_external_rotation"),
 
 	_ALTERNATING_LATERAL_RAISE_WITH_STATIC_HOLD(1, "alternating_lateral_raise_with_static_hold"),
@@ -81,7 +80,7 @@ public enum LATERAL_RAISE_EXERCISE_NAME {
 	}
 
 	public static LATERAL_RAISE_EXERCISE_NAME findById(int messageNumber) {
-		for (LATERAL_RAISE_EXERCISE_NAME name : LATERAL_RAISE_EXERCISE_NAME.values()) {
+		for (LATERAL_RAISE_EXERCISE_NAME name: LATERAL_RAISE_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -89,8 +88,11 @@ public enum LATERAL_RAISE_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

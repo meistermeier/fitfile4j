@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FILE {
-
 	_DEVICE(1, "device"),
 
 	_SETTINGS(2, "settings"),
@@ -53,7 +52,7 @@ public enum FILE {
 	}
 
 	public static FILE findById(int messageNumber) {
-		for (FILE name : FILE.values()) {
+		for (FILE name: FILE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -61,8 +60,11 @@ public enum FILE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

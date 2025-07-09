@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LUNGE_EXERCISE_NAME {
-
 	_OVERHEAD_LUNGE(0, "overhead_lunge"),
 
 	_LUNGE_MATRIX(1, "lunge_matrix"),
@@ -175,7 +174,7 @@ public enum LUNGE_EXERCISE_NAME {
 	}
 
 	public static LUNGE_EXERCISE_NAME findById(int messageNumber) {
-		for (LUNGE_EXERCISE_NAME name : LUNGE_EXERCISE_NAME.values()) {
+		for (LUNGE_EXERCISE_NAME name: LUNGE_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -183,8 +182,11 @@ public enum LUNGE_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

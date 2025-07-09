@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SUPPORTED_EXD_SCREEN_LAYOUTS {
-
 	_FULL_SCREEN(1L, "full_screen"),
 
 	_HALF_VERTICAL(2L, "half_vertical"),
@@ -29,7 +28,7 @@ public enum SUPPORTED_EXD_SCREEN_LAYOUTS {
 	}
 
 	public static SUPPORTED_EXD_SCREEN_LAYOUTS findById(long messageNumber) {
-		for (SUPPORTED_EXD_SCREEN_LAYOUTS name : SUPPORTED_EXD_SCREEN_LAYOUTS.values()) {
+		for (SUPPORTED_EXD_SCREEN_LAYOUTS name: SUPPORTED_EXD_SCREEN_LAYOUTS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -37,8 +36,11 @@ public enum SUPPORTED_EXD_SCREEN_LAYOUTS {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

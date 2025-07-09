@@ -26,8 +26,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0xFF) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -41,8 +40,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0xFF) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -56,8 +54,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0x7F) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -71,8 +68,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0x7FFF) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -86,8 +82,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Long converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0x7FFFFFFFL) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -101,8 +96,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Long converted = ValueReader.readNumber(endianness, value);
 
 			if (converted.equals(Long.MAX_VALUE)) {
@@ -117,8 +111,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0xFF) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -132,8 +125,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0xFFFF) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -147,8 +139,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Long converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0xFFFFFFFFL) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -162,8 +153,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Long converted = ValueReader.readNumber(endianness, value);
 
 			if (converted.equals(Long.MAX_VALUE)) {
@@ -178,8 +168,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0xFF) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -193,8 +182,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Integer converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0x0000) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -208,8 +196,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Long converted = ValueReader.readNumber(endianness, value);
 			if (converted == 0x0000_0000) {
 				return ValueReader.ILLEGAL_VALUE;
@@ -223,8 +210,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Long converted = ValueReader.readNumber(endianness, value);
 
 			if (converted.equals(0x0000_0000_0000_0000L)) {
@@ -239,8 +225,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Float converted = ValueReader.readNumberFloat(endianness, value);
 
 			if (converted.equals((float) (0xFFFF_FFFF))) {
@@ -255,8 +240,7 @@ enum ValueTypes {
 				return ValueReader.ILLEGAL_VALUE;
 			}
 			return converted;
-		}
-		else {
+		} else {
 			Float converted = ValueReader.readNumberFloat(endianness, value);
 
 			if (converted.equals(Float.MAX_VALUE)) {

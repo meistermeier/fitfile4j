@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TISSUE_MODEL_TYPE {
-
 	_ZHL_16C(0, "zhl_16c");
 
 	private final int messageNumber;
@@ -15,7 +14,7 @@ public enum TISSUE_MODEL_TYPE {
 	}
 
 	public static TISSUE_MODEL_TYPE findById(int messageNumber) {
-		for (TISSUE_MODEL_TYPE name : TISSUE_MODEL_TYPE.values()) {
+		for (TISSUE_MODEL_TYPE name: TISSUE_MODEL_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -23,8 +22,11 @@ public enum TISSUE_MODEL_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

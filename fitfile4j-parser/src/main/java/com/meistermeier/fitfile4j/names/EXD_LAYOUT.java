@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_LAYOUT {
-
 	_FULL_SCREEN(0, "full_screen"),
 
 	_HALF_VERTICAL(1, "half_vertical"),
@@ -31,7 +30,7 @@ public enum EXD_LAYOUT {
 	}
 
 	public static EXD_LAYOUT findById(int messageNumber) {
-		for (EXD_LAYOUT name : EXD_LAYOUT.values()) {
+		for (EXD_LAYOUT name: EXD_LAYOUT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -39,8 +38,11 @@ public enum EXD_LAYOUT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ATTITUDE_VALIDITY {
-
 	_TRACK_ANGLE_HEADING_VALID(1, "track_angle_heading_valid"),
 
 	_PITCH_VALID(2, "pitch_valid"),
@@ -39,7 +38,7 @@ public enum ATTITUDE_VALIDITY {
 	}
 
 	public static ATTITUDE_VALIDITY findById(int messageNumber) {
-		for (ATTITUDE_VALIDITY name : ATTITUDE_VALIDITY.values()) {
+		for (ATTITUDE_VALIDITY name: ATTITUDE_VALIDITY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -47,8 +46,11 @@ public enum ATTITUDE_VALIDITY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

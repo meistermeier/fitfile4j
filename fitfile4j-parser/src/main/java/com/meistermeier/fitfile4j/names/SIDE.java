@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SIDE {
-
 	_RIGHT(0, "right"),
 
 	_LEFT(1, "left");
@@ -17,7 +16,7 @@ public enum SIDE {
 	}
 
 	public static SIDE findById(int messageNumber) {
-		for (SIDE name : SIDE.values()) {
+		for (SIDE name: SIDE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum SIDE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

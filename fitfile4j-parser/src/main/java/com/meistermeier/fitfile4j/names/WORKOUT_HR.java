@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_HR {
-
 	_BPM_OFFSET(100L, "bpm_offset");
 
 	private final long messageNumber;
@@ -15,7 +14,7 @@ public enum WORKOUT_HR {
 	}
 
 	public static WORKOUT_HR findById(long messageNumber) {
-		for (WORKOUT_HR name : WORKOUT_HR.values()) {
+		for (WORKOUT_HR name: WORKOUT_HR.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -23,8 +22,11 @@ public enum WORKOUT_HR {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

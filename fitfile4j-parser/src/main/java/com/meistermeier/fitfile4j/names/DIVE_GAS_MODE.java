@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_GAS_MODE {
-
 	_OPEN_CIRCUIT(0, "open_circuit"),
 
 	_CLOSED_CIRCUIT_DILUENT(1, "closed_circuit_diluent");
@@ -17,7 +16,7 @@ public enum DIVE_GAS_MODE {
 	}
 
 	public static DIVE_GAS_MODE findById(int messageNumber) {
-		for (DIVE_GAS_MODE name : DIVE_GAS_MODE.values()) {
+		for (DIVE_GAS_MODE name: DIVE_GAS_MODE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum DIVE_GAS_MODE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

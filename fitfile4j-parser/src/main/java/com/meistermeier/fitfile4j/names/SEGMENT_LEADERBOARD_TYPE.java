@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SEGMENT_LEADERBOARD_TYPE {
-
 	_OVERALL(0, "overall"),
 
 	_PERSONAL_BEST(1, "personal_best"),
@@ -43,7 +42,7 @@ public enum SEGMENT_LEADERBOARD_TYPE {
 	}
 
 	public static SEGMENT_LEADERBOARD_TYPE findById(int messageNumber) {
-		for (SEGMENT_LEADERBOARD_TYPE name : SEGMENT_LEADERBOARD_TYPE.values()) {
+		for (SEGMENT_LEADERBOARD_TYPE name: SEGMENT_LEADERBOARD_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -51,8 +50,11 @@ public enum SEGMENT_LEADERBOARD_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

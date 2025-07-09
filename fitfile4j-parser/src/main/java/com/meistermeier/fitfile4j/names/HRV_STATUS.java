@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HRV_STATUS {
-
 	_NONE(0, "none"),
 
 	_POOR(1, "poor"),
@@ -23,7 +22,7 @@ public enum HRV_STATUS {
 	}
 
 	public static HRV_STATUS findById(int messageNumber) {
-		for (HRV_STATUS name : HRV_STATUS.values()) {
+		for (HRV_STATUS name: HRV_STATUS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -31,8 +30,11 @@ public enum HRV_STATUS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

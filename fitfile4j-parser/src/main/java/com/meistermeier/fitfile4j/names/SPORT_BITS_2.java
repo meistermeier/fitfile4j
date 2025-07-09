@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_BITS_2 {
-
 	_MOUNTAINEERING(1, "mountaineering"),
 
 	_HIKING(2, "hiking"),
@@ -29,7 +28,7 @@ public enum SPORT_BITS_2 {
 	}
 
 	public static SPORT_BITS_2 findById(int messageNumber) {
-		for (SPORT_BITS_2 name : SPORT_BITS_2.values()) {
+		for (SPORT_BITS_2 name: SPORT_BITS_2.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -37,8 +36,11 @@ public enum SPORT_BITS_2 {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

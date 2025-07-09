@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_DISPLAY_TYPE {
-
 	_NUMERICAL(0, "numerical"),
 
 	_SIMPLE(1, "simple"),
@@ -35,7 +34,7 @@ public enum EXD_DISPLAY_TYPE {
 	}
 
 	public static EXD_DISPLAY_TYPE findById(int messageNumber) {
-		for (EXD_DISPLAY_TYPE name : EXD_DISPLAY_TYPE.values()) {
+		for (EXD_DISPLAY_TYPE name: EXD_DISPLAY_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -43,8 +42,11 @@ public enum EXD_DISPLAY_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

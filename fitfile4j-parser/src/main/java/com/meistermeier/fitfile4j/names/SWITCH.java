@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SWITCH {
-
 	_OFF(0, "off"),
 
 	_ON(1, "on"),
@@ -19,7 +18,7 @@ public enum SWITCH {
 	}
 
 	public static SWITCH findById(int messageNumber) {
-		for (SWITCH name : SWITCH.values()) {
+		for (SWITCH name: SWITCH.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum SWITCH {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BODY_LOCATION {
-
 	_LEFT_LEG(0, "left_leg"),
 
 	_LEFT_CALF(1, "left_calf"),
@@ -93,7 +92,7 @@ public enum BODY_LOCATION {
 	}
 
 	public static BODY_LOCATION findById(int messageNumber) {
-		for (BODY_LOCATION name : BODY_LOCATION.values()) {
+		for (BODY_LOCATION name: BODY_LOCATION.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -101,8 +100,11 @@ public enum BODY_LOCATION {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

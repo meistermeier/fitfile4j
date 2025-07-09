@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DISPLAY_MEASURE {
-
 	_METRIC(0, "metric"),
 
 	_STATUTE(1, "statute"),
@@ -19,7 +18,7 @@ public enum DISPLAY_MEASURE {
 	}
 
 	public static DISPLAY_MEASURE findById(int messageNumber) {
-		for (DISPLAY_MEASURE name : DISPLAY_MEASURE.values()) {
+		for (DISPLAY_MEASURE name: DISPLAY_MEASURE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum DISPLAY_MEASURE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

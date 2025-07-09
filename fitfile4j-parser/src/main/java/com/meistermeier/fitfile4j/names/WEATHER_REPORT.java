@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_REPORT {
-
 	_CURRENT(0, "current"),
 
 	_FORECAST(1, "forecast"),
@@ -21,7 +20,7 @@ public enum WEATHER_REPORT {
 	}
 
 	public static WEATHER_REPORT findById(int messageNumber) {
-		for (WEATHER_REPORT name : WEATHER_REPORT.values()) {
+		for (WEATHER_REPORT name: WEATHER_REPORT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum WEATHER_REPORT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

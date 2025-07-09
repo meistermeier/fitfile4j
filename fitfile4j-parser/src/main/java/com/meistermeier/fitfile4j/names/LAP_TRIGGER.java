@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LAP_TRIGGER {
-
 	_MANUAL(0, "manual"),
 
 	_TIME(1, "time"),
@@ -31,7 +30,7 @@ public enum LAP_TRIGGER {
 	}
 
 	public static LAP_TRIGGER findById(int messageNumber) {
-		for (LAP_TRIGGER name : LAP_TRIGGER.values()) {
+		for (LAP_TRIGGER name: LAP_TRIGGER.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -39,8 +38,11 @@ public enum LAP_TRIGGER {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

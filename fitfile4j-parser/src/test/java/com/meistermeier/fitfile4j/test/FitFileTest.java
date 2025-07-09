@@ -40,8 +40,7 @@ class FitFileTest {
 	{
 		try {
 			fitFile = FitFile.from(FitFileTest.class.getResourceAsStream("/raw_run.fit"));
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}

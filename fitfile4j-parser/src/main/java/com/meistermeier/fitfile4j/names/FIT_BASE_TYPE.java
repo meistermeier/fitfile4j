@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FIT_BASE_TYPE {
-
 	_ENUM(0, "enum"),
 
 	_SINT8(1, "sint8"),
@@ -47,7 +46,7 @@ public enum FIT_BASE_TYPE {
 	}
 
 	public static FIT_BASE_TYPE findById(int messageNumber) {
-		for (FIT_BASE_TYPE name : FIT_BASE_TYPE.values()) {
+		for (FIT_BASE_TYPE name: FIT_BASE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -55,8 +54,11 @@ public enum FIT_BASE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

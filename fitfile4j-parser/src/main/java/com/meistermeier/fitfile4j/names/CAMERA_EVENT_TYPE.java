@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CAMERA_EVENT_TYPE {
-
 	_VIDEO_START(0, "video_start"),
 
 	_VIDEO_SPLIT(1, "video_split"),
@@ -39,7 +38,7 @@ public enum CAMERA_EVENT_TYPE {
 	}
 
 	public static CAMERA_EVENT_TYPE findById(int messageNumber) {
-		for (CAMERA_EVENT_TYPE name : CAMERA_EVENT_TYPE.values()) {
+		for (CAMERA_EVENT_TYPE name: CAMERA_EVENT_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -47,8 +46,11 @@ public enum CAMERA_EVENT_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

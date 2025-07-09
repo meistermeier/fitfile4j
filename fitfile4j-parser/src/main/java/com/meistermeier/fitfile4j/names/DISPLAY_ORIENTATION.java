@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DISPLAY_ORIENTATION {
-
 	_AUTO(0, "auto"),
 
 	_PORTRAIT(1, "portrait"),
@@ -23,7 +22,7 @@ public enum DISPLAY_ORIENTATION {
 	}
 
 	public static DISPLAY_ORIENTATION findById(int messageNumber) {
-		for (DISPLAY_ORIENTATION name : DISPLAY_ORIENTATION.values()) {
+		for (DISPLAY_ORIENTATION name: DISPLAY_ORIENTATION.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -31,8 +30,11 @@ public enum DISPLAY_ORIENTATION {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

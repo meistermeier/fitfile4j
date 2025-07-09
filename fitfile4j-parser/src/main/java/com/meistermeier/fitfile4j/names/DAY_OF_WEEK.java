@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DAY_OF_WEEK {
-
 	_SUNDAY(0, "sunday"),
 
 	_MONDAY(1, "monday"),
@@ -27,7 +26,7 @@ public enum DAY_OF_WEEK {
 	}
 
 	public static DAY_OF_WEEK findById(int messageNumber) {
-		for (DAY_OF_WEEK name : DAY_OF_WEEK.values()) {
+		for (DAY_OF_WEEK name: DAY_OF_WEEK.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum DAY_OF_WEEK {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

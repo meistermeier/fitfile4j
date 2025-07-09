@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BATTERY_STATUS {
-
 	_NEW(1, "new"),
 
 	_GOOD(2, "good"),
@@ -27,7 +26,7 @@ public enum BATTERY_STATUS {
 	}
 
 	public static BATTERY_STATUS findById(int messageNumber) {
-		for (BATTERY_STATUS name : BATTERY_STATUS.values()) {
+		for (BATTERY_STATUS name: BATTERY_STATUS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum BATTERY_STATUS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum RADAR_THREAT_LEVEL_TYPE {
-
 	_THREAT_UNKNOWN(0, "threat_unknown"),
 
 	_THREAT_NONE(1, "threat_none"),
@@ -21,7 +20,7 @@ public enum RADAR_THREAT_LEVEL_TYPE {
 	}
 
 	public static RADAR_THREAT_LEVEL_TYPE findById(int messageNumber) {
-		for (RADAR_THREAT_LEVEL_TYPE name : RADAR_THREAT_LEVEL_TYPE.values()) {
+		for (RADAR_THREAT_LEVEL_TYPE name: RADAR_THREAT_LEVEL_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum RADAR_THREAT_LEVEL_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

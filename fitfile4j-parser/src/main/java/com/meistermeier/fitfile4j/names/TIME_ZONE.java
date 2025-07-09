@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TIME_ZONE {
-
 	_ALMATY(0, "almaty"),
 
 	_BANGKOK(1, "bangkok"),
@@ -225,7 +224,7 @@ public enum TIME_ZONE {
 	}
 
 	public static TIME_ZONE findById(int messageNumber) {
-		for (TIME_ZONE name : TIME_ZONE.values()) {
+		for (TIME_ZONE name: TIME_ZONE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -233,8 +232,11 @@ public enum TIME_ZONE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

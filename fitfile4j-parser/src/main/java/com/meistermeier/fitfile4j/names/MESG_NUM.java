@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MESG_NUM {
-
 	_FILE_ID(0, "file_id"),
 
 	_CAPABILITIES(1, "capabilities"),
@@ -257,7 +256,7 @@ public enum MESG_NUM {
 	}
 
 	public static MESG_NUM findById(int messageNumber) {
-		for (MESG_NUM name : MESG_NUM.values()) {
+		for (MESG_NUM name: MESG_NUM.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -272,5 +271,4 @@ public enum MESG_NUM {
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ANT_NETWORK {
-
 	_PUBLIC(0, "public"),
 
 	_ANTPLUS(1, "antplus"),
@@ -21,7 +20,7 @@ public enum ANT_NETWORK {
 	}
 
 	public static ANT_NETWORK findById(int messageNumber) {
-		for (ANT_NETWORK name : ANT_NETWORK.values()) {
+		for (ANT_NETWORK name: ANT_NETWORK.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum ANT_NETWORK {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

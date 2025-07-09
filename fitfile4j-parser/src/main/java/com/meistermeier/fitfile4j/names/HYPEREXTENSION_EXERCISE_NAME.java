@@ -2,11 +2,9 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HYPEREXTENSION_EXERCISE_NAME {
-
 	_BACK_EXTENSION_WITH_OPPOSITE_ARM_AND_LEG_REACH(0, "back_extension_with_opposite_arm_and_leg_reach"),
 
-	_WEIGHTED_BACK_EXTENSION_WITH_OPPOSITE_ARM_AND_LEG_REACH(1,
-			"weighted_back_extension_with_opposite_arm_and_leg_reach"),
+	_WEIGHTED_BACK_EXTENSION_WITH_OPPOSITE_ARM_AND_LEG_REACH(1, "weighted_back_extension_with_opposite_arm_and_leg_reach"),
 
 	_BASE_ROTATIONS(2, "base_rotations"),
 
@@ -94,7 +92,7 @@ public enum HYPEREXTENSION_EXERCISE_NAME {
 	}
 
 	public static HYPEREXTENSION_EXERCISE_NAME findById(int messageNumber) {
-		for (HYPEREXTENSION_EXERCISE_NAME name : HYPEREXTENSION_EXERCISE_NAME.values()) {
+		for (HYPEREXTENSION_EXERCISE_NAME name: HYPEREXTENSION_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -102,8 +100,11 @@ public enum HYPEREXTENSION_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

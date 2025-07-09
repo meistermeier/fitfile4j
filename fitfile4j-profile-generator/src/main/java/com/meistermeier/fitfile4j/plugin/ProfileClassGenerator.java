@@ -44,7 +44,7 @@ public class ProfileClassGenerator {
 		var pcg = new ProfileClassGenerator(args[0], args[1], args[2]);
 		// enable by demand ;)
 		// generate enums and type mapping
-		// pcg.createMessageNameMappings();
+		pcg.createMessageNameMappings();
 		// create initial SQL
 		// pcg.createSql();
 	}
@@ -93,8 +93,7 @@ public class ProfileClassGenerator {
 				javaFile.writeTo(output);
 			}
 			fieldsEnum.writeTo(output);
-		}
-		else {
+		} else {
 			for (JavaFile javaFile : typesEnum) {
 				javaFile.writeTo(System.out);
 			}
@@ -106,26 +105,25 @@ public class ProfileClassGenerator {
 		var files = new ArrayList<JavaFile>();
 		for (Map.Entry<String, Collection<ProfileParser.Type>> type : types.entrySet()) {
 
-			var messageNameEnumBuilder = TypeSpec.enumBuilder(type.getKey()).addModifiers(Modifier.PUBLIC);
+			var enumTypeBuilder = TypeSpec.enumBuilder(type.getKey()).addModifiers(Modifier.PUBLIC);
 			var typeContent = type.getValue();
 			var longType = false;
 			for (ProfileParser.Type content : typeContent) {
 				if (content.longType()) {
 					longType = true;
 				}
-				messageNameEnumBuilder.addEnumConstant("_" + content.name().toUpperCase(Locale.ROOT),
+				enumTypeBuilder.addEnumConstant("_" + content.name().toUpperCase(Locale.ROOT),
 						longType ? TypeSpec.anonymousClassBuilder("$LL, $S", content.value(), content.name()).build()
 								: TypeSpec.anonymousClassBuilder("$L, $S", content.value(), content.name()).build());
 			}
 			if (longType) {
-				messageNameEnumBuilder.addField(long.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+				enumTypeBuilder.addField(long.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+			} else {
+				enumTypeBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
 			}
-			else {
-				messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
-			}
-			messageNameEnumBuilder.addField(String.class, "messageName", Modifier.PRIVATE, Modifier.FINAL);
+			enumTypeBuilder.addField(String.class, "messageName", Modifier.PRIVATE, Modifier.FINAL);
 			if (longType) {
-				messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
+				enumTypeBuilder.addMethod(MethodSpec.constructorBuilder()
 					.addParameter(long.class, "messageNumber")
 					.addParameter(String.class, "messageName")
 					.addCode(CodeBlock.builder().add("""
@@ -133,7 +131,7 @@ public class ProfileClassGenerator {
 							this.messageName = messageName;
 							""").build())
 					.build());
-				messageNameEnumBuilder.addMethod(MethodSpec.methodBuilder("findById")
+				enumTypeBuilder.addMethod(MethodSpec.methodBuilder("findById")
 					.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
 					.addParameter(long.class, "messageNumber")
 					.addCode(CodeBlock.builder().add("""
@@ -146,9 +144,13 @@ public class ProfileClassGenerator {
 							""".formatted(type.getKey(), type.getKey())).build())
 					.returns(ClassName.get(packageNameToUse, type.getKey()))
 					.build());
-			}
-			else {
-				messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
+				enumTypeBuilder.addMethod(MethodSpec.methodBuilder("getMessageNumber")
+					.addModifiers(Modifier.PUBLIC)
+					.addCode("return this.messageNumber;")
+					.returns(Long.class)
+					.build());
+			} else {
+				enumTypeBuilder.addMethod(MethodSpec.constructorBuilder()
 					.addParameter(int.class, "messageNumber")
 					.addParameter(String.class, "messageName")
 					.addCode(CodeBlock.builder().add("""
@@ -156,7 +158,7 @@ public class ProfileClassGenerator {
 							this.messageName = messageName;
 							""").build())
 					.build());
-				messageNameEnumBuilder.addMethod(MethodSpec.methodBuilder("findById")
+				enumTypeBuilder.addMethod(MethodSpec.methodBuilder("findById")
 					.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
 					.addParameter(int.class, "messageNumber")
 					.addCode(CodeBlock.builder().add("""
@@ -169,14 +171,21 @@ public class ProfileClassGenerator {
 							""".formatted(type.getKey(), type.getKey())).build())
 					.returns(ClassName.get(packageNameToUse, type.getKey()))
 					.build());
+				enumTypeBuilder.addMethod(MethodSpec.methodBuilder("getMessageNumber")
+					.addModifiers(Modifier.PUBLIC)
+					.addCode("return this.messageNumber;")
+					.returns(Integer.class)
+					.build());
 			}
-			messageNameEnumBuilder.addMethod(MethodSpec.methodBuilder("getMessageName")
+			enumTypeBuilder.addMethod(MethodSpec.methodBuilder("getMessageName")
 				.addModifiers(Modifier.PUBLIC)
 				.addCode("return this.messageName;")
 				.returns(String.class)
 				.build());
-			var messageNameEnum = messageNameEnumBuilder.build();
+
+			var messageNameEnum = enumTypeBuilder.build();
 			files.add(JavaFile.builder(packageNameToUse, messageNameEnum)
+				.indent("\t")
 				.skipJavaLangImports(true)
 				.addFileComment("auto-generated file from Profile.xlsx")
 				.build());
@@ -188,7 +197,7 @@ public class ProfileClassGenerator {
 	private JavaFile createFieldNames(List<ProfileParser.FieldName> fieldNames, String packageNameToUse) {
 		var noEnums = List.of("UINT8", "UINT8Z", "SINT8", "UINT16", "UINT16Z", "SINT16", "UINT32", "UINT32Z", "SINT32",
 				"SINT64", "UINT64", "STRING", "DATE_TIME", "BOOL", "BYTE", "FLOAT32");
-		var messageNameEnumBuilder = TypeSpec.enumBuilder("FieldName")
+		var fieldNameBuilder = TypeSpec.enumBuilder("FieldName")
 			.addJavadoc("Name of messages to be mapped from their ids")
 			.addModifiers(Modifier.PUBLIC);
 		for (ProfileParser.FieldName fieldName : fieldNames) {
@@ -199,18 +208,18 @@ public class ProfileClassGenerator {
 			if (noEnums.contains(enumType)) {
 				enumType = null;
 			}
-			messageNameEnumBuilder.addEnumConstant(
+			fieldNameBuilder.addEnumConstant(
 					fieldName.name().toUpperCase(Locale.ROOT) + "_" + fieldName.messageNumber(),
 					TypeSpec
 						.anonymousClassBuilder("$L, $L, $S, $L", fieldName.messageNumber(), fieldName.fieldNumber(),
 								fieldName.name(), enumType != null ? enumType + ".class" : null)
 						.build());
 		}
-		messageNameEnumBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
-		messageNameEnumBuilder.addField(int.class, "fieldNumber", Modifier.PRIVATE, Modifier.FINAL);
-		messageNameEnumBuilder.addField(String.class, "fieldName", Modifier.PRIVATE, Modifier.FINAL);
-		messageNameEnumBuilder.addField(Class.class, "enumType", Modifier.PRIVATE, Modifier.FINAL);
-		messageNameEnumBuilder.addMethod(MethodSpec.constructorBuilder()
+		fieldNameBuilder.addField(int.class, "messageNumber", Modifier.PRIVATE, Modifier.FINAL);
+		fieldNameBuilder.addField(int.class, "fieldNumber", Modifier.PRIVATE, Modifier.FINAL);
+		fieldNameBuilder.addField(String.class, "fieldName", Modifier.PRIVATE, Modifier.FINAL);
+		fieldNameBuilder.addField(Class.class, "enumType", Modifier.PRIVATE, Modifier.FINAL);
+		fieldNameBuilder.addMethod(MethodSpec.constructorBuilder()
 			.addParameter(int.class, "messageNumber")
 			.addParameter(int.class, "fieldNumber")
 			.addParameter(String.class, "fieldName")
@@ -222,7 +231,7 @@ public class ProfileClassGenerator {
 					this.enumType = enumType;
 					""").build())
 			.build());
-		messageNameEnumBuilder.addMethod(MethodSpec.methodBuilder("findById")
+		fieldNameBuilder.addMethod(MethodSpec.methodBuilder("findById")
 			.addModifiers(Modifier.STATIC, Modifier.PUBLIC)
 			.addParameter(int.class, "messageNumber")
 			.addParameter(int.class, "fieldNumber")
@@ -236,18 +245,29 @@ public class ProfileClassGenerator {
 					""").build())
 			.returns(ClassName.get(packageNameToUse, "FieldName"))
 			.build());
-		messageNameEnumBuilder.addMethod(MethodSpec.methodBuilder("getFieldName")
+		fieldNameBuilder.addMethod(MethodSpec.methodBuilder("getMessageNumber")
+			.addModifiers(Modifier.PUBLIC)
+			.addCode("return this.messageNumber;")
+			.returns(int.class)
+			.build());
+		fieldNameBuilder.addMethod(MethodSpec.methodBuilder("getFieldNumber")
+			.addModifiers(Modifier.PUBLIC)
+			.addCode("return this.fieldNumber;")
+			.returns(int.class)
+			.build());
+		fieldNameBuilder.addMethod(MethodSpec.methodBuilder("getFieldName")
 			.addModifiers(Modifier.PUBLIC)
 			.addCode("return this.fieldName;")
 			.returns(String.class)
 			.build());
-		messageNameEnumBuilder.addMethod(MethodSpec.methodBuilder("getEnumType")
+		fieldNameBuilder.addMethod(MethodSpec.methodBuilder("getEnumType")
 			.addModifiers(Modifier.PUBLIC)
 			.addCode("return this.enumType;")
 			.returns(Class.class)
 			.build());
-		var messageNameEnum = messageNameEnumBuilder.build();
+		var messageNameEnum = fieldNameBuilder.build();
 		return JavaFile.builder(packageNameToUse, messageNameEnum)
+			.indent("\t")
 			.skipJavaLangImports(true)
 			.addFileComment("auto-generated file from Profile.xlsx")
 			.build();

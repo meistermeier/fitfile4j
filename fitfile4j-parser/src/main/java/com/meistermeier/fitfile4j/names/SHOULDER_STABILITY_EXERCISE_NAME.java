@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SHOULDER_STABILITY_EXERCISE_NAME {
-
 	_90_DEGREE_CABLE_EXTERNAL_ROTATION(0, "90_degree_cable_external_rotation"),
 
 	_BAND_EXTERNAL_ROTATION(1, "band_external_rotation"),
@@ -79,7 +78,7 @@ public enum SHOULDER_STABILITY_EXERCISE_NAME {
 	}
 
 	public static SHOULDER_STABILITY_EXERCISE_NAME findById(int messageNumber) {
-		for (SHOULDER_STABILITY_EXERCISE_NAME name : SHOULDER_STABILITY_EXERCISE_NAME.values()) {
+		for (SHOULDER_STABILITY_EXERCISE_NAME name: SHOULDER_STABILITY_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -87,8 +86,11 @@ public enum SHOULDER_STABILITY_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

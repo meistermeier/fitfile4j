@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MESSAGE_INDEX {
-
 	_SELECTED(32768, "selected"),
 
 	_RESERVED(28672, "reserved"),
@@ -19,7 +18,7 @@ public enum MESSAGE_INDEX {
 	}
 
 	public static MESSAGE_INDEX findById(int messageNumber) {
-		for (MESSAGE_INDEX name : MESSAGE_INDEX.values()) {
+		for (MESSAGE_INDEX name: MESSAGE_INDEX.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum MESSAGE_INDEX {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

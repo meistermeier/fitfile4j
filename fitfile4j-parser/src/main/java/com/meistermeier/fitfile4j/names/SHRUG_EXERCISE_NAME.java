@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SHRUG_EXERCISE_NAME {
-
 	_BARBELL_JUMP_SHRUG(0, "barbell_jump_shrug"),
 
 	_BARBELL_SHRUG(1, "barbell_shrug"),
@@ -47,7 +46,7 @@ public enum SHRUG_EXERCISE_NAME {
 	}
 
 	public static SHRUG_EXERCISE_NAME findById(int messageNumber) {
-		for (SHRUG_EXERCISE_NAME name : SHRUG_EXERCISE_NAME.values()) {
+		for (SHRUG_EXERCISE_NAME name: SHRUG_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -55,8 +54,11 @@ public enum SHRUG_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

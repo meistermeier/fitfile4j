@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum USER_LOCAL_ID {
-
 	_LOCAL_MIN(0, "local_min"),
 
 	_LOCAL_MAX(15, "local_max"),
@@ -25,7 +24,7 @@ public enum USER_LOCAL_ID {
 	}
 
 	public static USER_LOCAL_ID findById(int messageNumber) {
-		for (USER_LOCAL_ID name : USER_LOCAL_ID.values()) {
+		for (USER_LOCAL_ID name: USER_LOCAL_ID.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum USER_LOCAL_ID {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

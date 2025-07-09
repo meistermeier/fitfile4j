@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PROJECTILE_TYPE {
-
 	_ARROW(0, "arrow"),
 
 	_RIFLE_CARTRIDGE(1, "rifle_cartridge"),
@@ -25,7 +24,7 @@ public enum PROJECTILE_TYPE {
 	}
 
 	public static PROJECTILE_TYPE findById(int messageNumber) {
-		for (PROJECTILE_TYPE name : PROJECTILE_TYPE.values()) {
+		for (PROJECTILE_TYPE name: PROJECTILE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum PROJECTILE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

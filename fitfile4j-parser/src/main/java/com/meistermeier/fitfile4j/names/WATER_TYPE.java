@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WATER_TYPE {
-
 	_FRESH(0, "fresh"),
 
 	_SALT(1, "salt"),
@@ -21,7 +20,7 @@ public enum WATER_TYPE {
 	}
 
 	public static WATER_TYPE findById(int messageNumber) {
-		for (WATER_TYPE name : WATER_TYPE.values()) {
+		for (WATER_TYPE name: WATER_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum WATER_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SWIM_STROKE {
-
 	_FREESTYLE(0, "freestyle"),
 
 	_BACKSTROKE(1, "backstroke"),
@@ -27,7 +26,7 @@ public enum SWIM_STROKE {
 	}
 
 	public static SWIM_STROKE findById(int messageNumber) {
-		for (SWIM_STROKE name : SWIM_STROKE.values()) {
+		for (SWIM_STROKE name: SWIM_STROKE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum SWIM_STROKE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

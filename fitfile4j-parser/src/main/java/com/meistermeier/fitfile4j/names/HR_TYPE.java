@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HR_TYPE {
-
 	_NORMAL(0, "normal"),
 
 	_IRREGULAR(1, "irregular");
@@ -17,7 +16,7 @@ public enum HR_TYPE {
 	}
 
 	public static HR_TYPE findById(int messageNumber) {
-		for (HR_TYPE name : HR_TYPE.values()) {
+		for (HR_TYPE name: HR_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum HR_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

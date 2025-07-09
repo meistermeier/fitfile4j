@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CARRY_EXERCISE_NAME {
-
 	_BAR_HOLDS(0, "bar_holds"),
 
 	_FARMERS_WALK(1, "farmers_walk"),
@@ -23,7 +22,7 @@ public enum CARRY_EXERCISE_NAME {
 	}
 
 	public static CARRY_EXERCISE_NAME findById(int messageNumber) {
-		for (CARRY_EXERCISE_NAME name : CARRY_EXERCISE_NAME.values()) {
+		for (CARRY_EXERCISE_NAME name: CARRY_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -31,8 +30,11 @@ public enum CARRY_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

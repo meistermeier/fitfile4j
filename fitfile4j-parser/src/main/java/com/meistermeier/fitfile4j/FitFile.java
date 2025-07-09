@@ -218,8 +218,7 @@ public record FitFile(Header header, List<Message> messages) {
 			}
 
 			return new Header(headerSize, protocolVersion, profileVersion, dataSize, dataType);
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			throw new RuntimeException("Could not read header", e);
 		}
 	}
@@ -252,8 +251,7 @@ public record FitFile(Header header, List<Message> messages) {
 					if (possibleDevField.isPresent()) {
 						baseType = possibleDevField.get().fitBaseTypeId();
 						fieldName = possibleDevField.get().fieldName();
-					}
-					else {
+					} else {
 						fieldName = "dev__" + fieldDefinition.fieldDefinitionNumber();
 					}
 				}
@@ -289,8 +287,7 @@ public record FitFile(Header header, List<Message> messages) {
 			if (inputStream.available() == 2) {
 				LOGGER.debug("done");
 				break;
-			}
-			else if (inputStream.available() < 2) {
+			} else if (inputStream.available() < 2) {
 				LOGGER.warn("The file is probably corrupted because the last pair of bytes (CRC) is incomplete.");
 			}
 			var recordHeader = RecordHeader.readRecordHeaderByte(inputStream);
@@ -348,8 +345,7 @@ public record FitFile(Header header, List<Message> messages) {
 				messageDefinitions.put(recordHeader.localMessageNumber(),
 						new MessageDefinition(messageNumber, fieldDefinitions, endianness));
 
-			}
-			else {
+			} else {
 				if (LOGGER.isTraceEnabled()) {
 					LOGGER.trace("(content reading) reading local message number {} at read pos {}",
 							recordHeader.localMessageNumber, inputStream.pos());
@@ -374,8 +370,7 @@ public record FitFile(Header header, List<Message> messages) {
 						var fieldName = (String) message.fields.getEntryByFieldDefinitionNumber(3).get().value();
 						developerFields.add(new DeveloperField(developerDataIndex, fieldDefinitionNumber, fitBaseTypeId,
 								fieldName));
-					}
-					catch (ClassCastException e) {
+					} catch (ClassCastException e) {
 						throw new IllegalArgumentException("could not read developer field" + messageDefinition, e);
 					}
 				}

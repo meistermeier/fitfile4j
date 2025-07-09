@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.meistermeier.fitfile4j.plugin;
 
 import org.dhatim.fastexcel.reader.ExcelReaderException;
@@ -63,22 +64,19 @@ class ProfileParser {
 							currentType = cellValue.toUpperCase();
 							longType = LONG_VALUES.contains(row.getCellText(1).toUpperCase());
 							types.put(currentType, new ArrayList<>());
-						}
-						else if (currentType != null) {
+						} else if (currentType != null) {
 							try {
 								String cellText = row.getCellText(3).trim();
 								types.get(currentType)
 									.add(new Type(cellText.startsWith("0x")
 											? Long.parseLong(cellText.replaceAll("0x", ""), 16)
 											: Long.parseLong(cellText), row.getCellText(2), longType));
-							}
-							catch (ExcelReaderException e) {
+							} catch (ExcelReaderException e) {
 								System.err.println("nope");
 							}
 						}
 					}
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 			});
@@ -111,8 +109,7 @@ class ProfileParser {
 									row.getCellText(2), row.getCellText(3)));
 						}
 					}
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 			});

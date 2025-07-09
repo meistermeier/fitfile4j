@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_DESCRIPTORS {
-
 	_BIKE_LIGHT_BATTERY_STATUS(0, "bike_light_battery_status"),
 
 	_BEAM_ANGLE_STATUS(1, "beam_angle_status"),
@@ -207,7 +206,7 @@ public enum EXD_DESCRIPTORS {
 	}
 
 	public static EXD_DESCRIPTORS findById(int messageNumber) {
-		for (EXD_DESCRIPTORS name : EXD_DESCRIPTORS.values()) {
+		for (EXD_DESCRIPTORS name: EXD_DESCRIPTORS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -215,8 +214,11 @@ public enum EXD_DESCRIPTORS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

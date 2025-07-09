@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DISPLAY_POSITION {
-
 	_DEGREE(0, "degree"),
 
 	_DEGREE_MINUTE(1, "degree_minute"),
@@ -97,7 +96,7 @@ public enum DISPLAY_POSITION {
 	}
 
 	public static DISPLAY_POSITION findById(int messageNumber) {
-		for (DISPLAY_POSITION name : DISPLAY_POSITION.values()) {
+		for (DISPLAY_POSITION name: DISPLAY_POSITION.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -105,8 +104,11 @@ public enum DISPLAY_POSITION {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

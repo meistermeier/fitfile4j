@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ATTITUDE_STAGE {
-
 	_FAILED(0, "failed"),
 
 	_ALIGNING(1, "aligning"),
@@ -21,7 +20,7 @@ public enum ATTITUDE_STAGE {
 	}
 
 	public static ATTITUDE_STAGE findById(int messageNumber) {
-		for (ATTITUDE_STAGE name : ATTITUDE_STAGE.values()) {
+		for (ATTITUDE_STAGE name: ATTITUDE_STAGE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum ATTITUDE_STAGE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

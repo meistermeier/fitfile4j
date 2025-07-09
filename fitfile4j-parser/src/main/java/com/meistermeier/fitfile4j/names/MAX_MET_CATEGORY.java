@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MAX_MET_CATEGORY {
-
 	_GENERIC(0, "generic"),
 
 	_CYCLING(1, "cycling");
@@ -17,7 +16,7 @@ public enum MAX_MET_CATEGORY {
 	}
 
 	public static MAX_MET_CATEGORY findById(int messageNumber) {
-		for (MAX_MET_CATEGORY name : MAX_MET_CATEGORY.values()) {
+		for (MAX_MET_CATEGORY name: MAX_MET_CATEGORY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum MAX_MET_CATEGORY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

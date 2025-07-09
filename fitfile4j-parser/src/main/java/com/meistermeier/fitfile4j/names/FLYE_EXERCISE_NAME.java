@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FLYE_EXERCISE_NAME {
-
 	_CABLE_CROSSOVER(0, "cable_crossover"),
 
 	_DECLINE_DUMBBELL_FLYE(1, "decline_dumbbell_flye"),
@@ -33,7 +32,7 @@ public enum FLYE_EXERCISE_NAME {
 	}
 
 	public static FLYE_EXERCISE_NAME findById(int messageNumber) {
-		for (FLYE_EXERCISE_NAME name : FLYE_EXERCISE_NAME.values()) {
+		for (FLYE_EXERCISE_NAME name: FLYE_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -41,8 +40,11 @@ public enum FLYE_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

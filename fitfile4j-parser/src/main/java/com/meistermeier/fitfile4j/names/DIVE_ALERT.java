@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_ALERT {
-
 	_NDL_REACHED(0, "ndl_reached"),
 
 	_GAS_SWITCH_PROMPTED(1, "gas_switch_prompted"),
@@ -91,7 +90,7 @@ public enum DIVE_ALERT {
 	}
 
 	public static DIVE_ALERT findById(int messageNumber) {
-		for (DIVE_ALERT name : DIVE_ALERT.values()) {
+		for (DIVE_ALERT name: DIVE_ALERT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -99,8 +98,11 @@ public enum DIVE_ALERT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

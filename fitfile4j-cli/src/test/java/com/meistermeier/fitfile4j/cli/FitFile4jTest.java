@@ -139,8 +139,7 @@ class FitFile4jTest {
 			try (var connection = DriverManager.getConnection("jdbc:duckdb:" + databasePath);
 					var statement = connection.prepareStatement("SHOW TABLES")) {
 				assertTrue(statement.executeQuery().getFetchSize() > 0);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				fail(e);
 			}
 		}

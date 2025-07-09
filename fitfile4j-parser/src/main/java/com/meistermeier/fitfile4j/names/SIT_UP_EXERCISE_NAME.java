@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SIT_UP_EXERCISE_NAME {
-
 	_ALTERNATING_SIT_UP(0, "alternating_sit_up"),
 
 	_WEIGHTED_ALTERNATING_SIT_UP(1, "weighted_alternating_sit_up"),
@@ -89,7 +88,7 @@ public enum SIT_UP_EXERCISE_NAME {
 	}
 
 	public static SIT_UP_EXERCISE_NAME findById(int messageNumber) {
-		for (SIT_UP_EXERCISE_NAME name : SIT_UP_EXERCISE_NAME.values()) {
+		for (SIT_UP_EXERCISE_NAME name: SIT_UP_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -97,8 +96,11 @@ public enum SIT_UP_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

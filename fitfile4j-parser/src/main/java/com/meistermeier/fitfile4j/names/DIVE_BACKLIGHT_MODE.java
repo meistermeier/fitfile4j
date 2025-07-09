@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_BACKLIGHT_MODE {
-
 	_AT_DEPTH(0, "at_depth"),
 
 	_ALWAYS_ON(1, "always_on");
@@ -17,7 +16,7 @@ public enum DIVE_BACKLIGHT_MODE {
 	}
 
 	public static DIVE_BACKLIGHT_MODE findById(int messageNumber) {
-		for (DIVE_BACKLIGHT_MODE name : DIVE_BACKLIGHT_MODE.values()) {
+		for (DIVE_BACKLIGHT_MODE name: DIVE_BACKLIGHT_MODE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum DIVE_BACKLIGHT_MODE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

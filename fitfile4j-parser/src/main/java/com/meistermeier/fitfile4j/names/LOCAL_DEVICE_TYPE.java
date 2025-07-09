@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LOCAL_DEVICE_TYPE {
-
 	_GPS(0, "gps"),
 
 	_GLONASS(1, "glonass"),
@@ -29,7 +28,7 @@ public enum LOCAL_DEVICE_TYPE {
 	}
 
 	public static LOCAL_DEVICE_TYPE findById(int messageNumber) {
-		for (LOCAL_DEVICE_TYPE name : LOCAL_DEVICE_TYPE.values()) {
+		for (LOCAL_DEVICE_TYPE name: LOCAL_DEVICE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -37,8 +36,11 @@ public enum LOCAL_DEVICE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

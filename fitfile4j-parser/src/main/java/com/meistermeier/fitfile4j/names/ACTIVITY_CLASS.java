@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_CLASS {
-
 	_LEVEL(127, "level"),
 
 	_LEVEL_MAX(100, "level_max"),
@@ -19,7 +18,7 @@ public enum ACTIVITY_CLASS {
 	}
 
 	public static ACTIVITY_CLASS findById(int messageNumber) {
-		for (ACTIVITY_CLASS name : ACTIVITY_CLASS.values()) {
+		for (ACTIVITY_CLASS name: ACTIVITY_CLASS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum ACTIVITY_CLASS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

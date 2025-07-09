@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_DATA_UNITS {
-
 	_NO_UNITS(0, "no_units"),
 
 	_LAPS(1, "laps"),
@@ -113,7 +112,7 @@ public enum EXD_DATA_UNITS {
 	}
 
 	public static EXD_DATA_UNITS findById(int messageNumber) {
-		for (EXD_DATA_UNITS name : EXD_DATA_UNITS.values()) {
+		for (EXD_DATA_UNITS name: EXD_DATA_UNITS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -121,8 +120,11 @@ public enum EXD_DATA_UNITS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

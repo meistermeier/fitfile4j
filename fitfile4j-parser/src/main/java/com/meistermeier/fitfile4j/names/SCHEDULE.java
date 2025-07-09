@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SCHEDULE {
-
 	_WORKOUT(0, "workout"),
 
 	_COURSE(1, "course");
@@ -17,7 +16,7 @@ public enum SCHEDULE {
 	}
 
 	public static SCHEDULE findById(int messageNumber) {
-		for (SCHEDULE name : SCHEDULE.values()) {
+		for (SCHEDULE name: SCHEDULE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum SCHEDULE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

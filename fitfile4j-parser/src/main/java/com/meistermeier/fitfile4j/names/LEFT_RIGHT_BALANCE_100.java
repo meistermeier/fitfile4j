@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LEFT_RIGHT_BALANCE_100 {
-
 	_MASK(16383, "mask"),
 
 	_RIGHT(32768, "right");
@@ -17,7 +16,7 @@ public enum LEFT_RIGHT_BALANCE_100 {
 	}
 
 	public static LEFT_RIGHT_BALANCE_100 findById(int messageNumber) {
-		for (LEFT_RIGHT_BALANCE_100 name : LEFT_RIGHT_BALANCE_100.values()) {
+		for (LEFT_RIGHT_BALANCE_100 name: LEFT_RIGHT_BALANCE_100.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum LEFT_RIGHT_BALANCE_100 {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

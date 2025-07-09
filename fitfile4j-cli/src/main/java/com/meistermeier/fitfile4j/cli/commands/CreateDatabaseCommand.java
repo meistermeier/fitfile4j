@@ -54,8 +54,7 @@ public class CreateDatabaseCommand implements Callable<Integer> {
 		if (overwrite) {
 			try {
 				Files.delete(databasePath);
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 				throw new RuntimeException("Could not delete database file " + databasePath.toAbsolutePath(), e);
 			}
 		}
@@ -75,8 +74,7 @@ public class CreateDatabaseCommand implements Callable<Integer> {
 					}
 				}
 			}
-		}
-		catch (SQLException | FileNotFoundException e) {
+		} catch (SQLException | FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 		return 0;

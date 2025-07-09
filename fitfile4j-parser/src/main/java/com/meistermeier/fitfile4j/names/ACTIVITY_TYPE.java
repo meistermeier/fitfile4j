@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_TYPE {
-
 	_GENERIC(0, "generic"),
 
 	_RUNNING(1, "running"),
@@ -31,7 +30,7 @@ public enum ACTIVITY_TYPE {
 	}
 
 	public static ACTIVITY_TYPE findById(int messageNumber) {
-		for (ACTIVITY_TYPE name : ACTIVITY_TYPE.values()) {
+		for (ACTIVITY_TYPE name: ACTIVITY_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -39,8 +38,11 @@ public enum ACTIVITY_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CARDIO_EXERCISE_NAME {
-
 	_BOB_AND_WEAVE_CIRCLE(0, "bob_and_weave_circle"),
 
 	_WEIGHTED_BOB_AND_WEAVE_CIRCLE(1, "weighted_bob_and_weave_circle"),
@@ -57,7 +56,7 @@ public enum CARDIO_EXERCISE_NAME {
 	}
 
 	public static CARDIO_EXERCISE_NAME findById(int messageNumber) {
-		for (CARDIO_EXERCISE_NAME name : CARDIO_EXERCISE_NAME.values()) {
+		for (CARDIO_EXERCISE_NAME name: CARDIO_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -65,8 +64,11 @@ public enum CARDIO_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

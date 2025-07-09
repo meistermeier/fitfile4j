@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum STROKE_TYPE {
-
 	_NO_EVENT(0, "no_event"),
 
 	_OTHER(1, "other"),
@@ -25,7 +24,7 @@ public enum STROKE_TYPE {
 	}
 
 	public static STROKE_TYPE findById(int messageNumber) {
-		for (STROKE_TYPE name : STROKE_TYPE.values()) {
+		for (STROKE_TYPE name: STROKE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum STROKE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

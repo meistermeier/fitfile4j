@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_ALARM_TYPE {
-
 	_DEPTH(0, "depth"),
 
 	_TIME(1, "time"),
@@ -19,7 +18,7 @@ public enum DIVE_ALARM_TYPE {
 	}
 
 	public static DIVE_ALARM_TYPE findById(int messageNumber) {
-		for (DIVE_ALARM_TYPE name : DIVE_ALARM_TYPE.values()) {
+		for (DIVE_ALARM_TYPE name: DIVE_ALARM_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum DIVE_ALARM_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

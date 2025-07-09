@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXD_QUALIFIERS {
-
 	_NO_QUALIFIER(0, "no_qualifier"),
 
 	_INSTANTANEOUS(1, "instantaneous"),
@@ -101,7 +100,7 @@ public enum EXD_QUALIFIERS {
 	}
 
 	public static EXD_QUALIFIERS findById(int messageNumber) {
-		for (EXD_QUALIFIERS name : EXD_QUALIFIERS.values()) {
+		for (EXD_QUALIFIERS name: EXD_QUALIFIERS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -109,8 +108,11 @@ public enum EXD_QUALIFIERS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

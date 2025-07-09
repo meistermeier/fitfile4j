@@ -89,8 +89,7 @@ public class InsertFitFileCommand implements Callable<Integer> {
 		float avgSpeed = 0f;
 		if (sessionInfo.get(14) != null) {
 			avgSpeed = (int) sessionInfo.get(14);
-		}
-		else {
+		} else {
 			avgSpeed = (long) sessionInfo.get(124);
 		}
 

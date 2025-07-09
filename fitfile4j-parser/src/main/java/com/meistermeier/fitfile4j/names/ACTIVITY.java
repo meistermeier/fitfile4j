@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY {
-
 	_MANUAL(0, "manual"),
 
 	_AUTO_MULTI_SPORT(1, "auto_multi_sport");
@@ -17,7 +16,7 @@ public enum ACTIVITY {
 	}
 
 	public static ACTIVITY findById(int messageNumber) {
-		for (ACTIVITY name : ACTIVITY.values()) {
+		for (ACTIVITY name: ACTIVITY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum ACTIVITY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

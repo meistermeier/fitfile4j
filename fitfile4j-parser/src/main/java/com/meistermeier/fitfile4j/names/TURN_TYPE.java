@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TURN_TYPE {
-
 	_ARRIVING_IDX(0, "arriving_idx"),
 
 	_ARRIVING_LEFT_IDX(1, "arriving_left_idx"),
@@ -89,7 +88,7 @@ public enum TURN_TYPE {
 	}
 
 	public static TURN_TYPE findById(int messageNumber) {
-		for (TURN_TYPE name : TURN_TYPE.values()) {
+		for (TURN_TYPE name: TURN_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -97,8 +96,11 @@ public enum TURN_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TIME_MODE {
-
 	_HOUR12(0, "hour12"),
 
 	_HOUR24(1, "hour24"),
@@ -25,7 +24,7 @@ public enum TIME_MODE {
 	}
 
 	public static TIME_MODE findById(int messageNumber) {
-		for (TIME_MODE name : TIME_MODE.values()) {
+		for (TIME_MODE name: TIME_MODE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum TIME_MODE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

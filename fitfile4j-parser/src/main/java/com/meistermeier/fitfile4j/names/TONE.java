@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TONE {
-
 	_OFF(0, "off"),
 
 	_TONE(1, "tone"),
@@ -21,7 +20,7 @@ public enum TONE {
 	}
 
 	public static TONE findById(int messageNumber) {
-		for (TONE name : TONE.values()) {
+		for (TONE name: TONE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum TONE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

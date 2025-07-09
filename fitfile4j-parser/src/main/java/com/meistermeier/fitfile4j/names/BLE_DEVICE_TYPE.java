@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BLE_DEVICE_TYPE {
-
 	_CONNECTED_GPS(0, "connected_gps"),
 
 	_HEART_RATE(1, "heart_rate"),
@@ -29,7 +28,7 @@ public enum BLE_DEVICE_TYPE {
 	}
 
 	public static BLE_DEVICE_TYPE findById(int messageNumber) {
-		for (BLE_DEVICE_TYPE name : BLE_DEVICE_TYPE.values()) {
+		for (BLE_DEVICE_TYPE name: BLE_DEVICE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -37,8 +36,11 @@ public enum BLE_DEVICE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

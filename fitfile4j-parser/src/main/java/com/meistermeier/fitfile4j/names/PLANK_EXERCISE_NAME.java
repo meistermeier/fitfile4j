@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PLANK_EXERCISE_NAME {
-
 	_45_DEGREE_PLANK(0, "45_degree_plank"),
 
 	_WEIGHTED_45_DEGREE_PLANK(1, "weighted_45_degree_plank"),
@@ -257,8 +256,7 @@ public enum PLANK_EXERCISE_NAME {
 
 	_WEIGHTED_SWISS_BALL_PLANK_LEG_LIFT_AND_HOLD(126, "weighted_swiss_ball_plank_leg_lift_and_hold"),
 
-	_WEIGHTED_WIDE_STANCE_PLANK_WITH_OPPOSITE_ARM_AND_LEG_LIFT(127,
-			"weighted_wide_stance_plank_with_opposite_arm_and_leg_lift"),
+	_WEIGHTED_WIDE_STANCE_PLANK_WITH_OPPOSITE_ARM_AND_LEG_LIFT(127, "weighted_wide_stance_plank_with_opposite_arm_and_leg_lift"),
 
 	_PLANK_WITH_FEET_ON_SWISS_BALL(128, "plank_with_feet_on_swiss_ball"),
 
@@ -284,7 +282,7 @@ public enum PLANK_EXERCISE_NAME {
 	}
 
 	public static PLANK_EXERCISE_NAME findById(int messageNumber) {
-		for (PLANK_EXERCISE_NAME name : PLANK_EXERCISE_NAME.values()) {
+		for (PLANK_EXERCISE_NAME name: PLANK_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -292,8 +290,11 @@ public enum PLANK_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

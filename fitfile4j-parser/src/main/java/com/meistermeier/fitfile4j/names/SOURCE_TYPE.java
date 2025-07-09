@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SOURCE_TYPE {
-
 	_ANT(0, "ant"),
 
 	_ANTPLUS(1, "antplus"),
@@ -25,7 +24,7 @@ public enum SOURCE_TYPE {
 	}
 
 	public static SOURCE_TYPE findById(int messageNumber) {
-		for (SOURCE_TYPE name : SOURCE_TYPE.values()) {
+		for (SOURCE_TYPE name: SOURCE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum SOURCE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

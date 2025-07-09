@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GOAL_SOURCE {
-
 	_AUTO(0, "auto"),
 
 	_COMMUNITY(1, "community"),
@@ -19,7 +18,7 @@ public enum GOAL_SOURCE {
 	}
 
 	public static GOAL_SOURCE findById(int messageNumber) {
-		for (GOAL_SOURCE name : GOAL_SOURCE.values()) {
+		for (GOAL_SOURCE name: GOAL_SOURCE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum GOAL_SOURCE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

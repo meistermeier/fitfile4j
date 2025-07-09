@@ -82,8 +82,7 @@ public class FitFileWriterProvider extends ReaderWriterProvider {
 							Method findMethod = null;
 							try {
 								findMethod = fieldName.getEnumType().getMethod("findById", int.class);
-							}
-							catch (NoSuchMethodException e) {
+							} catch (NoSuchMethodException e) {
 								findMethod = fieldName.getEnumType().getMethod("findById", long.class);
 							}
 							var result = findMethod.invoke(fieldName.getEnumType(), value);
@@ -91,14 +90,12 @@ public class FitFileWriterProvider extends ReaderWriterProvider {
 								var name = fieldName.getEnumType().getMethod("getMessageName");
 								value = name.invoke(result);
 							}
-						}
-						catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException
+						} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException
 								| IllegalArgumentException e) {
 							throw new RuntimeException(e);
 						}
 					}
-				}
-				else {
+				} else {
 					key = "" + entry.field().fieldDefinitionNumber();
 				}
 				jsonGenerator.writeFieldName(key);

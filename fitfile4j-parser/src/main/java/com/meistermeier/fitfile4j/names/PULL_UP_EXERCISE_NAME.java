@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PULL_UP_EXERCISE_NAME {
-
 	_BANDED_PULL_UPS(0, "banded_pull_ups"),
 
 	_30_DEGREE_LAT_PULLDOWN(1, "30_degree_lat_pulldown"),
@@ -91,7 +90,7 @@ public enum PULL_UP_EXERCISE_NAME {
 	}
 
 	public static PULL_UP_EXERCISE_NAME findById(int messageNumber) {
-		for (PULL_UP_EXERCISE_NAME name : PULL_UP_EXERCISE_NAME.values()) {
+		for (PULL_UP_EXERCISE_NAME name: PULL_UP_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -99,8 +98,11 @@ public enum PULL_UP_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_SEVERE_TYPE {
-
 	_UNSPECIFIED(0, "unspecified"),
 
 	_TORNADO(1, "tornado"),
@@ -183,7 +182,7 @@ public enum WEATHER_SEVERE_TYPE {
 	}
 
 	public static WEATHER_SEVERE_TYPE findById(int messageNumber) {
-		for (WEATHER_SEVERE_TYPE name : WEATHER_SEVERE_TYPE.values()) {
+		for (WEATHER_SEVERE_TYPE name: WEATHER_SEVERE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -191,8 +190,11 @@ public enum WEATHER_SEVERE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

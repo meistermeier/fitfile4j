@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CAMERA_ORIENTATION_TYPE {
-
 	_CAMERA_ORIENTATION_0(0, "camera_orientation_0"),
 
 	_CAMERA_ORIENTATION_90(1, "camera_orientation_90"),
@@ -21,7 +20,7 @@ public enum CAMERA_ORIENTATION_TYPE {
 	}
 
 	public static CAMERA_ORIENTATION_TYPE findById(int messageNumber) {
-		for (CAMERA_ORIENTATION_TYPE name : CAMERA_ORIENTATION_TYPE.values()) {
+		for (CAMERA_ORIENTATION_TYPE name: CAMERA_ORIENTATION_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum CAMERA_ORIENTATION_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

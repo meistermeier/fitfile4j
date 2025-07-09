@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_CAPABILITIES {
-
 	_INTERVAL(1L, "interval"),
 
 	_CUSTOM(2L, "custom"),
@@ -41,7 +40,7 @@ public enum WORKOUT_CAPABILITIES {
 	}
 
 	public static WORKOUT_CAPABILITIES findById(long messageNumber) {
-		for (WORKOUT_CAPABILITIES name : WORKOUT_CAPABILITIES.values()) {
+		for (WORKOUT_CAPABILITIES name: WORKOUT_CAPABILITIES.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -49,8 +48,11 @@ public enum WORKOUT_CAPABILITIES {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

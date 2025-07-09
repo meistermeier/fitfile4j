@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CHOP_EXERCISE_NAME {
-
 	_CABLE_PULL_THROUGH(0, "cable_pull_through"),
 
 	_CABLE_ROTATIONAL_LIFT(1, "cable_rotational_lift"),
@@ -59,7 +58,7 @@ public enum CHOP_EXERCISE_NAME {
 	}
 
 	public static CHOP_EXERCISE_NAME findById(int messageNumber) {
-		for (CHOP_EXERCISE_NAME name : CHOP_EXERCISE_NAME.values()) {
+		for (CHOP_EXERCISE_NAME name: CHOP_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -67,8 +66,11 @@ public enum CHOP_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

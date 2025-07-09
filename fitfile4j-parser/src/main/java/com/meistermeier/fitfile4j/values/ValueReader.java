@@ -64,24 +64,21 @@ public interface ValueReader {
 					result += (Byte.toUnsignedInt(input[i]) << 8 * i);
 				}
 				return (T) result;
-			}
-			else {
+			} else {
 				Long result = 0L;
 				for (var i = 0; i < input.length; i++) {
 					result += (Byte.toUnsignedLong(input[i]) << 8 * i);
 				}
 				return (T) result;
 			}
-		}
-		else {
+		} else {
 			if (input.length < 3) {
 				Integer result = 0;
 				for (int i = input.length - 1, x = 0; i >= 0; i--, x++) {
 					result += (Byte.toUnsignedInt(input[i]) << 8 * x);
 				}
 				return (T) result;
-			}
-			else {
+			} else {
 				Long result = 0L;
 				for (int i = input.length - 1, x = 0; i >= 0; i--, x++) {
 					result += (Byte.toUnsignedLong(input[i]) << 8 * x);
@@ -105,8 +102,7 @@ public interface ValueReader {
 			for (var i = 0; i < input.length; i++) {
 				result += (Byte.toUnsignedLong(input[i]) << 8 * i);
 			}
-		}
-		else {
+		} else {
 			for (int i = input.length - 1, x = 0; i >= 0; i--, x++) {
 				result += (Byte.toUnsignedLong(input[i]) << 8 * x);
 			}

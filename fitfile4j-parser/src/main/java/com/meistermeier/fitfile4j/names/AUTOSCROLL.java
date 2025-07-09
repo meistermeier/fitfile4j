@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTOSCROLL {
-
 	_NONE(0, "none"),
 
 	_SLOW(1, "slow"),
@@ -21,7 +20,7 @@ public enum AUTOSCROLL {
 	}
 
 	public static AUTOSCROLL findById(int messageNumber) {
-		for (AUTOSCROLL name : AUTOSCROLL.values()) {
+		for (AUTOSCROLL name: AUTOSCROLL.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum AUTOSCROLL {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

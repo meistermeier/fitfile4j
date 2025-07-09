@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum MANUFACTURER {
-
 	_GARMIN(1, "garmin"),
 
 	_GARMIN_FR405_ANTFS(2, "garmin_fr405_antfs"),
@@ -469,7 +468,7 @@ public enum MANUFACTURER {
 	}
 
 	public static MANUFACTURER findById(int messageNumber) {
-		for (MANUFACTURER name : MANUFACTURER.values()) {
+		for (MANUFACTURER name: MANUFACTURER.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -477,8 +476,11 @@ public enum MANUFACTURER {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

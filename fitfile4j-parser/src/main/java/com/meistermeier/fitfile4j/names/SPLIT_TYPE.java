@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPLIT_TYPE {
-
 	_ASCENT_SPLIT(1, "ascent_split"),
 
 	_DESCENT_SPLIT(2, "descent_split"),
@@ -55,7 +54,7 @@ public enum SPLIT_TYPE {
 	}
 
 	public static SPLIT_TYPE findById(int messageNumber) {
-		for (SPLIT_TYPE name : SPLIT_TYPE.values()) {
+		for (SPLIT_TYPE name: SPLIT_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -63,8 +62,11 @@ public enum SPLIT_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

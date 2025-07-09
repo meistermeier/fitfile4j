@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_SEVERITY {
-
 	_UNKNOWN(0, "unknown"),
 
 	_WARNING(1, "warning"),
@@ -23,7 +22,7 @@ public enum WEATHER_SEVERITY {
 	}
 
 	public static WEATHER_SEVERITY findById(int messageNumber) {
-		for (WEATHER_SEVERITY name : WEATHER_SEVERITY.values()) {
+		for (WEATHER_SEVERITY name: WEATHER_SEVERITY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -31,8 +30,11 @@ public enum WEATHER_SEVERITY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

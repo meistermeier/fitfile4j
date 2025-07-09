@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT_EVENT {
-
 	_UNCATEGORIZED(0, "uncategorized"),
 
 	_GEOCACHING(1, "geocaching"),
@@ -31,7 +30,7 @@ public enum SPORT_EVENT {
 	}
 
 	public static SPORT_EVENT findById(int messageNumber) {
-		for (SPORT_EVENT name : SPORT_EVENT.values()) {
+		for (SPORT_EVENT name: SPORT_EVENT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -39,8 +38,11 @@ public enum SPORT_EVENT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

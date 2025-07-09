@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum COURSE_CAPABILITIES {
-
 	_PROCESSED(1L, "processed"),
 
 	_VALID(2L, "valid"),
@@ -37,7 +36,7 @@ public enum COURSE_CAPABILITIES {
 	}
 
 	public static COURSE_CAPABILITIES findById(long messageNumber) {
-		for (COURSE_CAPABILITIES name : COURSE_CAPABILITIES.values()) {
+		for (COURSE_CAPABILITIES name: COURSE_CAPABILITIES.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -45,8 +44,11 @@ public enum COURSE_CAPABILITIES {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

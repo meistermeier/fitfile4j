@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LENGTH_TYPE {
-
 	_IDLE(0, "idle"),
 
 	_ACTIVE(1, "active");
@@ -17,7 +16,7 @@ public enum LENGTH_TYPE {
 	}
 
 	public static LENGTH_TYPE findById(int messageNumber) {
-		for (LENGTH_TYPE name : LENGTH_TYPE.values()) {
+		for (LENGTH_TYPE name: LENGTH_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum LENGTH_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

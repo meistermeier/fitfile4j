@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DEADLIFT_EXERCISE_NAME {
-
 	_BARBELL_DEADLIFT(0, "barbell_deadlift"),
 
 	_BARBELL_STRAIGHT_LEG_DEADLIFT(1, "barbell_straight_leg_deadlift"),
@@ -51,7 +50,7 @@ public enum DEADLIFT_EXERCISE_NAME {
 	}
 
 	public static DEADLIFT_EXERCISE_NAME findById(int messageNumber) {
-		for (DEADLIFT_EXERCISE_NAME name : DEADLIFT_EXERCISE_NAME.values()) {
+		for (DEADLIFT_EXERCISE_NAME name: DEADLIFT_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -59,8 +58,11 @@ public enum DEADLIFT_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

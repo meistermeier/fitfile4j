@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum COURSE_POINT {
-
 	_GENERIC(0, "generic"),
 
 	_SUMMIT(1, "summit"),
@@ -119,7 +118,7 @@ public enum COURSE_POINT {
 	}
 
 	public static COURSE_POINT findById(int messageNumber) {
-		for (COURSE_POINT name : COURSE_POINT.values()) {
+		for (COURSE_POINT name: COURSE_POINT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -127,8 +126,11 @@ public enum COURSE_POINT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

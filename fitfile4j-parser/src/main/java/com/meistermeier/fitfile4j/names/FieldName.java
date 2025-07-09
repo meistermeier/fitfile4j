@@ -5,7 +5,6 @@ package com.meistermeier.fitfile4j.names;
  * Name of messages to be mapped from their ids
  */
 public enum FieldName {
-
 	TYPE_0(0, 0, "type", FILE.class),
 
 	MANUFACTURER_0(0, 1, "manufacturer", MANUFACTURER.class),
@@ -130,8 +129,7 @@ public enum FieldName {
 
 	NUMBER_OF_SCREENS_2(2, 94, "number_of_screens", null),
 
-	SMART_NOTIFICATION_DISPLAY_ORIENTATION_2(2, 95, "smart_notification_display_orientation",
-			DISPLAY_ORIENTATION.class),
+	SMART_NOTIFICATION_DISPLAY_ORIENTATION_2(2, 95, "smart_notification_display_orientation", DISPLAY_ORIENTATION.class),
 
 	TAP_INTERFACE_2(2, 134, "tap_interface", SWITCH.class),
 
@@ -2787,7 +2785,7 @@ public enum FieldName {
 	}
 
 	public static FieldName findById(int messageNumber, int fieldNumber) {
-		for (FieldName name : FieldName.values()) {
+		for (FieldName name: FieldName.values()) {
 			if (name.messageNumber == messageNumber && name.fieldNumber == fieldNumber) {
 				return name;
 			}
@@ -2795,20 +2793,19 @@ public enum FieldName {
 		return null;
 	}
 
-	public String getFieldName() {
-		return this.fieldName;
-	}
-
 	public int getMessageNumber() {
-		return messageNumber;
+		return this.messageNumber;
 	}
 
 	public int getFieldNumber() {
-		return fieldNumber;
+		return this.fieldNumber;
+	}
+
+	public String getFieldName() {
+		return this.fieldName;
 	}
 
 	public Class getEnumType() {
 		return this.enumType;
 	}
-
 }

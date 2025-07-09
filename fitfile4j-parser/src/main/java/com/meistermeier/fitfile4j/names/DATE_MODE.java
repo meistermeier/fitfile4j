@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DATE_MODE {
-
 	_DAY_MONTH(0, "day_month"),
 
 	_MONTH_DAY(1, "month_day");
@@ -17,7 +16,7 @@ public enum DATE_MODE {
 	}
 
 	public static DATE_MODE findById(int messageNumber) {
-		for (DATE_MODE name : DATE_MODE.values()) {
+		for (DATE_MODE name: DATE_MODE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum DATE_MODE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

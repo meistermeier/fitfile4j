@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DIVE_GAS_STATUS {
-
 	_DISABLED(0, "disabled"),
 
 	_ENABLED(1, "enabled"),
@@ -19,7 +18,7 @@ public enum DIVE_GAS_STATUS {
 	}
 
 	public static DIVE_GAS_STATUS findById(int messageNumber) {
-		for (DIVE_GAS_STATUS name : DIVE_GAS_STATUS.values()) {
+		for (DIVE_GAS_STATUS name: DIVE_GAS_STATUS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum DIVE_GAS_STATUS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

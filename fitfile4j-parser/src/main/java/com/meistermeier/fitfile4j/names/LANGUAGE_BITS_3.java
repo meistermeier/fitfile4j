@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_3 {
-
 	_BULGARIAN(1, "bulgarian"),
 
 	_ROMANIAN(2, "romanian"),
@@ -29,7 +28,7 @@ public enum LANGUAGE_BITS_3 {
 	}
 
 	public static LANGUAGE_BITS_3 findById(int messageNumber) {
-		for (LANGUAGE_BITS_3 name : LANGUAGE_BITS_3.values()) {
+		for (LANGUAGE_BITS_3 name: LANGUAGE_BITS_3.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -37,8 +36,11 @@ public enum LANGUAGE_BITS_3 {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PUSH_UP_EXERCISE_NAME {
-
 	_CHEST_PRESS_WITH_BAND(0, "chest_press_with_band"),
 
 	_ALTERNATING_STAGGERED_PUSH_UP(1, "alternating_staggered_push_up"),
@@ -171,7 +170,7 @@ public enum PUSH_UP_EXERCISE_NAME {
 	}
 
 	public static PUSH_UP_EXERCISE_NAME findById(int messageNumber) {
-		for (PUSH_UP_EXERCISE_NAME name : PUSH_UP_EXERCISE_NAME.values()) {
+		for (PUSH_UP_EXERCISE_NAME name: PUSH_UP_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -179,8 +178,11 @@ public enum PUSH_UP_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

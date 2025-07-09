@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WARM_UP_EXERCISE_NAME {
-
 	_QUADRUPED_ROCKING(0, "quadruped_rocking"),
 
 	_NECK_TILTS(1, "neck_tilts"),
@@ -75,7 +74,7 @@ public enum WARM_UP_EXERCISE_NAME {
 	}
 
 	public static WARM_UP_EXERCISE_NAME findById(int messageNumber) {
-		for (WARM_UP_EXERCISE_NAME name : WARM_UP_EXERCISE_NAME.values()) {
+		for (WARM_UP_EXERCISE_NAME name: WARM_UP_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -83,8 +82,11 @@ public enum WARM_UP_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

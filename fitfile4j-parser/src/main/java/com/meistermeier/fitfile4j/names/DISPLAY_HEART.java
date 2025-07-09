@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DISPLAY_HEART {
-
 	_BPM(0, "bpm"),
 
 	_MAX(1, "max"),
@@ -19,7 +18,7 @@ public enum DISPLAY_HEART {
 	}
 
 	public static DISPLAY_HEART findById(int messageNumber) {
-		for (DISPLAY_HEART name : DISPLAY_HEART.values()) {
+		for (DISPLAY_HEART name: DISPLAY_HEART.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum DISPLAY_HEART {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

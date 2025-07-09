@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BACKLIGHT_MODE {
-
 	_OFF(0, "off"),
 
 	_MANUAL(1, "manual"),
@@ -27,7 +26,7 @@ public enum BACKLIGHT_MODE {
 	}
 
 	public static BACKLIGHT_MODE findById(int messageNumber) {
-		for (BACKLIGHT_MODE name : BACKLIGHT_MODE.values()) {
+		for (BACKLIGHT_MODE name: BACKLIGHT_MODE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum BACKLIGHT_MODE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

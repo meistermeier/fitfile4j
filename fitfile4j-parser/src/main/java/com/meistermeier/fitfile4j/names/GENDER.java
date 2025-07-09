@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GENDER {
-
 	_FEMALE(0, "female"),
 
 	_MALE(1, "male");
@@ -17,7 +16,7 @@ public enum GENDER {
 	}
 
 	public static GENDER findById(int messageNumber) {
-		for (GENDER name : GENDER.values()) {
+		for (GENDER name: GENDER.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum GENDER {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

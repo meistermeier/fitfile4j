@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EVENT_TYPE {
-
 	_START(0, "start"),
 
 	_STOP(1, "stop"),
@@ -33,7 +32,7 @@ public enum EVENT_TYPE {
 	}
 
 	public static EVENT_TYPE findById(int messageNumber) {
-		for (EVENT_TYPE name : EVENT_TYPE.values()) {
+		for (EVENT_TYPE name: EVENT_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -41,8 +40,11 @@ public enum EVENT_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

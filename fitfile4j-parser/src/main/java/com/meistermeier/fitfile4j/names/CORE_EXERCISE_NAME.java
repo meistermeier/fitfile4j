@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CORE_EXERCISE_NAME {
-
 	_ABS_JABS(0, "abs_jabs"),
 
 	_WEIGHTED_ABS_JABS(1, "weighted_abs_jabs"),
@@ -159,7 +158,7 @@ public enum CORE_EXERCISE_NAME {
 	}
 
 	public static CORE_EXERCISE_NAME findById(int messageNumber) {
-		for (CORE_EXERCISE_NAME name : CORE_EXERCISE_NAME.values()) {
+		for (CORE_EXERCISE_NAME name: CORE_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -167,8 +166,11 @@ public enum CORE_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CALF_RAISE_EXERCISE_NAME {
-
 	_3_WAY_CALF_RAISE(0, "3_way_calf_raise"),
 
 	_3_WAY_WEIGHTED_CALF_RAISE(1, "3_way_weighted_calf_raise"),
@@ -55,7 +54,7 @@ public enum CALF_RAISE_EXERCISE_NAME {
 	}
 
 	public static CALF_RAISE_EXERCISE_NAME findById(int messageNumber) {
-		for (CALF_RAISE_EXERCISE_NAME name : CALF_RAISE_EXERCISE_NAME.values()) {
+		for (CALF_RAISE_EXERCISE_NAME name: CALF_RAISE_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -63,8 +62,11 @@ public enum CALF_RAISE_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ROW_EXERCISE_NAME {
-
 	_BARBELL_STRAIGHT_LEG_DEADLIFT_TO_ROW(0, "barbell_straight_leg_deadlift_to_row"),
 
 	_CABLE_ROW_STANDING(1, "cable_row_standing"),
@@ -81,7 +80,7 @@ public enum ROW_EXERCISE_NAME {
 	}
 
 	public static ROW_EXERCISE_NAME findById(int messageNumber) {
-		for (ROW_EXERCISE_NAME name : ROW_EXERCISE_NAME.values()) {
+		for (ROW_EXERCISE_NAME name: ROW_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -89,8 +88,11 @@ public enum ROW_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

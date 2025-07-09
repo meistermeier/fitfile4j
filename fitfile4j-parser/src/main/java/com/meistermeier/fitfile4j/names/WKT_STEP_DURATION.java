@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WKT_STEP_DURATION {
-
 	_TIME(0, "time"),
 
 	_DISTANCE(1, "distance"),
@@ -75,7 +74,7 @@ public enum WKT_STEP_DURATION {
 	}
 
 	public static WKT_STEP_DURATION findById(int messageNumber) {
-		for (WKT_STEP_DURATION name : WKT_STEP_DURATION.values()) {
+		for (WKT_STEP_DURATION name: WKT_STEP_DURATION.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -83,8 +82,11 @@ public enum WKT_STEP_DURATION {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

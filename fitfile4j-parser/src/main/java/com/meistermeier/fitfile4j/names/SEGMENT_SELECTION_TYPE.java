@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SEGMENT_SELECTION_TYPE {
-
 	_STARRED(0, "starred"),
 
 	_SUGGESTED(1, "suggested");
@@ -17,7 +16,7 @@ public enum SEGMENT_SELECTION_TYPE {
 	}
 
 	public static SEGMENT_SELECTION_TYPE findById(int messageNumber) {
-		for (SEGMENT_SELECTION_TYPE name : SEGMENT_SELECTION_TYPE.values()) {
+		for (SEGMENT_SELECTION_TYPE name: SEGMENT_SELECTION_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum SEGMENT_SELECTION_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

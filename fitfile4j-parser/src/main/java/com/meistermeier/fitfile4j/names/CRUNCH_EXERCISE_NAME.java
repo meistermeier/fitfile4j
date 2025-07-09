@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CRUNCH_EXERCISE_NAME {
-
 	_BICYCLE_CRUNCH(0, "bicycle_crunch"),
 
 	_CABLE_CRUNCH(1, "cable_crunch"),
@@ -183,7 +182,7 @@ public enum CRUNCH_EXERCISE_NAME {
 	}
 
 	public static CRUNCH_EXERCISE_NAME findById(int messageNumber) {
-		for (CRUNCH_EXERCISE_NAME name : CRUNCH_EXERCISE_NAME.values()) {
+		for (CRUNCH_EXERCISE_NAME name: CRUNCH_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -191,8 +190,11 @@ public enum CRUNCH_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

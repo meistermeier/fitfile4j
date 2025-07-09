@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum FIT_BASE_UNIT {
-
 	_OTHER(0, "other"),
 
 	_KILOGRAM(1, "kilogram"),
@@ -19,7 +18,7 @@ public enum FIT_BASE_UNIT {
 	}
 
 	public static FIT_BASE_UNIT findById(int messageNumber) {
-		for (FIT_BASE_UNIT name : FIT_BASE_UNIT.values()) {
+		for (FIT_BASE_UNIT name: FIT_BASE_UNIT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum FIT_BASE_UNIT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

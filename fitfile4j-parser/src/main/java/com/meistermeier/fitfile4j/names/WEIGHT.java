@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEIGHT {
-
 	_CALCULATING(65534, "calculating");
 
 	private final int messageNumber;
@@ -15,7 +14,7 @@ public enum WEIGHT {
 	}
 
 	public static WEIGHT findById(int messageNumber) {
-		for (WEIGHT name : WEIGHT.values()) {
+		for (WEIGHT name: WEIGHT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -23,8 +22,11 @@ public enum WEIGHT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

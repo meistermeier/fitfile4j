@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CHECKSUM {
-
 	_CLEAR(0, "clear"),
 
 	_OK(1, "ok");
@@ -17,7 +16,7 @@ public enum CHECKSUM {
 	}
 
 	public static CHECKSUM findById(int messageNumber) {
-		for (CHECKSUM name : CHECKSUM.values()) {
+		for (CHECKSUM name: CHECKSUM.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum CHECKSUM {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

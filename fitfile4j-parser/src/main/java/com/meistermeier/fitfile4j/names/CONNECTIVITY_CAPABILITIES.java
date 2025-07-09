@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CONNECTIVITY_CAPABILITIES {
-
 	_BLUETOOTH(1L, "bluetooth"),
 
 	_BLUETOOTH_LE(2L, "bluetooth_le"),
@@ -77,7 +76,7 @@ public enum CONNECTIVITY_CAPABILITIES {
 	}
 
 	public static CONNECTIVITY_CAPABILITIES findById(long messageNumber) {
-		for (CONNECTIVITY_CAPABILITIES name : CONNECTIVITY_CAPABILITIES.values()) {
+		for (CONNECTIVITY_CAPABILITIES name: CONNECTIVITY_CAPABILITIES.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -85,8 +84,11 @@ public enum CONNECTIVITY_CAPABILITIES {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

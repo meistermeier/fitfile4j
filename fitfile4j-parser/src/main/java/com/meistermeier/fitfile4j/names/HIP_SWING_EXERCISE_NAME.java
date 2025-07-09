@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HIP_SWING_EXERCISE_NAME {
-
 	_SINGLE_ARM_KETTLEBELL_SWING(0, "single_arm_kettlebell_swing"),
 
 	_SINGLE_ARM_DUMBBELL_SWING(1, "single_arm_dumbbell_swing"),
@@ -19,7 +18,7 @@ public enum HIP_SWING_EXERCISE_NAME {
 	}
 
 	public static HIP_SWING_EXERCISE_NAME findById(int messageNumber) {
-		for (HIP_SWING_EXERCISE_NAME name : HIP_SWING_EXERCISE_NAME.values()) {
+		for (HIP_SWING_EXERCISE_NAME name: HIP_SWING_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum HIP_SWING_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

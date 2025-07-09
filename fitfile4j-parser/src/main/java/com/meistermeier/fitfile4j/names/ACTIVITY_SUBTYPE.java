@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ACTIVITY_SUBTYPE {
-
 	_GENERIC(0, "generic"),
 
 	_TREADMILL(1, "treadmill"),
@@ -53,7 +52,7 @@ public enum ACTIVITY_SUBTYPE {
 	}
 
 	public static ACTIVITY_SUBTYPE findById(int messageNumber) {
-		for (ACTIVITY_SUBTYPE name : ACTIVITY_SUBTYPE.values()) {
+		for (ACTIVITY_SUBTYPE name: ACTIVITY_SUBTYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -61,8 +60,11 @@ public enum ACTIVITY_SUBTYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

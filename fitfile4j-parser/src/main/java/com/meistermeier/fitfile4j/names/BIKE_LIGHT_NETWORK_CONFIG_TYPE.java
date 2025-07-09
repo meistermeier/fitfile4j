@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BIKE_LIGHT_NETWORK_CONFIG_TYPE {
-
 	_AUTO(0, "auto"),
 
 	_INDIVIDUAL(4, "individual"),
@@ -21,7 +20,7 @@ public enum BIKE_LIGHT_NETWORK_CONFIG_TYPE {
 	}
 
 	public static BIKE_LIGHT_NETWORK_CONFIG_TYPE findById(int messageNumber) {
-		for (BIKE_LIGHT_NETWORK_CONFIG_TYPE name : BIKE_LIGHT_NETWORK_CONFIG_TYPE.values()) {
+		for (BIKE_LIGHT_NETWORK_CONFIG_TYPE name: BIKE_LIGHT_NETWORK_CONFIG_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum BIKE_LIGHT_NETWORK_CONFIG_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

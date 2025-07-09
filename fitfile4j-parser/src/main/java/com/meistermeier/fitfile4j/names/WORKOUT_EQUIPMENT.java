@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WORKOUT_EQUIPMENT {
-
 	_NONE(0, "none"),
 
 	_SWIM_FINS(1, "swim_fins"),
@@ -25,7 +24,7 @@ public enum WORKOUT_EQUIPMENT {
 	}
 
 	public static WORKOUT_EQUIPMENT findById(int messageNumber) {
-		for (WORKOUT_EQUIPMENT name : WORKOUT_EQUIPMENT.values()) {
+		for (WORKOUT_EQUIPMENT name: WORKOUT_EQUIPMENT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum WORKOUT_EQUIPMENT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

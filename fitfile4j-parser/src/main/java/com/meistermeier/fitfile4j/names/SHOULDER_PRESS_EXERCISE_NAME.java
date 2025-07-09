@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SHOULDER_PRESS_EXERCISE_NAME {
-
 	_ALTERNATING_DUMBBELL_SHOULDER_PRESS(0, "alternating_dumbbell_shoulder_press"),
 
 	_ARNOLD_PRESS(1, "arnold_press"),
@@ -61,7 +60,7 @@ public enum SHOULDER_PRESS_EXERCISE_NAME {
 	}
 
 	public static SHOULDER_PRESS_EXERCISE_NAME findById(int messageNumber) {
-		for (SHOULDER_PRESS_EXERCISE_NAME name : SHOULDER_PRESS_EXERCISE_NAME.values()) {
+		for (SHOULDER_PRESS_EXERCISE_NAME name: SHOULDER_PRESS_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -69,8 +68,11 @@ public enum SHOULDER_PRESS_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

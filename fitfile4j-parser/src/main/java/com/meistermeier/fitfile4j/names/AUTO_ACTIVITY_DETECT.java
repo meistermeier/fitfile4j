@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTO_ACTIVITY_DETECT {
-
 	_NONE(0L, "none"),
 
 	_RUNNING(1L, "running"),
@@ -27,7 +26,7 @@ public enum AUTO_ACTIVITY_DETECT {
 	}
 
 	public static AUTO_ACTIVITY_DETECT findById(long messageNumber) {
-		for (AUTO_ACTIVITY_DETECT name : AUTO_ACTIVITY_DETECT.values()) {
+		for (AUTO_ACTIVITY_DETECT name: AUTO_ACTIVITY_DETECT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum AUTO_ACTIVITY_DETECT {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

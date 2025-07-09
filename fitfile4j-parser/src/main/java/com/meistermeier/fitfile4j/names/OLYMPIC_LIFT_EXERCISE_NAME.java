@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum OLYMPIC_LIFT_EXERCISE_NAME {
-
 	_BARBELL_HANG_POWER_CLEAN(0, "barbell_hang_power_clean"),
 
 	_BARBELL_HANG_SQUAT_CLEAN(1, "barbell_hang_squat_clean"),
@@ -55,7 +54,7 @@ public enum OLYMPIC_LIFT_EXERCISE_NAME {
 	}
 
 	public static OLYMPIC_LIFT_EXERCISE_NAME findById(int messageNumber) {
-		for (OLYMPIC_LIFT_EXERCISE_NAME name : OLYMPIC_LIFT_EXERCISE_NAME.values()) {
+		for (OLYMPIC_LIFT_EXERCISE_NAME name: OLYMPIC_LIFT_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -63,8 +62,11 @@ public enum OLYMPIC_LIFT_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

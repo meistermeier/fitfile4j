@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HIP_RAISE_EXERCISE_NAME {
-
 	_BARBELL_HIP_THRUST_ON_FLOOR(0, "barbell_hip_thrust_on_floor"),
 
 	_BARBELL_HIP_THRUST_WITH_BENCH(1, "barbell_hip_thrust_with_bench"),
@@ -77,13 +76,11 @@ public enum HIP_RAISE_EXERCISE_NAME {
 
 	_SINGLE_LEG_HIP_RAISE_WITH_FOOT_ON_FOAM_ROLLER(36, "single_leg_hip_raise_with_foot_on_foam_roller"),
 
-	_WEIGHTED_SINGLE_LEG_HIP_RAISE_WITH_FOOT_ON_FOAM_ROLLER(37,
-			"weighted_single_leg_hip_raise_with_foot_on_foam_roller"),
+	_WEIGHTED_SINGLE_LEG_HIP_RAISE_WITH_FOOT_ON_FOAM_ROLLER(37, "weighted_single_leg_hip_raise_with_foot_on_foam_roller"),
 
 	_SINGLE_LEG_HIP_RAISE_WITH_FOOT_ON_MEDICINE_BALL(38, "single_leg_hip_raise_with_foot_on_medicine_ball"),
 
-	_WEIGHTED_SINGLE_LEG_HIP_RAISE_WITH_FOOT_ON_MEDICINE_BALL(39,
-			"weighted_single_leg_hip_raise_with_foot_on_medicine_ball"),
+	_WEIGHTED_SINGLE_LEG_HIP_RAISE_WITH_FOOT_ON_MEDICINE_BALL(39, "weighted_single_leg_hip_raise_with_foot_on_medicine_ball"),
 
 	_SINGLE_LEG_HIP_RAISE_WITH_HEAD_ON_BOSU_BALL(40, "single_leg_hip_raise_with_head_on_bosu_ball"),
 
@@ -115,7 +112,7 @@ public enum HIP_RAISE_EXERCISE_NAME {
 	}
 
 	public static HIP_RAISE_EXERCISE_NAME findById(int messageNumber) {
-		for (HIP_RAISE_EXERCISE_NAME name : HIP_RAISE_EXERCISE_NAME.values()) {
+		for (HIP_RAISE_EXERCISE_NAME name: HIP_RAISE_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -123,8 +120,11 @@ public enum HIP_RAISE_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

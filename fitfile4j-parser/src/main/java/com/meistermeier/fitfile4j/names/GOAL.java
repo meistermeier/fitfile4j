@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GOAL {
-
 	_TIME(0, "time"),
 
 	_DISTANCE(1, "distance"),
@@ -27,7 +26,7 @@ public enum GOAL {
 	}
 
 	public static GOAL findById(int messageNumber) {
-		for (GOAL name : GOAL.values()) {
+		for (GOAL name: GOAL.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum GOAL {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

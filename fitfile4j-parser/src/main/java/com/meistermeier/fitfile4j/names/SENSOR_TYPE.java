@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SENSOR_TYPE {
-
 	_ACCELEROMETER(0, "accelerometer"),
 
 	_GYROSCOPE(1, "gyroscope"),
@@ -21,7 +20,7 @@ public enum SENSOR_TYPE {
 	}
 
 	public static SENSOR_TYPE findById(int messageNumber) {
-		for (SENSOR_TYPE name : SENSOR_TYPE.values()) {
+		for (SENSOR_TYPE name: SENSOR_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum SENSOR_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

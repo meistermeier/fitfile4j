@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPO2_MEASUREMENT_TYPE {
-
 	_OFF_WRIST(0, "off_wrist"),
 
 	_SPOT_CHECK(1, "spot_check"),
@@ -21,7 +20,7 @@ public enum SPO2_MEASUREMENT_TYPE {
 	}
 
 	public static SPO2_MEASUREMENT_TYPE findById(int messageNumber) {
-		for (SPO2_MEASUREMENT_TYPE name : SPO2_MEASUREMENT_TYPE.values()) {
+		for (SPO2_MEASUREMENT_TYPE name: SPO2_MEASUREMENT_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum SPO2_MEASUREMENT_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

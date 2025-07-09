@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WEATHER_STATUS {
-
 	_CLEAR(0, "clear"),
 
 	_PARTLY_CLOUDY(1, "partly_cloudy"),
@@ -55,7 +54,7 @@ public enum WEATHER_STATUS {
 	}
 
 	public static WEATHER_STATUS findById(int messageNumber) {
-		for (WEATHER_STATUS name : WEATHER_STATUS.values()) {
+		for (WEATHER_STATUS name: WEATHER_STATUS.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -63,8 +62,11 @@ public enum WEATHER_STATUS {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

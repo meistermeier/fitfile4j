@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum LANGUAGE_BITS_4 {
-
 	_BRAZILIAN_PORTUGUESE(1, "brazilian_portuguese"),
 
 	_INDONESIAN(2, "indonesian"),
@@ -25,7 +24,7 @@ public enum LANGUAGE_BITS_4 {
 	}
 
 	public static LANGUAGE_BITS_4 findById(int messageNumber) {
-		for (LANGUAGE_BITS_4 name : LANGUAGE_BITS_4.values()) {
+		for (LANGUAGE_BITS_4 name: LANGUAGE_BITS_4.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -33,8 +32,11 @@ public enum LANGUAGE_BITS_4 {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum AUTOLAP_TRIGGER {
-
 	_TIME(0, "time"),
 
 	_DISTANCE(1, "distance"),
@@ -29,7 +28,7 @@ public enum AUTOLAP_TRIGGER {
 	}
 
 	public static AUTOLAP_TRIGGER findById(int messageNumber) {
-		for (AUTOLAP_TRIGGER name : AUTOLAP_TRIGGER.values()) {
+		for (AUTOLAP_TRIGGER name: AUTOLAP_TRIGGER.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -37,8 +36,11 @@ public enum AUTOLAP_TRIGGER {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

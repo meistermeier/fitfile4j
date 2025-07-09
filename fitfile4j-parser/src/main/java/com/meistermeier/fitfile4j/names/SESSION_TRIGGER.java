@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SESSION_TRIGGER {
-
 	_ACTIVITY_END(0, "activity_end"),
 
 	_MANUAL(1, "manual"),
@@ -21,7 +20,7 @@ public enum SESSION_TRIGGER {
 	}
 
 	public static SESSION_TRIGGER findById(int messageNumber) {
-		for (SESSION_TRIGGER name : SESSION_TRIGGER.values()) {
+		for (SESSION_TRIGGER name: SESSION_TRIGGER.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum SESSION_TRIGGER {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum INTENSITY {
-
 	_ACTIVE(0, "active"),
 
 	_REST(1, "rest"),
@@ -27,7 +26,7 @@ public enum INTENSITY {
 	}
 
 	public static INTENSITY findById(int messageNumber) {
-		for (INTENSITY name : INTENSITY.values()) {
+		for (INTENSITY name: INTENSITY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -35,8 +34,11 @@ public enum INTENSITY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

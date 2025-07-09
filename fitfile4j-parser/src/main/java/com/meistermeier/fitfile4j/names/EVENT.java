@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EVENT {
-
 	_TIMER(0, "timer"),
 
 	_WORKOUT(3, "workout"),
@@ -105,7 +104,7 @@ public enum EVENT {
 	}
 
 	public static EVENT findById(int messageNumber) {
-		for (EVENT name : EVENT.values()) {
+		for (EVENT name: EVENT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -113,8 +112,11 @@ public enum EVENT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

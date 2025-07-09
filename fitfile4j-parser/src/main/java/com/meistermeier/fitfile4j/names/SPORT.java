@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum SPORT {
-
 	_GENERIC(0, "generic"),
 
 	_RUNNING(1, "running"),
@@ -151,7 +150,7 @@ public enum SPORT {
 	}
 
 	public static SPORT findById(int messageNumber) {
-		for (SPORT name : SPORT.values()) {
+		for (SPORT name: SPORT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -159,8 +158,11 @@ public enum SPORT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

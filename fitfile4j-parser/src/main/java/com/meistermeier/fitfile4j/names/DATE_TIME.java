@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DATE_TIME {
-
 	_MIN(268435456L, "min");
 
 	private final long messageNumber;
@@ -15,7 +14,7 @@ public enum DATE_TIME {
 	}
 
 	public static DATE_TIME findById(long messageNumber) {
-		for (DATE_TIME name : DATE_TIME.values()) {
+		for (DATE_TIME name: DATE_TIME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -23,8 +22,11 @@ public enum DATE_TIME {
 		return null;
 	}
 
+	public Long getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

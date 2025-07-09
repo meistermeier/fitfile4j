@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum TAP_SENSITIVITY {
-
 	_HIGH(0, "high"),
 
 	_MEDIUM(1, "medium"),
@@ -19,7 +18,7 @@ public enum TAP_SENSITIVITY {
 	}
 
 	public static TAP_SENSITIVITY findById(int messageNumber) {
-		for (TAP_SENSITIVITY name : TAP_SENSITIVITY.values()) {
+		for (TAP_SENSITIVITY name: TAP_SENSITIVITY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -27,8 +26,11 @@ public enum TAP_SENSITIVITY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

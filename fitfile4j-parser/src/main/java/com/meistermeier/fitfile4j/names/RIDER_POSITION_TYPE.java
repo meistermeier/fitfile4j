@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum RIDER_POSITION_TYPE {
-
 	_SEATED(0, "seated"),
 
 	_STANDING(1, "standing"),
@@ -21,7 +20,7 @@ public enum RIDER_POSITION_TYPE {
 	}
 
 	public static RIDER_POSITION_TYPE findById(int messageNumber) {
-		for (RIDER_POSITION_TYPE name : RIDER_POSITION_TYPE.values()) {
+		for (RIDER_POSITION_TYPE name: RIDER_POSITION_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum RIDER_POSITION_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

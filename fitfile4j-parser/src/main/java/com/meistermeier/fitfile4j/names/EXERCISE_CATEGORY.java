@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum EXERCISE_CATEGORY {
-
 	_BENCH_PRESS(0, "bench_press"),
 
 	_CALF_RAISE(1, "calf_raise"),
@@ -81,7 +80,7 @@ public enum EXERCISE_CATEGORY {
 	}
 
 	public static EXERCISE_CATEGORY findById(int messageNumber) {
-		for (EXERCISE_CATEGORY name : EXERCISE_CATEGORY.values()) {
+		for (EXERCISE_CATEGORY name: EXERCISE_CATEGORY.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -89,8 +88,11 @@ public enum EXERCISE_CATEGORY {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

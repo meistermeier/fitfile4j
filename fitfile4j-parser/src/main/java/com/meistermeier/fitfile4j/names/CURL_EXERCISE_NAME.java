@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum CURL_EXERCISE_NAME {
-
 	_ALTERNATING_DUMBBELL_BICEPS_CURL(0, "alternating_dumbbell_biceps_curl"),
 
 	_ALTERNATING_DUMBBELL_BICEPS_CURL_ON_SWISS_BALL(1, "alternating_dumbbell_biceps_curl_on_swiss_ball"),
@@ -101,7 +100,7 @@ public enum CURL_EXERCISE_NAME {
 	}
 
 	public static CURL_EXERCISE_NAME findById(int messageNumber) {
-		for (CURL_EXERCISE_NAME name : CURL_EXERCISE_NAME.values()) {
+		for (CURL_EXERCISE_NAME name: CURL_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -109,8 +108,11 @@ public enum CURL_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

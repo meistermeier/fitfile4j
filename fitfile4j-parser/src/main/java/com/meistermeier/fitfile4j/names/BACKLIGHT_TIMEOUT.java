@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BACKLIGHT_TIMEOUT {
-
 	_INFINITE(0, "infinite");
 
 	private final int messageNumber;
@@ -15,7 +14,7 @@ public enum BACKLIGHT_TIMEOUT {
 	}
 
 	public static BACKLIGHT_TIMEOUT findById(int messageNumber) {
-		for (BACKLIGHT_TIMEOUT name : BACKLIGHT_TIMEOUT.values()) {
+		for (BACKLIGHT_TIMEOUT name: BACKLIGHT_TIMEOUT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -23,8 +22,11 @@ public enum BACKLIGHT_TIMEOUT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

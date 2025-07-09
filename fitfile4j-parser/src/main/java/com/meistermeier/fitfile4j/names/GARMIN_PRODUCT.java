@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum GARMIN_PRODUCT {
-
 	_HRM1(1, "hrm1"),
 
 	_AXH01(2, "axh01"),
@@ -899,7 +898,7 @@ public enum GARMIN_PRODUCT {
 	}
 
 	public static GARMIN_PRODUCT findById(int messageNumber) {
-		for (GARMIN_PRODUCT name : GARMIN_PRODUCT.values()) {
+		for (GARMIN_PRODUCT name: GARMIN_PRODUCT.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -907,8 +906,11 @@ public enum GARMIN_PRODUCT {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

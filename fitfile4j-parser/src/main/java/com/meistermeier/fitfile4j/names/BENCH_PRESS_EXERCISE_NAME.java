@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum BENCH_PRESS_EXERCISE_NAME {
-
 	_ALTERNATING_DUMBBELL_CHEST_PRESS_ON_SWISS_BALL(0, "alternating_dumbbell_chest_press_on_swiss_ball"),
 
 	_BARBELL_BENCH_PRESS(1, "barbell_bench_press"),
@@ -67,7 +66,7 @@ public enum BENCH_PRESS_EXERCISE_NAME {
 	}
 
 	public static BENCH_PRESS_EXERCISE_NAME findById(int messageNumber) {
-		for (BENCH_PRESS_EXERCISE_NAME name : BENCH_PRESS_EXERCISE_NAME.values()) {
+		for (BENCH_PRESS_EXERCISE_NAME name: BENCH_PRESS_EXERCISE_NAME.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -75,8 +74,11 @@ public enum BENCH_PRESS_EXERCISE_NAME {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

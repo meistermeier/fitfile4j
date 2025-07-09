@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum DEVICE_INDEX {
-
 	_CREATOR(0, "creator");
 
 	private final int messageNumber;
@@ -15,7 +14,7 @@ public enum DEVICE_INDEX {
 	}
 
 	public static DEVICE_INDEX findById(int messageNumber) {
-		for (DEVICE_INDEX name : DEVICE_INDEX.values()) {
+		for (DEVICE_INDEX name: DEVICE_INDEX.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -23,8 +22,11 @@ public enum DEVICE_INDEX {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

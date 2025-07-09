@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum WKT_STEP_TARGET {
-
 	_SPEED(0, "speed"),
 
 	_HEART_RATE(1, "heart_rate"),
@@ -41,7 +40,7 @@ public enum WKT_STEP_TARGET {
 	}
 
 	public static WKT_STEP_TARGET findById(int messageNumber) {
-		for (WKT_STEP_TARGET name : WKT_STEP_TARGET.values()) {
+		for (WKT_STEP_TARGET name: WKT_STEP_TARGET.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -49,8 +48,11 @@ public enum WKT_STEP_TARGET {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

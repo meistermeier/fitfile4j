@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum POWER_PHASE_TYPE {
-
 	_POWER_PHASE_START_ANGLE(0, "power_phase_start_angle"),
 
 	_POWER_PHASE_END_ANGLE(1, "power_phase_end_angle"),
@@ -21,7 +20,7 @@ public enum POWER_PHASE_TYPE {
 	}
 
 	public static POWER_PHASE_TYPE findById(int messageNumber) {
-		for (POWER_PHASE_TYPE name : POWER_PHASE_TYPE.values()) {
+		for (POWER_PHASE_TYPE name: POWER_PHASE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum POWER_PHASE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

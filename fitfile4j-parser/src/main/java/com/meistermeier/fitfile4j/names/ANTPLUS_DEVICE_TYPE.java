@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum ANTPLUS_DEVICE_TYPE {
-
 	_ANTFS(1, "antfs"),
 
 	_BIKE_POWER(11, "bike_power"),
@@ -63,7 +62,7 @@ public enum ANTPLUS_DEVICE_TYPE {
 	}
 
 	public static ANTPLUS_DEVICE_TYPE findById(int messageNumber) {
-		for (ANTPLUS_DEVICE_TYPE name : ANTPLUS_DEVICE_TYPE.values()) {
+		for (ANTPLUS_DEVICE_TYPE name: ANTPLUS_DEVICE_TYPE.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -71,8 +70,11 @@ public enum ANTPLUS_DEVICE_TYPE {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum PWR_ZONE_CALC {
-
 	_CUSTOM(0, "custom"),
 
 	_PERCENT_FTP(1, "percent_ftp");
@@ -17,7 +16,7 @@ public enum PWR_ZONE_CALC {
 	}
 
 	public static PWR_ZONE_CALC findById(int messageNumber) {
-		for (PWR_ZONE_CALC name : PWR_ZONE_CALC.values()) {
+		for (PWR_ZONE_CALC name: PWR_ZONE_CALC.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -25,8 +24,11 @@ public enum PWR_ZONE_CALC {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }

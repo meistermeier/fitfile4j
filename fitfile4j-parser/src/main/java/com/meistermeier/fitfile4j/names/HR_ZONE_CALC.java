@@ -2,7 +2,6 @@
 package com.meistermeier.fitfile4j.names;
 
 public enum HR_ZONE_CALC {
-
 	_CUSTOM(0, "custom"),
 
 	_PERCENT_MAX_HR(1, "percent_max_hr"),
@@ -21,7 +20,7 @@ public enum HR_ZONE_CALC {
 	}
 
 	public static HR_ZONE_CALC findById(int messageNumber) {
-		for (HR_ZONE_CALC name : HR_ZONE_CALC.values()) {
+		for (HR_ZONE_CALC name: HR_ZONE_CALC.values()) {
 			if (name.messageNumber == messageNumber) {
 				return name;
 			}
@@ -29,8 +28,11 @@ public enum HR_ZONE_CALC {
 		return null;
 	}
 
+	public Integer getMessageNumber() {
+		return this.messageNumber;
+	}
+
 	public String getMessageName() {
 		return this.messageName;
 	}
-
 }
