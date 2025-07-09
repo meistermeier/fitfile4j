@@ -33,7 +33,7 @@ public class ImageCommand implements Callable<Integer> {
 	@CommandLine.Parameters
 	File fitFileSource;
 
-	@CommandLine.Option(names = "--size")
+	@CommandLine.Option(names = "--size", required = true)
 	Integer size;
 
 	@CommandLine.Option(names = "--color", defaultValue = "FF0000")
