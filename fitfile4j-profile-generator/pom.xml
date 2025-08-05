@@ -30,7 +30,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<fastexcel-reader.version>0.18.4</fastexcel-reader.version>
+		<fastexcel-reader.version>0.19.0</fastexcel-reader.version>
 		<javapoet.version>1.13.0</javapoet.version>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
