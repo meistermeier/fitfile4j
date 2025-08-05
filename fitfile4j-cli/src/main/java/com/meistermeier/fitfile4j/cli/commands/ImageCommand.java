@@ -37,6 +37,9 @@ public class ImageCommand implements Callable<Integer> {
 
 	public static final int RECORD_LATITUDE_FIELD = FieldName.POSITION_LAT_20.getFieldNumber();
 	public static final int RECORD_LONGITUDE_FIELD = FieldName.POSITION_LONG_20.getFieldNumber();
+	public static final int RECORD_SPEED_FIELD = FieldName.SPEED_20.getFieldNumber();
+	public static final int RECORD_ENHANCED_SPEED_FIELD = FieldName.ENHANCED_SPEED_20.getFieldNumber();
+
 	@CommandLine.Parameters(index = "0", description = "source .fit file")
 	File fitFileSource;
 
@@ -51,6 +54,9 @@ public class ImageCommand implements Callable<Integer> {
 
 	@CommandLine.Option(names = "--border", defaultValue = "false", description = "render border around track")
 	Boolean border;
+
+	@CommandLine.Option(names = "--borderi", defaultValue = "false", description = "render glowing border around track")
+	Boolean borderInverse;
 
 	@Override
 	public Integer call() throws Exception {
@@ -70,7 +76,8 @@ public class ImageCommand implements Callable<Integer> {
 					&& entry(m, RECORD_LONGITUDE_FIELD).isPresent())
 			.map(m -> new RecordEntry(
 					(long) (entry(m, RECORD_LONGITUDE_FIELD).get().value()),
-					-(long) (entry(m, RECORD_LATITUDE_FIELD).get().value()))
+					-(long) (entry(m, RECORD_LATITUDE_FIELD).get().value())
+				)
 			)
 			.toList();
 		var minX = Long.MAX_VALUE;
@@ -119,6 +126,14 @@ public class ImageCommand implements Callable<Integer> {
 			graphics.drawPolyline(xCoords, yCoords, xCoords.length);
 
 			graphics.setColor(baseColor.darker().darker());
+			graphics.setStroke(new BasicStroke(10.0f));
+			graphics.drawPolyline(xCoords, yCoords, xCoords.length);
+		} else if (borderInverse) {
+			graphics.setColor(baseColor.brighter().brighter().brighter().brighter());
+			graphics.setStroke(new BasicStroke(15.0f));
+			graphics.drawPolyline(xCoords, yCoords, xCoords.length);
+
+			graphics.setColor(baseColor.brighter().brighter());
 			graphics.setStroke(new BasicStroke(10.0f));
 			graphics.drawPolyline(xCoords, yCoords, xCoords.length);
 		}

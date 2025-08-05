@@ -83,11 +83,17 @@ This will create an `output.png` image in the same folder the application was ca
 ![output.png](docs/images/simple_track.png)
 
 Additional, optional parameters are
-* color: rgb hex code
-* border: creates a gradient border around the track
-* outputPath for an alternative image path and name
+* _color_: rgb hex code
+* _border_: creates a gradient border around the track
+* _borderi_: creates a gradient border around the track (inverted gradient); if _border_ is defined, it will overrule the inverted version.
+* _outputPath_ for an alternative image path and name
 
 ```shell
 java -jar fitfile4j-cli/target/fitfile4j.jar image --size=512 --color=0000FF --border <fitfile> <outputPath>
 ```
 ![outputPath.png](docs/images/border_track.png)
+
+```shell
+java -jar fitfile4j-cli/target/fitfile4j.jar image --size=512 --color=005500 --borderi <fitfile> <outputPath>
+```
+![borderI.png](docs/images/borderi_track.png)
