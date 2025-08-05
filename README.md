@@ -19,7 +19,7 @@ It will not only build the needed libraries but also the `fitfile4j-cli` tool.
 
 Use `java -jar fitfile4j-cli/target/fitfile4j.jar` to invoke the commandline tool.
 
-### Output JSON from a .FIT file
+### Output JSON from a .fit file
 
 `java -jar fitfile4j-cli/target/fitfile4j.jar json <fitfile>` will render a raw JSON output
 ```json
@@ -71,5 +71,23 @@ Using `java -jar fitfile4j-cli/target/fitfile4j.jar json -n <fitfile>` will incl
 If the name cannot be found, the raw field number will be returned as the field name.
 
 ### Track as image
-> [!IMPORTANT]
-> Currently broken
+
+Besides json creation it's also possible to render the track as an image.
+The mandatory parameters are the resulting image size and the source .fit file.
+
+```shell
+java -jar fitfile4j-cli/target/fitfile4j.jar image --size=512 <fitfile>
+```
+This will create an `output.png` image in the same folder the application was called from.
+
+![output.png](docs/images/simple_track.png)
+
+Additional, optional parameters are
+* color: rgb hex code
+* border: creates a gradient border around the track
+* outputPath for an alternative image path and name
+
+```shell
+java -jar fitfile4j-cli/target/fitfile4j.jar image --size=512 --color=0000FF --border <fitfile> <outputPath>
+```
+![outputPath.png](docs/images/border_track.png)

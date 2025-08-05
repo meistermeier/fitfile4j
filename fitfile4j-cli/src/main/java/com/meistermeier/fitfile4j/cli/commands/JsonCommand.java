@@ -28,13 +28,13 @@ import java.util.concurrent.Callable;
 /**
  * Command to generate path images from fit file coordinates
  */
-@CommandLine.Command(name = "json")
+@CommandLine.Command(name = "json", description = "Render content of a .fit file as json.")
 public class JsonCommand implements Callable<Integer> {
 
-	@CommandLine.Parameters
+	@CommandLine.Parameters(description = "source .fit file")
 	File fitFileSource;
 
-	@CommandLine.Option(names = { "-n", "--names" }, description = "Resolves names of messages and entries")
+	@CommandLine.Option(names = { "-n", "--names" }, description = "resolves names of messages and entries")
 	boolean names;
 
 	@Override

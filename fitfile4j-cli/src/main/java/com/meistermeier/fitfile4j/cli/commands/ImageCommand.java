@@ -16,28 +16,41 @@
 package com.meistermeier.fitfile4j.cli.commands;
 
 import com.meistermeier.fitfile4j.FitFile;
+import com.meistermeier.fitfile4j.names.FieldName;
+import com.meistermeier.fitfile4j.names.MESG_NUM;
 import picocli.CommandLine;
 
 import javax.imageio.ImageIO;
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.Path;
+import java.util.Optional;
 import java.util.concurrent.Callable;
 
 /**
  * Command to generate path images from fit file coordinates
  */
-@CommandLine.Command(name = "image")
+@CommandLine.Command(name = "image", description = "Create a track image from a .fit file.")
 public class ImageCommand implements Callable<Integer> {
 
-	@CommandLine.Parameters
+	public static final int RECORD_LATITUDE_FIELD = FieldName.POSITION_LAT_20.getFieldNumber();
+	public static final int RECORD_LONGITUDE_FIELD = FieldName.POSITION_LONG_20.getFieldNumber();
+	@CommandLine.Parameters(index = "0", description = "source .fit file")
 	File fitFileSource;
 
-	@CommandLine.Option(names = "--size", required = true)
+	@CommandLine.Parameters(index = "1", defaultValue = "output.png", description = "target file", showDefaultValue = CommandLine.Help.Visibility.ALWAYS)
+	String targetFile;
+
+	@CommandLine.Option(names = "--size", required = true, description = "image size")
 	Integer size;
 
-	@CommandLine.Option(names = "--color", defaultValue = "FF0000")
+	@CommandLine.Option(names = "--color", defaultValue = "FF0000", description = "rgb color in hex format", showDefaultValue = CommandLine.Help.Visibility.ALWAYS)
 	String color;
+
+	@CommandLine.Option(names = "--border", defaultValue = "false", description = "render border around track")
+	Boolean border;
 
 	@Override
 	public Integer call() throws Exception {
@@ -45,23 +58,26 @@ public class ImageCommand implements Callable<Integer> {
 		return 0;
 	}
 
-	record Coords(long x, long y) {
+	record RecordEntry(long x, long y) {
 	}
 
 	private void createImage(FitFile fitFile) throws Exception {
 		var coordinates = fitFile.messages()
 			.stream()
-			.filter(message -> message.messageNumber() == 20)
-			.filter(m -> m.fields().getEntryByFieldDefinitionNumber(0).isPresent()
-					&& m.fields().getEntryByFieldDefinitionNumber(1).isPresent())
-			.map(m -> new Coords((long) m.fields().getEntryByFieldDefinitionNumber(1).get().value(),
-					-(long) m.fields().getEntryByFieldDefinitionNumber(1).get().value()))
+			.filter(message -> message.messageNumber() == MESG_NUM._RECORD.getMessageNumber())
+			.filter(m ->
+					entry(m, RECORD_LATITUDE_FIELD).isPresent()
+					&& entry(m, RECORD_LONGITUDE_FIELD).isPresent())
+			.map(m -> new RecordEntry(
+					(long) (entry(m, RECORD_LONGITUDE_FIELD).get().value()),
+					-(long) (entry(m, RECORD_LATITUDE_FIELD).get().value()))
+			)
 			.toList();
 		var minX = Long.MAX_VALUE;
 		var minY = Long.MAX_VALUE;
 		var maxX = Long.MIN_VALUE;
 		var maxY = Long.MIN_VALUE;
-		for (Coords coordinate : coordinates) {
+		for (RecordEntry coordinate : coordinates) {
 			if (coordinate.x() < minX) {
 				minX = coordinate.x();
 			}
@@ -80,22 +96,41 @@ public class ImageCommand implements Callable<Integer> {
 
 		var imageResolution = size;
 		var margin = 25;
+		// fixed alpha for now
 		var alpha = 255;
 		var rgb = Integer.parseInt(color, 16);
 		var xScaleFactor = ((double) (imageResolution - margin * 2) / (maxX + xDiff));
 		var yScaleFactor = ((double) (imageResolution - margin * 2) / (maxY + yDiff));
 		var image = new BufferedImage(imageResolution, imageResolution, BufferedImage.TYPE_INT_ARGB);
-		for (Coords coordinate : coordinates) {
+		int[] xCoords = new int[coordinates.size()];
+		int[] yCoords = new int[coordinates.size()];
+		for (int i = 0; i < coordinates.size(); i++) {
+			RecordEntry coordinate = coordinates.get(i);
 			var xInImageSpace = (int) ((coordinate.x() + xDiff) * xScaleFactor) + margin;
 			var yInImageSpace = (int) ((coordinate.y() + yDiff) * yScaleFactor) + margin;
-			int resultingColor = rgb + (alpha << 24);
-			image.setRGB(xInImageSpace, yInImageSpace, resultingColor);
-			image.setRGB(xInImageSpace + 1, yInImageSpace + 1, resultingColor);
-			image.setRGB(xInImageSpace - 1, yInImageSpace - 1, resultingColor);
-
+			xCoords[i] = xInImageSpace;
+			yCoords[i] = yInImageSpace;
 		}
+		var graphics = image.createGraphics();
+		var baseColor = new Color(rgb + (alpha << 24));
+		if (border) {
+			graphics.setColor(baseColor.darker().darker().darker().darker());
+			graphics.setStroke(new BasicStroke(15.0f));
+			graphics.drawPolyline(xCoords, yCoords, xCoords.length);
 
-		ImageIO.write(image, "png", Path.of("./test.png").toFile());
+			graphics.setColor(baseColor.darker().darker());
+			graphics.setStroke(new BasicStroke(10.0f));
+			graphics.drawPolyline(xCoords, yCoords, xCoords.length);
+		}
+		graphics.setColor(baseColor);
+		graphics.setStroke(new BasicStroke(3.0f));
+		graphics.drawPolyline(xCoords, yCoords, xCoords.length);
+
+		ImageIO.write(image, "png", Path.of(targetFile).toFile());
+	}
+
+	private Optional<FitFile.Entry> entry(FitFile.Message m, int messageNumber) {
+		return m.fields().getEntryByFieldDefinitionNumber(messageNumber);
 	}
 
 }
