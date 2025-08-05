@@ -15,7 +15,6 @@
  */
 package com.meistermeier.fitfile4j.cli;
 
-import com.meistermeier.fitfile4j.cli.commands.DatabaseCommand;
 import com.meistermeier.fitfile4j.cli.commands.ImageCommand;
 import com.meistermeier.fitfile4j.cli.commands.JsonCommand;
 import picocli.CommandLine;
@@ -25,10 +24,8 @@ import picocli.CommandLine.Model.CommandSpec;
  * Entry point for the fitfile4j command line tool
  */
 @CommandLine.Command(name = "fitfile4j", version = "1.0-SNAPSHOT", description = "Tool to work with .FIT files",
-		subcommands = { DatabaseCommand.class, ImageCommand.class, JsonCommand.class })
+		subcommands = { ImageCommand.class, JsonCommand.class })
 public class FitFile4j implements Runnable {
-
-	public static final String DEFAULT_DATABASE = "fitfile.db";
 
 	@CommandLine.Option(names = "--help", usageHelp = true, description = "display this help")
 	boolean help;

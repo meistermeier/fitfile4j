@@ -73,6 +73,3 @@ If the name cannot be found, the raw field number will be returned as the field 
 ### Track as image
 > [!IMPORTANT]
 > Currently broken
-
-### Insert into DuckDB
-_not documented yet_

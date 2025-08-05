@@ -19,15 +19,11 @@ module fitfile4j.cli {
 	requires org.slf4j;
 	requires info.picocli;
 	requires java.desktop;
-	requires java.sql;
 	requires com.fasterxml.jackson.jr.ob;
 	requires com.fasterxml.jackson.core;
-	requires duckdb.jdbc;
 
 	// picocli
 	opens com.meistermeier.fitfile4j.cli;
 	opens com.meistermeier.fitfile4j.cli.commands;
-	// flyway migration resources
-	opens db.migration;
 
 }
