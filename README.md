@@ -50,7 +50,7 @@ Using `java -jar fitfile4j-cli/target/fitfile4j.jar json -n <fitfile>` will incl
     "message_number": 0,
     "message_name": "file_id",
     "entries": {
-      "serial_number": 3301605507,
+      "serial_number": xxxxxxxxxx,
       "time_created": 1111660699,
       "manufacturer": "garmin",
       "product": 3077,

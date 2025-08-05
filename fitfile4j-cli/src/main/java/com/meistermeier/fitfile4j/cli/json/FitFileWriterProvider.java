@@ -19,13 +19,11 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.jr.ob.api.ReaderWriterProvider;
 import com.fasterxml.jackson.jr.ob.api.ValueWriter;
 import com.fasterxml.jackson.jr.ob.impl.JSONWriter;
+import com.meistermeier.fitfile4j.FieldWithNames;
 import com.meistermeier.fitfile4j.FitFile;
-import com.meistermeier.fitfile4j.names.FieldName;
 import com.meistermeier.fitfile4j.names.MESG_NUM;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * Jackson Module to serialize the data with names instead of just field and message
@@ -69,37 +67,16 @@ public class FitFileWriterProvider extends ReaderWriterProvider {
 			}
 			jsonGenerator.writeObjectFieldStart("entries");
 			for (FitFile.Entry entry : message.fields().entries()) {
-				Object value = entry.value();
-				String key;
 				if (withNames) {
-					FieldName fieldName = FieldName.findById(message.messageNumber(),
-							entry.field().fieldDefinitionNumber());
-					key = entry.field().devField() ? entry.field().fieldName()
-							: fieldName != null ? fieldName.getFieldName() : "" + entry.field().fieldDefinitionNumber();
-					// Content warning: You will enter reflection hell here
-					if (fieldName != null && fieldName.getEnumType() != null) {
-						try {
-							Method findMethod = null;
-							try {
-								findMethod = fieldName.getEnumType().getMethod("findById", int.class);
-							} catch (NoSuchMethodException e) {
-								findMethod = fieldName.getEnumType().getMethod("findById", long.class);
-							}
-							var result = findMethod.invoke(fieldName.getEnumType(), value);
-							if (result != null) {
-								var name = fieldName.getEnumType().getMethod("getMessageName");
-								value = name.invoke(result);
-							}
-						} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException
-								| IllegalArgumentException e) {
-							throw new RuntimeException(e);
-						}
-					}
+					var fieldWithNames = FieldWithNames.resolve(message, entry);
+					jsonGenerator.writeFieldName(fieldWithNames.fieldName());
+					jsonWriter.writeValue(fieldWithNames.value());
 				} else {
-					key = "" + entry.field().fieldDefinitionNumber();
+					var key = "" + entry.field().fieldDefinitionNumber();
+					var value = entry.value();
+					jsonGenerator.writeFieldName(key);
+					jsonWriter.writeValue(value);
 				}
-				jsonGenerator.writeFieldName(key);
-				jsonWriter.writeValue(value);
 			}
 			jsonGenerator.writeEndObject();
 			jsonGenerator.writeEndObject();
