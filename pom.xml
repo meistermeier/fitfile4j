@@ -149,6 +149,7 @@
 								<exclude>**/*.md</exclude>
 								<exclude>**/*.db</exclude>
 								<exclude>**/fitfile4j/names/*.java</exclude>
+								<exclude>.forgejo/**</exclude>
 							</excludes>
 						</licenseSet>
 					</licenseSets>
