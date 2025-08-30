@@ -1,10 +1,11 @@
+> [!IMPORTANT]
+> The project is archived here and split into multiple projects.
+> You can find the parser at https://codeberg.org/meistermeier/fitfile4j-parser
+> and the CLI tool is availabe at https://codeberg.org/meistermeier/fitfile4j-cli 
+
 # FitFile4j
 
 Parse _.fit_ files from your activity tracker with _fitfile4j-parser_ or convert them to JSON with _fitfile4j-cli_.
-
-> [!IMPORTANT]
-> But beware of the early state of this project.
-> It's not that things "might" change, but more that things definitely will change in the coming days.
 
 Started as a spin-off from my previous experience on reading _.fit_ files wth
 Rust (https://github.com/meistermeier/rusty-but-fit),
